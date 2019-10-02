@@ -10,7 +10,7 @@ This library use the customized tag and customized attributes to let you
  Making accessibiity easy to learn and use and master. 
 
 The basic syntax of the code is looked like this:
-< [system name]-[object type]-[object id]  [attribute1 attribute2...] />
+< potato-[object type]-[object id]   　[attribute1 attribute2...] />
 
 
 
