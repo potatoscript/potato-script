@@ -375,19 +375,19 @@ select option:hover {
   -o-animation:      yellow_2 2s infinite; /* Opera 12+ */
   animation:         yellow_2 2s infinite; /* IE 10+ */
 }
-.pims-list-table{
+.potato-list-table{
   font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse:collapse;
   width:99%;
 }
-.pims-list-table th{
+.potato-list-table th{
   border:1px solid black;
   font-size: 12px;
   text-align: center;
   padding:5px 5px 5px 5px;
   background: #bad0ff;
 }
-.pims-list-table td{
+.potato-list-table td{
   border:1px solid black;
   font-size: 12px;
   text-align: center;
@@ -395,15 +395,36 @@ select option:hover {
   background: white;
   cursor: pointer;
 }
-/*
-.pims-list-table tr td:first-child + td{
-	display:none;
-}
-*/
-.pims-list-table tr:nth-child(odd) td{
+.potato-list-table tr:nth-child(odd) td{
   background:#d1ffd4;
 }
-.pims-list-table tr:hover td{
+.potato-list-table tr:hover td{
+  background:#f8ff8a;
+}
+.potato-menu-table{
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse:collapse;
+  width:99%;
+}
+.potato-menu-table th{
+  border:1px solid black;
+  font-size: 12px;
+  text-align: center;
+  padding:5px 5px 5px 5px;
+  background: #EEE2BB;
+}
+.potato-menu-table td{
+  border:1px solid black;
+  font-size: 12px;
+  text-align: center;
+  padding:5px 5px 5px 5px;
+  background: white;
+  cursor: pointer;
+}
+.potato-menu-table tr:nth-child(odd) td{
+  background:#DAFFD5;
+}
+.potato-menu-table tr:hover td{
   background:#f8ff8a;
 }
 .tool_key_cls_o,.tool_key_cls_n,.tool_key_cls_c,._hr_cls_c,._min_cls_c{
@@ -529,18 +550,3 @@ cursor: pointer;
   background: white;
   cursor: pointer;
 }
-/*
-#table_data tr:nth-child(odd) td{
-  background:#d1ffd4;
-}
-#table_data tr:hover td{
-  background:#f8ff8a;
-}
-/*******scrollable x-axis***************
-.chartWrapper > canvas {
-    position: absolute;
-    left: 0;
-    top: 0;
-    pointer-events:none;
-}
-*/
