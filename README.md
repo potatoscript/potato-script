@@ -5,6 +5,14 @@ I graduated from engineering background (Mechanical Engineering with First Class
 The result was good and encouraged me continue to develop my programming skill until now.
 This is my first JavaScript Library, which was developed since year 2010. I call it potato.js
 
+This library use the customized tag and customized attributes to let you
+ create an object (fully functioning html element) via "fill in the blanks" on the html tag.
+ Making accessibiity easy to learn and use and master. 
+
+The basic syntax of the code is looked like this:
+< [system name]-[object type]-[object id]  [attribute1 attribute2...] />
+
+
 Copyright (C) 2019  LIM KIAN SENG
 
     This library is free: you can redistribute it and/or modify
