@@ -390,7 +390,7 @@ select option:hover {
 .potato-list-table td{
   border:1px solid black;
   font-size: 12px;
-  text-align: center;
+  text-align: left;
   padding:5px 5px 5px 5px;
   background: white;
   cursor: pointer;
@@ -424,7 +424,7 @@ select option:hover {
 .potato-menu-table tr:nth-child(odd) td{
   background:#DAFFD5;
 }
-.potato-menu-table tr:hover td{
+.potato-menu-table tr td:hover {
   background:#f8ff8a;
 }
 .tool_key_cls_o,.tool_key_cls_n,.tool_key_cls_c,._hr_cls_c,._min_cls_c{
@@ -549,4 +549,11 @@ cursor: pointer;
   padding:5px 5px 5px 5px;
   background: white;
   cursor: pointer;
+}
+/*
+#table_data tr:nth-child(odd) td{
+  background:#d1ffd4;
+}
+#table_data tr:hover td{
+  background:#f8ff8a;
 }
