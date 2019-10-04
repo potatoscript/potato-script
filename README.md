@@ -12,7 +12,7 @@ This library use the customized tag and customized attributes to let you
 The basic syntax of the code is looked like this:
 <PRE><CODE>< <I><b>potato</b></I>-<I>[<b>object type</b>]</I>-<I>[<b>object id</b>]</I>  <I>[attributes..........]</I> /></CODE></PRE>
 
-The detail for the library is:<br>https://github.com/potatoscript/potato-script/wiki
+The detail for the library is:<br>https://github.com/potatoscript/potato.js/wiki
 
 The library is licensed under the terms of the GNU Lesser General Public License (LGPL) version 2.1 or later.
 
