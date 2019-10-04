@@ -12,5 +12,5 @@ This library use the customized tag and customized attributes to let you
 The basic syntax of the code is looked like this:
 < potato-[object type]-[object id]   　[attribute1 attribute2...] />
 
-Please visit my wiki for the detail.
+The library is licensed under the terms of the GNU Lesser General Public License (LGPL) version 2.1 or later.
 
