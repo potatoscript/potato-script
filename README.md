@@ -10,7 +10,12 @@ This library use the customized tag and customized attributes to let you
  Making accessibiity easy to learn and use and master. 
 
 The basic syntax of the code is looked like this:
-< potato-[object type]-[object id]   　[attribute1 attribute2...] />
+<PRE style="margin-top:-5px">
+<CODE class="language-javascript">
+< <I><b>potato</b></I>-<I>[<b>object type</b>]</I>-<I>[<b>object id</b>]</I>  <I>[attribute1 attribute2...]</I> /></CODE>
+</PRE>
+
+The detail was in the Wiki.
 
 The library is licensed under the terms of the GNU Lesser General Public License (LGPL) version 2.1 or later.
 
