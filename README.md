@@ -9,6 +9,8 @@ This library use the customized tag and customized attributes to let you
  create an object (fully functioning html element) via "fill in the blanks" on the html tag.
  Making accessibiity easy to learn and use and master. 
 
+I call it <b>potato.html.js</b> or <b>o.js</b>
+
 The basic syntax of the code is looked like this:
 <PRE><CODE>< <I><b>potato</b></I>-<I>[<b>object type</b>]</I>-<I>[<b>object id</b>]</I>  <I>[attributes..........]</I> /></CODE></PRE>
 
