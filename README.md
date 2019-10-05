@@ -1,4 +1,4 @@
-# potato.js
+# potato.html.js
 The JavaScript Library that turn boring, repetitive code into something more joyful.
 I am K.S.LIM the author, 
 I graduated from engineering background (Mechanical Engineering at Coventry University UK in year 1999), but my final year project had led me to the world of programming. (Developing software to find the natural frequency and damping factor from the input data as provided from some vibration measurement device.) This is my final year’s undergraduate project. It combined the fields of engineering and programming. 
@@ -12,9 +12,9 @@ This library use the customized tag and customized attributes to let you
 The basic syntax of the code is looked like this:
 <PRE><CODE>< <I><b>potato</b></I>-<I>[<b>object type</b>]</I>-<I>[<b>object id</b>]</I>  <I>[attributes..........]</I> /></CODE></PRE>
 
-potato.js requires <b>jquery-3.4.1.js</b> or later and <b>jquery-ui.js.</b><br>https://jquery.com/download/
+potato.html.js requires <b>jquery-3.4.1.js</b> or later and <b>jquery-ui.js.</b><br>https://jquery.com/download/
 
-The detail for the potato.js is:<br>https://github.com/potatoscript/potato.js/wiki
+The detail for the potato.js is:<br>https://github.com/potatoscript/potato.html.js/wiki
 
 The library is licensed under the terms of the GNU Lesser General Public License (LGPL) version 2.1 or later.
 
