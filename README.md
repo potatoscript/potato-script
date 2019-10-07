@@ -6,7 +6,7 @@ The result was good and encouraged me continue to develop my programming skill u
 This is my first JavaScript Library, which was developed since year 2010. I call it potato.js or o.js (o=potato, why potato I don't know)
 
 This library use the customized tag and customized attributes to let you
- create an object (fully functioning html element) via "fill in the blanks" on the html tag.
+ create an object (HTML element) via "fill in the blanks" on the html tag.
  Making accessibiity easy to learn and use and master. 
 
 I call it <b>potato.html.js</b> or <b>o.js</b>
