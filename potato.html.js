@@ -1861,6 +1861,7 @@ var X = function() {
                         o = (window.pageXOffset || n.scrollLeft) - (n.clientLeft || 0),
                         r = (window.pageYOffset || n.scrollTop) - (n.clientTop || 0);
                     if (parseFloat(i.topKey) >= 0) $("#keypad-" + l).css({
+                        zIndex: "2000",
                         position: "absolute",
                         top: parseFloat(event.clientY) + 20 + parseFloat(i.topKey) + parseFloat(r) + "px",
                         left: parseFloat(event.clientX) + parseFloat(i.leftKey) - parseFloat(o) + "px"
