@@ -16,7 +16,10 @@ The basic syntax of the code is looked like this:
 
 potato.html.js requires <b>jquery-3.4.1.js</b> or later and <b>jquery-ui.js.</b><br>https://jquery.com/download/
 
-The detail for the potato.js is:<br>https://github.com/potatoscript/potato.html.js/wiki
+To create chart object with potato the chart.js was required and the library can be obtained from <br>
+https://github.com/chartjs/Chart.js
+
+The detail for the potato.html.js is:<br>https://github.com/potatoscript/potato.html.js/wiki
 
 The library is licensed under the terms of the GNU Lesser General Public License (LGPL) version 2.1 or later.
 
