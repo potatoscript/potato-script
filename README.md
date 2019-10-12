@@ -14,10 +14,11 @@ I call it <b>potato.html.js</b> or <b>o.js</b>
 The basic syntax of the code is looked like this:
 <PRE><CODE>< <I><b>potato</b></I>-<I>[<b>object type</b>]</I>-<I>[<b>object id</b>]</I>  <I>[attributes..........]</I> /></CODE></PRE>
 
-potato.html.js requires <b>jquery-3.4.1.js</b> or later and <b>jquery-ui.js.</b><br>https://jquery.com/download/
+potato.html.js requires <b>jquery-3.4.1.js</b> or later and <b>jquery-ui.js.</b><br>
+https://jquery.com/download/ or https://github.com/potatoscript/potato.html.js
 
 To create chart object with potato the chart.js was required and the library can be obtained from <br>
-https://github.com/chartjs/Chart.js
+https://github.com/chartjs/Chart.js or https://github.com/potatoscript/potato.html.js
 
 The detail for the potato.html.js is:<br>https://github.com/potatoscript/potato.html.js/wiki
 
