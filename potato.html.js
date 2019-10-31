@@ -20,6 +20,7 @@
 *LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 *OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 *SOFTWARE.*/
+
 var _POTATOMenuTitle = 0,
     _POTATOMenu = 0,
     _POTATOId = new Array,
@@ -101,7 +102,7 @@ var _POTATOMenuTitle = 0,
 
     function r(t) {
         return function(e) {
-            tt(e) && (h(e, t), n(e.querySelectorAll(L), t))
+            tt(e) && (h(e, t), n(e.querySelectorAll(N), t))
         }
     }
 
@@ -113,7 +114,7 @@ var _POTATOMenuTitle = 0,
     }
 
     function a(t, e) {
-        return -1 < L.indexOf(t + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + e + '"]')
+        return -1 < N.indexOf(t + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + e + '"]')
     }
 
     function s(t) {
@@ -132,7 +133,7 @@ var _POTATOMenuTitle = 0,
     }
 
     function c(t) {
-        ut && (ut = !1, t.currentTarget.removeEventListener(O, c)), n((t.target || e).querySelectorAll(L), t.detail === S ? S : T), Z && function() {
+        ut && (ut = !1, t.currentTarget.removeEventListener(O, c)), n((t.target || e).querySelectorAll(N), t.detail === S ? S : T), Z && function() {
             for (var t, e = 0, i = et.length; e < i; e++) t = et[e], R.contains(t) || (et.splice(e, 1), h(t, S))
         }()
     }
@@ -149,7 +150,7 @@ var _POTATOMenuTitle = 0,
     }
 
     function h(t, e) {
-        var i, l = o(t); - 1 < l && (v(t, N[l]), l = 0, e !== T || t[T] ? e === S && !t[S] && (t[T] = !1, t[S] = !0, l = 1) : (t[S] = !1, t[T] = !0, l = 1, Z && z.call(et, t) < 0 && et.push(t)), l && (i = t[e + "Callback"]) && i.call(t))
+        var i, l = o(t); - 1 < l && (v(t, L[l]), l = 0, e !== T || t[T] ? e === S && !t[S] && (t[T] = !1, t[S] = !0, l = 1) : (t[S] = !1, t[T] = !0, l = 1, Z && z.call(et, t) < 0 && et.push(t)), l && (i = t[e + "Callback"]) && i.call(t))
     }
     if (!(l in e)) {
         var g, m, f, y, b, v, x, A = "__" + l + (1e5 * Math.random() >> 0),
@@ -167,8 +168,8 @@ var _POTATOMenuTitle = 0,
             $ = /^[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+$/,
             P = ["ANNOTATION-XML", "COLOR-PROFILE", "FONT-FACE", "FONT-FACE-SRC", "FONT-FACE-URI", "FONT-FACE-FORMAT", "FONT-FACE-NAME", "MISSING-GLYPH"],
             D = [],
-            N = [],
-            L = "",
+            L = [],
+            N = "",
             R = e.documentElement,
             z = D.indexOf || function(t) {
                 for (var e = this.length; e-- && this[e] !== t;);
@@ -308,13 +309,13 @@ var _POTATOMenuTitle = 0,
                         n = "" + t,
                         r = z.call(D, (i ? F : B) + (i || n).toUpperCase()),
                         o = -1 < r;
-                    return i && (l.setAttribute(String.fromCharCode(112, 111, 116, 97, 116, 111), i = i.toLowerCase()), o && (o = a(n.toUpperCase(), i))), pt = !e.createElement.innerHTMLHelper, o && x(l, N[r]), l
+                    return i && (l.setAttribute(String.fromCharCode(112, 111, 116, 97, 116, 111), i = i.toLowerCase()), o && (o = a(n.toUpperCase(), i))), pt = !e.createElement.innerHTMLHelper, o && x(l, L[r]), l
                 }, Q.cloneNode = function(t) {
                     var e = it.call(this, !!t),
                         i = o(e);
-                    return -1 < i && x(e, N[i]), t && function(t) {
-                        for (var e, i = 0, l = t.length; i < l; i++) e = t[i], x(e, N[o(e)])
-                    }(e.querySelectorAll(L)), e
+                    return -1 < i && x(e, L[i]), t && function(t) {
+                        for (var e, i = 0, l = t.length; i < l; i++) e = t[i], x(e, L[o(e)])
+                    }(e.querySelectorAll(N)), e
                 }), -2 < z.call(D, F + l) + z.call(D, B + l)) throw new Error("A " + t + " type pims already registered");
             if (!$.test(l) || -1 < z.call(P, l)) throw new Error("The type " + t + " pims invalid");
             var l, s = function() {
@@ -324,7 +325,7 @@ var _POTATOMenuTitle = 0,
                 p = X.call(u, w),
                 h = p ? i[w].toUpperCase() : l,
                 m = D.push((p ? F : B) + l) - 1;
-            return L = L.concat(L.length ? "," : "", p ? h + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + t.toLowerCase() + '"]' : h), s.prototype = N[m] = X.call(u, "prototype") ? u.prototype : q(Q), n(e.querySelectorAll(L), T), s
+            return N = N.concat(N.length ? "," : "", p ? h + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + t.toLowerCase() + '"]' : h), s.prototype = L[m] = X.call(u, "prototype") ? u.prototype : q(Q), n(e.querySelectorAll(N), T), s
         }
     }
 }(window, document, Object, __p.prototype.l(_pcnst().r));
@@ -636,15 +637,15 @@ var X = function() {
                         maintainAspectRatio: !1,
                         animation: P
                     },
-                    N = "<canvas id='canvas-" + o + "' style='background:" + e.background + "'></canvas>",
-                    L = document.getElementById("div_chart_" + o);
-                L.innerHTML = "", $("#div_" + o).show().css({
+                    L = "<canvas id='canvas-" + o + "' style='background:" + e.background + "'></canvas>",
+                    N = document.getElementById("div_chart_" + o);
+                N.innerHTML = "", $("#div_" + o).show().css({
                     width: e.width + "px",
                     height: e.height + "px",
                     border: e.border
                 });
                 var R = "100%";
-                t.length > 50 && (R = "130%"), t.length > 100 && (R = "150%"), t.length > 150 && (R = "180%"), t.length > 200 && (R = "250%"), t.length > 250 && (R = "300%"), t.length > 300 && (R = "350%"), t.length > 350 && (R = "400%"), t.length > 400 && (R = "500%"), $("#div_chart_" + o).html(N).css({
+                t.length > 50 && (R = "130%"), t.length > 100 && (R = "150%"), t.length > 150 && (R = "180%"), t.length > 200 && (R = "250%"), t.length > 250 && (R = "300%"), t.length > 300 && (R = "350%"), t.length > 350 && (R = "400%"), t.length > 400 && (R = "500%"), $("#div_chart_" + o).html(L).css({
                     width: R
                 });
                 var z = document.getElementById("canvas-" + o);
@@ -652,7 +653,7 @@ var X = function() {
                     var H = e.name;
                     null == H && (H = "");
                     var X = document.createElement("span");
-                    X.innerText = H, X.style.fontSize = e.nameFontSize, L.appendChild(X), $("#div_" + o + " span").css({
+                    X.innerText = H, X.style.fontSize = e.nameFontSize, N.appendChild(X), $("#div_" + o + " span").css({
                         position: "absolute",
                         left: e.width / 6 + "px",
                         top: 2 * -e.fontSize + "px",
@@ -2598,8 +2599,8 @@ var X = function() {
             return document.getElementById(this.x).options[document.getElementById(this.x).selectedIndex].text
         },
         _p_: function(t) {
-            var e, i, l, n, r, o, a, s, d, c, u, p, h, g, m, f, y, b, v, x, A, T, S, w, k, _, C, I, O, E, B, F, $, P, D, N, L, R, z, H, X, M, W, j, K, U, V, Y, q, G, J, Q, Z, tt, et, it, lt, nt, rt, ot, at, st, dt, ct, ut, pt, ht, gt, mt, ft, yt, bt, vt, xt, At, Tt, St, wt, kt, _t, Ct, It, Ot, Et, Bt, Ft, $t, Pt, Dt, Nt, Lt, Rt, zt, Ht, Xt, Mt, Wt, jt, Kt, Ut, Vt, Yt, qt, Gt, Jt, Qt, Zt, te, ee, ie, le, ne, re, oe = new Array;
-            return this.clearArrays(), t(), null == (Mt = css.textTransform) && (Mt = "none"), null == (e = css.background) && (e = "white"), null == (i = css.border) && (i = "1px solid black"), null == (l = css.borderRadius) && (l = 10), null == (n = css.boxShadow) && (n = "0 0 0px rgba(0,0,0,0)"), null == (r = events.callback) && (r = this.dummy()), null == (o = attr.canvas) && (o = "chart"), null == (a = param.cell) && (a = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (f = css.colorIndex) && (f = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (u = attr.className) && (u = "pimsClassName"), null == (p = events.click) && (p = this.dummy()), null == (h = attr.cls) && (h = ""), null == (y = attr.container) && (y = "container"), null == (m = css.color) && (m = "black"), null == (b = css.cursor) && (b = "default"), null == (v = css.dataFontSize) && (v = 12), null == (x = attr.dataLabel) && (x = "data"), null == (A = attr.dataLabel2) && (A = "data"), null == (T = attr.disabled) && (T = !1), null == (S = css.display) && (S = "block"), null == (w = css.displayKey) && (w = "none"), null == (k = param.editWidth) && (k = 100), null == (_ = param.fieldClass) && (_ = 0), null == (N = css.float) && (N = ""), C = css.fontColorTD, I = css.fontColorTH, null == (O = css.fontFamily) && (O = "Helvetica"), E = css.fontFamilyTD, B = css.fontFamilyTH, null == (F = css.fontSize) && (F = 18), $ = css.fontSizeTD, P = css.fontSizeTH, null == (L = css.fontWeight) && (L = "normal"), null == (D = attr.format) && (D = "yy-mm-dd"), null == (R = param.header) && (R = "0"), null == (z = css.height) && (z = 30), null == (H = css.heightTable) && (H = 450), null == (X = events.hover) && (X = this.dummy()), M = css.hoverColor, null == (W = css.hoverBgColor) && (W = "null"), null == (j = attr.hoverId) && (j = "pims-hovertext"), null == (K = attr.hoverText) && (K = ""), null == (V = css.hoverHeight) && (V = 30), null == (U = css.hoverWidth) && (U = ""), null == (Y = param.htm) && (Y = "config/keypad.htm"), null == (q = attr.id) && (q = "x"), null == (G = param.idCol) && (G = 0), image = attr.image, null == image && (image = "nil 0 0"), J = attr.imageDir, null == (Q = css.imgWidth) && (Q = 45), null == (Z = css.imgHeight) && (Z = 45), null == (tt = events.keyup) && (tt = this.dummy()), null == (lt = css.labelFontSize) && (lt = 12), null == (nt = css.label2FontSize) && (nt = 12), null == (et = attr.labelString) && (et = ""), null == (it = attr.label2String) && (it = ""), null == (at = css.left) && (at = 0), null == (st = css.leftKey) && (st = 0), null == (rt = css.legendDisplay) && (rt = !1), null == (ot = css.legendPosition) && (ot = "bottom"), null == (pt = param.markSymbol) && (pt = ""), null == (ct = param.matchCol) && (ct = "-"), null == (ut = param.matchValue) && (ut = "-"), null == (dt = css.margin) && (dt = "0px 0px 0px 0px"), null == (ft = css.marginKey) && (ft = "0px 0px 0px 0px"), null == (yt = css.marginLeft) && (yt = "0"), null == (bt = css.marginTop) && (bt = "0"), null == (ht = param.menuModel) && (ht = "null"), null == (gt = param.menuTitle) && (gt = "null"), vt = param.model, null == (mt = attr.multiple) && (mt = !1), null == (xt = attr.name) && (xt = ""), null == (At = attr.onscroll) && (At = this.dummy()), null == (Tt = css.padding) && (Tt = "3px 0px 0px 3px"), null == (Tt = css.padding) && (Tt = "3px 0px 0px 3px"), null == (St = css.paddingLeft) && (St = "1"), null == (wt = css.paddingTop) && (wt = "1"), null == (kt = css.pointBorderColorIndex) && (kt = ["#000000"]), null == (_t = css.pointBorderDash) && (_t = [0]), null == (Ct = css.pointBorderWidth) && (Ct = [1]), null == (It = css.pointColorIndex) && (It = ["#c5ffb3"]), null == (Ot = css.pointRadius) && (Ot = ["5"]), null == (Et = css.pointStyle) && (Et = ["triangle"]), null == (Bt = css.position) && (Bt = "static"), null == (Ft = param.row) && (Ft = "0"), null == ($t = param.selectCol) && ($t = ""), null == (Pt = param.selectColumn) && (Pt = ""), null == (Dt = css.showDay) && (Dt = !1), null == (Nt = attr.stacked) && (Nt = !1), null == (Lt = attr.tableId) && (Lt = "tableId"), null == (zt = param.targetId) && (zt = 0), null == (Ht = attr.targetIndex) && (Ht = 0), null == (Rt = param.targetColumn) && (Rt = ""), null == (oe = param.targetCol) && (oe = ""), null == (Xt = attr.targetColor) && (Xt = "WHITE"), null == (Wt = css.textAlign) && (Wt = "center"), null == (jt = attr.title) && (jt = ""), null == (Kt = css.titleFontSize) && (Kt = 25), null == (Ut = attr.tooltips) && (Ut = !0), null == (Vt = css.top) && (Vt = 0), null == (Yt = css.topKey) && (Yt = 0), null == (qt = events.trigger) && (qt = "ondblclick"), null == (Gt = attr.type) && (Gt = "text"), null == (Jt = attr.value) && (Jt = ""), null == (te = param.whereClass) && (te = 0), null == (Qt = css.width) && (Qt = 119), null == (Zt = css.widthTable) && (Zt = 130), null == (ee = css.xAxesFontSize) && (ee = 12), null == (ie = css.xlabelAngle) && (ie = 0), null == (le = css.yAxesFontSize) && (le = 12), null == (ne = css.y2AxesFontSize) && (ne = 12), null == (re = attr.y2AxesType) && (re = ""), {
+            var e, i, l, n, r, o, a, s, d, c, u, p, h, g, m, f, y, b, v, x, A, T, S, w, k, _, C, I, O, E, B, F, $, P, D, L, N, R, z, H, X, M, W, j, K, U, V, Y, q, G, J, Q, Z, tt, et, it, lt, nt, rt, ot, at, st, dt, ct, ut, pt, ht, gt, mt, ft, yt, bt, vt, xt, At, Tt, St, wt, kt, _t, Ct, It, Ot, Et, Bt, Ft, $t, Pt, Dt, Lt, Nt, Rt, zt, Ht, Xt, Mt, Wt, jt, Kt, Ut, Vt, Yt, qt, Gt, Jt, Qt, Zt, te, ee, ie, le, ne, re, oe = new Array;
+            return this.clearArrays(), t(), null == (Mt = css.textTransform) && (Mt = "none"), null == (e = css.background) && (e = "white"), null == (i = css.border) && (i = "1px solid black"), null == (l = css.borderRadius) && (l = 10), null == (n = css.boxShadow) && (n = "0 0 0px rgba(0,0,0,0)"), null == (r = events.callback) && (r = this.dummy()), null == (o = attr.canvas) && (o = "chart"), null == (a = param.cell) && (a = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (f = css.colorIndex) && (f = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (u = attr.className) && (u = "pimsClassName"), null == (p = events.click) && (p = this.dummy()), null == (h = attr.cls) && (h = ""), null == (y = attr.container) && (y = "container"), null == (m = css.color) && (m = "black"), null == (b = css.cursor) && (b = "default"), null == (v = css.dataFontSize) && (v = 12), null == (x = attr.dataLabel) && (x = "data"), null == (A = attr.dataLabel2) && (A = "data"), null == (T = attr.disabled) && (T = !1), null == (S = css.display) && (S = "block"), null == (w = css.displayKey) && (w = "none"), null == (k = param.editWidth) && (k = 100), null == (_ = param.fieldClass) && (_ = 0), null == (L = css.float) && (L = ""), C = css.fontColorTD, I = css.fontColorTH, null == (O = css.fontFamily) && (O = "Helvetica"), E = css.fontFamilyTD, B = css.fontFamilyTH, null == (F = css.fontSize) && (F = 18), $ = css.fontSizeTD, P = css.fontSizeTH, null == (N = css.fontWeight) && (N = "normal"), null == (D = attr.format) && (D = "yy-mm-dd"), null == (R = param.header) && (R = "0"), null == (z = css.height) && (z = 30), null == (H = css.heightTable) && (H = 450), null == (X = events.hover) && (X = this.dummy()), M = css.hoverColor, null == (W = css.hoverBgColor) && (W = "null"), null == (j = attr.hoverId) && (j = "pims-hovertext"), null == (K = attr.hoverText) && (K = ""), null == (V = css.hoverHeight) && (V = 30), null == (U = css.hoverWidth) && (U = ""), null == (Y = param.htm) && (Y = "config/keypad.htm"), null == (q = attr.id) && (q = "x"), null == (G = param.idCol) && (G = 0), image = attr.image, null == image && (image = "nil 0 0"), J = attr.imageDir, null == (Q = css.imgWidth) && (Q = 45), null == (Z = css.imgHeight) && (Z = 45), null == (tt = events.keyup) && (tt = this.dummy()), null == (lt = css.labelFontSize) && (lt = 12), null == (nt = css.label2FontSize) && (nt = 12), null == (et = attr.labelString) && (et = ""), null == (it = attr.label2String) && (it = ""), null == (at = css.left) && (at = 0), null == (st = css.leftKey) && (st = 0), null == (rt = css.legendDisplay) && (rt = !1), null == (ot = css.legendPosition) && (ot = "bottom"), null == (pt = param.markSymbol) && (pt = ""), null == (ct = param.matchCol) && (ct = "-"), null == (ut = param.matchValue) && (ut = "-"), null == (dt = css.margin) && (dt = "0px 0px 0px 0px"), null == (ft = css.marginKey) && (ft = "0px 0px 0px 0px"), null == (yt = css.marginLeft) && (yt = "0"), null == (bt = css.marginTop) && (bt = "0"), null == (ht = param.menuModel) && (ht = "null"), null == (gt = param.menuTitle) && (gt = "null"), vt = param.model, null == (mt = attr.multiple) && (mt = !1), null == (xt = attr.name) && (xt = ""), null == (At = attr.onscroll) && (At = this.dummy()), null == (Tt = css.padding) && (Tt = "3px 0px 0px 3px"), null == (Tt = css.padding) && (Tt = "3px 0px 0px 3px"), null == (St = css.paddingLeft) && (St = "1"), null == (wt = css.paddingTop) && (wt = "1"), null == (kt = css.pointBorderColorIndex) && (kt = ["#000000"]), null == (_t = css.pointBorderDash) && (_t = [0]), null == (Ct = css.pointBorderWidth) && (Ct = [1]), null == (It = css.pointColorIndex) && (It = ["#c5ffb3"]), null == (Ot = css.pointRadius) && (Ot = ["5"]), null == (Et = css.pointStyle) && (Et = ["triangle"]), null == (Bt = css.position) && (Bt = "static"), null == (Ft = param.row) && (Ft = "0"), null == ($t = param.selectCol) && ($t = ""), null == (Pt = param.selectColumn) && (Pt = ""), null == (Dt = css.showDay) && (Dt = !1), null == (Lt = attr.stacked) && (Lt = !1), null == (Nt = attr.tableId) && (Nt = "tableId"), null == (zt = param.targetId) && (zt = 0), null == (Ht = attr.targetIndex) && (Ht = 0), null == (Rt = param.targetColumn) && (Rt = ""), null == (oe = param.targetCol) && (oe = ""), null == (Xt = attr.targetColor) && (Xt = "WHITE"), null == (Wt = css.textAlign) && (Wt = "center"), null == (jt = attr.title) && (jt = ""), null == (Kt = css.titleFontSize) && (Kt = 25), null == (Ut = attr.tooltips) && (Ut = !0), null == (Vt = css.top) && (Vt = 0), null == (Yt = css.topKey) && (Yt = 0), null == (qt = events.trigger) && (qt = "ondblclick"), null == (Gt = attr.type) && (Gt = "text"), null == (Jt = attr.value) && (Jt = ""), null == (te = param.whereClass) && (te = 0), null == (Qt = css.width) && (Qt = 119), null == (Zt = css.widthTable) && (Zt = 130), null == (ee = css.xAxesFontSize) && (ee = 12), null == (ie = css.xlabelAngle) && (ie = 0), null == (le = css.yAxesFontSize) && (le = 12), null == (ne = css.y2AxesFontSize) && (ne = 12), null == (re = attr.y2AxesType) && (re = ""), {
                 background: e,
                 border: i,
                 borderRadius: l,
@@ -2629,7 +2630,7 @@ var X = function() {
                 field: field,
                 fieldClass: _,
                 fieldOther: fieldOther,
-                float: N,
+                float: L,
                 fontColorTD: C,
                 fontColorTH: I,
                 fontFamilyTD: E,
@@ -2638,7 +2639,7 @@ var X = function() {
                 fontSize: F,
                 fontSizeTD: $,
                 fontSizeTH: P,
-                fontWeight: L,
+                fontWeight: N,
                 format: D,
                 header: R,
                 height: z,
@@ -2694,8 +2695,8 @@ var X = function() {
                 selectCol: $t,
                 selectColumn: Pt,
                 showDay: Dt,
-                stacked: Nt,
-                tableId: Lt,
+                stacked: Lt,
+                tableId: Nt,
                 targetIndex: Ht,
                 targetColor: Xt,
                 targetColumn: Rt,
@@ -3048,19 +3049,19 @@ var X = function() {
             }
             null != D && "undefined" != D || null == (D = n.getAttribute("width")) && (D = 600);
             try {
-                N = (N = new Function(n.getAttribute("xlabelAngle")))()
-            } catch (t) {
-                var N;
-                null == (N = n.getAttribute("xlabelAngle")) && (N = 0)
-            }
-            null != N && "undefined" != N || null == (N = n.getAttribute("xlabelAngle")) && (N = 0);
-            try {
-                L = (L = new Function(n.getAttribute("dataLabel")))()
+                L = (L = new Function(n.getAttribute("xlabelAngle")))()
             } catch (t) {
                 var L;
-                null == (L = n.getAttribute("dataLabel")) && (L = "data")
+                null == (L = n.getAttribute("xlabelAngle")) && (L = 0)
             }
-            null != L && "undefined" != L || null == (L = n.getAttribute("dataLabel")) && (L = "data");
+            null != L && "undefined" != L || null == (L = n.getAttribute("xlabelAngle")) && (L = 0);
+            try {
+                N = (N = new Function(n.getAttribute("dataLabel")))()
+            } catch (t) {
+                var N;
+                null == (N = n.getAttribute("dataLabel")) && (N = "data")
+            }
+            null != N && "undefined" != N || null == (N = n.getAttribute("dataLabel")) && (N = "data");
             try {
                 R = (R = new Function(n.getAttribute("dataLabel2")))()
             } catch (t) {
@@ -3180,7 +3181,7 @@ var X = function() {
                     pointStyle: j,
                     pointRadius: K,
                     showDay: $,
-                    xlabelAngle: N,
+                    xlabelAngle: L,
                     labelFontSize: h,
                     label2FontSize: g,
                     yAxesFontSize: m,
@@ -3196,7 +3197,7 @@ var X = function() {
                     y2AxesType: A,
                     stacked: O,
                     tooltips: E,
-                    dataLabel: L,
+                    dataLabel: N,
                     dataLabel2: R
                 }, param = {
                     model: r
@@ -3784,10 +3785,10 @@ var X = function() {
                         null == P && (P = 0);
                         var D = e[t].getAttribute("margin");
                         null == D && (D = "2px 2px 2px 2px");
-                        var N = e[t].getAttribute("padding");
-                        null == N && (N = "5px 0px 5px 5px");
-                        var L = e[t].getAttribute("paddingLeft");
-                        null == L && (L = 1);
+                        var L = e[t].getAttribute("padding");
+                        null == L && (L = "5px 0px 5px 5px");
+                        var N = e[t].getAttribute("paddingLeft");
+                        null == N && (N = 1);
                         var R = e[t].getAttribute("paddingTop");
                         null == R && (R = 1);
                         var z = e[t].getAttribute("params"),
@@ -3815,10 +3816,10 @@ var X = function() {
                                     hoverBgColor: B,
                                     left: P,
                                     margin: D,
-                                    padding: N,
+                                    padding: L,
                                     position: H,
                                     paddingTop: R,
-                                    paddingLeft: L,
+                                    paddingLeft: N,
                                     textAlign: M,
                                     top: W,
                                     width: j
@@ -3984,8 +3985,8 @@ var X = function() {
                         var Pt = e[t].getAttribute("class");
                         null == Pt && (Pt = "getFIELD"), $(e[t].localName).addClass(Pt);
                         var Dt = e[t].getAttribute("whereClass"),
-                            Nt = e[t].getAttribute("params"),
-                            Lt = e[t].getAttribute("onscroll");
+                            Lt = e[t].getAttribute("params"),
+                            Nt = e[t].getAttribute("onscroll");
                         if (null != (Ce = e[t].getAttribute("click"))) {
                             h = e[t].localName;
                             l[String(h)] = new Function(Ce)
@@ -4006,7 +4007,7 @@ var X = function() {
                                 where = Dt + "@" + Xt
                             } catch (t) {}
                             try {
-                                params = Nt + "@" + Xt
+                                params = Lt + "@" + Xt
                             } catch (t) {}
                             css = {
                                 display: Ht,
@@ -4023,7 +4024,7 @@ var X = function() {
                             }, param = {
                                 model: $t
                             }, attr = {
-                                onscroll: Lt,
+                                onscroll: Nt,
                                 value: It,
                                 hoverText: Ct,
                                 id: Ft
@@ -4570,9 +4571,9 @@ var X = function() {
                     "null" != e.hoverBgColor && $(this).css("background", e.background), $(this).css("color", e.i), $("#" + e.hoverId).hide().html("")
                 }).keyup(function(t) {
                     for (var i = 0; i < _POTATOId.length; i++)
-                        if (String(n).toLowerCase() == String(_POTATOId[i])) {
+                        if (String(n).toLowerCase() == String(_POTATOId[i]).toLowerCase()) {
                             var r = String(_POTATOBindId[i]);
-                            document.getElementById(r).innerText = document.getElementById(n).value
+                            document.getElementById(r).value = document.getElementById(n).value
                         }
                     try {
                         e.keyup(l, t)
