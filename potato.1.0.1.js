@@ -1388,8 +1388,8 @@ var X = function() {
             potato._ = this._p_(t);
             var i = e.editWidth;
             e.id;
-            potato.table = document.getElementById("table-" + e.id);
-            document.getElementById("table-" + e.id);
+            potato.table = document.getElementById(e.id);
+            document.getElementById(e.id);
             var l = new Array;
             l = e.targetCol;
             e.id;
@@ -1451,7 +1451,7 @@ var X = function() {
             var e = this._p_(t);
             pimsParameters = e;
             var i = e.id,
-                l = document.getElementById("table-" + e.id),
+                l = document.getElementById(e.id),
                 n = new Array;
 
             function r() {
@@ -2214,7 +2214,7 @@ var X = function() {
                             }
                         _pimS.prototype._rp_(g, m, function(t) {
                             var r = JSON.parse(t),
-                                c = "<table class='potato-list-table' id='table-" + o + "' >",
+                                c = "<table class='potato-list-table' id='" + o + "' >",
                                 u = 0;
                             for (e in c += "<tr>", r[0]) "" != r[0][e] ? c += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + r[0][e] + "</th>" : c += "<th style='display:none'>" + r[0][e] + "</th>", u++;
                             for (n in c += "</tr>", r)
@@ -2239,12 +2239,12 @@ var X = function() {
                                 display: p.display,
                                 background: "transparent",
                                 zIndex: 1e4
-                            }), $("#table-" + o + " td").css({
+                            }), $("#" + o + " td").css({
                                 fontFamily: p.fontFamily,
                                 fontWeight: p.fontWeight,
                                 fontSize: p.fontSize + "px"
                             }).click(function() {
-                                var t = document.getElementById("table-" + o),
+                                var t = document.getElementById(o),
                                     e = $(this).parent().parent().children().index(this.parentNode),
                                     i = $(this).parent().children().index(this);
                                 if ("閉じる" != t.rows[e].cells[0].innerText && "CLOSE" != t.rows[e].cells[0].innerText) {
@@ -2262,8 +2262,8 @@ var X = function() {
                                     p.click(t.rows[e], l, i), $("#div-" + o).html("")
                                 } catch (t) {}
                                 document.getElementById("div-" + o).style.height = "0px"
-                            }), $("#table-" + o + " th").css("cursor", "pointer").click(function() {
-                                var t = document.getElementById("table-" + o),
+                            }), $("#" + o + " th").css("cursor", "pointer").click(function() {
+                                var t = document.getElementById(o),
                                     e = $(this).parent().parent().children().index(this.parentNode);
                                 ci = $(this).parent().children().index(this), "閉じる" != t.rows[e].cells[0].innerText && "CLOSE" != t.rows[e].cells[0].innerText ? pims(o).value(t.rows[e].cells[0].innerText) : ($(".pims-list").css({
                                     display: "none",
@@ -2436,7 +2436,7 @@ var X = function() {
                         _pimS.prototype._rp_(s, m, function(t) {
                             var i = JSON.parse(t);
                             check_model = 1;
-                            var a = "<table class='potato-menu-table' id='table-" + o + "' >",
+                            var a = "<table class='potato-menu-table' id='" + o + "' >",
                                 s = 0;
                             for (e in a += "<tr>", i[0]) "" != i[0][e] ? a += "<th>" + i[0][e] + "</th>" : a += "<th style='display:none'>" + i[0][e] + "</th>", s++;
                             for (n in a += "</tr>", i)
@@ -2461,13 +2461,13 @@ var X = function() {
                                 display: r.display,
                                 background: "transparent",
                                 zIndex: 1e4
-                            }), $("#table-" + o + " td").css({
+                            }), $("#" + o + " td").css({
                                 textAlign: "left",
                                 fontFamily: r.fontFamily,
                                 fontWeight: r.fontWeight,
                                 fontSize: r.fontSize + "px"
                             }).click(function() {
-                                var t = document.getElementById("table-" + o),
+                                var t = document.getElementById(o),
                                     e = $(this).parent().parent().children().index(this.parentNode),
                                     i = $(this).parent().children().index(this);
                                 potato.table = t.rows[e], potato.ci = i;
@@ -2475,7 +2475,7 @@ var X = function() {
                                     r.click(t.rows[e], l, i), $("#div-" + o).html("")
                                 } catch (t) {}
                                 document.getElementById("div-" + o).style.height = "0px"
-                            }), $("#table-" + o + " th").css("cursor", "pointer").click(function() {
+                            }), $("#" + o + " th").css("cursor", "pointer").click(function() {
                                 $("#div-" + o).css("display", "none")
                             });
                             try {
@@ -4407,7 +4407,7 @@ var X = function() {
                         }
                         potato._ec_(function() {
                             attr = {
-                                id: "table-" + l.id
+                                id: l.id
                             }, param = g;
                             var t = new Function("return " + String(g.callback));
                             events = {
@@ -4425,7 +4425,7 @@ var X = function() {
                             }
                         potato.MultipleSelect(function() {
                             attr = {
-                                id: "table-" + l.id
+                                id: l.id
                             }, param = T;
                             var t = new Function("return " + String(T.callback));
                             events = {
