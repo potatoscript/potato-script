@@ -1,5 +1,9 @@
-/*  2019-11-01: the file potato.html.js had been modified to potato.1.0.1.js
-*potato.html.js
+/* 
+*2019-11-01: the file potato.html.js had been modified to potato.1.0.1.js
+*debug the button id ---> if no id attribute provide the id will be in lowercase from the tag
+*
+*
+*potato.1.0.1.js
 *
 *Copyright (c) 2019 LIM KIAN SENG all rights reserved
 *
