@@ -1,5 +1,3 @@
-# potato javascript
-
 <P>potato.js</b> is the another way of coding the web application.<br> 
 It extend the HTML code with custom tag.
 It group the relevant code into one location (a html tag) to make the code much easier to maintain<br> 
