@@ -6,7 +6,7 @@ This is my first JavaScript Library, which was developed since year 2010.
 
 I call it <b>potato javascript</b> or o script (o=potato, why because its as easy as potato just an O shape)
 
-<P>potato.js</b> is the another way of coding the web application.<br> 
+<P>potato javascript is the another way of coding the web application.<br> 
 It extend the HTML code with custom tag.
 It group the relevant code into one location (a html tag) to make the code much easier to maintain<br> 
 and to let you write less code and keep your code simple to save your time on building application.</P>
