@@ -41,9 +41,9 @@ I call it <b>OButton</b></p>
 </table>
 
 potato javascript requires <b>jquery-3.4.1.js</b> or later and <b>jquery-ui.js.</b><br>
-https://jquery.com/download/ or https://github.com/potatoscript/potato.html.js
+[https://jquery.com/download/](https://jquery.com/download/) or [https://github.com/potatoscript/potato.html.js](https://github.com/potatoscript/potato.html.js)
 
 To create chart object with potato the chart.js was required and the library can be obtained from <br>
-https://github.com/chartjs/Chart.js or https://github.com/potatoscript/potato.html.js
+[https://github.com/chartjs/Chart.js](https://github.com/chartjs/Chart.js) or [https://github.com/potatoscript/potato.html.js](https://github.com/potatoscript/potato.html.js)
 
 The library is licensed under the terms of the GNU Lesser General Public License (LGPL) version 2.1 or later.
