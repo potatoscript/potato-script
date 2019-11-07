@@ -6,7 +6,7 @@ This is my first JavaScript Library, which was developed since year 2010.
 
 - [Requirement](#Requirement)
 
-I call it <b>potato javascript</b> or o script (o=potato, why because its as easy as potato just an O shape)
+I call it <b>potato javascript</b> or o script (o=potato, why because its as easy as potato)
 
 <P>potato javascript is the another way of coding the web application.<br> 
 It extend the HTML code with custom tag.
