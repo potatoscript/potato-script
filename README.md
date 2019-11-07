@@ -1,4 +1,4 @@
-The JavaScript Library that turn complicated code into something more joyful.
+The JavaScript Library that turn complicated code into something more joyful.<br>
 I am K.S.LIM the author, 
 I graduated from engineering background (Mechanical Engineering at Coventry University UK in year 1999), but my final year project had led me to the world of programming. (Developing software to find the natural frequency and damping factor from the input data as provided from some vibration measurement device.) This is my final year’s undergraduate project. It combined the fields of engineering and programming. 
 The result was good and encouraged me continue to develop my programming skill until now.
@@ -44,6 +44,6 @@ potato javascript requires <b>jquery-3.4.1.js</b> or later and <b>jquery-ui.js.<
 [https://jquery.com/download/](https://jquery.com/download/) or [https://github.com/potatoscript/potato.html.js](https://github.com/potatoscript/potato.html.js)
 
 To create chart object with potato the chart.js was required and the library can be obtained from <br>
-[https://github.com/chartjs/Chart.js](https://github.com/chartjs/Chart.js) or [https://github.com/potatoscript/potato.html.js](https://github.com/potatoscript/potato.html.js)
+<a src="https://github.com/chartjs/Chart.js">https://github.com/chartjs/Chart.js</a> or [https://github.com/potatoscript/potato.html.js](https://github.com/potatoscript/potato.html.js)
 
 The library is licensed under the terms of the GNU Lesser General Public License (LGPL) version 2.1 or later.
