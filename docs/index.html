@@ -31,12 +31,45 @@ For example if you want to create a button to alert out "my potato button" you j
 </table>
 <p>※You can use the keyword "potato" or just "o" as the [system name] for example < o-button-mybutton /> also will do.
 I call it <b>OButton</b></p> 
+
 <p>Example 2: Create a text box object with input keypad (i.e. <b>OKeypad</b>)
 <table>
 <tr>
 <td><img class="spotlight" aria-busy="true" style="width: 510px; height: 129px;" alt="画像に含まれている可能性があるもの:テキスト" src="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/71716437_124587948941516_4927621055352143872_n.jpg?_nc_cat=100&amp;_nc_oc=AQndzHs7GmhQSZsug_7OMooS9MHYfohtNcmT8ea7wkHeJQjHEt38tOkgXd_G7xdhAEg&amp;_nc_ht=scontent-nrt1-1.xx&amp;oh=cd558a350efe9bd5b6d76e8a2a2dc9ec&amp;oe=5E39201C">
 </td>
 <td><img class="spotlight" aria-busy="false" style="width: 446px; height: 305px;" alt="写真の説明はありません。" src="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/71469046_124596202274024_5668077961257943040_n.jpg?_nc_cat=111&amp;_nc_oc=AQniwZwhrAj0wYCRGCYwtxiiyuqdGTbxioT9ZbBfLcCnjuSif0tfJ56Oz5uLbVGgDmA&amp;_nc_ht=scontent-nrt1-1.xx&amp;oh=c2ff5ff21aec81dc0185f92772a96586&amp;oe=5E3CD2F0">
+</td>
+</tr>
+</table>
+
+<p>Example 3: Create a bar Chart object (i.e. <b>OChart</b>)
+<table>
+<tr>
+<td>
+ <potato-chart-mybar
+     model                 = potato.model
+     chartType             = Bar
+     colorIndex            = "#e3ff7f,#a1a4ff,yellow,orange,green,grey"
+     dataLabel2            = "Calories"
+					dataLabel             = "Protein, Fat"
+     labelFontSize         = 18
+     label2FontSize        = 18
+     legendDisplay         = true
+					legendPosition        = bottom
+     pointBorderColorIndex = "red,blue,yellow,orange,green,grey"
+     pointBorderWidth      = "2,2,2"
+     pointStyle            = "rect,rectRot,triangle"
+     stacked               = true
+     height                = 230
+     width                 = 600
+					xlabelAngle           = 10
+					yAxesTitle            = g
+					y2AxesTitle           = calories
+					click                 = 'return alert(potato.chartYvalue)'
+     callback              = myBarCallback()
+				/>
+ </td>
+<td><img class="spotlight" aria-busy="false" style="width: 446px; height: 305px;" alt="写真の説明はありません。" src="/barChart.png">
 </td>
 </tr>
 </table>
@@ -65,7 +98,7 @@ Please read <a target="_blank" href="https://github.com/potatoscript/potato.html
 
 <h2> Authors</h2>
 
-I am K.S.LIM the author, 
+I am K.S.LIM the author from SARAWAK SIBU currently live in JAPAN, <br>
 I graduated from engineering background (Mechanical Engineering at Coventry University UK in year 1999), but my final year project had led me to the world of programming. (Developing software to find the natural frequency and damping factor from the input data as provided from some vibration measurement device.) This is my final year’s undergraduate project. It combined the fields of engineering and programming. 
 The result was good and encouraged me continue to develop my programming skill until now.
 This is my first JavaScript Library, which was developed since year 2010. 
