@@ -37,7 +37,7 @@ I call it <b>OButton</b></p>
 </tr>
 </table>
 
-### Installing
+## Installing
 
 1. <a target="_blank" href="https://github.com/potatoscript/potato.html.js/wiki/2.-Setup">Setup</a> <br>
 
