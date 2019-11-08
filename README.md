@@ -7,7 +7,7 @@ It group the relevant code into one location (a html tag) to make the code much 
 and to let you write less code and keep your code simple to save your time on building application.</P>
 <P>It is easy to learn and use and master.<br>
 
-## Getting Started
+# Getting Started
 
 </P>
 <P>The basic syntax of the code is looked like this:</P>
@@ -37,12 +37,12 @@ I call it <b>OButton</b></p>
 </tr>
 </table>
 
-## Installing
+# Installing
 
 1. <a target="_blank" href="https://github.com/potatoscript/potato.html.js/wiki/2.-Setup">Setup</a> <br>
 
 
-## Built With
+# Built With
 <br>
 potato javascript requires <b>jquery-3.4.1.js</b> or later and <b>jquery-ui.js.</b><br>
 <a target="_blank" href="https://jquery.com/download/">https://jquery.com/download/</a> or <br> 
@@ -53,11 +53,13 @@ To create chart object with potato the chart.js was required and the library can
 <a target="_blank" href="https://github.com/potatoscript/potato.html.js">https://github.com/potatoscript/potato.html.js</a>
 <br><br>
 
-## Contributing
+
+# Contributing
 
 Please read [Wiki](https://github.com/potatoscript/potato.html.js/wiki) for details on the library.
 
-## Authors
+
+# Authors
 
 I am K.S.LIM the author, 
 I graduated from engineering background (Mechanical Engineering at Coventry University UK in year 1999), but my final year project had led me to the world of programming. (Developing software to find the natural frequency and damping factor from the input data as provided from some vibration measurement device.) This is my final year’s undergraduate project. It combined the fields of engineering and programming. 
@@ -67,6 +69,6 @@ This is my first JavaScript Library, which was developed since year 2010.
 I call it <b>potato javascript</b> or o script (o=potato, why because its as easy as potato)
 
 
-## License
+# License
 
 The library is licensed under the terms of the GNU Lesser General Public License (LGPL) version 2.1 or later.
