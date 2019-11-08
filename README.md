@@ -4,8 +4,6 @@ I graduated from engineering background (Mechanical Engineering at Coventry Univ
 The result was good and encouraged me continue to develop my programming skill until now.
 This is my first JavaScript Library, which was developed since year 2010. 
 
-- [Requirement](#Requirement)
-
 I call it <b>potato javascript</b> or o script (o=potato, why because its as easy as potato)
 
 <P>potato javascript is the another way of coding the web application.<br> 
