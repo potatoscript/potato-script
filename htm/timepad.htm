@@ -1,0 +1,80 @@
+<!--timepad input window -->
+<table style="background:white;border:1px solid black">
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<td class="tool_time_title" id='title_hour'/>
+				</tr>
+				<tr>
+					<td><input type="button" class="_hr_cls" value="1" onclick="potato.getHour('01')"></td>
+					<td><input type="button" class="_hr_cls" value="2" onclick="potato.getHour('02')"></td>
+					<td><input type="button" class="_hr_cls" value="3" onclick="potato.getHour('03')"></td>
+					<td><input type="button" class="_hr_cls" value="4" onclick="potato.getHour('04')"></td>
+					<td><input type="button" class="_hr_cls" value="5" onclick="potato.getHour('05')"></td>
+					<td><input type="button" class="_hr_cls" value="6" onclick="potato.getHour('06')"></td>
+				</tr>
+				<tr>
+					<td><input type="button" class="_hr_cls" value="7" onclick="potato.getHour('07')"></td>
+					<td><input type="button" class="_hr_cls" value="8" onclick="potato.getHour('08')"></td>
+					<td><input type="button" class="_hr_cls" value="9" onclick="potato.getHour('09')"></td>
+					<td><input type="button" class="_hr_cls" value="10" onclick="potato.getHour('10')"></td>
+					<td><input type="button" class="_hr_cls" value="11" onclick="potato.getHour('11')"></td>
+					<td><input type="button" class="_hr_cls" value="12" onclick="potato.getHour('12')"></td>
+				</tr>
+				<tr>
+					<td><input type="button" class="_hr_cls" value="13" onclick="potato.getHour('13')"></td>
+					<td><input type="button" class="_hr_cls" value="14" onclick="potato.getHour('14')"></td>
+					<td><input type="button" class="_hr_cls" value="15" onclick="potato.getHour('15')"></td>
+					<td><input type="button" class="_hr_cls" value="16" onclick="potato.getHour('16')"></td>
+					<td><input type="button" class="_hr_cls" value="17" onclick="potato.getHour('17')"></td>
+					<td><input type="button" class="_hr_cls" value="18" onclick="potato.getHour('18')"></td>
+				</tr>
+				<tr>
+					<td><input type="button" class="_hr_cls" value="19" onclick="potato.getHour('19')"></td>
+					<td><input type="button" class="_hr_cls" value="20" onclick="potato.getHour('20')"></td>
+					<td><input type="button" class="_hr_cls" value="21" onclick="potato.getHour('21')"></td>
+					<td><input type="button" class="_hr_cls" value="22" onclick="potato.getHour('22')"></td>
+					<td><input type="button" class="_hr_cls" value="23" onclick="potato.getHour('23')"></td>
+					<td><input type="button" class="_hr_cls" value="00" onclick="potato.getHour('00')"></td>
+				</tr>
+				<tr>
+					<td colspan='3'><input type="button" class="_hr_cls_c" value="現時刻" id="tool_time_cmd_now" onclick="potato.getHour('Now');potato.getHour('Close')" /></td>
+					<td colspan='3'><input type="button" class="_hr_cls_c" value="ﾘｾｯﾄ" id="tool_time_cmd_reset" onclick="potato.getHour('CE')"/></td>
+				</tr>
+			</table>
+		</td>
+		<td style="padding-left:2px"/>
+		<td>
+			<table>
+				<tr>
+					<td class="tool_time_title" id="title_minute"/>
+				</tr>
+				<tr>
+					<td><input type="button" class="_min_cls" value="7" onclick="potato.getMinute('7')"></td>
+					<td><input type="button" class="_min_cls" value="8" onclick="potato.getMinute('8')"></td>
+					<td><input type="button" class="_min_cls" value="9" onclick="potato.getMinute('9')"></td>
+				</tr>
+				<tr>
+					<td><input type="button" class="_min_cls" value="4" onclick="potato.getMinute('4')"></td>
+					<td><input type="button" class="_min_cls" value="5" onclick="potato.getMinute('5')"></td>
+					<td><input type="button" class="_min_cls" value="6" onclick="potato.getMinute('6')"></td>
+				</tr>
+				<tr>
+					<td><input type="button" class="_min_cls" value="1" onclick="potato.getMinute('1')"></td>
+					<td><input type="button" class="_min_cls" value="2" onclick="potato.getMinute('2')"></td>
+					<td><input type="button" class="_min_cls" value="3" onclick="potato.getMinute('3')"></td>
+				</tr>
+				<tr>
+					<td><input type="button" class="_min_cls" value="0" onclick="potato.getMinute('0')"></td>
+					<td><input type="button" class="_min_cls" value="00" onclick="potato.getMinute('00')"></td>
+					<td><input type="button" class="_min_cls" value="<-" onclick="potato.getMinute('<-')"></td>
+				</tr>
+				<tr>
+					<td colspan='3'><input type="button" class="_min_cls_c" value="閉じる" id="tool_time_cmd_close" onclick="potato.getHour('Close')"/></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<script>$('._min_cls').attr("disabled",true);</script>
