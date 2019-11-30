@@ -11,7 +11,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-
 var _POTATOMenuTitle = 0,
     _POTATOMenu = 0,
     _POTATOId = new Array,
@@ -778,9 +777,9 @@ var X = function() {
             if (String(l.params).split("@").slice(1, 2) == n) var d = String(l.params).split("@").slice(0, 1);
             if (String(l.where).split("@").slice(1, 2) == n) var c = String(l.where).split("@").slice(0, 1);
             i.createdCallback = function() {
-                if (this.id = r + "_", this.pims = n, "true" == l.disabled) var t = '<button type="button" disabled id="' + r + '"><table><tr>';
-                if ("false" == l.disabled) t = '<button type="button" id="' + r + '"><table><tr>';
-                "nil 0 0" != l.image ? (t += '<td><img id="img_' + r + '" src="' + String(l.image).split(" ").slice(0, 1) + '" style="width:' + String(l.image).split(" ").slice(1, 2) + "px;height:" + String(l.image).split(" ").slice(2, 3) + 'px"/></td>', t += '<td style="vertical-align:middle;text-align:center">' + l.value + "</td>") : t += '<td style="vertical-align:middle;text-align:center">' + l.value + "</td>", t += "</tr></table></button>", this.innerHTML = "<br>" + t, e._css_id(l, r), $("#" + r).css({
+                this.id = r + "_", this.pims = n;
+                var t = '<button type="button" id="' + r + '"><table><tr>';
+                "true" == l.disabled && (t = '<button type="button" disabled id="' + r + '"><table><tr>'), "nil 0 0" != l.image ? (t += '<td><img id="img_' + r + '" src="' + String(l.image).split(" ").slice(0, 1) + '" style="width:' + String(l.image).split(" ").slice(1, 2) + "px;height:" + String(l.image).split(" ").slice(2, 3) + 'px"/></td>', t += '<td style="vertical-align:middle;text-align:center">' + l.value + "</td>") : t += '<td style="vertical-align:middle;text-align:center">' + l.value + "</td>", t += "</tr></table></button>", this.innerHTML = "<br>" + t, e._css_id(l, r), $("#" + r).css({
                     borderLeft: "1px solid buttonshadow",
                     borderRight: "2px solid black",
                     borderTop: "1px solid buttonshadow",
@@ -3860,14 +3859,14 @@ var X = function() {
                     if ("CALENDAR" == f.slice(1, 2)) {
                         y = e[t].getAttribute("style");
                         var E = e[t].getAttribute("class");
-                        if (null == E && (E = "getFIELD"), $(e[t].localName).addClass(E), null != (_t = e[t].getAttribute("change"))) {
+                        if (null == E && (E = "getFIELD"), $(e[t].localName).addClass(E), null != (Tt = e[t].getAttribute("change"))) {
                             p = e[t].localName;
-                            l[String(p)] = new Function(_t)
+                            l[String(p)] = new Function(Tt)
                         }
                         O = this._css_(e[t], y);
                         var B = this._attr_(e[t], y, f);
                         pims(e[t].localName)._d_(function() {
-                            css = O, attr = B, null != _t && (events = {
+                            css = O, attr = B, null != Tt && (events = {
                                 change: function(t) {
                                     for (var e in l) {
                                         String(e) == t && l[e]()
@@ -3900,40 +3899,42 @@ var X = function() {
                         null == N && (N = String(f.slice(2, 3)).toLowerCase());
                         var R = this._se_a(y, e[t], "value", "0"),
                             H = this._se_a(y, e[t], "hoverText", "potato"),
-                            M = e[t].getAttribute("model");
-                        null == M && (M = String(f.slice(2, 3)).toLowerCase() + ".php");
-                        var z = e[t].getAttribute("class");
-                        null == z && (z = "getFIELD"), $(e[t].localName).addClass(z);
-                        var W = e[t].getAttribute("whereClass"),
-                            j = e[t].getAttribute("params"),
-                            K = e[t].getAttribute("onscroll");
-                        if (null != (xt = e[t].getAttribute("listClick"))) {
+                            M = this._se_a(y, e[t], "hoverId", "potatoHoverText"),
+                            z = e[t].getAttribute("model");
+                        null == z && (z = String(f.slice(2, 3)).toLowerCase() + ".php");
+                        var W = e[t].getAttribute("class");
+                        null == W && (W = "getFIELD"), $(e[t].localName).addClass(W);
+                        var j = e[t].getAttribute("whereClass"),
+                            K = e[t].getAttribute("params"),
+                            U = e[t].getAttribute("onscroll");
+                        if (null != (_t = e[t].getAttribute("listClick"))) {
                             p = e[t].localName;
-                            n[String(p)] = new Function(xt)
+                            n[String(p)] = new Function(_t)
                         } else try {
                             p = e[t].localName;
                             n[String(p)] = new Function(String(f.slice(2, 3)).toLowerCase() + "()")
                         } catch (t) {}
-                        if (null != (ut = e[t].getAttribute("callback"))) {
+                        if (null != (ht = e[t].getAttribute("callback"))) {
                             p = e[t].localName;
-                            i[String(p)] = new Function(ut)
+                            i[String(p)] = new Function(ht)
                         }
                         e[t].getAttribute("listTop"), e[t].getAttribute("listLeft"), e[t].getAttribute("display");
-                        var U = String(e[t].localName);
-                        O = this._css_(e[t], y, U);
-                        pims(U)._lt_(function() {
+                        var V = String(e[t].localName);
+                        O = this._css_(e[t], y, V);
+                        pims(V)._lt_(function() {
                             try {
-                                where = W + "@" + U
+                                where = j + "@" + V
                             } catch (t) {}
                             try {
-                                params = j + "@" + U
+                                params = K + "@" + V
                             } catch (t) {}
                             css = O, param = {
-                                model: M
+                                model: z
                             }, attr = {
-                                onscroll: K,
+                                onscroll: U,
                                 value: R,
                                 hoverText: H,
+                                hoverId: M,
                                 id: N
                             }, events = {
                                 click: function(t, e, i) {
@@ -3950,90 +3951,90 @@ var X = function() {
                         })
                     }
                     if ("MENU" == f.slice(1, 2)) {
-                        var V = e[t].getAttribute("background");
-                        null == V && (V = "#ffffff");
-                        var Y = e[t].getAttribute("border");
-                        null == Y && (Y = "0px");
-                        var q = e[t].getAttribute("menuModel");
-                        null == q && (q = "null");
-                        var G = e[t].getAttribute("menuTitle");
+                        var Y = e[t].getAttribute("background");
+                        null == Y && (Y = "#ffffff");
+                        var q = e[t].getAttribute("border");
+                        null == q && (q = "0px");
+                        var G = e[t].getAttribute("menuModel");
                         null == G && (G = "null");
-                        var J = e[t].getAttribute("padding"),
-                            Q = e[t].getAttribute("color");
-                        null == Q && (Q = "BLUE");
-                        var Z = e[t].getAttribute("borderRadius");
-                        null == Z && (Z = 7);
-                        var tt = e[t].getAttribute("fontSize");
-                        null == tt && (tt = 15);
-                        var et = e[t].getAttribute("height");
-                        null == et && (et = 30);
-                        var it = e[t].getAttribute("hoverBgColor");
-                        null == it && (it = "yellow");
-                        var nt = e[t].getAttribute("hoverText");
-                        null == nt && (nt = "");
-                        var lt = e[t].getAttribute("value");
-                        null == lt && (lt = "0");
-                        var rt = e[t].getAttribute("width");
-                        null == rt && (rt = document.innerWidth + "px");
-                        var at = e[t].getAttribute("widthMenu");
-                        null == at && (at = 550);
-                        var ot = e[t].getAttribute("heightTable");
-                        null == ot && (ot = 450);
-                        var st = e[t].getAttribute("id");
-                        null == st && (st = String(f.slice(2, 3)).toLowerCase());
-                        var dt = e[t].getAttribute("model");
-                        null == dt && (dt = String(f.slice(2, 3)).toLowerCase() + ".php");
-                        var ct = e[t].getAttribute("class");
-                        null == ct && (ct = "getFIELD"), $(e[t].localName).addClass(ct);
-                        var ut, ht = e[t].getAttribute("whereClass"),
-                            pt = e[t].getAttribute("params"),
-                            gt = e[t].getAttribute("onscroll");
-                        if (null != (xt = e[t].getAttribute("click"))) {
+                        var J = e[t].getAttribute("menuTitle");
+                        null == J && (J = "null");
+                        var Q = e[t].getAttribute("padding"),
+                            Z = e[t].getAttribute("color");
+                        null == Z && (Z = "BLUE");
+                        var tt = e[t].getAttribute("borderRadius");
+                        null == tt && (tt = 7);
+                        var et = e[t].getAttribute("fontSize");
+                        null == et && (et = 15);
+                        var it = e[t].getAttribute("height");
+                        null == it && (it = 30);
+                        var nt = e[t].getAttribute("hoverBgColor");
+                        null == nt && (nt = "yellow");
+                        var lt = e[t].getAttribute("hoverText");
+                        null == lt && (lt = "");
+                        var rt = e[t].getAttribute("value");
+                        null == rt && (rt = "0");
+                        var at = e[t].getAttribute("width");
+                        null == at && (at = document.innerWidth + "px");
+                        var ot = e[t].getAttribute("widthMenu");
+                        null == ot && (ot = 550);
+                        var st = e[t].getAttribute("heightTable");
+                        null == st && (st = 450);
+                        var dt = e[t].getAttribute("id");
+                        null == dt && (dt = String(f.slice(2, 3)).toLowerCase());
+                        var ct = e[t].getAttribute("model");
+                        null == ct && (ct = String(f.slice(2, 3)).toLowerCase() + ".php");
+                        var ut = e[t].getAttribute("class");
+                        null == ut && (ut = "getFIELD"), $(e[t].localName).addClass(ut);
+                        var ht, pt = e[t].getAttribute("whereClass"),
+                            gt = e[t].getAttribute("params"),
+                            mt = e[t].getAttribute("onscroll");
+                        if (null != (_t = e[t].getAttribute("click"))) {
                             p = e[t].localName;
-                            d[String(p)] = new Function(xt)
+                            d[String(p)] = new Function(_t)
                         } else try {
                             p = e[t].localName;
                             d[String(p)] = new Function(String(f.slice(2, 3)).toLowerCase() + "()")
                         } catch (t) {}
-                        if (null != (ut = e[t].getAttribute("callback"))) {
+                        if (null != (ht = e[t].getAttribute("callback"))) {
                             p = e[t].localName;
-                            s[String(p)] = new Function(ut)
+                            s[String(p)] = new Function(ht)
                         }
-                        var mt = e[t].getAttribute("topTable"),
-                            ft = e[t].getAttribute("leftTable"),
-                            yt = e[t].getAttribute("display");
-                        U = String(e[t].localName);
-                        pims(U)._m_(function() {
+                        var ft = e[t].getAttribute("topTable"),
+                            yt = e[t].getAttribute("leftTable"),
+                            bt = e[t].getAttribute("display");
+                        V = String(e[t].localName);
+                        pims(V)._m_(function() {
                             try {
-                                where = ht + "@" + U
+                                where = pt + "@" + V
                             } catch (t) {}
                             try {
-                                params = pt + "@" + U
+                                params = gt + "@" + V
                             } catch (t) {}
                             css = {
-                                display: yt,
-                                height: et,
-                                width: rt,
-                                color: Q,
-                                fontSize: tt,
-                                hoverBgColor: it,
-                                borderRadius: Z,
-                                border: Y,
-                                background: V,
-                                padding: J,
-                                marginTop: mt + "_" + U,
-                                marginLeft: ft + "_" + U,
-                                widthTable: at + "_" + U,
-                                heightTable: ot + "_" + U
+                                display: bt,
+                                height: it,
+                                width: at,
+                                color: Z,
+                                fontSize: et,
+                                hoverBgColor: nt,
+                                borderRadius: tt,
+                                border: q,
+                                background: Y,
+                                padding: Q,
+                                marginTop: ft + "_" + V,
+                                marginLeft: yt + "_" + V,
+                                widthTable: ot + "_" + V,
+                                heightTable: st + "_" + V
                             }, param = {
-                                model: dt,
-                                menuTitle: G,
-                                menuModel: q
+                                model: ct,
+                                menuTitle: J,
+                                menuModel: G
                             }, attr = {
-                                onscroll: gt,
-                                value: lt,
-                                hoverText: nt,
-                                id: st
+                                onscroll: mt,
+                                value: rt,
+                                hoverText: lt,
+                                id: dt
                             }, events = {
                                 click: function(t, e, i) {
                                     for (var n in potato.table = t, potato.ci = i, d) {
@@ -4048,27 +4049,27 @@ var X = function() {
                             }
                         })
                     }
-                    if ("CHART" == f.slice(1, 2)) POTATO.elementbar = e[t], _POTATOElement[f.slice(2, 3)] = e[t], null == (bt = e[t].getAttribute("onload")) && (bt = "true"), "true" == bt ? X.prototype.reloadChart(f.slice(2, 3)) : X.prototype.reloadChart(f.slice(2, 3), "false");
+                    if ("CHART" == f.slice(1, 2)) POTATO.elementbar = e[t], _POTATOElement[f.slice(2, 3)] = e[t], null == (vt = e[t].getAttribute("onload")) && (vt = "true"), "true" == vt ? X.prototype.reloadChart(f.slice(2, 3)) : X.prototype.reloadChart(f.slice(2, 3), "false");
                     if ("TABLE" == f.slice(1, 2)) {
                         POTATO.element = e[t], _POTATOElement[f.slice(2, 3)] = e[t];
-                        var bt, vt = e[t].getAttribute("id");
-                        null == vt && (vt = String(f.slice(2, 3)).toLowerCase()), null == (bt = e[t].getAttribute("onload")) && (bt = "true"), "true" == bt ? X.prototype.reloadTable(vt) : X.prototype.reloadTable(vt, "false")
+                        var vt, xt = e[t].getAttribute("id");
+                        null == xt && (xt = String(f.slice(2, 3)).toLowerCase()), null == (vt = e[t].getAttribute("onload")) && (vt = "true"), "true" == vt ? X.prototype.reloadTable(xt) : X.prototype.reloadTable(xt, "false")
                     }
                     if ("TEXT" == f.slice(1, 2)) {
                         y = e[t].getAttribute("style"), O = this._css_(e[t], y), B = this._attr_(e[t], y, f);
-                        var xt, _t, Tt = e[t].getAttribute("class");
-                        if (null == Tt && (Tt = "getFIELD"), $(e[t].localName).addClass(Tt), null != (xt = e[t].getAttribute("click"))) {
+                        var _t, Tt, At = e[t].getAttribute("class");
+                        if (null == At && (At = "getFIELD"), $(e[t].localName).addClass(At), null != (_t = e[t].getAttribute("click"))) {
                             p = e[t].localName;
-                            r[String(p)] = new Function(xt)
+                            r[String(p)] = new Function(_t)
                         }
-                        if (null != (_t = e[t].getAttribute("change"))) {
+                        if (null != (Tt = e[t].getAttribute("change"))) {
                             p = e[t].localName;
-                            o[String(p)] = new Function(_t)
+                            o[String(p)] = new Function(Tt)
                         }
-                        var At = e[t].getAttribute("keyup");
-                        if (null != At) {
+                        var St = e[t].getAttribute("keyup");
+                        if (null != St) {
                             p = e[t].localName;
-                            a[String(p)] = new Function(At)
+                            a[String(p)] = new Function(St)
                         }
                         pims(e[t].localName)._tx_(function() {
                             css = O, attr = B, events = {
@@ -4596,3 +4597,4 @@ var _$, _$ = {
     potato = new X,
     O = new X;
 PIMS();
+
