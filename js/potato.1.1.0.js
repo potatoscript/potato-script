@@ -778,8 +778,8 @@ var X = function() {
             if (String(l.params).split("@").slice(1, 2) == n) var d = String(l.params).split("@").slice(0, 1);
             if (String(l.where).split("@").slice(1, 2) == n) var c = String(l.where).split("@").slice(0, 1);
             i.createdCallback = function() {
-                if (this.id = a + "_", this.pims = n, "true" == l.disabled) var t = '<button disabled id="' + a + '"><table><tr>';
-                if ("false" == l.disabled) t = '<button id="' + a + '"><table><tr>';
+                if (this.id = a + "_", this.pims = n, "true" == l.disabled) var t = '<button class="pimsButton" disabled id="' + a + '"><table><tr>';
+                if ("false" == l.disabled) t = '<button class="pimsButton" id="' + a + '"><table><tr>';
                 "nil 0 0" != l.image ? (t += '<td><img id="img_' + a + '" src="' + String(l.image).split(" ").slice(0, 1) + '" style="width:' + String(l.image).split(" ").slice(1, 2) + "px;height:" + String(l.image).split(" ").slice(2, 3) + 'px"/></td>', t += '<td style="vertical-align:middle;text-align:center">' + l.value + "</td>") : t += '<td style="vertical-align:middle;text-align:center">' + l.value + "</td>", t += "</tr></table></button>", this.innerHTML = "<br>" + t, e._css_id(l, a), $("#" + a).css({
                     borderLeft: "1px solid buttonshadow",
                     borderRight: "2px solid black",
