@@ -1884,13 +1884,14 @@ var X = function() {
                         for (var t = document.getElementsByClassName("pims-list"), e = 0; e < t.length; e++) t[e].style.display = "none"
                     } catch (t) {}
                     keyID = "keypad-" + l, $(".keypad").hide(), $("#keypad-" + l).show(), $("#KeyPad").show();
-                    var i = document.documentElement;
-                    window.pageXOffset || i.scrollLeft, i.clientLeft, window.pageYOffset || i.scrollTop, i.clientTop;
+                    var i = document.documentElement,
+                        r = (window.pageXOffset || i.scrollLeft) - (i.clientLeft || 0),
+                        a = (window.pageYOffset || i.scrollTop) - (i.clientTop || 0);
                     $("#keypad-" + l).css({
                         zIndex: "2000",
                         position: "absolute",
-                        top: parseFloat(event.clientY) + 20 + parseFloat(n.top) + "px",
-                        left: parseFloat(event.clientX) + parseFloat(n.left) + "px"
+                        top: parseFloat(event.clientY) + 20 + parseFloat(n.top) + parseFloat(a) + "px",
+                        left: parseFloat(event.clientX) + parseFloat(n.left) - parseFloat(r) + "px"
                     }), _value = document.getElementById(l);
                     try {
                         n.click()
