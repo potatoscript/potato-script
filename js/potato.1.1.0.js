@@ -1111,7 +1111,7 @@ var X = function() {
             "potato.today()" == l.value && (l.value = e.today()), "potato.now()" == l.value && (l.value = e.now());
             var r = l.id;
             i.createdCallback = function() {
-                this.id = r + "_", X.prototype.getAttribute(this, n).index, X.prototype.getAttribute(this, n).field, this.pims = n, "false" == l.disabled && (this.innerHTML = '<br><input type="text" id="' + r + '"> '), "true" != l.disabled && "" != l.disabled || (this.innerHTML = '<br><input disabled type="text" id="' + r + '"> '), e._css_id(l, r), $("#" + r).attr("value", l.value).mousemove(function() {
+                this.id = r + "_", X.prototype.getAttribute(this, n).index, X.prototype.getAttribute(this, n).field, this.pims = n, "false" == l.disabled && (this.innerHTML = '<br><input type="text" id="' + r + '"> '), "true" != l.disabled && "" != l.disabled || (this.innerHTML = '<br><input disabled type="text" id="' + r + '"> '), e._css_id(l, r), "null" != l.float && $("#" + r + "_").css("float", l.float), $("#" + r).attr("value", l.value).mousemove(function() {
                     "null" != l.hoverBgColor && $(this).css("background", l.hoverBgColor), $(this).css("color", l.hoverColor), "" != l.hoverText && $("#" + l.hoverId).html(l.hoverText).show().css({
                         padding: l.padding,
                         height: l.hoverHeight + "px",
@@ -1859,7 +1859,7 @@ var X = function() {
                     t = '<div id="div-' + l + '"> ';
                     t += '<input type="text" id="' + l + '"> '
                 }
-                t += '<div class="keypad" id="keypad-' + l + '"></div> ', t += "</div> ", this.innerHTML = "<br>" + t, _value = document.getElementById(l), "potato.now" == n.value && (n.value = e.now), "potato.today()" == n.value && (n.value = e.today()), "potato.now()" == n.value && (n.value = e.now()), $("#div-" + l).css({
+                t += '<div class="keypad" id="keypad-' + l + '"></div> ', t += "</div> ", this.innerHTML = "<br>" + t, _value = document.getElementById(l), "potato.now" == n.value && (n.value = e.now), "potato.today()" == n.value && (n.value = e.today()), "potato.now()" == n.value && (n.value = e.now()), "null" != n.float && $("#" + l + "_").css("float", n.float), $("#div-" + l).css({
                     display: n.display,
                     position: n.position,
                     left: n.left,
