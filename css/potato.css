@@ -1,5 +1,8 @@
+blue{
+	color:blue;
+}
 span.tab1{
-padding-left: 1em;
+	padding-left: 1em;
 }
 span.tab2{
 	padding-left: 2em;
@@ -74,37 +77,10 @@ color:black;
 font-size:13px;
 }
 .frame_xbox_td{
-font-weight:bold;
-text-align:left;
-vertical-align:top;
-border:0px;
-}
-#xbox_list_table{
-font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-border-collapse:collapse;
-width:95%;
-}
-#xbox_list_table td{
-font-size:15px;
-font-weight:bold;
-text-align:center;
-border:1px solid #000000;
-background-color:white;
-padding:5px 0px 5px 0px;
-height:25px;
-}
-#xbox_list_table th{
-font-size:16px;
-font-weight:bold;
-text-align:center;
-color:#000000;
-background-color:#bad6f0;
-border:1px solid #000000;
-padding:5px 0px 5px 0px;
-}
-#xbox_list_table tr:hover td{
-cursor: pointer;
-border:2px solid red;
+	font-weight:bold;
+	text-align:left;
+	vertical-align:top;
+	border:0px;
 }
 .flip3D{ width:250px; height:250px; margin:10px; float:left; }
 .flip3D > .front{
@@ -134,7 +110,32 @@ border:2px solid red;
 	-ms-transform: perspective( 600px ) rotateY( 0deg );
 }
 
-
+.potatoTableCss{
+  font-family:"Tempus Sans ITC";
+  border-collapse:collapse;
+  width:98%;
+}
+.potatoTableCss th{
+	border:1px solid black;
+  font-size: 15px;
+  text-align: center;
+  padding:5px 5px 5px 5px;
+  background: lightblue;
+}
+.potatoTableCss td{
+	border:1px solid black;
+  font-size: 18px;
+  text-align: center;
+  padding:5px 5px 5px 5px;
+  background: white;
+  cursor: pointer;
+}
+.potatoTableCss tr:nth-child(odd) td{
+  background:#d1ffd4;
+}
+.potatoTableCss tr:hover td{
+  background:#f7f091;
+}
 
 fieldset{
 	border-radius:10px;
@@ -408,10 +409,10 @@ select option:hover {
 }
 .potato-menu-table th{
   border:1px solid black;
-  font-size: 18px;
+  font-size: 12px;
   text-align: center;
   padding:5px 5px 5px 5px;
-  background: yellow;
+  background: #EEE2BB;
 }
 .potato-menu-table td{
   border:1px solid black;
@@ -530,26 +531,7 @@ cursor: pointer;
 	background-color: red;
 }
 
-#table_data{
-  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse:collapse;
-  width:98%;
-}
-#table_data th{
-  border:1px solid black;
-  font-size: 15px;
-  text-align: center;
-  padding:5px 5px 5px 5px;
-  background: #a5cbe7;
-}
-#table_data td{
-  border:1px solid black;
-  font-size: 18px;
-  text-align: center;
-  padding:5px 5px 5px 5px;
-  background: white;
-  cursor: pointer;
-}
+
 /*
 #table_data tr:nth-child(odd) td{
   background:#d1ffd4;
@@ -557,3 +539,11 @@ cursor: pointer;
 #table_data tr:hover td{
   background:#f8ff8a;
 }
+/*******scrollable x-axis***************
+.chartWrapper > canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events:none;
+}
+*/
