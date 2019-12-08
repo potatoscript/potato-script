@@ -142,7 +142,7 @@ var $POTATO = function() {
         function r(t) {
             var e = t.getAttribute(String.fromCharCode(112, 111, 116, 97, 116, 111)),
                 i = t.nodeName.toUpperCase(),
-                n = H.call(L, e ? B + e.toUpperCase() : E + i);
+                n = z.call(P, e ? B + e.toUpperCase() : E + i);
             return e && -1 < n && !o(i, e) ? -1 : n
         }
 
@@ -155,7 +155,7 @@ var $POTATO = function() {
                 i = t.attrChange,
                 n = t.attrName,
                 l = t.target;
-            ut && (!l || l === e) && e.attributeChangedCallback && "style" !== n && e.attributeChangedCallback(n, i === t[O] ? null : t.prevValue, i === t[T] ? null : t.newValue)
+            ut && (!l || l === e) && e.attributeChangedCallback && "style" !== n && e.attributeChangedCallback(n, i === t[A] ? null : t.prevValue, i === t[O] ? null : t.newValue)
         }
 
         function d(t) {
@@ -166,8 +166,8 @@ var $POTATO = function() {
         }
 
         function c(t) {
-            ht && (ht = !1, t.currentTarget.removeEventListener(C, c)), l((t.target || e).querySelectorAll(N), t.detail === A ? A : S), Z && function() {
-                for (var t, e = 0, i = et.length; e < i; e++) t = et[e], R.contains(t) || (et.splice(e, 1), p(t, A))
+            ht && (ht = !1, t.currentTarget.removeEventListener(C, c)), l((t.target || e).querySelectorAll(N), t.detail === w ? w : S), Z && function() {
+                for (var t, e = 0, i = et.length; e < i; e++) t = et[e], H.contains(t) || (et.splice(e, 1), p(t, w))
             }()
         }
 
@@ -179,57 +179,57 @@ var $POTATO = function() {
         }
 
         function u(t, e) {
-            G(t, e), b ? b.observe(t, rt) : (ct && (t.setAttribute = h, t[$] = y(t), t.addEventListener(I, m)), t.addEventListener(_, s)), t.createdCallback && ut && (t.created = !0, t.createdCallback(), t.created = !1)
+            G(t, e), b ? b.observe(t, rt) : (ct && (t.setAttribute = h, t[$] = y(t), t.addEventListener(I, m)), t.addEventListener(T, s)), t.createdCallback && ut && (t.created = !0, t.createdCallback(), t.created = !1)
         }
 
         function p(t, e) {
-            var i, n = r(t); - 1 < n && (v(t, P[n]), n = 0, e !== S || t[S] ? e === A && !t[A] && (t[S] = !1, t[A] = !0, n = 1) : (t[A] = !1, t[S] = !0, n = 1, Z && H.call(et, t) < 0 && et.push(t)), n && (i = t[e + "Callback"]) && i.call(t))
+            var i, n = r(t); - 1 < n && (v(t, D[n]), n = 0, e !== S || t[S] ? e === w && !t[w] && (t[S] = !1, t[w] = !0, n = 1) : (t[w] = !1, t[S] = !0, n = 1, Z && z.call(et, t) < 0 && et.push(t)), n && (i = t[e + "Callback"]) && i.call(t))
         }
         if (!(n in e)) {
             var g, m, f, y, b, v, x, $ = "__" + n + (1e5 * Math.random() >> 0),
                 S = "attached",
-                A = "detached",
-                w = "extends",
-                O = "ADDITION",
-                k = "MODIFICATION",
-                T = "REMOVAL",
-                _ = "DOMAttrModified",
+                w = "detached",
+                k = "extends",
+                A = "ADDITION",
+                _ = "MODIFICATION",
+                O = "REMOVAL",
+                T = "DOMAttrModified",
                 C = "DOMContentLoaded",
                 I = "DOMSubtreeModified",
                 E = "<",
                 B = "=",
                 F = /^[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+$/,
-                D = ["ANNOTATION-XML", "COLOR-PROFILE", "FONT-FACE", "FONT-FACE-SRC", "FONT-FACE-URI", "FONT-FACE-FORMAT", "FONT-FACE-NAME", "MISSING-GLYPH"],
-                L = [],
+                L = ["ANNOTATION-XML", "COLOR-PROFILE", "FONT-FACE", "FONT-FACE-SRC", "FONT-FACE-URI", "FONT-FACE-FORMAT", "FONT-FACE-NAME", "MISSING-GLYPH"],
                 P = [],
+                D = [],
                 N = "",
-                R = e.documentElement,
-                H = L.indexOf || function(t) {
+                H = e.documentElement,
+                z = P.indexOf || function(t) {
                     for (var e = this.length; e-- && this[e] !== t;);
                     return e
                 },
-                z = i.prototype,
-                X = z.hasOwnProperty,
-                M = z.isPrototypeOf,
+                M = i.prototype,
+                R = M.hasOwnProperty,
+                X = M.isPrototypeOf,
                 W = i.defineProperty,
                 j = i.getOwnPropertyDescriptor,
                 V = i.getOwnPropertyNames,
-                U = i.getPrototypeOf,
-                K = i.setPrototypeOf,
+                K = i.getPrototypeOf,
+                U = i.setPrototypeOf,
                 Y = !!i.$O$Sroto__,
                 q = i.create || function t(e) {
                     return e ? (t.prototype = e, new t) : this
                 },
-                G = K || (Y ? function(t, e) {
+                G = U || (Y ? function(t, e) {
                     return t.$O$Sroto__ = e, t
                 } : V && j ? function() {
                     function t(t, e) {
-                        for (var i, n = V(e), l = 0, a = n.length; l < a; l++) i = n[l], X.call(t, i) || W(t, i, j(e, i))
+                        for (var i, n = V(e), l = 0, a = n.length; l < a; l++) i = n[l], R.call(t, i) || W(t, i, j(e, i))
                     }
                     return function(e, i) {
                         do {
                             t(e, i)
-                        } while ((i = U(i)) && !M.call(i, e));
+                        } while ((i = K(i)) && !X.call(i, e));
                         return e
                     }
                 }() : function(t, e) {
@@ -238,11 +238,11 @@ var $POTATO = function() {
                 }),
                 J = t.MutationObserver || t.WebKitMutationObserver,
                 Q = (t.HTMLElement || t.Element || t.Node).prototype,
-                Z = !M.call(Q, R),
+                Z = !X.call(Q, H),
                 tt = Z ? function(t) {
                     return 1 === t.nodeType
                 } : function(t) {
-                    return M.call(Q, t)
+                    return X.call(Q, t)
                 },
                 et = Z && [],
                 it = Q.cloneNode,
@@ -255,7 +255,7 @@ var $POTATO = function() {
                     attributeOldValue: !0
                 },
                 ot = J || function(t) {
-                    ct = !1, R.removeEventListener(_, ot)
+                    ct = !1, H.removeEventListener(T, ot)
                 },
                 st = t.requestAnimationFrame || t.webkitRequestAnimationFrame || t.mozRequestAnimationFrame || t.msRequestAnimationFrame || function(t) {
                     setTimeout(t, 10)
@@ -264,52 +264,52 @@ var $POTATO = function() {
                 ct = !0,
                 ht = !0,
                 ut = !0;
-            K || Y ? (v = function(t, e) {
-                M.call(e, t) || u(t, e)
+            U || Y ? (v = function(t, e) {
+                X.call(e, t) || u(t, e)
             }, x = u) : x = v = function(t, e) {
                 t[$] || (t[$] = i(!0), u(t, e))
             }, Z ? (ct = !1, function() {
                 var t = j(Q, "addEventListener"),
                     e = t.value,
                     i = function(t) {
-                        var e = new CustomEvent(_, {
+                        var e = new CustomEvent(T, {
                             bubbles: !0
                         });
-                        e.attrName = t, e.prevValue = this.getAttribute(t), e.newValue = null, e[T] = e.attrChange = 2, lt.call(this, t), this.dispatchEvent(e)
+                        e.attrName = t, e.prevValue = this.getAttribute(t), e.newValue = null, e[O] = e.attrChange = 2, lt.call(this, t), this.dispatchEvent(e)
                     },
                     n = function(t, e) {
                         var i = this.hasAttribute(t),
                             n = i && this.getAttribute(t),
-                            l = new CustomEvent(_, {
+                            l = new CustomEvent(T, {
                                 bubbles: !0
                             });
-                        nt.call(this, t, e), l.attrName = t, l.prevValue = i ? n : null, l.newValue = e, i ? l[k] = l.attrChange = 1 : l[O] = l.attrChange = 0, this.dispatchEvent(l)
+                        nt.call(this, t, e), l.attrName = t, l.prevValue = i ? n : null, l.newValue = e, i ? l[_] = l.attrChange = 1 : l[A] = l.attrChange = 0, this.dispatchEvent(l)
                     },
                     l = function(t) {
                         var e, i = t.currentTarget,
                             n = i[$],
                             l = t.propertyName;
-                        n.hasOwnProperty(l) && (n = n[l], (e = new CustomEvent(_, {
+                        n.hasOwnProperty(l) && (n = n[l], (e = new CustomEvent(T, {
                             bubbles: !0
-                        })).attrName = n.name, e.prevValue = n.value || null, e.newValue = n.value = i[l] || null, null == e.prevValue ? e[O] = e.attrChange = 0 : e[k] = e.attrChange = 1, i.dispatchEvent(e))
+                        })).attrName = n.name, e.prevValue = n.value || null, e.newValue = n.value = i[l] || null, null == e.prevValue ? e[A] = e.attrChange = 0 : e[_] = e.attrChange = 1, i.dispatchEvent(e))
                     };
                 t.value = function(t, a, r) {
-                    t === _ && this.attributeChangedCallback && this.setAttribute !== n && (this[$] = {
+                    t === T && this.attributeChangedCallback && this.setAttribute !== n && (this[$] = {
                         className: {
                             name: "class",
                             value: this.className
                         }
                     }, this.setAttribute = n, this.removeAttribute = i, e.call(this, "propertychange", l)), e.call(this, t, a, r)
                 }, W(Q, "addEventListener", t)
-            }()) : J || (R.addEventListener(_, ot), R.setAttribute($, 1), R.removeAttribute($), ct && (m = function(t) {
+            }()) : J || (H.addEventListener(T, ot), H.setAttribute($, 1), H.removeAttribute($), ct && (m = function(t) {
                 var e, i, n, l = this;
                 if (l === t.target) {
                     for (n in e = l[$], l[$] = i = y(l), i) {
-                        if (!(n in e)) return f(0, l, n, e[n], i[n], O);
-                        if (i[n] !== e[n]) return f(1, l, n, e[n], i[n], k)
+                        if (!(n in e)) return f(0, l, n, e[n], i[n], A);
+                        if (i[n] !== e[n]) return f(1, l, n, e[n], i[n], _)
                     }
                     for (n in e)
-                        if (!(n in i)) return f(2, l, n, e[n], i[n], T)
+                        if (!(n in i)) return f(2, l, n, e[n], i[n], O)
                 }
             }, f = function(t, e, i, n, l, a) {
                 var r = {
@@ -331,34 +331,34 @@ var $POTATO = function() {
                         return new J(function(n) {
                             for (var l, a, r = 0, o = n.length; r < o; r++) "childList" === (l = n[r]).type ? (i(l.addedNodes, t), i(l.removedNodes, e)) : (a = l.target, ut && a.attributeChangedCallback && "style" !== l.attributeName && a.attributeChangedCallback(l.attributeName, l.oldValue, a.getAttribute(l.attributeName)))
                         })
-                    }(a(S), a(A))).observe(e, {
+                    }(a(S), a(w))).observe(e, {
                         childList: !0,
                         subtree: !0
                     }) : (g = [], st(function t() {
                         for (; g.length;) g.shift().call(null, g.shift());
                         st(t)
-                    }), e.addEventListener("DOMNodeInserted", d(S)), e.addEventListener("DOMNodeRemoved", d(A))), e.addEventListener(C, c), e.addEventListener("readystatechange", c), e.createElement = function(t, i) {
+                    }), e.addEventListener("DOMNodeInserted", d(S)), e.addEventListener("DOMNodeRemoved", d(w))), e.addEventListener(C, c), e.addEventListener("readystatechange", c), e.createElement = function(t, i) {
                         var n = at.apply(e, arguments),
                             l = "" + t,
-                            a = H.call(L, (i ? B : E) + (i || l).toUpperCase()),
+                            a = z.call(P, (i ? B : E) + (i || l).toUpperCase()),
                             r = -1 < a;
-                        return i && (n.setAttribute(String.fromCharCode(112, 111, 116, 97, 116, 111), i = i.toLowerCase()), r && (r = o(l.toUpperCase(), i))), ut = !e.createElement.innerHTMLHelper, r && x(n, P[a]), n
+                        return i && (n.setAttribute(String.fromCharCode(112, 111, 116, 97, 116, 111), i = i.toLowerCase()), r && (r = o(l.toUpperCase(), i))), ut = !e.createElement.innerHTMLHelper, r && x(n, D[a]), n
                     }, Q.cloneNode = function(t) {
                         var e = it.call(this, !!t),
                             i = r(e);
-                        return -1 < i && x(e, P[i]), t && function(t) {
-                            for (var e, i = 0, n = t.length; i < n; i++) e = t[i], x(e, P[r(e)])
+                        return -1 < i && x(e, D[i]), t && function(t) {
+                            for (var e, i = 0, n = t.length; i < n; i++) e = t[i], x(e, D[r(e)])
                         }(e.querySelectorAll(N)), e
-                    }), -2 < H.call(L, B + n) + H.call(L, E + n)) throw new Error("A " + t + " type pims already registered");
-                if (!F.test(n) || -1 < H.call(D, n)) throw new Error("The type " + t + " pims invalid");
+                    }), -2 < z.call(P, B + n) + z.call(P, E + n)) throw new Error("A " + t + " type pims already registered");
+                if (!F.test(n) || -1 < z.call(L, n)) throw new Error("The type " + t + " pims invalid");
                 var n, s = function() {
                         return u ? e.createElement(p, n) : e.createElement(p)
                     },
-                    h = i || z,
-                    u = X.call(h, w),
-                    p = u ? i[w].toUpperCase() : n,
-                    m = L.push((u ? B : E) + n) - 1;
-                return N = N.concat(N.length ? "," : "", u ? p + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + t.toLowerCase() + '"]' : p), s.prototype = P[m] = X.call(h, "prototype") ? h.prototype : q(Q), l(e.querySelectorAll(N), S), s
+                    h = i || M,
+                    u = R.call(h, k),
+                    p = u ? i[k].toUpperCase() : n,
+                    m = P.push((u ? B : E) + n) - 1;
+                return N = N.concat(N.length ? "," : "", u ? p + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + t.toLowerCase() + '"]' : p), s.prototype = D[m] = R.call(h, "prototype") ? h.prototype : q(Q), l(e.querySelectorAll(N), S), s
             }
         }
     }(window, document, Object, $O$S.prototype.l($O$V().r)),
@@ -493,31 +493,31 @@ var $POTATO = function() {
                         }
                         if ("bar" == e.chartType) {
                             var S = 0,
-                                A = [];
-                            A[0] = 0;
-                            var w = 0;
+                                w = [];
+                            w[0] = 0;
+                            var k = 0;
                             for (c = 1; c <= l.length; c++) try {
-                                "data" != l[c] && (i[w].push(t[h][c]), 1 == s ? S += parseFloat(t[h][c]) : (A[c] = 0, parseFloat(t[h][c]) > 0 && "undefined" != t[h][c] && (A[c] = parseFloat(t[h][c]))), w++)
+                                "data" != l[c] && (i[k].push(t[h][c]), 1 == s ? S += parseFloat(t[h][c]) : (w[c] = 0, parseFloat(t[h][c]) > 0 && "undefined" != t[h][c] && (w[c] = parseFloat(t[h][c]))), k++)
                             } catch (t) {}
-                            if (i[w].push(S), p[h] = 1 == s ? S : maxArray(A), "data" != r[0]) {
-                                var O = 0,
-                                    k = [];
-                                k[0] = 0;
-                                var T = 0;
+                            if (i[k].push(S), p[h] = 1 == s ? S : maxArray(w), "data" != r[0]) {
+                                var A = 0,
+                                    _ = [];
+                                _[0] = 0;
+                                var O = 0;
                                 for (c = 0; c < r.length; c++)
                                     if ("undefined" != t[h][r[c]] && null != t[h][r[c]]) try {
-                                        n[T].push(t[h][r[c]]), 1 == s ? O += parseFloat(t[h][r[c]]) : (O[c] = 0, parseFloat(t[h][r[c]]) > 0 && (k[c] = parseFloat(t[h][r[c]]))), T++
+                                        n[O].push(t[h][r[c]]), 1 == s ? A += parseFloat(t[h][r[c]]) : (A[c] = 0, parseFloat(t[h][r[c]]) > 0 && (_[c] = parseFloat(t[h][r[c]]))), O++
                                     } catch (t) {}
-                                    g[h] = 1 == s ? O : maxArray(k)
+                                    g[h] = 1 == s ? A : maxArray(_)
                             }
                             S
                         } else i[0].push(t[h][1]), p[h] = t[h][1], t[h][1]
                     }
-                    var _ = new Array,
+                    var T = new Array,
                         C = (c = 0, !1);
                     if ("bar" == e.chartType) {
                         if ("data" != r[0])
-                            for (h = 0; h < r.length; h++) _[c] = {
+                            for (h = 0; h < r.length; h++) T[c] = {
                                 type: "line",
                                 label: r[h],
                                 radius: e.pointRadius[h],
@@ -530,7 +530,7 @@ var $POTATO = function() {
                                 fill: !1,
                                 data: n[h]
                             }, C = !0, c++;
-                        for (h = 0; h < l.length; h++) "data" != l[h] && (_[c] = {
+                        for (h = 0; h < l.length; h++) "data" != l[h] && (T[c] = {
                             type: "bar",
                             label: l[h],
                             backgroundColor: e.colorIndex[h],
@@ -538,7 +538,7 @@ var $POTATO = function() {
                             borderWidth: 1,
                             data: i[h]
                         }, c++);
-                        _[c] = {
+                        T[c] = {
                             type: "line",
                             label: "",
                             borderColor: "#fff",
@@ -546,7 +546,7 @@ var $POTATO = function() {
                             borderWidth: 0,
                             borderColor: "transparent",
                             fill: !1,
-                            data: i[w]
+                            data: i[k]
                         }
                     }
                     if ("true" == e.legendDisplay) {
@@ -607,7 +607,7 @@ var $POTATO = function() {
                                     fontSize: e.label2FontSize
                                 }
                             }],
-                            D = {
+                            L = {
                                 duration: 500,
                                 easing: "easeOutQuart",
                                 onComplete: function() {
@@ -629,7 +629,7 @@ var $POTATO = function() {
                                     })
                                 }
                             }
-                    } else F = [], D = {
+                    } else F = [], L = {
                         duration: 500,
                         easing: "easeOutQuart",
                         onComplete: function() {
@@ -644,7 +644,7 @@ var $POTATO = function() {
                         }
                     };
                     "true" == e.display ? e.display = !0 : e.display = !1;
-                    var L = {
+                    var P = {
                             hover: {
                                 animationDuration: 1,
                                 onHover: function(t, i) {
@@ -702,25 +702,25 @@ var $POTATO = function() {
                             },
                             responsive: !0,
                             maintainAspectRatio: !1,
-                            animation: D
+                            animation: L
                         },
-                        P = "<canvas id='canvas-" + o + "' style='background:" + e.background + "'></canvas>",
+                        D = "<canvas id='canvas-" + o + "' style='background:" + e.background + "'></canvas>",
                         N = document.getElementById("div_chart_" + o);
                     N.innerHTML = "", $("#div_" + o).show().css({
                         width: e.width + "px",
                         height: e.height + "px",
                         border: e.border
                     });
-                    var R = "100%";
-                    t.length > 50 && (R = "130%"), t.length > 100 && (R = "150%"), t.length > 150 && (R = "180%"), t.length > 200 && (R = "250%"), t.length > 250 && (R = "300%"), t.length > 300 && (R = "350%"), t.length > 350 && (R = "400%"), t.length > 400 && (R = "500%"), $("#div_chart_" + o).html(P).css({
-                        width: R
+                    var H = "100%";
+                    t.length > 50 && (H = "130%"), t.length > 100 && (H = "150%"), t.length > 150 && (H = "180%"), t.length > 200 && (H = "250%"), t.length > 250 && (H = "300%"), t.length > 300 && (H = "350%"), t.length > 350 && (H = "400%"), t.length > 400 && (H = "500%"), $("#div_chart_" + o).html(D).css({
+                        width: H
                     });
-                    var H = document.getElementById("canvas-" + o);
+                    var z = document.getElementById("canvas-" + o);
                     try {
-                        var z = e.name;
-                        null == z && (z = "");
-                        var X = document.createElement("span");
-                        X.innerText = z, X.style.fontSize = e.nameFontSize, N.appendChild(X), $("#div_" + o + " span").css({
+                        var M = e.name;
+                        null == M && (M = "");
+                        var R = document.createElement("span");
+                        R.innerText = M, R.style.fontSize = e.nameFontSize, N.appendChild(R), $("#div_" + o + " span").css({
                             position: "absolute",
                             left: e.width / 6 + "px",
                             top: 2 * -e.fontSize + "px",
@@ -728,17 +728,17 @@ var $POTATO = function() {
                             textShadow: "-1px -1px 1px #fff, 1px 1px 1px grey"
                         })
                     } catch (t) {}
-                    if ("bar" == e.chartType) new Chart(H, {
+                    if ("bar" == e.chartType) new Chart(z, {
                         type: e.chartType,
-                        options: L,
+                        options: P,
                         data: {
                             labels: u,
-                            datasets: _
+                            datasets: T
                         }
                     });
-                    else new Chart(H, {
+                    else new Chart(z, {
                         type: "horizontalBar",
-                        options: L,
+                        options: P,
                         data: {
                             labels: u,
                             datasets: [{
@@ -789,25 +789,25 @@ var $POTATO = function() {
                             p[u] = n[u][0] + " (" + f + ")"
                         }
                         if ("bar" == e.chartType) {
-                            var A = 0,
-                                w = [];
-                            w[0] = 0;
-                            var O = 0;
+                            var w = 0,
+                                k = [];
+                            k[0] = 0;
+                            var A = 0;
                             for (h = 1; h <= r.length; h++) try {
-                                "data" != r[h] && (i[O].push(n[u][h]), 1 == s ? A += parseFloat(n[u][h]) : (w[h] = 0, parseFloat(n[u][h]) > 0 && "undefined" != n[u][h] && (w[h] = parseFloat(n[u][h]))), O++)
+                                "data" != r[h] && (i[A].push(n[u][h]), 1 == s ? w += parseFloat(n[u][h]) : (k[h] = 0, parseFloat(n[u][h]) > 0 && "undefined" != n[u][h] && (k[h] = parseFloat(n[u][h]))), A++)
                             } catch (t) {}
-                            if (i[O].push(A), g[u] = 1 == s ? A : maxArray(w), "data" != c[0]) {
-                                var k = 0,
-                                    T = [];
-                                T[0] = 0;
-                                var _ = 0;
+                            if (i[A].push(w), g[u] = 1 == s ? w : maxArray(k), "data" != c[0]) {
+                                var _ = 0,
+                                    O = [];
+                                O[0] = 0;
+                                var T = 0;
                                 for (h = 0; h < c.length; h++)
                                     if ("undefined" != n[u][c[h]] && null != n[u][c[h]]) try {
-                                        l[_].push(n[u][c[h]]), 1 == s ? k += parseFloat(n[u][c[h]]) : (k[h] = 0, parseFloat(n[u][c[h]]) > 0 && (T[h] = parseFloat(n[u][c[h]]))), _++
+                                        l[T].push(n[u][c[h]]), 1 == s ? _ += parseFloat(n[u][c[h]]) : (_[h] = 0, parseFloat(n[u][c[h]]) > 0 && (O[h] = parseFloat(n[u][c[h]]))), T++
                                     } catch (t) {}
-                                    m[u] = 1 == s ? k : maxArray(T)
+                                    m[u] = 1 == s ? _ : maxArray(O)
                             }
-                            A
+                            w
                         } else i[0].push(n[u][1]), g[u] = n[u][1], n[u][1]
                     }
                     var C = new Array,
@@ -843,7 +843,7 @@ var $POTATO = function() {
                             borderWidth: 0,
                             borderColor: "transparent",
                             fill: !1,
-                            data: i[O]
+                            data: i[A]
                         }
                     }
                     if ("true" == e.legendDisplay) {
@@ -863,7 +863,7 @@ var $POTATO = function() {
                     if ("bar" == e.chartType) {
                         var F = 1.2;
                         "" != e.label2String && (F = 2);
-                        var D = [{
+                        var L = [{
                                 type: "linear",
                                 position: "left",
                                 id: "y-axis-1",
@@ -904,7 +904,7 @@ var $POTATO = function() {
                                     fontSize: e.label2FontSize
                                 }
                             }],
-                            L = {
+                            P = {
                                 duration: 500,
                                 easing: "easeOutQuart",
                                 onComplete: function() {
@@ -926,7 +926,7 @@ var $POTATO = function() {
                                     })
                                 }
                             }
-                    } else D = [], L = {
+                    } else L = [], P = {
                         duration: 500,
                         easing: "easeOutQuart",
                         onComplete: function() {
@@ -941,7 +941,7 @@ var $POTATO = function() {
                         }
                     };
                     "true" == e.display ? e.display = !0 : e.display = !1;
-                    var P = {
+                    var D = {
                             hover: {
                                 animationDuration: 1,
                                 onHover: function(t, i) {
@@ -992,14 +992,14 @@ var $POTATO = function() {
                                         minRotation: e.xlabelAngle
                                     }
                                 }],
-                                yAxes: D
+                                yAxes: L
                             },
                             tooltips: {
                                 enabled: d
                             },
                             responsive: !0,
                             maintainAspectRatio: !1,
-                            animation: L
+                            animation: P
                         },
                         N = (t = "<canvas id='canvas-" + o + "' style='background:" + e.background + "'></canvas>", document.getElementById("div_chart_" + o));
                     N.innerHTML = "", $("#div_" + o).show().css({
@@ -1007,16 +1007,16 @@ var $POTATO = function() {
                         height: e.height + "px",
                         border: e.border
                     });
-                    var R = "100%";
-                    n.length > 50 && (R = "130%"), n.length > 100 && (R = "150%"), n.length > 150 && (R = "180%"), n.length > 200 && (R = "250%"), n.length > 250 && (R = "300%"), n.length > 300 && (R = "350%"), n.length > 350 && (R = "400%"), n.length > 400 && (R = "500%"), $("#div_chart_" + o).html(t).css({
-                        width: R
+                    var H = "100%";
+                    n.length > 50 && (H = "130%"), n.length > 100 && (H = "150%"), n.length > 150 && (H = "180%"), n.length > 200 && (H = "250%"), n.length > 250 && (H = "300%"), n.length > 300 && (H = "350%"), n.length > 350 && (H = "400%"), n.length > 400 && (H = "500%"), $("#div_chart_" + o).html(t).css({
+                        width: H
                     });
-                    var H = document.getElementById("canvas-" + o);
+                    var z = document.getElementById("canvas-" + o);
                     try {
-                        var z = e.name;
-                        null == z && (z = "");
-                        var X = document.createElement("span");
-                        X.innerText = z, X.style.fontSize = e.nameFontSize, N.appendChild(X), $("#div_" + o + " span").css({
+                        var M = e.name;
+                        null == M && (M = "");
+                        var R = document.createElement("span");
+                        R.innerText = M, R.style.fontSize = e.nameFontSize, N.appendChild(R), $("#div_" + o + " span").css({
                             position: "absolute",
                             left: e.width / 6 + "px",
                             top: 2 * -e.fontSize + "px",
@@ -1024,17 +1024,17 @@ var $POTATO = function() {
                             textShadow: "-1px -1px 1px #fff, 1px 1px 1px grey"
                         })
                     } catch (t) {}
-                    if ("bar" == e.chartType) new Chart(H, {
+                    if ("bar" == e.chartType) new Chart(z, {
                         type: e.chartType,
-                        options: P,
+                        options: D,
                         data: {
                             labels: p,
                             datasets: C
                         }
                     });
-                    else new Chart(H, {
+                    else new Chart(z, {
                         type: "horizontalBar",
-                        options: P,
+                        options: D,
                         data: {
                             labels: p,
                             datasets: [{
@@ -2476,10 +2476,10 @@ var $POTATO = function() {
                                 }
                             }
                             if (null != g && "null" != u)
-                                for (var x = (String(u).match(/AND/g) || []).length, S = String(u).split("AND"), A = 0; A <= x; A++) {
-                                    var w = String(S.slice(A, A + 1)).split(":"),
-                                        O = new Function(w.slice(1, 2));
-                                    "null" != String(w.slice(0, 1)).replace(/\s+/g, "") && (f[String(w.slice(0, 1)).replace(/\s+/g, "")] = O())
+                                for (var x = (String(u).match(/AND/g) || []).length, S = String(u).split("AND"), w = 0; w <= x; w++) {
+                                    var k = String(S.slice(w, w + 1)).split(":"),
+                                        A = new Function(k.slice(1, 2));
+                                    "null" != String(k.slice(0, 1)).replace(/\s+/g, "") && (f[String(k.slice(0, 1)).replace(/\s+/g, "")] = A())
                                 }
                             if (null != m) $O$P.prototype._rp_(m, f, function(t) {
                                 var i = JSON.parse(t),
@@ -2548,19 +2548,19 @@ var $POTATO = function() {
                             });
                             else {
                                 b = JSON.parse(s);
-                                var k = "<table class='potato-list-table' id='list-" + o + "' >",
-                                    T = 0;
-                                for (e in k += "<tr>", b[0]) "" != b[0][e] ? k += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + b[0][e] + "</th>" : k += "<th style='display:none'>" + b[0][e] + "</th>", T++;
-                                for (n in k += "</tr>", b)
+                                var _ = "<table class='potato-list-table' id='list-" + o + "' >",
+                                    O = 0;
+                                for (e in _ += "<tr>", b[0]) "" != b[0][e] ? _ += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + b[0][e] + "</th>" : _ += "<th style='display:none'>" + b[0][e] + "</th>", O++;
+                                for (n in _ += "</tr>", b)
                                     if ("undefined" != b[n][0] && null != b[n][0] && n > 0) {
-                                        k += "<tr>";
-                                        for (var _ = 0; _ < T; _++) "" != b[0][_] ? k += "<td>" + b[n][_] + "</td>" : k += "<td style='display:none'>" + b[n][_] + "</td>";
-                                        k += "</tr>"
+                                        _ += "<tr>";
+                                        for (var T = 0; T < O; T++) "" != b[0][T] ? _ += "<td>" + b[n][T] + "</td>" : _ += "<td style='display:none'>" + b[n][T] + "</td>";
+                                        _ += "</tr>"
                                     }
-                                k += "</table>", document.getElementById("div-" + o).style.height = "0px";
+                                _ += "</table>", document.getElementById("div-" + o).style.height = "0px";
                                 var C = String(c).split("px"),
                                     I = String(h).split("px");
-                                pimsListObject = document.getElementById("div-" + o), $("#div-" + o).html(k).css({
+                                pimsListObject = document.getElementById("div-" + o), $("#div-" + o).html(_).css({
                                     transition: "height 0.1s linear",
                                     position: "absolute",
                                     left: events.clientLeft + parseFloat(I.slice(0, 1)) + "px",
@@ -2750,9 +2750,9 @@ var $POTATO = function() {
                             }
                             if (null != o && "null" != p)
                                 for (var v = (String(p).match(/AND/g) || []).length, x = String(p).split("AND"), S = 0; S <= v; S++) {
-                                    var A = String(x.slice(S, S + 1)).split(":"),
-                                        w = new Function(A.slice(1, 2));
-                                    "null" != String(A.slice(0, 1)).replace(/\s+/g, "") && (m[String(A.slice(0, 1)).replace(/\s+/g, "")] = w())
+                                    var w = String(x.slice(S, S + 1)).split(":"),
+                                        k = new Function(w.slice(1, 2));
+                                    "null" != String(w.slice(0, 1)).replace(/\s+/g, "") && (m[String(w.slice(0, 1)).replace(/\s+/g, "")] = k())
                                 }
                             $O$P.prototype._rp_(s, m, function(t) {
                                 var i = JSON.parse(t);
@@ -2915,8 +2915,8 @@ var $POTATO = function() {
                 return document.getElementById(this.x).options[document.getElementById(this.x).selectedIndex].text
             },
             _p_: function(t) {
-                var e, i, n, l, a, r, o, s, d, c, h, u, p, g, m, f, y, b, v, x, $, S, A, w, O, k, T, _, C, I, E, B, F, D, L, P, N, R, H, z, X, M, W, j, V, U, K, Y, q, G, J, Q, Z, tt, et, it, nt, lt, at, rt, ot, st, dt, ct, ht, ut, pt, gt, mt, ft, yt, bt, vt, xt, $t, St, At, wt, Ot, kt, Tt, _t, Ct, It, Et, Bt, Ft, Dt, Lt, Pt, Nt, Rt, Ht, zt, Xt, Mt, Wt, jt, Vt, Ut, Kt, Yt, qt, Gt, Jt, Qt, Zt, te, ee, ie, ne, le, ae, re, oe, se, de, ce, he, ue, pe = new Array;
-                return this.clearArrays(), t(), null == (qt = css.textTransform) && (qt = "none"), e = css.background, i = css.border, n = css.borderRadius, l = css.boxShadow, null == (a = events.callback) && (a = this.dummy()), null == (r = attr.canvas) && (r = "chart"), null == (o = param.cell) && (o = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (f = css.colorIndex) && (f = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (h = attr.className) && (h = "pimsClassName"), null == (u = events.click) && (u = this.dummy()), null == (p = attr.cls) && (p = ""), null == (y = attr.container) && (y = "container"), m = css.color, null == (b = css.cursor) && (b = "default"), null == (v = css.dataFontSize) && (v = 12), null == (x = attr.dataLabel) && (x = "data"), null == ($ = attr.dataLabel2) && ($ = "data"), null == (S = attr.disabled) && (S = !1), A = css.display, null == (w = css.displayKey) && (w = "none"), null == (O = param.editWidth) && (O = 100), null == (k = param.fieldClass) && (k = 0), P = css.float, T = css.fontColorTD, _ = css.fontColorTH, C = css.fontFamily, I = css.fontFamilyTD, E = css.fontFamilyTH, B = css.fontSize, F = css.fontSizeTD, D = css.fontSizeTH, N = css.fontWeight, null == (L = attr.format) && (L = "yy-mm-dd"), null == (R = param.header) && (R = "0"), H = css.height, null == (z = css.heightTable) && (z = 450), null == (X = events.hover) && (X = this.dummy()), M = css.hoverColor, null == (W = css.hoverBgColor) && (W = "null"), j = attr.hoverId, null == (V = attr.hoverText) && (V = ""), null == (K = css.hoverHeight) && (K = 30), null == (U = css.hoverWidth) && (U = ""), null == (Y = param.htm) && (Y = "config/keypad.htm"), q = attr.id, null == (G = param.idCol) && (G = 0), image = attr.image, null == image && (image = "nil 0 0"), J = attr.imageDir, null == (Q = css.imgWidth) && (Q = 45), null == (Z = css.imgHeight) && (Z = 45), null == (tt = events.keyup) && (tt = this.dummy()), null == (nt = css.labelFontSize) && (nt = 12), null == (lt = css.label2FontSize) && (lt = 12), null == (et = attr.labelString) && (et = ""), null == (it = attr.label2String) && (it = ""), ot = css.left, null == (st = css.leftKey) && (st = 0), null == (at = css.legendDisplay) && (at = !1), null == (rt = css.legendPosition) && (rt = "bottom"), null == (dt = events.listClick) && (dt = this.dummy()), ct = css.listHeight, ht = css.listLeft, pt = css.listWidth, ut = css.listTop, gt = css.margin, mt = css.marginBottom, wt = css.marginLeft, ft = css.marginRight, Ot = css.marginTop, null == (vt = param.markSymbol) && (vt = ""), null == (yt = param.matchCol) && (yt = "-"), null == (bt = param.matchValue) && (bt = "-"), null == (At = css.marginKey) && (At = "0px 0px 0px 0px"), null == (xt = param.menuModel) && (xt = "null"), null == ($t = param.menuTitle) && ($t = "null"), kt = param.model, null == (St = attr.multiple) && (St = !1), Tt = attr.name, null == (_t = attr.onscroll) && (_t = this.dummy()), Ct = css.padding, css.paddingBottom, It = css.paddingLeft, css.paddingRight, Et = css.paddingTop, null == (Bt = css.pointBorderColorIndex) && (Bt = ["#000000"]), null == (Ft = css.pointBorderDash) && (Ft = [0]), null == (Dt = css.pointBorderWidth) && (Dt = [1]), null == (Lt = css.pointColorIndex) && (Lt = ["#c5ffb3"]), null == (Pt = css.pointRadius) && (Pt = ["5"]), null == (Nt = css.pointStyle) && (Nt = ["triangle"]), Rt = css.position, null == (Ht = param.row) && (Ht = "0"), null == (zt = param.selectCol) && (zt = ""), null == (Xt = param.selectColumn) && (Xt = ""), null == (Mt = css.showDay) && (Mt = !1), null == (Wt = attr.stacked) && (Wt = !1), null == (jt = attr.tableId) && (jt = "tableId"), null == (Ut = param.targetId) && (Ut = 0), null == (Kt = attr.targetIndex) && (Kt = 0), null == (Vt = param.targetColumn) && (Vt = ""), null == (pe = param.targetCol) && (pe = ""), null == (Yt = attr.targetColor) && (Yt = "WHITE"), Gt = css.textAlign, null == (Jt = attr.title) && (Jt = ""), null == (Qt = css.titleFontSize) && (Qt = 25), null == (Zt = attr.tooltips) && (Zt = !0), te = css.top, null == (ee = css.topKey) && (ee = 0), null == (ie = events.trigger) && (ie = "ondblclick"), null == (ne = attr.type) && (ne = "text"), null == (le = attr.value) && (le = ""), null == (oe = param.whereClass) && (oe = 0), ae = css.width, null == (re = css.widthTable) && (re = 130), null == (se = css.xAxesFontSize) && (se = 12), null == (de = css.xlabelAngle) && (de = 0), null == (ce = css.yAxesFontSize) && (ce = 12), null == (he = css.y2AxesFontSize) && (he = 12), null == (ue = attr.y2AxesType) && (ue = ""), {
+                var e, i, n, l, a, r, o, s, d, c, h, u, p, g, m, f, y, b, v, x, $, S, w, k, A, _, O, T, C, I, E, B, F, L, P, D, N, H, z, M, R, X, W, j, V, K, U, Y, q, G, J, Q, Z, tt, et, it, nt, lt, at, rt, ot, st, dt, ct, ht, ut, pt, gt, mt, ft, yt, bt, vt, xt, $t, St, wt, kt, At, _t, Ot, Tt, Ct, It, Et, Bt, Ft, Lt, Pt, Dt, Nt, Ht, zt, Mt, Rt, Xt, Wt, jt, Vt, Kt, Ut, Yt, qt, Gt, Jt, Qt, Zt, te, ee, ie, ne, le, ae, re, oe, se, de, ce, he, ue, pe = new Array;
+                return this.clearArrays(), t(), null == (qt = css.textTransform) && (qt = "none"), e = css.background, i = css.border, n = css.borderRadius, l = css.boxShadow, null == (a = events.callback) && (a = this.dummy()), null == (r = attr.canvas) && (r = "chart"), null == (o = param.cell) && (o = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (f = css.colorIndex) && (f = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (h = attr.className) && (h = "pimsClassName"), null == (u = events.click) && (u = this.dummy()), null == (p = attr.cls) && (p = ""), null == (y = attr.container) && (y = "container"), m = css.color, null == (b = css.cursor) && (b = "default"), null == (v = css.dataFontSize) && (v = 12), null == (x = attr.dataLabel) && (x = "data"), null == ($ = attr.dataLabel2) && ($ = "data"), null == (S = attr.disabled) && (S = !1), w = css.display, null == (k = css.displayKey) && (k = "none"), null == (A = param.editWidth) && (A = 100), null == (_ = param.fieldClass) && (_ = 0), D = css.float, O = css.fontColorTD, T = css.fontColorTH, C = css.fontFamily, I = css.fontFamilyTD, E = css.fontFamilyTH, B = css.fontSize, F = css.fontSizeTD, L = css.fontSizeTH, N = css.fontWeight, null == (P = attr.format) && (P = "yy-mm-dd"), null == (H = param.header) && (H = "0"), z = css.height, null == (M = css.heightTable) && (M = 450), null == (R = events.hover) && (R = this.dummy()), X = css.hoverColor, null == (W = css.hoverBgColor) && (W = "null"), j = attr.hoverId, null == (V = attr.hoverText) && (V = ""), null == (U = css.hoverHeight) && (U = 30), null == (K = css.hoverWidth) && (K = ""), null == (Y = param.htm) && (Y = "config/keypad.htm"), q = attr.id, null == (G = param.idCol) && (G = 0), image = attr.image, null == image && (image = "nil 0 0"), J = attr.imageDir, null == (Q = css.imgWidth) && (Q = 45), null == (Z = css.imgHeight) && (Z = 45), null == (tt = events.keyup) && (tt = this.dummy()), null == (nt = css.labelFontSize) && (nt = 12), null == (lt = css.label2FontSize) && (lt = 12), null == (et = attr.labelString) && (et = ""), null == (it = attr.label2String) && (it = ""), ot = css.left, null == (st = css.leftKey) && (st = 0), null == (at = css.legendDisplay) && (at = !1), null == (rt = css.legendPosition) && (rt = "bottom"), null == (dt = events.listClick) && (dt = this.dummy()), ct = css.listHeight, ht = css.listLeft, pt = css.listWidth, ut = css.listTop, gt = css.margin, mt = css.marginBottom, kt = css.marginLeft, ft = css.marginRight, At = css.marginTop, null == (vt = param.markSymbol) && (vt = ""), null == (yt = param.matchCol) && (yt = "-"), null == (bt = param.matchValue) && (bt = "-"), null == (wt = css.marginKey) && (wt = "0px 0px 0px 0px"), null == (xt = param.menuModel) && (xt = "null"), null == ($t = param.menuTitle) && ($t = "null"), _t = param.model, null == (St = attr.multiple) && (St = !1), Ot = attr.name, null == (Tt = attr.onscroll) && (Tt = this.dummy()), Ct = css.padding, css.paddingBottom, It = css.paddingLeft, css.paddingRight, Et = css.paddingTop, null == (Bt = css.pointBorderColorIndex) && (Bt = ["#000000"]), null == (Ft = css.pointBorderDash) && (Ft = [0]), null == (Lt = css.pointBorderWidth) && (Lt = [1]), null == (Pt = css.pointColorIndex) && (Pt = ["#c5ffb3"]), null == (Dt = css.pointRadius) && (Dt = ["5"]), null == (Nt = css.pointStyle) && (Nt = ["triangle"]), Ht = css.position, null == (zt = param.row) && (zt = "0"), null == (Mt = param.selectCol) && (Mt = ""), null == (Rt = param.selectColumn) && (Rt = ""), null == (Xt = css.showDay) && (Xt = !1), null == (Wt = attr.stacked) && (Wt = !1), null == (jt = attr.tableId) && (jt = "tableId"), null == (Kt = param.targetId) && (Kt = 0), null == (Ut = attr.targetIndex) && (Ut = 0), null == (Vt = param.targetColumn) && (Vt = ""), null == (pe = param.targetCol) && (pe = ""), null == (Yt = attr.targetColor) && (Yt = "WHITE"), Gt = css.textAlign, null == (Jt = attr.title) && (Jt = ""), null == (Qt = css.titleFontSize) && (Qt = 25), null == (Zt = attr.tooltips) && (Zt = !0), te = css.top, null == (ee = css.topKey) && (ee = 0), null == (ie = events.trigger) && (ie = "ondblclick"), null == (ne = attr.type) && (ne = "text"), null == (le = attr.value) && (le = ""), null == (oe = param.whereClass) && (oe = 0), ae = css.width, null == (re = css.widthTable) && (re = 130), null == (se = css.xAxesFontSize) && (se = 12), null == (de = css.xlabelAngle) && (de = 0), null == (ce = css.yAxesFontSize) && (ce = 12), null == (he = css.y2AxesFontSize) && (he = 12), null == (ue = attr.y2AxesType) && (ue = ""), {
                     background: e,
                     border: i,
                     borderRadius: n,
@@ -2940,33 +2940,33 @@ var $POTATO = function() {
                     dataLabel: x,
                     dataLabel2: $,
                     disabled: S,
-                    display: A,
-                    displayKey: w,
-                    editWidth: O,
+                    display: w,
+                    displayKey: k,
+                    editWidth: A,
                     field: field,
-                    fieldClass: k,
+                    fieldClass: _,
                     fieldOther: fieldOther,
-                    float: P,
-                    fontColorTD: T,
-                    fontColorTH: _,
+                    float: D,
+                    fontColorTD: O,
+                    fontColorTH: T,
                     fontFamilyTD: I,
                     fontFamilyTH: E,
                     fontFamily: C,
                     fontSize: B,
                     fontSizeTD: F,
-                    fontSizeTH: D,
+                    fontSizeTH: L,
                     fontWeight: N,
-                    format: L,
-                    header: R,
-                    height: H,
-                    heightTable: z,
-                    hover: X,
+                    format: P,
+                    header: H,
+                    height: z,
+                    heightTable: M,
+                    hover: R,
                     hoverBgColor: W,
-                    hoverColor: M,
-                    hoverHeight: K,
+                    hoverColor: X,
+                    hoverHeight: U,
                     hoverId: j,
                     hoverText: V,
-                    hoverWidth: U,
+                    hoverWidth: K,
                     htm: Y,
                     id: q,
                     idCol: G,
@@ -2988,43 +2988,43 @@ var $POTATO = function() {
                     listLeft: ht,
                     listWidth: pt,
                     listTop: ut,
-                    marginKey: At,
+                    marginKey: wt,
                     markSymbol: vt,
                     margin: gt,
                     marginBottom: mt,
-                    marginLeft: wt,
+                    marginLeft: kt,
                     marginRight: ft,
-                    marginTop: Ot,
+                    marginTop: At,
                     matchCol: yt,
                     matchValue: bt,
                     menuModel: xt,
                     menuTitle: $t,
-                    model: kt,
+                    model: _t,
                     multiple: St,
-                    name: Tt,
-                    onscroll: _t,
+                    name: Ot,
+                    onscroll: Tt,
                     padding: Ct,
                     paddingLeft: It,
                     paddingTop: Et,
                     params: params,
                     pointBorderColorIndex: Bt,
                     pointBorderDash: Ft,
-                    pointBorderWidth: Dt,
-                    pointColorIndex: Lt,
-                    pointRadius: Pt,
+                    pointBorderWidth: Lt,
+                    pointColorIndex: Pt,
+                    pointRadius: Dt,
                     pointStyle: Nt,
-                    position: Rt,
-                    row: Ht,
-                    selectCol: zt,
-                    selectColumn: Xt,
-                    showDay: Mt,
+                    position: Ht,
+                    row: zt,
+                    selectCol: Mt,
+                    selectColumn: Rt,
+                    showDay: Xt,
                     stacked: Wt,
                     tableId: jt,
-                    targetIndex: Kt,
+                    targetIndex: Ut,
                     targetColor: Yt,
                     targetColumn: Vt,
                     targetCol: pe,
-                    targetId: Ut,
+                    targetId: Kt,
                     textAlign: Gt,
                     textTransform: qt,
                     title: Jt,
@@ -3316,26 +3316,26 @@ var $POTATO = function() {
                 null == $ && ($ = "_b_ Chart");
                 var S = l.getAttribute("y2AxesType");
                 null == S && (S = "line");
-                var A = l.getAttribute("click");
+                var w = l.getAttribute("click");
+                if (null != w) {
+                    var k = l.localName;
+                    n[String(k)] = new Function(w)
+                }
+                var A = l.getAttribute("hover");
                 if (null != A) {
-                    var w = l.localName;
-                    n[String(w)] = new Function(A)
+                    k = l.localName;
+                    i[String(k)] = new Function(A)
                 }
-                var O = l.getAttribute("hover");
-                if (null != O) {
-                    w = l.localName;
-                    i[String(w)] = new Function(O)
-                }
-                var k = l.getAttribute("imageDir");
-                if (null == k) k = "null";
+                var _ = l.getAttribute("imageDir");
+                if (null == _) _ = "null";
                 else {
-                    var T = new Function(k);
-                    k = T()
+                    var O = new Function(_);
+                    _ = O()
                 }
-                _ = 'dataLabel:"-"';
+                T = 'dataLabel:"-"';
                 try {
-                    var _ = l.getAttribute("params");
-                    null == _ && (_ = 'dataLabel:"-"')
+                    var T = l.getAttribute("params");
+                    null == T && (T = 'dataLabel:"-"')
                 } catch (t) {}
                 var C = new Function(l.getAttribute("callback"));
                 try {
@@ -3367,26 +3367,26 @@ var $POTATO = function() {
                 }
                 null != F && "undefined" != F || null == (F = l.getAttribute("y2AxesTitle")) && (F = "");
                 try {
-                    D = (D = new Function(l.getAttribute("showDay")))()
-                } catch (t) {
-                    var D;
-                    null == (D = l.getAttribute("showDay")) && (D = !0)
-                }
-                null != D && "undefined" != D || null == (D = l.getAttribute("showDay")) && (D = !0);
-                try {
-                    L = (L = new Function(l.getAttribute("height")))()
+                    L = (L = new Function(l.getAttribute("showDay")))()
                 } catch (t) {
                     var L;
-                    null == (L = l.getAttribute("height")) && (L = 350)
+                    null == (L = l.getAttribute("showDay")) && (L = !0)
                 }
-                null != L && "undefined" != L || null == (L = l.getAttribute("height")) && (L = 350);
+                null != L && "undefined" != L || null == (L = l.getAttribute("showDay")) && (L = !0);
                 try {
-                    P = (P = new Function(l.getAttribute("width")))()
+                    P = (P = new Function(l.getAttribute("height")))()
                 } catch (t) {
                     var P;
-                    null == (P = l.getAttribute("width")) && (P = 600)
+                    null == (P = l.getAttribute("height")) && (P = 350)
                 }
-                null != P && "undefined" != P || null == (P = l.getAttribute("width")) && (P = 600);
+                null != P && "undefined" != P || null == (P = l.getAttribute("height")) && (P = 350);
+                try {
+                    D = (D = new Function(l.getAttribute("width")))()
+                } catch (t) {
+                    var D;
+                    null == (D = l.getAttribute("width")) && (D = 600)
+                }
+                null != D && "undefined" != D || null == (D = l.getAttribute("width")) && (D = 600);
                 try {
                     N = (N = new Function(l.getAttribute("xlabelAngle")))()
                 } catch (t) {
@@ -3395,63 +3395,63 @@ var $POTATO = function() {
                 }
                 null != N && "undefined" != N || null == (N = l.getAttribute("xlabelAngle")) && (N = 0);
                 try {
-                    R = (R = new Function(l.getAttribute("dataLabel")))()
-                } catch (t) {
-                    var R;
-                    null == (R = l.getAttribute("dataLabel")) && (R = "data")
-                }
-                null != R && "undefined" != R || null == (R = l.getAttribute("dataLabel")) && (R = "data");
-                try {
-                    H = (H = new Function(l.getAttribute("dataLabel2")))()
+                    H = (H = new Function(l.getAttribute("dataLabel")))()
                 } catch (t) {
                     var H;
-                    null == (H = l.getAttribute("dataLabel2")) && (H = "data")
+                    null == (H = l.getAttribute("dataLabel")) && (H = "data")
                 }
-                null != H && "undefined" != H || null == (H = l.getAttribute("dataLabel2")) && (H = "data");
+                null != H && "undefined" != H || null == (H = l.getAttribute("dataLabel")) && (H = "data");
                 try {
-                    var z = new Function(l.getAttribute("colorIndex"));
-                    z = String(z()).split(",")
+                    z = (z = new Function(l.getAttribute("dataLabel2")))()
                 } catch (t) {
-                    try {
-                        z = l.getAttribute("colorIndex").split(",")
-                    } catch (t) {}
-                    null == z && (z = ["#ffcfcf", "#ffbe42", "#fff630", "#90ff39", "#01ff1f", "#2affc4", "#15beff", "#a4b3ff", "#b54aff", "#e5c0ff", "#f32eff", "#ffc4f4", "#dbd6da", "#ffffff"])
+                    var z;
+                    null == (z = l.getAttribute("dataLabel2")) && (z = "data")
                 }
-                if (null == z || "undefined" == z) {
-                    try {
-                        z = String(l.getAttribute("colorIndex")).split(",")
-                    } catch (t) {}
-                    null == z && (z = ["#ffcfcf", "#ffbe42", "#fff630", "#90ff39", "#01ff1f", "#2affc4", "#15beff", "#a4b3ff", "#b54aff", "#e5c0ff", "#f32eff", "#ffc4f4", "#dbd6da", "#ffffff"])
-                }
+                null != z && "undefined" != z || null == (z = l.getAttribute("dataLabel2")) && (z = "data");
                 try {
-                    var X = new Function(l.getAttribute("pointBorderColorIndex"));
-                    X = String(X()).split(",")
-                } catch (t) {
-                    try {
-                        X = String(l.getAttribute("pointBorderColorIndex")).split(",")
-                    } catch (t) {}
-                    null == X && (X = ["#000000", "#000000", "#000000", "#000000", "#000000"])
-                }
-                if (null == X || "undefined" == X) {
-                    try {
-                        X = l.getAttribute("pointBorderColorIndex").split(",")
-                    } catch (t) {}
-                    null == X && (X = ["#000000", "#000000", "#000000", "#000000", "#000000"])
-                }
-                try {
-                    var M = new Function(l.getAttribute("pointBorderDash"));
+                    var M = new Function(l.getAttribute("colorIndex"));
                     M = String(M()).split(",")
                 } catch (t) {
                     try {
-                        M = String(l.getAttribute("pointBorderDash")).split(",")
+                        M = l.getAttribute("colorIndex").split(",")
                     } catch (t) {}
-                    null == M && (M = [0, 0, 0, 0, 0])
+                    null == M && (M = ["#ffcfcf", "#ffbe42", "#fff630", "#90ff39", "#01ff1f", "#2affc4", "#15beff", "#a4b3ff", "#b54aff", "#e5c0ff", "#f32eff", "#ffc4f4", "#dbd6da", "#ffffff"])
                 }
                 if (null == M || "undefined" == M) {
                     try {
-                        M = l.getAttribute("pointBorderDash").split(",")
+                        M = String(l.getAttribute("colorIndex")).split(",")
                     } catch (t) {}
-                    null == M && (M = [0, 0, 0, 0, 0])
+                    null == M && (M = ["#ffcfcf", "#ffbe42", "#fff630", "#90ff39", "#01ff1f", "#2affc4", "#15beff", "#a4b3ff", "#b54aff", "#e5c0ff", "#f32eff", "#ffc4f4", "#dbd6da", "#ffffff"])
+                }
+                try {
+                    var R = new Function(l.getAttribute("pointBorderColorIndex"));
+                    R = String(R()).split(",")
+                } catch (t) {
+                    try {
+                        R = String(l.getAttribute("pointBorderColorIndex")).split(",")
+                    } catch (t) {}
+                    null == R && (R = ["#000000", "#000000", "#000000", "#000000", "#000000"])
+                }
+                if (null == R || "undefined" == R) {
+                    try {
+                        R = l.getAttribute("pointBorderColorIndex").split(",")
+                    } catch (t) {}
+                    null == R && (R = ["#000000", "#000000", "#000000", "#000000", "#000000"])
+                }
+                try {
+                    var X = new Function(l.getAttribute("pointBorderDash"));
+                    X = String(X()).split(",")
+                } catch (t) {
+                    try {
+                        X = String(l.getAttribute("pointBorderDash")).split(",")
+                    } catch (t) {}
+                    null == X && (X = [0, 0, 0, 0, 0])
+                }
+                if (null == X || "undefined" == X) {
+                    try {
+                        X = l.getAttribute("pointBorderDash").split(",")
+                    } catch (t) {}
+                    null == X && (X = [0, 0, 0, 0, 0])
                 }
                 try {
                     var W = new Function(l.getAttribute("pointBorderWidth"));
@@ -3498,28 +3498,28 @@ var $POTATO = function() {
                     } catch (t) {}
                     null == V && (V = ["triangle", "rect", "cross", "rectRot", "star", "dash"])
                 }
-                U = ["5", "5", "8", "8"];
+                K = ["5", "5", "8", "8"];
                 try {
-                    var U = l.getAttribute("pointRadius").split(",")
+                    var K = l.getAttribute("pointRadius").split(",")
                 } catch (t) {}
-                null == U && (U = ["5", "5", "8", "8"]), "false" != e && 0 != e && ("pie" != o ? pims(l.localName)._b_(function() {
-                    params = _ + "@" + l.localName, css = {
+                null == K && (K = ["5", "5", "8", "8"]), "false" != e && 0 != e && ("pie" != o ? pims(l.localName)._b_(function() {
+                    params = T + "@" + l.localName, css = {
                         display: c,
                         background: d,
                         border: s,
-                        height: L,
-                        width: P,
+                        height: P,
+                        width: D,
                         fontSize: x,
                         legendDisplay: u,
                         legendPosition: p,
-                        colorIndex: z,
-                        pointBorderColorIndex: X,
-                        pointBorderDash: M,
+                        colorIndex: M,
+                        pointBorderColorIndex: R,
+                        pointBorderDash: X,
                         pointBorderWidth: W,
                         pointColorIndex: j,
                         pointStyle: V,
-                        pointRadius: U,
-                        showDay: D,
+                        pointRadius: K,
+                        showDay: L,
                         xlabelAngle: N,
                         labelFontSize: g,
                         label2FontSize: m,
@@ -3536,12 +3536,12 @@ var $POTATO = function() {
                         y2AxesType: S,
                         stacked: I,
                         tooltips: E,
-                        dataLabel: R,
-                        dataLabel2: H
+                        dataLabel: H,
+                        dataLabel2: z
                     }, param = {
                         model: a,
                         data: r
-                    }, null != A && (events = {
+                    }, null != w && (events = {
                         callback: function() {
                             try {
                                 C()
@@ -3559,20 +3559,20 @@ var $POTATO = function() {
                         }
                     })
                 }) : pims(l.localName)._dn_(function() {
-                    params = _ + "@" + l.localName, css = {
+                    params = T + "@" + l.localName, css = {
                         border: s,
-                        height: L,
-                        width: P,
+                        height: P,
+                        width: D,
                         fontSize: x,
                         display: c,
                         dataFontSize: v,
                         titleFontSize: h
                     }, attr = {
-                        imageDir: k,
+                        imageDir: _,
                         title: $
                     }, param = {
                         model: a
-                    }, null != A && (events = {
+                    }, null != w && (events = {
                         callback: function() {
                             try {
                                 C()
@@ -3766,13 +3766,13 @@ var $POTATO = function() {
                 var S = i.getAttribute("editWidth");
                 null == S && (S = 50);
                 i.getAttribute("selectCols");
-                var A = i.getAttribute("targetCol");
-                null == A && (A = 0);
-                var w = i.getAttribute("markSymbol");
-                null == w && (w = "★"), null != i.getAttribute("selectCellCallback") && new Function(i.getAttribute("selectCellCallback"));
-                var O = new Function(i.getAttribute("callback")),
-                    k = i.getAttribute("multipleSelect"),
-                    T = ($ = i.getAttribute("editCell"), i.getAttribute("htm"));
+                var w = i.getAttribute("targetCol");
+                null == w && (w = 0);
+                var k = i.getAttribute("markSymbol");
+                null == k && (k = "★"), null != i.getAttribute("selectCellCallback") && new Function(i.getAttribute("selectCellCallback"));
+                var A = new Function(i.getAttribute("callback")),
+                    _ = i.getAttribute("multipleSelect"),
+                    O = ($ = i.getAttribute("editCell"), i.getAttribute("htm"));
                 pims(i.localName)._tb_({
                     FIELD: {
                         class: b
@@ -3781,7 +3781,7 @@ var $POTATO = function() {
                         class: v
                     }
                 }, function() {
-                    multipleSelect = k + "@" + i.localName, editCell = $ + "@" + i.localName, params = x + "@" + i.localName, css = {
+                    multipleSelect = _ + "@" + i.localName, editCell = $ + "@" + i.localName, params = x + "@" + i.localName, css = {
                         border: s,
                         borderRadius: d,
                         height: f,
@@ -3798,11 +3798,11 @@ var $POTATO = function() {
                         model: a,
                         data: r,
                         header: o,
-                        htm: T
+                        htm: O
                     }, events = {
                         callback: function(t, e) {
                             try {
-                                O()
+                                A()
                             } catch (t) {}
                         },
                         click: function(t, i, n, l) {
@@ -4118,12 +4118,12 @@ var $POTATO = function() {
                     x = this._se_a(e, t, "margin", "2px 2px 2px 2px"),
                     $ = this._se_a(e, t, "marginBottom", "2px"),
                     S = this._se_a(e, t, "marginLeft", "2px"),
-                    A = this._se_a(e, t, "marginRight", "2px"),
-                    w = this._se_a(e, t, "marginTop", "-10px"),
-                    O = this._se_a(e, t, "padding", "5px 0px 5px 5px"),
-                    k = this._se_a(e, t, "paddingBottom", "1px"),
-                    T = this._se_a(e, t, "paddingLeft", "1px"),
-                    _ = this._se_a(e, t, "paddingRight", "1px"),
+                    w = this._se_a(e, t, "marginRight", "2px"),
+                    k = this._se_a(e, t, "marginTop", "-10px"),
+                    A = this._se_a(e, t, "padding", "5px 0px 5px 5px"),
+                    _ = this._se_a(e, t, "paddingBottom", "1px"),
+                    O = this._se_a(e, t, "paddingLeft", "1px"),
+                    T = this._se_a(e, t, "paddingRight", "1px"),
                     C = this._se_a(e, t, "paddingTop", "1px"),
                     I = this._se_a(e, t, "textAlign", "center"),
                     E = this._se_a(e, t, "width", "100px"),
@@ -4151,12 +4151,12 @@ var $POTATO = function() {
                     margin: x,
                     marginBottom: $,
                     marginLeft: S,
-                    marginRight: A,
-                    marginTop: w,
-                    padding: O,
-                    paddingBottom: k,
-                    paddingLeft: T,
-                    paddingRight: _,
+                    marginRight: w,
+                    marginTop: k,
+                    padding: A,
+                    paddingBottom: _,
+                    paddingLeft: O,
+                    paddingRight: T,
                     paddingTop: C,
                     position: this._se_a(e, t, "position", "static"),
                     textAlign: I,
@@ -4194,33 +4194,33 @@ var $POTATO = function() {
                             "" == (b = this._se_a(y, e[t], "disabled", "false")) && (b = "true");
                             var v = e[t].getAttribute("id");
                             null == v && (v = String(f.slice(2, 3)).toLowerCase());
-                            var x, S, A = this._se_a(y, e[t], "hoverId", "potatoHoverText"),
-                                w = this._se_a(y, e[t], "hoverText", ""),
-                                O = (this._se_a(y, e[t], "left", "0px"), this._se_a(y, e[t], "top", "0px"), this._se_a(y, e[t], "position", "static"), this._se_a(y, e[t], "value", "")),
-                                k = e[t].getAttribute("submit"),
-                                T = e[t].getAttribute("fieldOther"),
-                                _ = e[t].getAttribute("params"),
+                            var x, S, w = this._se_a(y, e[t], "hoverId", "potatoHoverText"),
+                                k = this._se_a(y, e[t], "hoverText", ""),
+                                A = (this._se_a(y, e[t], "left", "0px"), this._se_a(y, e[t], "top", "0px"), this._se_a(y, e[t], "position", "static"), this._se_a(y, e[t], "value", "")),
+                                _ = e[t].getAttribute("submit"),
+                                O = e[t].getAttribute("fieldOther"),
+                                T = e[t].getAttribute("params"),
                                 C = e[t].getAttribute("whereClass"),
                                 I = this._css_(e[t], y);
                             pims(e[t].localName)._bt_(function() {
-                                if (where = C + "@" + e[t].localName, field = k + "@" + e[t].localName, fieldOther = T + "@" + e[t].localName, params = _ + "@" + e[t].localName, css = I, null != e[t].getAttribute("value") && null != e[t].getAttribute("image") ? attr = {
+                                if (where = C + "@" + e[t].localName, field = _ + "@" + e[t].localName, fieldOther = O + "@" + e[t].localName, params = T + "@" + e[t].localName, css = I, null != e[t].getAttribute("value") && null != e[t].getAttribute("image") ? attr = {
                                         disabled: b,
-                                        value: O,
+                                        value: A,
                                         image: e[t].getAttribute("image"),
-                                        hoverText: w,
-                                        hoverId: A,
+                                        hoverText: k,
+                                        hoverId: w,
                                         id: v
                                     } : null != e[t].getAttribute("value") && null == e[t].getAttribute("image") ? attr = {
                                         disabled: b,
                                         value: e[t].getAttribute("value"),
-                                        hoverText: w,
-                                        hoverId: A,
+                                        hoverText: k,
+                                        hoverId: w,
                                         id: v
                                     } : null == e[t].getAttribute("value") && null != e[t].getAttribute("image") && (attr = {
                                         disabled: b,
                                         image: e[t].getAttribute("image"),
-                                        hoverText: w,
-                                        hoverId: A,
+                                        hoverText: k,
+                                        hoverId: w,
                                         id: v
                                     }), null != e[t].getAttribute("click")) try {
                                     x = new Function(e[t].getAttribute("click")), null != e[t].getAttribute("callback") && (S = new Function(e[t].getAttribute("callback"))), events = {
@@ -4263,17 +4263,17 @@ var $POTATO = function() {
                             y = e[t].getAttribute("style");
                             var F = e[t].getAttribute("htm");
                             null == F && (F = "config/keypad.htm");
-                            var D = e[t].getAttribute("class");
-                            null == D && (D = "getFIELD"), $(e[t].localName).addClass(D);
-                            var L = new Function(e[t].getAttribute("change")),
-                                P = new Function(e[t].getAttribute("click"));
+                            var L = e[t].getAttribute("class");
+                            null == L && (L = "getFIELD"), $(e[t].localName).addClass(L);
+                            var P = new Function(e[t].getAttribute("change")),
+                                D = new Function(e[t].getAttribute("click"));
                             I = this._css_(e[t], y), B = this._attr_(e[t], y, f);
                             pims(e[t].localName)._kp_(function() {
                                 param = {
                                     htm: F
                                 }, css = I, attr = B, events = {
-                                    change: L,
-                                    click: P
+                                    change: P,
+                                    click: D
                                 }
                             })
                         }
@@ -4281,12 +4281,12 @@ var $POTATO = function() {
                             y = e[t].getAttribute("style");
                             var N = e[t].getAttribute("id");
                             null == N && (N = String(f.slice(2, 3)).toLowerCase());
-                            var R = this._se_a(y, e[t], "value", "0"),
-                                H = this._se_a(y, e[t], "hoverText", "potato"),
-                                z = e[t].getAttribute("model"),
-                                X = e[t].getAttribute("data"),
-                                M = e[t].getAttribute("class");
-                            null == M && (M = "getFIELD"), $(e[t].localName).addClass(M);
+                            var H = this._se_a(y, e[t], "value", "0"),
+                                z = this._se_a(y, e[t], "hoverText", "potato"),
+                                M = e[t].getAttribute("model"),
+                                R = e[t].getAttribute("data"),
+                                X = e[t].getAttribute("class");
+                            null == X && (X = "getFIELD"), $(e[t].localName).addClass(X);
                             var W = e[t].getAttribute("whereClass"),
                                 j = e[t].getAttribute("params"),
                                 V = e[t].getAttribute("onscroll");
@@ -4302,22 +4302,22 @@ var $POTATO = function() {
                                 i[String(p)] = new Function(ht)
                             }
                             e[t].getAttribute("listTop"), e[t].getAttribute("listLeft"), e[t].getAttribute("display");
-                            var U = String(e[t].localName);
-                            I = this._css_(e[t], y, U);
-                            pims(U)._lt_(function() {
+                            var K = String(e[t].localName);
+                            I = this._css_(e[t], y, K);
+                            pims(K)._lt_(function() {
                                 try {
-                                    where = W + "@" + U
+                                    where = W + "@" + K
                                 } catch (t) {}
                                 try {
-                                    params = j + "@" + U
+                                    params = j + "@" + K
                                 } catch (t) {}
                                 css = I, param = {
-                                    model: z,
-                                    data: X
+                                    model: M,
+                                    data: R
                                 }, attr = {
                                     onscroll: V,
-                                    value: R,
-                                    hoverText: H,
+                                    value: H,
+                                    hoverText: z,
                                     id: N
                                 }, events = {
                                     click: function(t, e, i) {
@@ -4334,8 +4334,8 @@ var $POTATO = function() {
                             })
                         }
                         if (f.slice(1, 2) == $O$V().m) {
-                            var K = e[t].getAttribute("background");
-                            null == K && (K = "#ffffff");
+                            var U = e[t].getAttribute("background");
+                            null == U && (U = "#ffffff");
                             var Y = e[t].getAttribute("border");
                             null == Y && (Y = "0px");
                             var q = e[t].getAttribute("model"),
@@ -4385,13 +4385,13 @@ var $POTATO = function() {
                             var mt = e[t].getAttribute("topTable"),
                                 ft = e[t].getAttribute("leftTable"),
                                 yt = e[t].getAttribute("display");
-                            U = String(e[t].localName);
-                            pims(U)._m_(function() {
+                            K = String(e[t].localName);
+                            pims(K)._m_(function() {
                                 try {
-                                    where = ut + "@" + U
+                                    where = ut + "@" + K
                                 } catch (t) {}
                                 try {
-                                    params = pt + "@" + U
+                                    params = pt + "@" + K
                                 } catch (t) {}
                                 css = {
                                     display: yt,
@@ -4402,12 +4402,12 @@ var $POTATO = function() {
                                     hoverBgColor: it,
                                     borderRadius: Z,
                                     border: Y,
-                                    background: K,
+                                    background: U,
                                     padding: J,
-                                    marginTop: mt + "_" + U,
-                                    marginLeft: ft + "_" + U,
-                                    widthTable: rt + "_" + U,
-                                    heightTable: ot + "_" + U
+                                    marginTop: mt + "_" + K,
+                                    marginLeft: ft + "_" + K,
+                                    widthTable: rt + "_" + K,
+                                    heightTable: ot + "_" + K
                                 }, param = {
                                     model: dt,
                                     menuTitle: G,
@@ -4448,10 +4448,10 @@ var $POTATO = function() {
                                 p = e[t].localName;
                                 o[String(p)] = new Function($t)
                             }
-                            var At = e[t].getAttribute("keyup");
-                            if (null != At) {
+                            var wt = e[t].getAttribute("keyup");
+                            if (null != wt) {
                                 p = e[t].localName;
-                                r[String(p)] = new Function(At)
+                                r[String(p)] = new Function(wt)
                             }
                             pims(e[t].localName)._tx_(function() {
                                 css = I, attr = B, events = {
@@ -4473,26 +4473,11 @@ var $POTATO = function() {
                                 }
                             })
                         }
-                        if ("DOUGHNUT" == f.slice(1, 2)) POTATO.elementdoughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(0) : $O$X.prototype.reloadDoughnut(0, "false");
-                        if ("DOUGHNUT1" == f.slice(1, 2)) POTATO.element1doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(1) : $O$X.prototype.reloadDoughnut(1, "false");
-                        if ("DOUGHNUT2" == f.slice(1, 2)) POTATO.element2doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(2) : $O$X.prototype.reloadDoughnut(2, "false");
-                        if ("DOUGHNUT3" == f.slice(1, 2)) POTATO.element3doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(3) : $O$X.prototype.reloadDoughnut(3, "false");
-                        if ("DOUGHNUT4" == f.slice(1, 2)) POTATO.element4doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(4) : $O$X.prototype.reloadDoughnut(4, "false");
-                        if ("DOUGHNUT5" == f.slice(1, 2)) POTATO.element5doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(5) : $O$X.prototype.reloadDoughnut(5, "false");
-                        if ("DOUGHNUT6" == f.slice(1, 2)) POTATO.element6doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(6) : $O$X.prototype.reloadDoughnut(6, "false");
-                        if ("DOUGHNUT7" == f.slice(1, 2)) POTATO.element7doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(7) : $O$X.prototype.reloadDoughnut(7, "false");
-                        if ("DOUGHNUT8" == f.slice(1, 2)) POTATO.element8doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(8) : $O$X.prototype.reloadDoughnut(8, "false");
-                        if ("DOUGHNUT9" == f.slice(1, 2)) POTATO.element9doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(9) : $O$X.prototype.reloadDoughnut(9, "false");
-                        if ("RADAR" == f.slice(1, 2)) POTATO.elementradar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(0) : $O$X.prototype.reloadRadar(0, "false");
-                        if ("RADAR1" == f.slice(1, 2)) POTATO.element1radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(1) : $O$X.prototype.reloadRadar(1, "false");
-                        if ("RADAR2" == f.slice(1, 2)) POTATO.element2radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(2) : $O$X.prototype.reloadRadar(2, "false");
-                        if ("RADAR3" == f.slice(1, 2)) POTATO.element3radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(3) : $O$X.prototype.reloadRadar(3, "false");
-                        if ("RADAR4" == f.slice(1, 2)) POTATO.element4radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(4) : $O$X.prototype.reloadRadar(4, "false");
-                        if ("RADAR5" == f.slice(1, 2)) POTATO.element5radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(5) : $O$X.prototype.reloadRadar(5, "false");
-                        if ("RADAR6" == f.slice(1, 2)) POTATO.element6radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(6) : $O$X.prototype.reloadRadar(6, "false");
-                        if ("RADAR7" == f.slice(1, 2)) POTATO.element7radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(7) : $O$X.prototype.reloadRadar(7, "false");
-                        if ("RADAR8" == f.slice(1, 2)) POTATO.element8radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(8) : $O$X.prototype.reloadRadar(8, "false");
-                        if ("RADAR9" == f.slice(1, 2)) POTATO.element9radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(9) : $O$X.prototype.reloadRadar(9, "false")
+                        if ("D" == f.slice(1, 2)) POTATO.elementdoughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(0) : $O$X.prototype.reloadDoughnut(0, "false");
+                        if ("D1" == f.slice(1, 2)) POTATO.element1doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(1) : $O$X.prototype.reloadDoughnut(1, "false");
+                        if ("D2" == f.slice(1, 2)) POTATO.element2doughnut = e[t], null == (g = e[t].getAttribute("onload")) && (g = "true"), "true" == g ? $O$X.prototype.reloadDoughnut(2) : $O$X.prototype.reloadDoughnut(2, "false");
+                        if ("R" == f.slice(1, 2)) POTATO.elementradar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(0) : $O$X.prototype.reloadRadar(0, "false");
+                        if ("R1" == f.slice(1, 2)) POTATO.element1radar = e[t], null == (m = e[t].getAttribute("onload")) && (m = "true"), "true" == m ? $O$X.prototype.reloadRadar(1) : $O$X.prototype.reloadRadar(1, "false")
                     }
                 }
             },
@@ -4606,7 +4591,7 @@ var $POTATO = function() {
                 for (var n = this._p_(i), l = this.getHTMLElement(), a = this.x, r = [
                         []
                     ], o = n.id, s = param.data, d = String(n.header).split(","), c = 0; c < $O$Array.length; c++) o == String($O$Array[c].bind) && (r[$O$Array[c].id] = $O$Array[c].value, 0);
-                var h = "<table id='" + n.id + "' style='border-collapse:collapse;width:99%'>";
+                var h = "<table class='potatoTableCss' id='" + n.id + "' style='border-collapse:collapse;width:99%'>";
                 null != n.model ? (l.createdCallback = function() {
                     this.innerHTML = '<div id="div-' + o + '" ></div> '
                 }, this._rp_(n.model, r, function(t) {
