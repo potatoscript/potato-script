@@ -1691,26 +1691,27 @@ var $POTATO = function() {
                 potato._ = this._p_(t);
                 var i = paramE.width,
                     n = paramE.indexCol,
-                    l = paramE.tool;
+                    l = paramE.tool,
+                    a = paramE.trigger;
                 e.id;
                 potato.table = document.getElementById(e.id);
                 document.getElementById(e.id);
-                var a = new Array;
-                a = paramE.editCol;
+                var r = new Array;
+                r = paramE.editCol;
                 e.id;
 
-                function r() {
+                function o() {
                     var t = document.getElementById(e.id);
                     $O$P.nodevalue = $O$S.prototype.l($O$V().lp);
-                    var r = "-";
+                    var a = "-";
                     try {
-                        r = t.rows[potato.ri].cells[e.matchCol].innerText
+                        a = t.rows[potato.ri].cells[e.matchCol].innerText
                     } catch (t) {}
                     var o = -1;
                     try {
-                        o = a.indexOf($(this).parent().children().index(this))
+                        o = r.indexOf($(this).parent().children().index(this))
                     } catch (t) {}
-                    if (!("-" != e.matchCol && r != e.matchValue || $(this).parent().children().index(this) != a && -1 == o && "any" != a)) {
+                    if (!("-" != e.matchCol && a != e.matchValue || $(this).parent().children().index(this) != r && -1 == o && "any" != r)) {
                         var s = 0,
                             d = this;
                         try {
@@ -1725,7 +1726,7 @@ var $POTATO = function() {
                         }
                         if (1 != s && "INPUT" != d.firstChild.nodeName && "IMG" != d.firstChild.nodeName) {
                             var h = document.createElement("input");
-                            if (h.select(), h.value = d.firstChild.nodeValue, h.setAttribute("autocomplete", "off"), h.style.width = i + "px", h.style.height = "25px", h.style.fontSize = "15px", h.style.fontWeight = "bold", h.style.background = "rgb(255,244,255)", "undefined" != d.firstChild.nodeValue && (d.replaceChild(h, d.firstChild), d.firstChild.select(), d.firstChild.focus()), "undefined" != l) {
+                            if (h.select(), h.value = t.rows[potato.ri].cells[potato.ci].innerText, h.setAttribute("autocomplete", "off"), h.style.width = i + "px", h.style.height = "25px", h.style.fontSize = "15px", h.style.fontWeight = "bold", h.style.background = "rgb(255,244,255)", "undefined" != d.firstChild.nodeValue && (d.replaceChild(h, d.firstChild), d.firstChild.select(), d.firstChild.focus()), "undefined" != l) {
                                 var u = document.createElement("div");
                                 u.innerHTML = '<div id="keypadtable"></div>', document.body.appendChild(u);
                                 var p = event.clientY + 20;
@@ -1752,7 +1753,7 @@ var $POTATO = function() {
                         potato.oldValue = t.rows[potato.ri].cells[potato.ci].innerText, potato.trigger = 1
                     }
                 });
-                for (var o = document.getElementById(e.id).getElementsByTagName("td"), s = 0; s < o.length; s++) o[s].onkeyup = function(t) {}, "dblclick" == e.trigger ? o[s].ondblclick = r : "click" == e.trigger ? o[s].onclick = r : o[s].ondblclick = r, o[s].onmousemove = function() {}
+                for (var s = document.getElementById(e.id).getElementsByTagName("td"), d = 0; d < s.length; d++) s[d].onkeyup = function(t) {}, "dblclick" == a ? s[d].ondblclick = o : "click" == a ? s[d].onclick = o : s[d].ondblclick = o, s[d].onmousemove = function() {}
             },
             _ect_: function(t) {
                 var e = this._p_(t);
