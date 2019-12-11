@@ -4545,15 +4545,15 @@ var $POTATO = function() {
             _tb_attr: function(t) {
                 var e = [],
                     i = String(t[0]).replace(/\s+/g, "");
-                if (-1 != String(i).indexOf(";")) {
-                    for (var n = String(t[0]).split("callback"), l = (String(n.slice(0, 1)).match(/;/g) || []).length, a = String(n.slice(0, 1)).split(";"), r = 0; r < l; r++)
+                if (-1 != String(i).indexOf(";"))
+                    for (var n = String(t[0]), l = (String(n).match(/;/g) || []).length, a = String(n).split(";"), r = 0; r < l; r++)
                         if (-1 != String(a.slice(r, r + 1)).indexOf(":")) {
                             var o = String(a.slice(r, r + 1)).split(":");
-                            "tool" != String(o.slice(0, 1)).replace(/\s+/g, "") ? e[String(o.slice(0, 1)).replace(/\s+/g, "")] = String(o.slice(1, 2)).replace(/\s+/g, "") : e[String(o.slice(0, 1)).replace(/\s+/g, "")] = o.slice(1, 2)
+                            if ("tool" != String(o.slice(0, 1)).replace(/\s+/g, "") && "callback" != String(o.slice(0, 1)).replace(/\s+/g, "") && (e[String(o.slice(0, 1)).replace(/\s+/g, "")] = String(o.slice(1, 2)).replace(/\s+/g, "")), "tool" == String(o.slice(0, 1)).replace(/\s+/g, "") && (e[String(o.slice(0, 1)).replace(/\s+/g, "")] = o.slice(1, 2)), "callback" == String(o.slice(0, 1)).replace(/\s+/g, "")) {
+                                n = String(t[0]).split("callback"), a = String(n.slice(1, 2));
+                                e.callback = "function" + String(a.substr(1)).split("function").slice(1, 2)
+                            }
                         }
-                    n = String(t[0]).split("callback"), a = String(n.slice(1, 2));
-                    e.callback = "function" + String(a.substr(1)).split("function").slice(1, 2)
-                }
                 return e
             },
             _tb_: function(t, i) {
