@@ -1700,7 +1700,7 @@ var $POTATO = function() {
                                 var p = event.clientY + 20;
                                 p > 300 && (p = event.clientY - 220);
                                 var g = event.clientX;
-                                g > 900 && (g = event.clientX - 100), keyID = "keypadtable", -1 != String(l).indexOf(".htm") ? $("#keypadtable").load(l) : (console.log(l), $("#keypadtable").html(l)), $("#keypadtable").css({
+                                g > 900 && (g = event.clientX - 100), keyID = "keypadtable", -1 != String(l).indexOf(".htm") ? $("#keypadtable").load(l) : $("#keypadtable").html(l), $("#keypadtable").css({
                                     width: "200px",
                                     height: "150px",
                                     margin: e.marginKey,
