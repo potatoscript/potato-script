@@ -1285,7 +1285,10 @@ var $POTATO = function() {
                     i = document.createTextNode(e.firstChild.value);
                 e.replaceChild(i, e.firstChild), t = 1, $("#keypadtable").hide(), potato.trigger = 0, $O$P.nodevalue = e.firstChild.nodeValue;
                 var n = potato.table;
-                potato._.callback(e.firstChild.nodeValue, potato.oldValue, n.cells[potato._.targetId].innerText, potato.ci)
+                potato._.callback(e.firstChild.nodeValue, potato.oldValue, n.cells[potato._.targetId].innerText, potato.ci);
+                try {
+                    document.getElementById(keyID).style.display = "none"
+                } catch (t) {}
             },
             closePad_backup: function(t, e) {
                 e = $O$U;
