@@ -1,3 +1,10 @@
+#mytable{
+	font-family:Tempus Sans ITC;
+}
+#mytable th{
+	background: yellow;
+}
+
 blue{
 	color:blue;
 }
