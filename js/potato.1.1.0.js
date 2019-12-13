@@ -1707,7 +1707,7 @@ var $POTATO = function() {
                         }
                         if (1 != s && "INPUT" != d.firstChild.nodeName && "IMG" != d.firstChild.nodeName) {
                             var u = document.createElement("input");
-                            if (u.select(), u.value = t.rows[potato.ri].cells[potato.ci].innerText, u.setAttribute("autocomplete", "off"), u.style.width = i + "px", u.style.height = "25px", u.style.fontSize = "15px", u.style.fontWeight = "bold", u.style.background = "rgb(255,244,255)", "undefined" != d.firstChild.nodeValue && (d.replaceChild(u, d.firstChild), d.firstChild.select(), d.firstChild.focus()), "undefined" != l) {
+                            if (u.select(), u.value = t.rows[potato.ri].cells[potato.ci].innerText, u.setAttribute("autocomplete", "off"), u.style.width = i, u.style.height = "25px", u.style.fontSize = "15px", u.style.fontWeight = "bold", u.style.background = "rgb(255,244,255)", "undefined" != d.firstChild.nodeValue && (d.replaceChild(u, d.firstChild), d.firstChild.select(), d.firstChild.focus()), "undefined" != l) {
                                 var p = document.createElement("div");
                                 p.innerHTML = '<div id="keypadtable" class="keypad"></div>', document.body.appendChild(p), $(".keypad").hide();
                                 var h = event.clientY + 20;
