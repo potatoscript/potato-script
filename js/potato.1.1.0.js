@@ -348,6 +348,7 @@ var $POTATO = function() {
             chartLabel: "",
             chartYvalue: "",
             chartXvalue: "",
+            edit: "off",
             log: "",
             model: "POTATO.php",
             response: "",
@@ -1291,8 +1292,9 @@ var $POTATO = function() {
                     }
             },
             closeEditCell: function() {
-                var e = $O$T,
-                    i = document.createTextNode(e.firstChild.value);
+                var e = $O$T;
+                potato.edit = "off";
+                var i = document.createTextNode(e.firstChild.value);
                 e.replaceChild(i, e.firstChild), t = 1, $("#keypadtable").hide(), potato.trigger = 0, $O$P.nodevalue = e.firstChild.nodeValue;
                 var n = potato.table;
                 potato._.callback(e.firstChild.nodeValue, potato.oldValue, n.cells[potato._.targetId].innerText, potato.ci);
@@ -1694,7 +1696,7 @@ var $POTATO = function() {
                     try {
                         d = s.indexOf($(this).parent().children().index(this))
                     } catch (t) {}
-                    if (!("-" != e.matchCol && a != e.matchValue || $(this).parent().children().index(this) != s && -1 == d && "any" != s)) {
+                    if ("off" != potato.edit && $O$T != this && potato.closeEditCell(), !("-" != e.matchCol && a != e.matchValue || $(this).parent().children().index(this) != s && -1 == d && "any" != s)) {
                         var c = 0,
                             u = this;
                         try {
@@ -1703,11 +1705,13 @@ var $POTATO = function() {
                             u.innerText = " "
                         }
                         if ($O$T = this, "INPUT" == u.firstChild.nodeName) {
+                            potato.edit = "off";
                             u = this;
                             var p = document.createTextNode(u.firstChild.value);
                             u.replaceChild(p, u.firstChild), c = 1, $("#keypadtable").hide(), potato.trigger = 0, $O$P.nodevalue = u.firstChild.nodeValue, e.callback(u.firstChild.nodeValue, potato.oldValue, t.rows[potato.ri].cells[n].innerText, potato.ci)
                         }
                         if (1 != c && "INPUT" != u.firstChild.nodeName && "IMG" != u.firstChild.nodeName) {
+                            potato.edit = "on";
                             var h = document.createElement("input");
                             if (h.select(), h.value = t.rows[potato.ri].cells[potato.ci].innerText, h.setAttribute("autocomplete", "off"), h.style.width = i, h.style.height = "25px", h.style.fontSize = "15px", h.style.fontWeight = "bold", h.style.background = "rgb(255,244,255)", "undefined" != u.firstChild.nodeValue && (u.replaceChild(h, u.firstChild), u.firstChild.select(), u.firstChild.focus()), "undefined" != l) {
                                 var g = document.createElement("div");
