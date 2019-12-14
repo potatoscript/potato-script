@@ -3775,8 +3775,10 @@ var $POTATO = function() {
                 var w = i.getAttribute("markSymbol");
                 null == w && (w = "★"), null != i.getAttribute("selectCellCallback") && new Function(i.getAttribute("selectCellCallback"));
                 var A = new Function(i.getAttribute("callback")),
-                    O = i.getAttribute("multipleSelect"),
-                    _ = ($ = i.getAttribute("editCell"), i.getAttribute("htm"));
+                    O = i.getAttribute("multipleSelect");
+                null == O && (O = i.getAttribute("selectMultiple"));
+                $ = i.getAttribute("editCell");
+                var _ = i.getAttribute("htm");
                 pims(i.localName)._tb_({
                     FIELD: {
                         class: b
