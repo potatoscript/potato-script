@@ -1,3 +1,20 @@
+/*
+    Copyright (C) 2019  LIM KIAN SENG
+    This library is free: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    
+    version 1.1.0 - enable the static data for OList, OTable and OChart 08th Nov 2019
+    version 1.1.1 - improve and add additional attribute to OList. OList now can use the
+                    header like OTable to create the header data (revised on 14th Dec 2019)
+*/
 var $POTATO = function() {
         return $O$I.init()
     },
