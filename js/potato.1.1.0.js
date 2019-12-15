@@ -123,7 +123,7 @@ var $POTATO = function() {
                 i = t.attrChange,
                 n = t.attrName,
                 l = t.target;
-            pt && (!l || l === e) && e.attributeChangedCallback && "style" !== n && e.attributeChangedCallback(n, i === t[A] ? null : t.prevValue, i === t[_] ? null : t.newValue)
+            pt && (!l || l === e) && e.attributeChangedCallback && "style" !== n && e.attributeChangedCallback(n, i === t[A] ? null : t.prevValue, i === t[T] ? null : t.newValue)
         }
 
         function d(t) {
@@ -147,7 +147,7 @@ var $POTATO = function() {
         }
 
         function p(t, e) {
-            J(t, e), b ? b.observe(t, rt) : (ct && (t.setAttribute = u, t[$] = y(t), t.addEventListener(I, m)), t.addEventListener(T, s)), t.createdCallback && pt && (t.created = !0, t.createdCallback(), t.created = !1)
+            J(t, e), b ? b.observe(t, rt) : (ct && (t.setAttribute = u, t[$] = y(t), t.addEventListener(I, m)), t.addEventListener(_, s)), t.createdCallback && pt && (t.created = !0, t.createdCallback(), t.created = !1)
         }
 
         function h(t, e) {
@@ -160,8 +160,8 @@ var $POTATO = function() {
                 w = "extends",
                 A = "ADDITION",
                 O = "MODIFICATION",
-                _ = "REMOVAL",
-                T = "DOMAttrModified",
+                T = "REMOVAL",
+                _ = "DOMAttrModified",
                 C = "DOMContentLoaded",
                 I = "DOMSubtreeModified",
                 E = "<",
@@ -223,7 +223,7 @@ var $POTATO = function() {
                     attributeOldValue: !0
                 },
                 ot = G || function(t) {
-                    ct = !1, H.removeEventListener(T, ot)
+                    ct = !1, H.removeEventListener(_, ot)
                 },
                 st = t.requestAnimationFrame || t.webkitRequestAnimationFrame || t.mozRequestAnimationFrame || t.msRequestAnimationFrame || function(t) {
                     setTimeout(t, 10)
@@ -240,15 +240,15 @@ var $POTATO = function() {
                 var t = K(Q, "addEventListener"),
                     e = t.value,
                     i = function(t) {
-                        var e = new CustomEvent(T, {
+                        var e = new CustomEvent(_, {
                             bubbles: !0
                         });
-                        e.attrName = t, e.prevValue = this.getAttribute(t), e.newValue = null, e[_] = e.attrChange = 2, lt.call(this, t), this.dispatchEvent(e)
+                        e.attrName = t, e.prevValue = this.getAttribute(t), e.newValue = null, e[T] = e.attrChange = 2, lt.call(this, t), this.dispatchEvent(e)
                     },
                     n = function(t, e) {
                         var i = this.hasAttribute(t),
                             n = i && this.getAttribute(t),
-                            l = new CustomEvent(T, {
+                            l = new CustomEvent(_, {
                                 bubbles: !0
                             });
                         nt.call(this, t, e), l.attrName = t, l.prevValue = i ? n : null, l.newValue = e, i ? l[O] = l.attrChange = 1 : l[A] = l.attrChange = 0, this.dispatchEvent(l)
@@ -257,19 +257,19 @@ var $POTATO = function() {
                         var e, i = t.currentTarget,
                             n = i[$],
                             l = t.propertyName;
-                        n.hasOwnProperty(l) && (n = n[l], (e = new CustomEvent(T, {
+                        n.hasOwnProperty(l) && (n = n[l], (e = new CustomEvent(_, {
                             bubbles: !0
                         })).attrName = n.name, e.prevValue = n.value || null, e.newValue = n.value = i[l] || null, null == e.prevValue ? e[A] = e.attrChange = 0 : e[O] = e.attrChange = 1, i.dispatchEvent(e))
                     };
                 t.value = function(t, a, r) {
-                    t === T && this.attributeChangedCallback && this.setAttribute !== n && (this[$] = {
+                    t === _ && this.attributeChangedCallback && this.setAttribute !== n && (this[$] = {
                         className: {
                             name: "class",
                             value: this.className
                         }
                     }, this.setAttribute = n, this.removeAttribute = i, e.call(this, "propertychange", l)), e.call(this, t, a, r)
                 }, W(Q, "addEventListener", t)
-            }()) : G || (H.addEventListener(T, ot), H.setAttribute($, 1), H.removeAttribute($), ct && (m = function(t) {
+            }()) : G || (H.addEventListener(_, ot), H.setAttribute($, 1), H.removeAttribute($), ct && (m = function(t) {
                 var e, i, n, l = this;
                 if (l === t.target) {
                     for (n in e = l[$], l[$] = i = y(l), i) {
@@ -277,7 +277,7 @@ var $POTATO = function() {
                         if (i[n] !== e[n]) return f(1, l, n, e[n], i[n], O)
                     }
                     for (n in e)
-                        if (!(n in i)) return f(2, l, n, e[n], i[n], _)
+                        if (!(n in i)) return f(2, l, n, e[n], i[n], T)
                 }
             }, f = function(t, e, i, n, l, a) {
                 var r = {
@@ -474,21 +474,21 @@ var $POTATO = function() {
                                 var A = 0,
                                     O = [];
                                 O[0] = 0;
-                                var _ = 0;
+                                var T = 0;
                                 for (c = 0; c < r.length; c++)
                                     if ("undefined" != t[u][r[c]] && null != t[u][r[c]]) try {
-                                        n[_].push(t[u][r[c]]), 1 == s ? A += parseFloat(t[u][r[c]]) : (A[c] = 0, parseFloat(t[u][r[c]]) > 0 && (O[c] = parseFloat(t[u][r[c]]))), _++
+                                        n[T].push(t[u][r[c]]), 1 == s ? A += parseFloat(t[u][r[c]]) : (A[c] = 0, parseFloat(t[u][r[c]]) > 0 && (O[c] = parseFloat(t[u][r[c]]))), T++
                                     } catch (t) {}
                                     g[u] = 1 == s ? A : maxArray(O)
                             }
                             k
                         } else i[0].push(t[u][1]), h[u] = t[u][1], t[u][1]
                     }
-                    var T = new Array,
+                    var _ = new Array,
                         C = (c = 0, !1);
                     if ("bar" == e.chartType) {
                         if ("data" != r[0])
-                            for (u = 0; u < r.length; u++) T[c] = {
+                            for (u = 0; u < r.length; u++) _[c] = {
                                 type: "line",
                                 label: r[u],
                                 radius: e.pointRadius[u],
@@ -501,7 +501,7 @@ var $POTATO = function() {
                                 fill: !1,
                                 data: n[u]
                             }, C = !0, c++;
-                        for (u = 0; u < l.length; u++) "data" != l[u] && (T[c] = {
+                        for (u = 0; u < l.length; u++) "data" != l[u] && (_[c] = {
                             type: "bar",
                             label: l[u],
                             backgroundColor: e.colorIndex[u],
@@ -509,7 +509,7 @@ var $POTATO = function() {
                             borderWidth: 1,
                             data: i[u]
                         }, c++);
-                        T[c] = {
+                        _[c] = {
                             type: "line",
                             label: "",
                             borderColor: "#fff",
@@ -704,7 +704,7 @@ var $POTATO = function() {
                         options: N,
                         data: {
                             labels: p,
-                            datasets: T
+                            datasets: _
                         }
                     });
                     else new Chart(z, {
@@ -769,14 +769,14 @@ var $POTATO = function() {
                             } catch (t) {}
                             if (i[A].push(S), g[p] = 1 == s ? S : maxArray(w), "data" != c[0]) {
                                 var O = 0,
-                                    _ = [];
-                                _[0] = 0;
-                                var T = 0;
+                                    T = [];
+                                T[0] = 0;
+                                var _ = 0;
                                 for (u = 0; u < c.length; u++)
                                     if ("undefined" != n[p][c[u]] && null != n[p][c[u]]) try {
-                                        l[T].push(n[p][c[u]]), 1 == s ? O += parseFloat(n[p][c[u]]) : (O[u] = 0, parseFloat(n[p][c[u]]) > 0 && (_[u] = parseFloat(n[p][c[u]]))), T++
+                                        l[_].push(n[p][c[u]]), 1 == s ? O += parseFloat(n[p][c[u]]) : (O[u] = 0, parseFloat(n[p][c[u]]) > 0 && (T[u] = parseFloat(n[p][c[u]]))), _++
                                     } catch (t) {}
-                                    m[p] = 1 == s ? O : maxArray(_)
+                                    m[p] = 1 == s ? O : maxArray(T)
                             }
                             S
                         } else i[0].push(n[p][1]), g[p] = n[p][1], n[p][1]
@@ -1868,6 +1868,9 @@ var $POTATO = function() {
                 var o = l.getDate();
                 return a + e + r + e + (o = parseInt(o) < 10 ? "0" + o : o)
             },
+            getAttr: function(t, e) {
+                return document.getElementsByTagName(t)[0].getAttribute(e)
+            },
             getAttribute: function(t, e) {
                 var i = document.getElementById(e);
                 try {
@@ -2435,7 +2438,7 @@ var $POTATO = function() {
                     if (String(r.listLeft).split("_").slice(1, 2) == a) var u = String(r.listLeft).split("_").slice(0, 1);
                     if (String(r.params).split("@").slice(1, 2) == a) var p = String(r.params).split("@").slice(0, 1);
                     if (String(r.where).split("@").slice(1, 2) == a) var h = String(r.where).split("@").slice(0, 1);
-                    document.getElementById(o).onclick = function(i) {
+                    document.getElementById(o).onclick = function(r) {
                         $(".keypad").hide();
                         try {
                             document.getElementById("keypadtable").style.display = "none"
@@ -2449,57 +2452,57 @@ var $POTATO = function() {
                         try {
                             document.getElementById("KeyBoard").style.display = "none"
                         } catch (t) {}
-                        var r = $O$P.prototype._p_(t),
-                            s = p;
+                        var s = $O$P.prototype._p_(t),
+                            g = p;
                         if ("block" != document.getElementById("div-" + o).style.display && $(".pims-list").css({
                                 display: "none",
                                 height: "0px"
-                            }), document.getElementById("div-" + o).style.height == r.listHeight) document.getElementById("div-" + o).style.height = "0px";
+                            }), document.getElementById("div-" + o).style.height == s.listHeight) document.getElementById("div-" + o).style.height = "0px";
                         else {
                             try {
                                 pimsListObject.style.display = "none"
                             } catch (t) {}
                             $("#div-" + o).css("display", "block");
-                            var g = r.model,
-                                m = [];
+                            var m = s.model,
+                                f = [];
                             if (null != h) {
-                                var f = $O$X.prototype.getIdClass(String(h));
+                                var y = $O$X.prototype.getIdClass(String(h));
                                 try {
-                                    this.index = f.getAttribute("index"), null == this.index && (this.index = 9999999)
+                                    this.index = y.getAttribute("index"), null == this.index && (this.index = 9999999)
                                 } catch (t) {
                                     this.index = 9999999
                                 }
                                 try {
-                                    this.field = f.getAttribute("field"), null == this.field && (this.field = 9999999)
+                                    this.field = y.getAttribute("field"), null == this.field && (this.field = 9999999)
                                 } catch (t) {
                                     this.field = 9999999
                                 }
-                                for (var y = 0; y < f.length; y++) {
-                                    var b = String(f[y].id).split("-").slice(2, 3);
-                                    m[f[y].field] = pims(b).value()
+                                for (var b = 0; b < y.length; b++) {
+                                    var v = String(y[b].id).split("-").slice(2, 3);
+                                    f[y[b].field] = pims(v).value()
                                 }
                             }
-                            if (null != s && "null" != p)
-                                for (var v = (String(p).match(/AND/g) || []).length, x = String(p).split("AND"), k = 0; k <= v; k++) {
-                                    var S = String(x.slice(k, k + 1)).split(":"),
-                                        w = new Function(S.slice(1, 2));
-                                    "null" != String(S.slice(0, 1)).replace(/\s+/g, "") && (m[String(S.slice(0, 1)).replace(/\s+/g, "")] = w())
+                            if (null != g && "null" != p)
+                                for (var x = (String(p).match(/AND/g) || []).length, k = String(p).split("AND"), S = 0; S <= x; S++) {
+                                    var w = String(k.slice(S, S + 1)).split(":"),
+                                        A = new Function(w.slice(1, 2));
+                                    "null" != String(w.slice(0, 1)).replace(/\s+/g, "") && (f[String(w.slice(0, 1)).replace(/\s+/g, "")] = A())
                                 }
-                            if (null != g) $O$P.prototype._rp_(g, m, function(t) {
+                            if (-1 != String(T).indexOf(".php") && (m = document.getElementsByTagName(a)[0].getAttribute("data")), null != m) $O$P.prototype._rp_(m, f, function(t) {
                                 var i = JSON.parse(t),
-                                    s = "<table class='potato-list-table' id='list-" + o + "' >",
+                                    r = "<table class='potato-list-table' id='list-" + o + "' >",
                                     p = 0;
-                                for (e in s += "<tr>", i[0]) "" != i[0][e] ? s += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + i[0][e] + "</th>" : s += "<th style='display:none'>" + i[0][e] + "</th>", p++;
-                                for (n in s += "</tr>", i)
+                                for (e in r += "<tr>", i[0]) "" != i[0][e] ? r += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + i[0][e] + "</th>" : r += "<th style='display:none'>" + i[0][e] + "</th>", p++;
+                                for (n in r += "</tr>", i)
                                     if ("undefined" != i[n][0] && null != i[n][0] && n > 0) {
-                                        s += "<tr>";
-                                        for (var h = 0; h < p; h++) "" != i[0][h] ? s += "<td>" + i[n][h] + "</td>" : s += "<td style='display:none'>" + i[n][h] + "</td>";
-                                        s += "</tr>"
+                                        r += "<tr>";
+                                        for (var h = 0; h < p; h++) "" != i[0][h] ? r += "<td>" + i[n][h] + "</td>" : r += "<td style='display:none'>" + i[n][h] + "</td>";
+                                        r += "</tr>"
                                     }
-                                s += "</table>", document.getElementById("div-" + o).style.height = "0px";
+                                r += "</table>", document.getElementById("div-" + o).style.height = "0px";
                                 var g = String(c).split("px"),
                                     m = String(u).split("px");
-                                pimsListObject = document.getElementById("div-" + o), $("#div-" + o).html(s).css({
+                                pimsListObject = document.getElementById("div-" + o), $("#div-" + o).html(r).css({
                                     transition: "height 0.1s linear",
                                     position: "absolute",
                                     left: events.clientLeft + parseFloat(m.slice(0, 1)) + "px",
@@ -2512,9 +2515,9 @@ var $POTATO = function() {
                                     background: "transparent",
                                     zIndex: 1e4
                                 }), $("#list-" + o + " td").css({
-                                    fontFamily: r.fontFamily,
-                                    fontWeight: r.fontWeight,
-                                    fontSize: r.fontSize + "px"
+                                    fontFamily: s.fontFamily,
+                                    fontWeight: s.fontWeight,
+                                    fontSize: s.fontSize + "px"
                                 }).click(function() {
                                     var t = document.getElementById("list-" + o),
                                         e = $(this).parent().parent().children().index(this.parentNode),
@@ -2531,7 +2534,7 @@ var $POTATO = function() {
                                         height: "0px"
                                     }), $("#div-" + o).html("");
                                     try {
-                                        r.click(t.rows[e], a, i), $("#div-" + o).html("")
+                                        s.click(t.rows[e], a, i), $("#div-" + o).html("")
                                     } catch (t) {}
                                     document.getElementById("div-" + o).style.height = "0px"
                                 }), $("#list-" + o + " th").css("cursor", "pointer").click(function() {
@@ -2540,35 +2543,66 @@ var $POTATO = function() {
                                     ci = $(this).parent().children().index(this), $(".pims-list").css({
                                         display: "none",
                                         height: "0px"
-                                    }), $("#div-" + o).hide().html(""), document.getElementById(o).style.background = r.background;
+                                    }), $("#div-" + o).hide().html(""), document.getElementById(o).style.background = s.background;
                                     try {
-                                        r.click(t.rows[e], a, ci)
+                                        s.click(t.rows[e], a, ci)
                                     } catch (t) {}
                                     document.getElementById("div-" + o).style.height = "0px"
                                 });
                                 try {
-                                    r.callback(a)
+                                    s.callback(a)
                                 } catch (t) {}
                             });
                             else {
-                                var A = document.getElementsByTagName(a)[0].getAttribute("data"),
-                                    O = (y = JSON.parse(A), "<table class='potato-list-table' id='list-" + o + "' >"),
-                                    _ = 0;
-                                for (e in O += "<tr>", y[0]) "" != y[0][e] ? O += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + y[0][e] + "</th>" : O += "<th style='display:none'>" + y[0][e] + "</th>", _++;
-                                for (n in O += "</tr>", y)
-                                    if ("undefined" != y[n][0] && null != y[n][0] && n > 0) {
-                                        O += "<tr>";
-                                        for (var T = 0; T < _; T++) "" != y[0][T] ? O += "<td>" + y[n][T] + "</td>" : O += "<td style='display:none'>" + y[n][T] + "</td>";
-                                        O += "</tr>"
-                                    }
-                                O += "</table>", document.getElementById("div-" + o).style.height = "0px";
-                                var C = String(c).split("px"),
-                                    I = String(u).split("px");
-                                pimsListObject = document.getElementById("div-" + o), $("#div-" + o).html(O).css({
+                                var O = i.getAttr(a, "header"),
+                                    T = i.getAttr(a, "data"),
+                                    _ = i.getAttr(a, "listTextAlign");
+                                null == _ && (_ = "center");
+                                var C = i.getAttr(a, "listFontSizeTH");
+                                null == C && (C = "18px");
+                                var I = i.getAttr(a, "listFontSizeTD");
+                                null == I && (I = "18px");
+                                var E = i.getAttr(a, "listFontFamilyTD");
+                                null == E && (E = "Tempus Sans ITC");
+                                var B = i.getAttr(a, "listFontFamilyTH");
+                                null == B && (B = "Tempus Sans ITC");
+                                var F = i.getAttr(a, "listFontColorTH");
+                                null == F && (F = "Black");
+                                var L = i.getAttr(a, "listFontColorTD");
+                                null == L && (L = "Black");
+                                var N = i.getAttr(a, "listFontWeightTD");
+                                null == N && (N = "normal");
+                                var P = i.getAttr(a, "listFontWeightTH");
+                                null == P && (P = "normal");
+                                b = JSON.parse(T);
+                                var D = "<table class='potato-list-table' id='list-" + o + "' >",
+                                    H = 0;
+                                if (null == O) {
+                                    for (e in D += "<tr>", b[0]) "" != b[0][e] ? D += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + b[0][e] + "</th>" : D += "<th style='display:none'>" + b[0][e] + "</th>", H++;
+                                    for (n in D += "</tr>", b)
+                                        if ("undefined" != b[n][0] && null != b[n][0] && n > 0) {
+                                            D += "<tr>";
+                                            for (var z = 0; z < H; z++) "" != b[0][z] ? D += "<td style='text-align:" + _ + "'>" + b[n][z] + "</td>" : D += "<td style='display:none'>" + b[n][z] + "</td>";
+                                            D += "</tr>"
+                                        }
+                                } else {
+                                    O = String(O).split(",");
+                                    for (e in D += "<tr>", O) "-" != O[e] ? D += "<th style='border:1px solid black;font-size:" + C + ";color:" + F + ";text-align:" + _ + ";font-weight:" + P + ";font-family:" + B + "'>" + O[e] + "</th>" : D += "<th style='display:none'>" + O[e] + "</th>", H++;
+                                    for (n in D += "</tr>", b)
+                                        if ("undefined" != b[n][0] && null != b[n][0] && n >= 0) {
+                                            D += "<tr>";
+                                            for (z = 0; z < H; z++) "-" != O[z] ? D += "<td style='font-size:" + I + ";color:" + L + ";text-align:" + _ + ";font-weight:" + N + ";font-family:" + E + "'>" + b[n][z] + "</td>" : D += "<td style='display:none'>" + b[n][z] + "</td>";
+                                            D += "</tr>"
+                                        }
+                                }
+                                D += "</table>", document.getElementById("div-" + o).style.height = "0px";
+                                var M = String(c).split("px"),
+                                    R = String(u).split("px");
+                                pimsListObject = document.getElementById("div-" + o), $("#div-" + o).html(D).css({
                                     transition: "height 0.1s linear",
                                     position: "absolute",
-                                    left: events.clientLeft + parseFloat(I.slice(0, 1)) + "px",
-                                    top: events.clientTop + parseFloat(C.slice(0, 1)) + "px",
+                                    left: events.clientLeft + parseFloat(R.slice(0, 1)) + "px",
+                                    top: events.clientTop + parseFloat(M.slice(0, 1)) + "px",
                                     height: d,
                                     width: l,
                                     overflow: "auto",
@@ -2577,9 +2611,9 @@ var $POTATO = function() {
                                     background: "transparent",
                                     zIndex: 1e4
                                 }), $("#list-" + o + " td").css({
-                                    fontFamily: r.fontFamily,
-                                    fontWeight: r.fontWeight,
-                                    fontSize: r.fontSize + "px"
+                                    fontFamily: s.fontFamily,
+                                    fontWeight: s.fontWeight,
+                                    fontSize: s.fontSize + "px"
                                 }).click(function() {
                                     var t = document.getElementById("list-" + o),
                                         e = $(this).parent().parent().children().index(this.parentNode),
@@ -2596,7 +2630,7 @@ var $POTATO = function() {
                                         height: "0px"
                                     }), $("#div-" + o).html("");
                                     try {
-                                        r.click(t.rows[e], a, i), $("#div-" + o).html("")
+                                        s.click(t.rows[e], a, i), $("#div-" + o).html("")
                                     } catch (t) {}
                                     document.getElementById("div-" + o).style.height = "0px"
                                 }), $("#list-" + o + " th").css("cursor", "pointer").click(function() {
@@ -2605,14 +2639,14 @@ var $POTATO = function() {
                                     ci = $(this).parent().children().index(this), $(".pims-list").css({
                                         display: "none",
                                         height: "0px"
-                                    }), $("#div-" + o).hide().html(""), document.getElementById(o).style.background = r.background;
+                                    }), $("#div-" + o).hide().html(""), document.getElementById(o).style.background = s.background;
                                     try {
-                                        r.click(t.rows[e], a, ci)
+                                        s.click(t.rows[e], a, ci)
                                     } catch (t) {}
                                     document.getElementById("div-" + o).style.height = "0px"
                                 });
                                 try {
-                                    r.callback(a)
+                                    s.callback(a)
                                 } catch (t) {}
                             }
                         }
@@ -2919,8 +2953,8 @@ var $POTATO = function() {
                 return document.getElementById(this.x).options[document.getElementById(this.x).selectedIndex].text
             },
             _p_: function(t) {
-                var e, i, n, l, a, r, o, s, d, c, u, p, h, g, m, f, y, b, v, x, $, k, S, w, A, O, _, T, C, I, E, B, F, L, N, P, D, H, z, M, R, X, W, K, j, V, U, Y, q, J, G, Q, Z, tt, et, it, nt, lt, at, rt, ot, st, dt, ct, ut, pt, ht, gt, mt, ft, yt, bt, vt, xt, $t, kt, St, wt, At, Ot, _t, Tt, Ct, It, Et, Bt, Ft, Lt, Nt, Pt, Dt, Ht, zt, Mt, Rt, Xt, Wt, Kt, jt, Vt, Ut, Yt, qt, Jt, Gt, Qt, Zt, te, ee, ie, ne, le, ae, re, oe, se, de, ce, ue, pe, he = new Array;
-                return this.clearArrays(), t(), null == (qt = css.textTransform) && (qt = "none"), e = css.background, i = css.border, n = css.borderRadius, l = css.boxShadow, null == (a = events.callback) && (a = this.dummy()), null == (r = attr.canvas) && (r = "chart"), null == (o = param.cell) && (o = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (f = css.colorIndex) && (f = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (u = attr.className) && (u = "pimsClassName"), null == (p = events.click) && (p = this.dummy()), null == (h = attr.cls) && (h = ""), null == (y = attr.container) && (y = "container"), m = css.color, null == (b = css.cursor) && (b = "default"), null == (v = css.dataFontSize) && (v = 12), null == (x = attr.dataLabel) && (x = "data"), null == ($ = attr.dataLabel2) && ($ = "data"), null == (k = attr.disabled) && (k = !1), S = css.display, null == (w = css.displayKey) && (w = "none"), null == (A = param.editWidth) && (A = 100), null == (O = param.fieldClass) && (O = 0), P = css.float, _ = css.fontColorTD, T = css.fontColorTH, C = css.fontFamily, I = css.fontFamilyTD, E = css.fontFamilyTH, B = css.fontSize, F = css.fontSizeTD, L = css.fontSizeTH, D = css.fontWeight, null == (N = attr.format) && (N = "yy-mm-dd"), null == (H = param.header) && (H = "0"), z = css.height, null == (M = css.heightTable) && (M = 450), null == (R = events.hover) && (R = this.dummy()), X = css.hoverColor, null == (W = css.hoverBgColor) && (W = "null"), K = attr.hoverId, null == (j = attr.hoverText) && (j = ""), null == (U = css.hoverHeight) && (U = 30), null == (V = css.hoverWidth) && (V = ""), null == (Y = param.htm) && (Y = "config/keypad.htm"), q = attr.id, null == (J = param.idCol) && (J = 0), image = attr.image, null == image && (image = "nil 0 0"), G = attr.imageDir, null == (Q = css.imgWidth) && (Q = 45), null == (Z = css.imgHeight) && (Z = 45), null == (tt = events.keyup) && (tt = this.dummy()), null == (nt = css.labelFontSize) && (nt = 12), null == (lt = css.label2FontSize) && (lt = 12), null == (et = attr.labelString) && (et = ""), null == (it = attr.label2String) && (it = ""), ot = css.left, null == (st = css.leftKey) && (st = 0), null == (at = css.legendDisplay) && (at = !1), null == (rt = css.legendPosition) && (rt = "bottom"), null == (dt = events.listClick) && (dt = this.dummy()), ct = css.listHeight, ut = css.listLeft, ht = css.listWidth, pt = css.listTop, gt = css.margin, mt = css.marginBottom, wt = css.marginLeft, ft = css.marginRight, At = css.marginTop, null == (vt = param.markSymbol) && (vt = ""), null == (yt = param.matchCol) && (yt = "-"), null == (bt = param.matchValue) && (bt = "-"), null == (St = css.marginKey) && (St = "0px 0px 0px 0px"), null == (xt = param.menuModel) && (xt = "null"), null == ($t = param.menuTitle) && ($t = "null"), Ot = param.model, null == (kt = attr.multiple) && (kt = !1), _t = attr.name, null == (Tt = attr.onscroll) && (Tt = this.dummy()), Ct = css.padding, css.paddingBottom, It = css.paddingLeft, css.paddingRight, Et = css.paddingTop, null == (Bt = css.pointBorderColorIndex) && (Bt = ["#000000"]), null == (Ft = css.pointBorderDash) && (Ft = [0]), null == (Lt = css.pointBorderWidth) && (Lt = [1]), null == (Nt = css.pointColorIndex) && (Nt = ["#c5ffb3"]), null == (Pt = css.pointRadius) && (Pt = ["5"]), null == (Dt = css.pointStyle) && (Dt = ["triangle"]), Ht = css.position, null == (zt = param.row) && (zt = "0"), null == (Mt = param.selectCol) && (Mt = ""), null == (Rt = param.selectColumn) && (Rt = ""), null == (Xt = css.showDay) && (Xt = !1), null == (Wt = attr.stacked) && (Wt = !1), null == (Kt = attr.tableId) && (Kt = "tableId"), null == (Vt = param.targetId) && (Vt = 0), null == (Ut = attr.targetIndex) && (Ut = 0), null == (jt = param.targetColumn) && (jt = ""), null == (he = param.targetCol) && (he = ""), null == (Yt = attr.targetColor) && (Yt = "WHITE"), Jt = css.textAlign, null == (Gt = attr.title) && (Gt = ""), null == (Qt = css.titleFontSize) && (Qt = 25), null == (Zt = attr.tooltips) && (Zt = !0), te = css.top, null == (ee = css.topKey) && (ee = 0), null == (ie = events.trigger) && (ie = "ondblclick"), null == (ne = attr.type) && (ne = "text"), null == (le = attr.value) && (le = ""), null == (oe = param.whereClass) && (oe = 0), ae = css.width, null == (re = css.widthTable) && (re = 130), null == (se = css.xAxesFontSize) && (se = 12), null == (de = css.xlabelAngle) && (de = 0), null == (ce = css.yAxesFontSize) && (ce = 12), null == (ue = css.y2AxesFontSize) && (ue = 12), null == (pe = attr.y2AxesType) && (pe = ""), {
+                var e, i, n, l, a, r, o, s, d, c, u, p, h, g, m, f, y, b, v, x, $, k, S, w, A, O, T, _, C, I, E, B, F, L, N, P, D, H, z, M, R, X, W, K, j, V, U, Y, q, J, G, Q, Z, tt, et, it, nt, lt, at, rt, ot, st, dt, ct, ut, pt, ht, gt, mt, ft, yt, bt, vt, xt, $t, kt, St, wt, At, Ot, Tt, _t, Ct, It, Et, Bt, Ft, Lt, Nt, Pt, Dt, Ht, zt, Mt, Rt, Xt, Wt, Kt, jt, Vt, Ut, Yt, qt, Jt, Gt, Qt, Zt, te, ee, ie, ne, le, ae, re, oe, se, de, ce, ue, pe, he = new Array;
+                return this.clearArrays(), t(), null == (qt = css.textTransform) && (qt = "none"), e = css.background, i = css.border, n = css.borderRadius, l = css.boxShadow, null == (a = events.callback) && (a = this.dummy()), null == (r = attr.canvas) && (r = "chart"), null == (o = param.cell) && (o = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (f = css.colorIndex) && (f = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (u = attr.className) && (u = "pimsClassName"), null == (p = events.click) && (p = this.dummy()), null == (h = attr.cls) && (h = ""), null == (y = attr.container) && (y = "container"), m = css.color, null == (b = css.cursor) && (b = "default"), null == (v = css.dataFontSize) && (v = 12), null == (x = attr.dataLabel) && (x = "data"), null == ($ = attr.dataLabel2) && ($ = "data"), null == (k = attr.disabled) && (k = !1), S = css.display, null == (w = css.displayKey) && (w = "none"), null == (A = param.editWidth) && (A = 100), null == (O = param.fieldClass) && (O = 0), P = css.float, T = css.fontColorTD, _ = css.fontColorTH, C = css.fontFamily, I = css.fontFamilyTD, E = css.fontFamilyTH, B = css.fontSize, F = css.fontSizeTD, L = css.fontSizeTH, D = css.fontWeight, null == (N = attr.format) && (N = "yy-mm-dd"), null == (H = param.header) && (H = "0"), z = css.height, null == (M = css.heightTable) && (M = 450), null == (R = events.hover) && (R = this.dummy()), X = css.hoverColor, null == (W = css.hoverBgColor) && (W = "null"), K = attr.hoverId, null == (j = attr.hoverText) && (j = ""), null == (U = css.hoverHeight) && (U = 30), null == (V = css.hoverWidth) && (V = ""), null == (Y = param.htm) && (Y = "config/keypad.htm"), q = attr.id, null == (J = param.idCol) && (J = 0), image = attr.image, null == image && (image = "nil 0 0"), G = attr.imageDir, null == (Q = css.imgWidth) && (Q = 45), null == (Z = css.imgHeight) && (Z = 45), null == (tt = events.keyup) && (tt = this.dummy()), null == (nt = css.labelFontSize) && (nt = 12), null == (lt = css.label2FontSize) && (lt = 12), null == (et = attr.labelString) && (et = ""), null == (it = attr.label2String) && (it = ""), ot = css.left, null == (st = css.leftKey) && (st = 0), null == (at = css.legendDisplay) && (at = !1), null == (rt = css.legendPosition) && (rt = "bottom"), null == (dt = events.listClick) && (dt = this.dummy()), ct = css.listHeight, ut = css.listLeft, ht = css.listWidth, pt = css.listTop, gt = css.margin, mt = css.marginBottom, wt = css.marginLeft, ft = css.marginRight, At = css.marginTop, null == (vt = param.markSymbol) && (vt = ""), null == (yt = param.matchCol) && (yt = "-"), null == (bt = param.matchValue) && (bt = "-"), null == (St = css.marginKey) && (St = "0px 0px 0px 0px"), null == (xt = param.menuModel) && (xt = "null"), null == ($t = param.menuTitle) && ($t = "null"), Ot = param.model, null == (kt = attr.multiple) && (kt = !1), Tt = attr.name, null == (_t = attr.onscroll) && (_t = this.dummy()), Ct = css.padding, css.paddingBottom, It = css.paddingLeft, css.paddingRight, Et = css.paddingTop, null == (Bt = css.pointBorderColorIndex) && (Bt = ["#000000"]), null == (Ft = css.pointBorderDash) && (Ft = [0]), null == (Lt = css.pointBorderWidth) && (Lt = [1]), null == (Nt = css.pointColorIndex) && (Nt = ["#c5ffb3"]), null == (Pt = css.pointRadius) && (Pt = ["5"]), null == (Dt = css.pointStyle) && (Dt = ["triangle"]), Ht = css.position, null == (zt = param.row) && (zt = "0"), null == (Mt = param.selectCol) && (Mt = ""), null == (Rt = param.selectColumn) && (Rt = ""), null == (Xt = css.showDay) && (Xt = !1), null == (Wt = attr.stacked) && (Wt = !1), null == (Kt = attr.tableId) && (Kt = "tableId"), null == (Vt = param.targetId) && (Vt = 0), null == (Ut = attr.targetIndex) && (Ut = 0), null == (jt = param.targetColumn) && (jt = ""), null == (he = param.targetCol) && (he = ""), null == (Yt = attr.targetColor) && (Yt = "WHITE"), Jt = css.textAlign, null == (Gt = attr.title) && (Gt = ""), null == (Qt = css.titleFontSize) && (Qt = 25), null == (Zt = attr.tooltips) && (Zt = !0), te = css.top, null == (ee = css.topKey) && (ee = 0), null == (ie = events.trigger) && (ie = "ondblclick"), null == (ne = attr.type) && (ne = "text"), null == (le = attr.value) && (le = ""), null == (oe = param.whereClass) && (oe = 0), ae = css.width, null == (re = css.widthTable) && (re = 130), null == (se = css.xAxesFontSize) && (se = 12), null == (de = css.xlabelAngle) && (de = 0), null == (ce = css.yAxesFontSize) && (ce = 12), null == (ue = css.y2AxesFontSize) && (ue = 12), null == (pe = attr.y2AxesType) && (pe = ""), {
                     background: e,
                     border: i,
                     borderRadius: n,
@@ -2951,8 +2985,8 @@ var $POTATO = function() {
                     fieldClass: O,
                     fieldOther: fieldOther,
                     float: P,
-                    fontColorTD: _,
-                    fontColorTH: T,
+                    fontColorTD: T,
+                    fontColorTH: _,
                     fontFamilyTD: I,
                     fontFamilyTH: E,
                     fontFamily: C,
@@ -3005,8 +3039,8 @@ var $POTATO = function() {
                     menuTitle: $t,
                     model: Ot,
                     multiple: kt,
-                    name: _t,
-                    onscroll: Tt,
+                    name: Tt,
+                    onscroll: _t,
                     padding: Ct,
                     paddingLeft: It,
                     paddingTop: Et,
@@ -3333,13 +3367,13 @@ var $POTATO = function() {
                 var O = l.getAttribute("imageDir");
                 if (null == O) O = "null";
                 else {
-                    var _ = new Function(O);
-                    O = _()
+                    var T = new Function(O);
+                    O = T()
                 }
-                T = 'dataLabel:"-"';
+                _ = 'dataLabel:"-"';
                 try {
-                    var T = l.getAttribute("params");
-                    null == T && (T = 'dataLabel:"-"')
+                    var _ = l.getAttribute("params");
+                    null == _ && (_ = 'dataLabel:"-"')
                 } catch (t) {}
                 var C = new Function(l.getAttribute("callback"));
                 try {
@@ -3507,7 +3541,7 @@ var $POTATO = function() {
                     var V = l.getAttribute("pointRadius").split(",")
                 } catch (t) {}
                 null == V && (V = ["5", "5", "8", "8"]), "false" != e && 0 != e && ("pie" != o ? pims(l.localName)._b_(function() {
-                    params = T + "@" + l.localName, css = {
+                    params = _ + "@" + l.localName, css = {
                         display: c,
                         background: d,
                         border: s,
@@ -3563,7 +3597,7 @@ var $POTATO = function() {
                         }
                     })
                 }) : pims(l.localName)._dn_(function() {
-                    params = T + "@" + l.localName, css = {
+                    params = _ + "@" + l.localName, css = {
                         border: s,
                         height: N,
                         width: P,
@@ -3778,7 +3812,7 @@ var $POTATO = function() {
                     O = i.getAttribute("multipleSelect");
                 null == O && (O = i.getAttribute("selectMultiple"));
                 $ = i.getAttribute("editCell");
-                var _ = i.getAttribute("htm");
+                var T = i.getAttribute("htm");
                 pims(i.localName)._tb_({
                     FIELD: {
                         class: b
@@ -3804,7 +3838,7 @@ var $POTATO = function() {
                         model: a,
                         data: r,
                         header: o,
-                        htm: _
+                        htm: T
                     }, events = {
                         callback: function(t, e) {
                             try {
@@ -4128,8 +4162,8 @@ var $POTATO = function() {
                     w = this._se_a(e, t, "marginTop", "-10px"),
                     A = this._se_a(e, t, "padding", "5px 0px 5px 5px"),
                     O = this._se_a(e, t, "paddingBottom", "1px"),
-                    _ = this._se_a(e, t, "paddingLeft", "1px"),
-                    T = this._se_a(e, t, "paddingRight", "1px"),
+                    T = this._se_a(e, t, "paddingLeft", "1px"),
+                    _ = this._se_a(e, t, "paddingRight", "1px"),
                     C = this._se_a(e, t, "paddingTop", "1px"),
                     I = this._se_a(e, t, "textAlign", "center"),
                     E = this._se_a(e, t, "width", "100px"),
@@ -4161,8 +4195,8 @@ var $POTATO = function() {
                     marginTop: w,
                     padding: A,
                     paddingBottom: O,
-                    paddingLeft: _,
-                    paddingRight: T,
+                    paddingLeft: T,
+                    paddingRight: _,
                     paddingTop: C,
                     position: this._se_a(e, t, "position", "static"),
                     textAlign: I,
@@ -4204,14 +4238,14 @@ var $POTATO = function() {
                                 w = this._se_a(y, e[t], "hoverText", ""),
                                 A = (this._se_a(y, e[t], "left", "0px"), this._se_a(y, e[t], "top", "0px"), this._se_a(y, e[t], "position", "static"), this._se_a(y, e[t], "value", "")),
                                 O = e[t].getAttribute("submit"),
-                                _ = e[t].getAttribute("fieldOther"),
-                                T = e[t].getAttribute("params"),
+                                T = e[t].getAttribute("fieldOther"),
+                                _ = e[t].getAttribute("params"),
                                 C = e[t].getAttribute("whereClass"),
                                 I = e[t].getAttribute("toggle");
                             null != I && (I = new Function(e[t].getAttribute("toggle")));
                             var E = this._css_(e[t], y);
                             pims(e[t].localName)._bt_(function() {
-                                if (where = C + "@" + e[t].localName, field = O + "@" + e[t].localName, fieldOther = _ + "@" + e[t].localName, params = T + "@" + e[t].localName, param = {
+                                if (where = C + "@" + e[t].localName, field = O + "@" + e[t].localName, fieldOther = T + "@" + e[t].localName, params = _ + "@" + e[t].localName, param = {
                                         toggle: I
                                     }, css = E, null != e[t].getAttribute("value") && null != e[t].getAttribute("image") ? attr = {
                                         disabled: b,
@@ -4609,8 +4643,7 @@ var $POTATO = function() {
                 for (var n = this._p_(i), l = this.getHTMLElement(), a = this.x, r = [
                         []
                     ], o = n.id, s = param.data, d = String(n.header).split(","), c = 0; c < $O$Array.length; c++) o == String($O$Array[c].bind) && (r[$O$Array[c].id] = $O$Array[c].value, 0);
-                var u = "<table class='potatoTableCss' id='" + n.id + "' style='border-collapse:collapse;width:99%'>";
-                null != n.model ? (l.createdCallback = function() {
+                var u = "<table class='potatoTableCss' id='" + n.id + "' style='border-collapse:collapse;width:99%'>"; - 1 != String(s).indexOf(".php") && (n.model = s), null != n.model ? (l.createdCallback = function() {
                     this.innerHTML = '<div id="div-' + o + '" ></div> '
                 }, this._rp_(n.model, r, function(t) {
                     var i = JSON.parse(t);
