@@ -1,5 +1,6 @@
 /*
     Copyright (C) 2019  LIM KIAN SENG
+    potato.js is licensed under the GNU General Public License v3.0
     This library is free: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
