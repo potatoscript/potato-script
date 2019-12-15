@@ -71,4 +71,4 @@ I call it <b>potato javascript</b> or o script (o=potato, why because its as eas
 
 # License
 
-The library is licensed under the terms of the GNU Lesser General Public License (LGPL) version 2.1 or later.
+The library is licensed under the terms of the GNU General Public License v3.0
