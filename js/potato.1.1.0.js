@@ -2882,7 +2882,7 @@ var $POTATO = function() {
                 }, this._p_e(l, n)
             },
             _t_dnd: function(t, e, i) {
-                null != t && ($("#" + e + " td"), a({
+                null != t && ($("#" + e + " td").droppable({
                     accept: "." + O.dgdp + e,
                     drop: function(t, n) {
                         potato.dropCol = $(this).parent().children().index(this), potato.dropRow = $(this).parent().parent().children().index(this.parentNode), $(n.draggable).remove(), document.getElementById(e).rows[potato.dropRow].cells[potato.dropCol].innerHTML += "<div class='" + O.dgdp + e + "' style='margin-top:5px;color:black;'>" + n.draggable[0].innerHTML + "</div>", $("." + O.dgdp + e).draggable({
