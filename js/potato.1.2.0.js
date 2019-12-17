@@ -2884,10 +2884,10 @@ var $POTATO = function() {
                 }, this._p_e(l, n)
             },
             _t_dnd: function(t, e, i) {
-                null != t && ($("#" + e + " td").droppable({
+                null != t && ($("#" + e + " td"), a({
                     accept: "." + O.dgdp + e,
                     drop: function(t, n) {
-                        O.dropCol = $(this).parent().children().index(this), O.dropRow = $(this).parent().parent().children().index(this.parentNode), $(n.draggable).remove(), document.getElementById(e).rows[O.dropRow].cells[O.dropCol].innerHTML += "<div class='" + O.dgdp + e + "' style='margin-top:5px;color:black;'>" + n.draggable[0].innerHTML + "</div>", $("." + O.dgdp + e).draggable({
+                        potato.dropCol = $(this).parent().children().index(this), potato.dropRow = $(this).parent().parent().children().index(this.parentNode), $(n.draggable).remove(), document.getElementById(e).rows[potato.dropRow].cells[potato.dropCol].innerHTML += "<div class='" + O.dgdp + e + "' style='margin-top:5px;color:black;'>" + n.draggable[0].innerHTML + "</div>", $("." + O.dgdp + e).draggable({
                             revert: !0,
                             start: function(t) {
                                 t.target.style.zIndex = 10
