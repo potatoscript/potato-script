@@ -14,7 +14,6 @@
     
     version 1.1.0 - enable the static data for OList, OTable and OChart 08th Nov 2019
 */
-
 var $POTATO = function() {
         return $O$I.init()
     },
@@ -28,13 +27,13 @@ var $POTATO = function() {
     $O$F, $O$I = {
         potato: {
             a: [65, 76, 76, 32, 82, 73, 71, 72, 84, 83],
-            b: [99, 35, 21],
-            c: [67],
+            b: ["BUTTON", "TEXT", "CHART", "TABLE", "LIST", "CALENDAR"],
+            c: ["color", "height", "width", "left", "top", "background"],
             colId: 0,
-            d: [112, 111, 116, 97, 116, 111],
+            d: ["data", "model"],
             data: new Array,
             day: "20",
-            e: [101, 108, 101, 109, 101, 110, 116],
+            e: ["element"],
             f: [102, 105, 101, 108, 100],
             field: [],
             fieldOther: [],
