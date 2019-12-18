@@ -26,37 +26,62 @@ var $POTATO = function() {
     $O$BindIndexId = new Array,
     $O$Element = new Array,
     $O$F, $O$I = {
-        settings: {
-            X_authorization: 0,
-            nodevalue: "pims",
+        potato: {
+            a: [65, 76, 76, 32, 82, 73, 71, 72, 84, 83],
+            b: [99, 35, 21],
+            c: [67],
             colId: 0,
-            rowId: 0,
-            tabName1: String.fromCharCode(80, 79, 84, 65, 84, 79),
-            tabName2: String.fromCharCode(79),
-            pimsListObject: new Object,
-            keyID: "pims",
-            pimsReloadTime: "pims",
-            pimsTargetId: "pims",
-            $O$T: new Object,
-            pimsParameters: "pims",
-            where: [],
-            whereOther: [],
+            d: [112, 111, 116, 97, 116, 111],
+            data: new Array,
+            day: "20",
+            e: [101, 108, 101, 109, 101, 110, 116],
+            f: [102, 105, 101, 108, 100],
             field: [],
             fieldOther: [],
-            newP: new Array,
-            rsd: "",
-            now: "",
-            day: "20",
+            g: [103, 101, 116],
+            h: [104, 111, 118, 101, 114],
             hour: "08",
+            i: [],
+            j: [106],
+            k: [107, 101, 121],
+            keyID: "potato",
+            l: [108, 111, 99, 97, 116, 105, 111, 110],
+            m: [109, 111, 110, 116, 104],
             minute: "00",
             month: "06",
+            n: [],
+            newP: new Array,
+            nodevalue: "potato",
+            now: "",
+            o: [75, 73, 65, 78],
+            p: [76, 73, 77],
+            pimsParameters: "potato",
+            pimsReloadTime: "potato",
+            pimsTargetId: "potato",
+            potatoListObject: new Object,
+            q: [113, 117, 101, 114, 121],
+            r: [],
+            rowId: 0,
+            rsd: "",
+            s: [83, 69, 84],
             second: "00",
+            t: [83, 69, 78, 71],
+            to: [82, 69, 83, 69, 82, 86, 69, 68],
+            today: "",
+            u: [],
+            v: [80, 79, 84, 65, 84, 79],
+            w: [],
+            where: [],
+            whereOther: [],
+            x: [],
+            X_authorization: 0,
+            y: [89],
             year: "2019",
-            data: new Array,
-            today: ""
+            z: [79],
+            $O$T: new Object
         },
         init: function() {
-            $O$P = this.settings, Oget = this.settings, $O$ = this.settings;
+            $O$P = this.potato, Oget = this.potato, $O$ = this.potato;
             var t = new Date,
                 e = t.getDate(),
                 i = t.getHours(),
@@ -1322,7 +1347,7 @@ var $POTATO = function() {
                         } catch (t) {}
                     }).click(function() {
                         try {
-                            pimsListObject.style.display = "none"
+                            potatoListObject.style.display = "none"
                         } catch (t) {}
                         try {
                             n.click()
@@ -1883,7 +1908,7 @@ var $POTATO = function() {
                             }), document.getElementById("div-" + r).style.height == s.listHeight) document.getElementById("div-" + r).style.height = "0px";
                         else {
                             try {
-                                pimsListObject.style.display = "none"
+                                potatoListObject.style.display = "none"
                             } catch (t) {}
                             $("#div-" + r).css(O.dpy, "block");
                             var f = s.model,
@@ -1925,7 +1950,7 @@ var $POTATO = function() {
                                 o += "</table>", document.getElementById("div-" + r).style.height = "0px";
                                 var g = String(c).split("px"),
                                     f = String(p).split("px");
-                                pimsListObject = document.getElementById("div-" + r), $("#div-" + r).html(o).css({
+                                potatoListObject = document.getElementById("div-" + r), $("#div-" + r).html(o).css({
                                     transition: "height 0.1s linear",
                                     position: "absolute",
                                     left: events.clientLeft + parseFloat(f.slice(0, 1)) + "px",
@@ -2021,7 +2046,7 @@ var $POTATO = function() {
                                 N += "</table>", document.getElementById("div-" + r).style.height = "0px";
                                 var M = String(c).split("px"),
                                     X = String(p).split("px");
-                                pimsListObject = document.getElementById("div-" + r), $("#div-" + r).html(N).css({
+                                potatoListObject = document.getElementById("div-" + r), $("#div-" + r).html(N).css({
                                     transition: "height 0.1s linear",
                                     position: "absolute",
                                     left: events.clientLeft + parseFloat(X.slice(0, 1)) + "px",
@@ -2193,7 +2218,7 @@ var $POTATO = function() {
                                 r += "</table>", document.getElementById("div-" + o).style.height = "0px";
                                 var g = parseFloat(p) + "px",
                                     f = parseFloat(h) + "px";
-                                pimsListObject = document.getElementById("div-" + o), document.getElementById("div-" + o).style.display = "block", $("#div-" + o).html(r).css({
+                                potatoListObject = document.getElementById("div-" + o), document.getElementById("div-" + o).style.display = "block", $("#div-" + o).html(r).css({
                                     transition: "height 0.1s linear",
                                     position: "absolute",
                                     left: f,
@@ -3024,7 +3049,7 @@ var $POTATO = function() {
                             document.getElementById("KeyBoard").style.display = "none"
                         } catch (t) {}
                         try {
-                            pimsListObject.style.display = "none"
+                            potatoListObject.style.display = "none"
                         } catch (t) {}
                         try {
                             i.click(n)
@@ -3259,7 +3284,7 @@ var $POTATO = function() {
                         } catch (t) {}
                     }).click(function() {
                         try {
-                            pimsListObject.style.display = "none"
+                            potatoListObject.style.display = "none"
                         } catch (t) {}
                         try {
                             l.click()
@@ -3401,7 +3426,7 @@ var $POTATO = function() {
                 return l.length > 0 && (t += '<param name="flashvars" value="' + l + '" />'), t += "</object>"
             },
             getChart: function(t) {
-                return 1 == this.detectFlashVersion && this.installedVer.major < 6 ? 1 == this.autoInstallRedirect && (!!window.confirm("You need Adobe Flash Player 6 (or above) to view the charts. It is a free and lightweight installation from Adobe.com. Please click on Ok to install the same.") && void(window.location = "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash")) : (("string" == typeof t ? document.getElementById(t) : t).innerHTML = this.getChartHtml(), document.embeds[this.getChartAttribute(O.id)] || window[this.getChartAttribute(O.id)] || (window[this.getChartAttribute(O.id)] = document.getElementById(this.getChartAttribute(O.id))), !0)
+                return 1 == this.detectFlashVersion && this.installedVer.major < 6 ? 1 == this.autoInstallRedirect && (!!window.potatoirm("You need Adobe Flash Player 6 (or above) to view the charts. It is a free and lightweight installation from Adobe.com. Please click on Ok to install the same.") && void(window.location = "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash")) : (("string" == typeof t ? document.getElementById(t) : t).innerHTML = this.getChartHtml(), document.embeds[this.getChartAttribute(O.id)] || window[this.getChartAttribute(O.id)] || (window[this.getChartAttribute(O.id)] = document.getElementById(this.getChartAttribute(O.id))), !0)
             },
             getHTMLElement: function() {
                 return Object.create(HTMLElement.prototype)
@@ -3456,7 +3481,9 @@ var $POTATO = function() {
                 return this.html
             },
             If: function(t) {
-                return t = t == $O$I.settings.tabName1 ? 1 : t == $O$I.settings.tabName2 ? 1 : -1
+                var e = potato.vl($O$I.potato.v),
+                    i = potato.vl($O$I.potato.z);
+                return t = t == e ? 1 : t == i ? 1 : -1
             },
             is: function(t) {
                 return t.getHTMLElement()
@@ -3649,7 +3676,7 @@ var $POTATO = function() {
                             }), document.getElementById("pims-list-" + l).style.height == a.heightTable + "px") document.getElementById("pims-list-" + l).style.height = "0px";
                         else {
                             try {
-                                pimsListObject.style.display = "none"
+                                potatoListObject.style.display = "none"
                             } catch (t) {}
                             $("#pims-list-" + l).css(O.dpy, "block"), $O$P.prototype._rp_(o.model, o, function(t) {
                                 var o = O.parse(t),
@@ -3666,7 +3693,7 @@ var $POTATO = function() {
                                 var c = i.clientY - a.height - 10 + "px";
                                 0 != a.top && (c = a.top + a.height + 10 + "px");
                                 var p = i.clientX - a.width / 2 + "px";
-                                0 != a.left && (p = a.left + 5 + "px"), pimsListObject = document.getElementById("pims-list-" + l), $("#pims-list-" + l).html(r).show().css({
+                                0 != a.left && (p = a.left + 5 + "px"), potatoListObject = document.getElementById("pims-list-" + l), $("#pims-list-" + l).html(r).show().css({
                                     transition: "height 0.1s linear",
                                     position: "absolute",
                                     left: p,
@@ -3856,6 +3883,9 @@ var $POTATO = function() {
             },
             optionText: function() {
                 return document.getElementById(this.x).options[document.getElementById(this.x).selectedIndex].text
+            },
+            owner: function() {
+                return this.vl($O$I.potato.p) + " " + this.vl($O$I.potato.o) + " " + this.vl($O$I.potato.t) + " " + this.vl($O$I.potato.a) + " " + this.vl($O$I.potato.to)
             },
             parse: function(t) {
                 return JSON.parse(t)
@@ -4685,7 +4715,7 @@ var $POTATO = function() {
                             document.getElementById("KeyBoard").style.display = "none"
                         } catch (t) {}
                         try {
-                            pimsListObject.style.display = "none"
+                            potatoListObject.style.display = "none"
                         } catch (t) {}
                         try {
                             a.click()
@@ -4763,7 +4793,7 @@ var $POTATO = function() {
                             document.getElementById("KeyBoard").style.display = "none"
                         } catch (t) {}
                         try {
-                            pimsListObject.style.display = "none"
+                            potatoListObject.style.display = "none"
                         } catch (t) {}
                         try {
                             i.click()
@@ -4977,7 +5007,7 @@ var $POTATO = function() {
                             document.getElementById("KeyBoard").style.display = "none"
                         } catch (t) {}
                         try {
-                            pimsListObject.style.display = "none"
+                            potatoListObject.style.display = "none"
                         } catch (t) {}
                         try {
                             l.click()
@@ -5066,6 +5096,9 @@ var $POTATO = function() {
                     a = t.getSeconds(),
                     o = t.getFullYear();
                 return $O$P.day = parseInt(e) < 10 ? "0" + e : e, $O$P.hour = parseInt(i) < 10 ? "0" + i : i, $O$P.minute = parseInt(l) < 10 ? "0" + l : l, $O$P.month = parseInt(n) < 10 ? "0" + n : n, $O$P.second = parseInt(a) < 10 ? "0" + a : a, $O$P.year = o, $O$P.title = "$O$", $O$P.now = $O$P.hour + ":" + $O$P.minute, o + "-" + Oget.month + "-" + Oget.day
+            },
+            vl: function(t) {
+                return $O$S.prototype.l(t)
             },
             value: function(t) {
                 return t ? (this.e.value = t, this) : this.e.value
