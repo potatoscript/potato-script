@@ -42,7 +42,9 @@ version 1.1.1 - improve and add additional attribute to OList. OList now can use
                      header like OTable to create the header data (revised on 14th Dec 2019)
 version 1.2.0 - add the drag and drop function to the OTable  (revised on 17th Dec 2019)
 version 1.2.1 - some other minor improvement on the code (revised on 18th Dec 2019)
-
+version 1.2.2 - improvement on dragdrop and add additional attribute "split" to
+                split the dragdrop data inside same cell of table and
+                some other minor improvement on the code (revised on 20th Dec 2019)
 */
 var $POTATO = function() {
         return $O$I.init()
@@ -165,7 +167,7 @@ var $POTATO = function() {
         function o(t) {
             var e = t.getAttribute(String.fromCharCode(112, 111, 116, 97, 116, 111)),
                 i = t.nodeName.toUpperCase(),
-                l = R.call(D, e ? B + e.toUpperCase() : E + i);
+                l = R.call(L, e ? B + e.toUpperCase() : E + i);
             return e && -1 < l && !r(i, e) ? -1 : l
         }
 
@@ -222,12 +224,12 @@ var $POTATO = function() {
                 E = "<",
                 B = "=",
                 F = /^[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+$/,
-                L = ["ANNOTATION-XML", "COLOR-PROFILE", "FONT-FACE", "FONT-FACE-SRC", "FONT-FACE-URI", "FONT-FACE-FORMAT", "FONT-FACE-NAME", "MISSING-GLYPH"],
-                D = [],
+                D = ["ANNOTATION-XML", "COLOR-PROFILE", "FONT-FACE", "FONT-FACE-SRC", "FONT-FACE-URI", "FONT-FACE-FORMAT", "FONT-FACE-NAME", "MISSING-GLYPH"],
+                L = [],
                 P = [],
                 z = "",
                 N = e.documentElement,
-                R = D.indexOf || function(t) {
+                R = L.indexOf || function(t) {
                     for (var e = this.length; e-- && this[e] !== t;);
                     return e
                 },
@@ -363,7 +365,7 @@ var $POTATO = function() {
                     }), e.addEventListener("DOMNodeInserted", d($)), e.addEventListener("DOMNodeRemoved", d(w))), e.addEventListener(A, c), e.addEventListener("readystatechange", c), e.createElement = function(t, i) {
                         var l = at.apply(e, arguments),
                             n = "" + t,
-                            a = R.call(D, (i ? B : E) + (i || n).toUpperCase()),
+                            a = R.call(L, (i ? B : E) + (i || n).toUpperCase()),
                             o = -1 < a;
                         return i && (l.setAttribute(String.fromCharCode(112, 111, 116, 97, 116, 111), i = i.toLowerCase()), o && (o = r(n.toUpperCase(), i))), ht = !e.createElement.innerHTMLHelper, o && O(l, P[a]), l
                     }, Z.cloneNode = function(t) {
@@ -372,15 +374,15 @@ var $POTATO = function() {
                         return -1 < i && O(e, P[i]), t && function(t) {
                             for (var e, i = 0, l = t.length; i < l; i++) e = t[i], O(e, P[o(e)])
                         }(e.querySelectorAll(z)), e
-                    }), -2 < R.call(D, B + l) + R.call(D, E + l)) throw new Error("A " + t + " type pims already registered");
-                if (!F.test(l) || -1 < R.call(L, l)) throw new Error("The type " + t + " pims invalid");
+                    }), -2 < R.call(L, B + l) + R.call(L, E + l)) throw new Error("A " + t + " type pims already registered");
+                if (!F.test(l) || -1 < R.call(D, l)) throw new Error("The type " + t + " pims invalid");
                 var l, s = function() {
                         return h ? e.createElement(u, l) : e.createElement(u)
                     },
                     p = i || H,
                     h = M.call(p, k),
                     u = h ? i[k].toUpperCase() : l,
-                    f = D.push((h ? B : E) + l) - 1;
+                    f = L.push((h ? B : E) + l) - 1;
                 return z = z.concat(z.length ? "," : "", h ? u + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + t.toLowerCase() + '"]' : u), s.prototype = P[f] = M.call(p, "prototype") ? p.prototype : q(Z), n(e.querySelectorAll(z), $), s
             }
         }
@@ -624,7 +626,7 @@ var $POTATO = function() {
                     if ("bar" == e.chartType) {
                         var F = 1.2;
                         "" != e.label2String && (F = 2);
-                        var L = [{
+                        var D = [{
                                 type: "linear",
                                 position: "left",
                                 id: "y-axis-1",
@@ -665,7 +667,7 @@ var $POTATO = function() {
                                     fontSize: e.label2FontSize
                                 }
                             }],
-                            D = {
+                            L = {
                                 duration: 500,
                                 easing: "easeOutQuart",
                                 onComplete: function() {
@@ -687,7 +689,7 @@ var $POTATO = function() {
                                     })
                                 }
                             }
-                    } else L = [], D = {
+                    } else D = [], L = {
                         duration: 500,
                         easing: "easeOutQuart",
                         onComplete: function() {
@@ -753,14 +755,14 @@ var $POTATO = function() {
                                         minRotation: e.xlabelAngle
                                     }
                                 }],
-                                yAxes: L
+                                yAxes: D
                             },
                             tooltips: {
                                 enabled: d
                             },
                             responsive: !0,
                             maintainAspectRatio: !1,
-                            animation: D
+                            animation: L
                         },
                         z = "<canvas id='canvas-" + r + "' style='background:" + e.background + "'></canvas>",
                         N = document.getElementById("div_chart_" + r);
@@ -919,9 +921,9 @@ var $POTATO = function() {
                         display: !1
                     };
                     if ("bar" == e.chartType) {
-                        var L = 1.2;
-                        "" != e.label2String && (L = 2);
-                        var D = [{
+                        var D = 1.2;
+                        "" != e.label2String && (D = 2);
+                        var L = [{
                                 type: "linear",
                                 position: "left",
                                 id: "y-axis-1",
@@ -931,7 +933,7 @@ var $POTATO = function() {
                                         return parseFloat(t) > 999 || parseFloat(t) < -999 ? pims().Comma(String(parseInt(t) / 1e3)) + "t" : pims().Comma(t)
                                     },
                                     beginAtZero: !0,
-                                    max: maxArray(g) * L,
+                                    max: maxArray(g) * D,
                                     min: 0,
                                     fontSize: e.yAxesFontSize
                                 },
@@ -984,7 +986,7 @@ var $POTATO = function() {
                                     })
                                 }
                             }
-                    } else D = [], P = {
+                    } else L = [], P = {
                         duration: 500,
                         easing: "easeOutQuart",
                         onComplete: function() {
@@ -1050,7 +1052,7 @@ var $POTATO = function() {
                                         minRotation: e.xlabelAngle
                                     }
                                 }],
-                                yAxes: D
+                                yAxes: L
                             },
                             tooltips: {
                                 enabled: d
@@ -1282,7 +1284,7 @@ var $POTATO = function() {
                     E = this._se_a(e, t, "textAlign", "center"),
                     B = this._se_a(e, t, O.wit, "100px"),
                     F = this._se_a(e, t, O.lft, "0px"),
-                    L = this._se_a(e, t, O.tp, "0px");
+                    D = this._se_a(e, t, O.tp, "0px");
                 return {
                     background: l,
                     border: n,
@@ -1314,7 +1316,7 @@ var $POTATO = function() {
                     paddingTop: I,
                     position: this._se_a(e, t, O.pst, "static"),
                     textAlign: E,
-                    top: L,
+                    top: D,
                     width: B
                 }
             },
@@ -1990,10 +1992,10 @@ var $POTATO = function() {
                             null == B && (B = "Tempus Sans ITC");
                             var F = i.getAttr(a, "listFontColorTH");
                             null == F && (F = "Black");
-                            var L = i.getAttr(a, "listFontColorTD");
-                            null == L && (L = "Black");
-                            var D = i.getAttr(a, "listFontWeightTD");
-                            null == D && (D = "normal");
+                            var D = i.getAttr(a, "listFontColorTD");
+                            null == D && (D = "Black");
+                            var L = i.getAttr(a, "listFontWeightTD");
+                            null == L && (L = "normal");
                             var P = i.getAttr(a, "listFontWeightTH");
                             null == P && (P = "normal");
                             var z = "<table class='potato-list-table' id='list-" + r + "' >";
@@ -2088,7 +2090,7 @@ var $POTATO = function() {
                                     for (n in z += "</tr>", v)
                                         if (O.udf != v[n][0] && null != v[n][0] && n >= 0) {
                                             z += "<tr>";
-                                            for (H = 0; H < R; H++) "-" != C[H] ? z += "<td style='font-size:" + I + ";color:" + L + ";text-align:" + T + ";font-weight:" + D + ";font-family:" + E + "'>" + v[n][H] + "</td>" : z += "<td style='display:none'>" + v[n][H] + "</td>";
+                                            for (H = 0; H < R; H++) "-" != C[H] ? z += "<td style='font-size:" + I + ";color:" + D + ";text-align:" + T + ";font-weight:" + L + ";font-family:" + E + "'>" + v[n][H] + "</td>" : z += "<td style='display:none'>" + v[n][H] + "</td>";
                                             z += "</tr>"
                                         }
                                 }
@@ -2310,8 +2312,8 @@ var $POTATO = function() {
                 }, this._p_e(l, i)
             },
             _p_: function(t) {
-                var e, i, l, n, a, o, r, s, d, c, p, h, u, g, f, m, y, v, b, x, $, w, k, S, _, C, T, A, I, E, B, F, L, D, P, z, N, R, H, M, X, W, K, j, V, Y, U, q, G, Q, Z, J, tt, et, it, lt, nt, at, ot, rt, st, dt, ct, pt, ht, ut, gt, ft, mt, yt, vt, bt, Ot, xt, $t, wt, kt, St, _t, Ct, Tt, At, It, Et, Bt, Ft, Lt, Dt, Pt, zt, Nt, Rt, Ht, Mt, Xt, Wt, Kt, jt, Vt, Yt, Ut, qt, Gt, Qt, Zt, Jt, te, ee, ie, le, ne, ae, oe, re, se, de, ce, pe, he, ue, ge, fe = new Array;
-                return this.clearArrays(), t(), null == (Qt = css.textTransform) && (Qt = "none"), e = css[O.bkg], i = css[O.bdr], l = css[O.bdrr], n = css[O.bxsd], null == (a = events[O.cbk]) && (a = this.dummy()), null == (o = attr.canvas) && (o = "chart"), null == (r = param.cell) && (r = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (m = css.colorIndex) && (m = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (p = attr.className) && (p = "pimsClassName"), null == (h = events[O.clk]) && (h = this.dummy()), null == (u = attr.cls) && (u = ""), null == (y = attr.container) && (y = "container"), f = css[O.co], null == (v = css[O.csr]) && (v = O.dft), null == (b = css.dataFontSize) && (b = 12), null == (x = attr.dataLabel) && (x = O.dat), null == ($ = attr.dataLabel2) && ($ = O.dat), null == (w = attr[O.dsa]) && (w = !1), k = css[O.dpy], null == (S = css.displayKey) && (S = "none"), _ = events[O.dgdp], null == (C = param.editWidth) && (C = 100), null == (T = param.fieldClass) && (T = 0), N = css.float, A = css.fontColorTD, I = css.fontColorTH, E = css.fontFamily, B = css.fontFamilyTD, F = css.fontFamilyTH, L = css.fontSize, D = css.fontSizeTD, P = css.fontSizeTH, R = css.fontWeight, null == (z = attr.format) && (z = "yy-mm-dd"), null == (H = param.header) && (H = "0"), M = css.height, null == (X = css.heightTable) && (X = 450), null == (W = events.hover) && (W = this.dummy()), K = css.hoverColor, null == (j = css.hoverBgColor) && (j = "null"), V = attr[O.hid], null == (Y = attr[O.htx]) && (Y = ""), null == (q = css.hoverHeight) && (q = 30), null == (U = css.hoverWidth) && (U = ""), null == (G = param.htm) && (G = "config/keypad.htm"), Q = attr.id, null == (Z = param.idCol) && (Z = 0), image = attr.image, null == image && (image = "nil 0 0"), J = attr.imageDir, null == (tt = css.imgWidth) && (tt = 45), null == (et = css.imgHeight) && (et = 45), null == (it = events.keyup) && (it = this.dummy()), null == (at = css.labelFontSize) && (at = 12), null == (ot = css.label2FontSize) && (ot = 12), null == (lt = attr.labelString) && (lt = ""), null == (nt = attr.label2String) && (nt = ""), dt = css[O.lft], null == (ct = css.leftKey) && (ct = 0), null == (rt = css.legendDisplay) && (rt = !1), null == (st = css.legendPosition) && (st = "bottom"), null == (pt = events.listClick) && (pt = this.dummy()), ht = css.listHeight, ut = css.listLeft, ft = css.listWidth, gt = css.listTop, mt = css.margin, yt = css.marginBottom, _t = css.marginLeft, vt = css.marginRight, Ct = css.marginTop, null == (xt = param.markSymbol) && (xt = ""), null == (bt = param.matchCol) && (bt = "-"), null == (Ot = param.matchValue) && (Ot = "-"), null == (St = css.marginKey) && (St = "0px 0px 0px 0px"), null == ($t = param.menuModel) && ($t = "null"), null == (wt = param.menuTitle) && (wt = "null"), Tt = param.model, null == (kt = attr.multiple) && (kt = !1), At = attr.name, null == (It = attr.onscroll) && (It = this.dummy()), Et = css.padding, css.paddingBottom, Bt = css.paddingLeft, css.paddingRight, Ft = css.paddingTop, null == (Lt = css.pointBorderColorIndex) && (Lt = ["#000000"]), null == (Dt = css.pointBorderDash) && (Dt = [0]), null == (Pt = css.pointBorderWidth) && (Pt = [1]), null == (zt = css.pointColorIndex) && (zt = ["#c5ffb3"]), null == (Nt = css.pointRadius) && (Nt = ["5"]), null == (Rt = css.pointStyle) && (Rt = ["triangle"]), Ht = css[O.pst], null == (Mt = param.row) && (Mt = "0"), null == (Xt = param.selectCol) && (Xt = ""), null == (Wt = param.selectColumn) && (Wt = ""), null == (Kt = css.showDay) && (Kt = !1), null == (jt = attr.stacked) && (jt = !1), null == (Vt = attr.tableId) && (Vt = "tableId"), null == (Ut = param.targetId) && (Ut = 0), null == (qt = attr.targetIndex) && (qt = 0), null == (Yt = param.targetColumn) && (Yt = ""), null == (fe = param.targetCol) && (fe = ""), null == (Gt = attr.targetColor) && (Gt = "WHITE"), Zt = css.textAlign, null == (Jt = attr.title) && (Jt = ""), null == (te = css.titleFontSize) && (te = 25), null == (ee = attr.tooltips) && (ee = !0), ie = css[O.tp], null == (le = css.topKey) && (le = 0), null == (ne = events[O.trg]) && (ne = "ondblclick"), null == (ae = attr.type) && (ae = "text"), null == (oe = attr[O.val]) && (oe = ""), null == (de = param.whereClass) && (de = 0), re = css[O.wit], null == (se = css.widthTable) && (se = 130), null == (ce = css.xAxesFontSize) && (ce = 12), null == (pe = css.xlabelAngle) && (pe = 0), null == (he = css.yAxesFontSize) && (he = 12), null == (ue = css.y2AxesFontSize) && (ue = 12), null == (ge = attr.y2AxesType) && (ge = ""), {
+                var e, i, l, n, a, o, r, s, d, c, p, h, u, g, f, m, y, v, b, x, $, w, k, S, _, C, T, A, I, E, B, F, D, L, P, z, N, R, H, M, X, W, K, j, V, Y, U, q, G, Q, Z, J, tt, et, it, lt, nt, at, ot, rt, st, dt, ct, pt, ht, ut, gt, ft, mt, yt, vt, bt, Ot, xt, $t, wt, kt, St, _t, Ct, Tt, At, It, Et, Bt, Ft, Dt, Lt, Pt, zt, Nt, Rt, Ht, Mt, Xt, Wt, Kt, jt, Vt, Yt, Ut, qt, Gt, Qt, Zt, Jt, te, ee, ie, le, ne, ae, oe, re, se, de, ce, pe, he, ue, ge, fe = new Array;
+                return this.clearArrays(), t(), null == (Qt = css.textTransform) && (Qt = "none"), e = css[O.bkg], i = css[O.bdr], l = css[O.bdrr], n = css[O.bxsd], null == (a = events[O.cbk]) && (a = this.dummy()), null == (o = attr.canvas) && (o = "chart"), null == (r = param.cell) && (r = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (m = css.colorIndex) && (m = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (p = attr.className) && (p = "pimsClassName"), null == (h = events[O.clk]) && (h = this.dummy()), null == (u = attr.cls) && (u = ""), null == (y = attr.container) && (y = "container"), f = css[O.co], null == (v = css[O.csr]) && (v = O.dft), null == (b = css.dataFontSize) && (b = 12), null == (x = attr.dataLabel) && (x = O.dat), null == ($ = attr.dataLabel2) && ($ = O.dat), null == (w = attr[O.dsa]) && (w = !1), k = css[O.dpy], null == (S = css.displayKey) && (S = "none"), _ = events[O.dgdp], null == (C = param.editWidth) && (C = 100), null == (T = param.fieldClass) && (T = 0), N = css.float, A = css.fontColorTD, I = css.fontColorTH, E = css.fontFamily, B = css.fontFamilyTD, F = css.fontFamilyTH, D = css.fontSize, L = css.fontSizeTD, P = css.fontSizeTH, R = css.fontWeight, null == (z = attr.format) && (z = "yy-mm-dd"), null == (H = param.header) && (H = "0"), M = css.height, null == (X = css.heightTable) && (X = 450), null == (W = events.hover) && (W = this.dummy()), K = css.hoverColor, null == (j = css.hoverBgColor) && (j = "null"), V = attr[O.hid], null == (Y = attr[O.htx]) && (Y = ""), null == (q = css.hoverHeight) && (q = 30), null == (U = css.hoverWidth) && (U = ""), null == (G = param.htm) && (G = "config/keypad.htm"), Q = attr.id, null == (Z = param.idCol) && (Z = 0), image = attr.image, null == image && (image = "nil 0 0"), J = attr.imageDir, null == (tt = css.imgWidth) && (tt = 45), null == (et = css.imgHeight) && (et = 45), null == (it = events.keyup) && (it = this.dummy()), null == (at = css.labelFontSize) && (at = 12), null == (ot = css.label2FontSize) && (ot = 12), null == (lt = attr.labelString) && (lt = ""), null == (nt = attr.label2String) && (nt = ""), dt = css[O.lft], null == (ct = css.leftKey) && (ct = 0), null == (rt = css.legendDisplay) && (rt = !1), null == (st = css.legendPosition) && (st = "bottom"), null == (pt = events.listClick) && (pt = this.dummy()), ht = css.listHeight, ut = css.listLeft, ft = css.listWidth, gt = css.listTop, mt = css.margin, yt = css.marginBottom, _t = css.marginLeft, vt = css.marginRight, Ct = css.marginTop, null == (xt = param.markSymbol) && (xt = ""), null == (bt = param.matchCol) && (bt = "-"), null == (Ot = param.matchValue) && (Ot = "-"), null == (St = css.marginKey) && (St = "0px 0px 0px 0px"), null == ($t = param.menuModel) && ($t = "null"), null == (wt = param.menuTitle) && (wt = "null"), Tt = param.model, null == (kt = attr.multiple) && (kt = !1), At = attr.name, null == (It = attr.onscroll) && (It = this.dummy()), Et = css.padding, css.paddingBottom, Bt = css.paddingLeft, css.paddingRight, Ft = css.paddingTop, null == (Dt = css.pointBorderColorIndex) && (Dt = ["#000000"]), null == (Lt = css.pointBorderDash) && (Lt = [0]), null == (Pt = css.pointBorderWidth) && (Pt = [1]), null == (zt = css.pointColorIndex) && (zt = ["#c5ffb3"]), null == (Nt = css.pointRadius) && (Nt = ["5"]), null == (Rt = css.pointStyle) && (Rt = ["triangle"]), Ht = css[O.pst], null == (Mt = param.row) && (Mt = "0"), null == (Xt = param.selectCol) && (Xt = ""), null == (Wt = param.selectColumn) && (Wt = ""), null == (Kt = css.showDay) && (Kt = !1), null == (jt = attr.stacked) && (jt = !1), null == (Vt = attr.tableId) && (Vt = "tableId"), null == (Ut = param.targetId) && (Ut = 0), null == (qt = attr.targetIndex) && (qt = 0), null == (Yt = param.targetColumn) && (Yt = ""), null == (fe = param.targetCol) && (fe = ""), null == (Gt = attr.targetColor) && (Gt = "WHITE"), Zt = css.textAlign, null == (Jt = attr.title) && (Jt = ""), null == (te = css.titleFontSize) && (te = 25), null == (ee = attr.tooltips) && (ee = !0), ie = css[O.tp], null == (le = css.topKey) && (le = 0), null == (ne = events[O.trg]) && (ne = "ondblclick"), null == (ae = attr.type) && (ae = "text"), null == (oe = attr[O.val]) && (oe = ""), null == (de = param.whereClass) && (de = 0), re = css[O.wit], null == (se = css.widthTable) && (se = 130), null == (ce = css.xAxesFontSize) && (ce = 12), null == (pe = css.xlabelAngle) && (pe = 0), null == (he = css.yAxesFontSize) && (he = 12), null == (ue = css.y2AxesFontSize) && (ue = 12), null == (ge = attr.y2AxesType) && (ge = ""), {
                     background: e,
                     border: i,
                     borderRadius: l,
@@ -2348,8 +2350,8 @@ var $POTATO = function() {
                     fontFamilyTD: B,
                     fontFamilyTH: F,
                     fontFamily: E,
-                    fontSize: L,
-                    fontSizeTD: D,
+                    fontSize: D,
+                    fontSizeTD: L,
                     fontSizeTH: P,
                     fontWeight: R,
                     format: z,
@@ -2403,8 +2405,8 @@ var $POTATO = function() {
                     paddingLeft: Bt,
                     paddingTop: Ft,
                     params: params,
-                    pointBorderColorIndex: Lt,
-                    pointBorderDash: Dt,
+                    pointBorderColorIndex: Dt,
+                    pointBorderDash: Lt,
                     pointBorderWidth: Pt,
                     pointColorIndex: zt,
                     pointRadius: Nt,
@@ -2609,9 +2611,9 @@ var $POTATO = function() {
                                 n[String(u)] = new Function(St)
                             }
                             B = this._css_(e[t], y);
-                            var L = this._attr_(e[t], y, m);
+                            var D = this._attr_(e[t], y, m);
                             pims(e[t].localName)._d_(function() {
-                                css = B, attr = L, null != St && (events = {
+                                css = B, attr = D, null != St && (events = {
                                     change: function(t) {
                                         for (var e in n) {
                                             String(e) == t && n[e]()
@@ -2622,18 +2624,18 @@ var $POTATO = function() {
                         }
                         if (m.slice(1, 2) == $O$S.prototype.l($O$V().k)) {
                             y = O.attr(e[t], "style");
-                            var D = O.attr(e[t], "tool"),
+                            var L = O.attr(e[t], "tool"),
                                 P = O.attr(e[t], "ng-model"),
                                 z = O.attr(e[t], "class");
                             null == z && (z = "getFIELD"), $(e[t].localName).addClass(z);
                             var N = new Function(O.attr(e[t], "change")),
                                 R = new Function(O.attr(e[t], "click"));
-                            B = this._css_(e[t], y), L = this._attr_(e[t], y, m);
+                            B = this._css_(e[t], y), D = this._attr_(e[t], y, m);
                             pims(e[t].localName)._kp_(function() {
                                 param = {
-                                    tool: D,
+                                    tool: L,
                                     ngmodel: P
-                                }, css = B, attr = L, events = {
+                                }, css = B, attr = D, events = {
                                     change: N,
                                     click: R
                                 }
@@ -2804,7 +2806,7 @@ var $POTATO = function() {
                             null == wt && (wt = String(m.slice(2, 3)).toLowerCase()), null == ($t = O.attr(e[t], "onload")) && ($t = O.tue), $t == O.tue || 1 == $t ? $O$X.prototype.reloadTable(wt, O.tue) : $O$X.prototype.reloadTable(wt, O.fls)
                         }
                         if (m.slice(1, 2) == $O$S.prototype.l($O$V().tx)) {
-                            y = O.attr(e[t], "style"), B = this._css_(e[t], y), L = this._attr_(e[t], y, m);
+                            y = O.attr(e[t], "style"), B = this._css_(e[t], y), D = this._attr_(e[t], y, m);
                             var kt, St, _t = O.attr(e[t], "class");
                             if (null == _t && (_t = "getFIELD"), $(e[t].localName).addClass(_t), null != (kt = O.attr(e[t], "click"))) {
                                 u = e[t].localName;
@@ -2821,7 +2823,7 @@ var $POTATO = function() {
                             }
                             P = O.attr(e[t], "ng-model");
                             pims(e[t].localName)._tx_(function() {
-                                css = B, attr = L, param = {
+                                css = B, attr = D, param = {
                                     ngmodel: P
                                 }, events = {
                                     click: function(t) {
@@ -2875,19 +2877,31 @@ var $POTATO = function() {
                     if (null != c && c.length > 0) {
                         var l = 0;
                         for (s in h += "<tr>", c) "" != c[s] && "-" != c[s] ? h += "<th style='border:1px solid black;font-size:" + i.fontSizeTH + ";color:" + i.fontColorTH + ";font-family:" + i.fontFamilyTH + "'>" + c[s] + "</th>" : h += "<th style='display:none'>" + c[s] + "</th>", l++;
-                        for (var a in h += "</tr>", e)
-                            if (O.udf != e[a][0] && null != e[a][0] && a >= 0) {
+                        h += "</tr>";
+                        var a = potato.getAttr(n, "split");
+                        for (var r in null == a && (a = "#"), e)
+                            if (O.udf != e[r][0] && null != e[r][0] && r >= 0) {
                                 h += "<tr>";
-                                for (var r = 0; r < l; r++) "" != c[r] && "-" != c[r] && null != c[r] ? null != d && "" != e[a][r] ? h += "<td style='border:1px solid black;padding-left:5px;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'><div class='" + O.dgdp + "-" + o + "'>" + e[a][r] + "</div></td>" : h += "<td style='border:1px solid black;padding-left:5px;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'>" + e[a][r] + "</td>" : h += "<td style='display:none'>" + e[a][r] + "</td>";
+                                for (var p = 0; p < l; p++)
+                                    if ("" != c[p] && "-" != c[p] && null != c[p])
+                                        if (null != d && "" != e[r][p])
+                                            if (-1 != String(e[r][p]).indexOf(a)) {
+                                                var u = String(e[r][p]).split(a);
+                                                h += "<td style='border:1px solid black;padding-left:5px;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'>";
+                                                for (var g = 0; g < u.length - 1; g++) h += "<div class='" + O.dgdp + "-" + o + "'>" + u[g] + "</div>";
+                                                h += "</td>"
+                                            } else h += "<td style='border:1px solid black;padding-left:5px;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'><div class='" + O.dgdp + "-" + o + "'>" + e[r][p] + "</div></td>";
+                                else h += "<td style='border:1px solid black;padding-left:5px;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'>" + e[r][p] + "</td>";
+                                else h += "<td style='display:none'>" + e[r][p] + "</td>";
                                 h += "</tr>"
                             }
                     } else {
                         l = 0;
                         for (s in h += "<tr>", e[0]) "" != e[0][s] && "-" != e[0][s] ? h += "<th style='border:1px solid black;font-size:" + i.fontSizeTH + ";color:" + i.fontColorTH + ";font-family:" + i.fontFamilyTH + "'>" + e[0][s] + "</th>" : h += "<th style='display:none'>" + e[0][s] + "</th>", l++;
-                        for (var a in h += "</tr>", e)
-                            if (O.udf != e[a][0] && null != e[a][0] && a > 0) {
+                        for (var r in h += "</tr>", e)
+                            if (O.udf != e[r][0] && null != e[r][0] && r > 0) {
                                 h += "<tr>";
-                                for (r = 0; l > r; r++) "" != e[0][r] && "-" != e[0][r] && null != e[0][r] && e[0][r] != O.udf ? null != d && "" != e[a][r] ? h += "<td style='border:1px solid black;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'><div class='" + d + "'>" + e[a][r] + "</div></td>" : h += "<td style='border:1px solid black;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'>" + e[a][r] + "</td>" : h += "<td style='display:none'>" + e[a][r] + "</td>";
+                                for (p = 0; l > p; p++) "" != e[0][p] && "-" != e[0][p] && null != e[0][p] && e[0][p] != O.udf ? null != d && "" != e[r][p] ? h += "<td style='border:1px solid black;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'><div class='" + d + "'>" + e[r][p] + "</div></td>" : h += "<td style='border:1px solid black;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'>" + e[r][p] + "</td>" : h += "<td style='display:none'>" + e[r][p] + "</td>";
                                 h += "</tr>"
                             }
                     }
@@ -2903,41 +2917,41 @@ var $POTATO = function() {
                         top: i.top,
                         borderRadius: i.borderRadius
                     }), potato._t_dnd(d, i.id, i);
-                    var p = document.getElementById(i.id),
-                        u = $("#" + i.id + " tbody");
+                    var f = document.getElementById(i.id),
+                        m = $("#" + i.id + " tbody");
                     $(document).keydown(function(t) {
-                        if (u.find(".highlight").length)
+                        if (m.find(".highlight").length)
                             if (40 == t.which) {
-                                var e = u.find(".highlight").next();
+                                var e = m.find(".highlight").next();
                                 $O$X.prototype.tableHighlight(e[0].rowIndex, i.tableId)
                             } else if (38 == t.which) {
-                            var l = u.find(".highlight").prev();
+                            var l = m.find(".highlight").prev();
                             $O$X.prototype.tableHighlight(l[0].rowIndex, i.tableId)
                         }
                     });
                     try {
-                        if (potato.table = p, i.callback(p, i.id), String(editCell).split("@").slice(1, 2) == n) {
-                            var g = String(editCell).split("@").slice(0, 1),
-                                f = [];
-                            if (null != g[0] && "null" != g[0]) f = potato._tb_attr(g);
+                        if (potato.table = f, i.callback(f, i.id), String(editCell).split("@").slice(1, 2) == n) {
+                            var y = String(editCell).split("@").slice(0, 1),
+                                v = [];
+                            if (null != y[0] && "null" != y[0]) v = potato._tb_attr(y);
                             potato._ec_(function() {
                                 attr = {
                                     id: i.id,
                                     dragdrop: d
-                                }, paramE = f;
-                                var t = new Function("return " + String(f[O.cbk]));
+                                }, paramE = v;
+                                var t = new Function("return " + String(v[O.cbk]));
                                 events = {
                                     callback: t()
                                 }
                             })
                         }
                         if (String(multipleSelect).split("@").slice(1, 2) == n) {
-                            if (null != (g = String(multipleSelect).split("@").slice(0, 1))[0] && "null" != g[0]) f = potato._tb_attr(g);
+                            if (null != (y = String(multipleSelect).split("@").slice(0, 1))[0] && "null" != y[0]) v = potato._tb_attr(y);
                             potato.MultipleSelect(function() {
                                 attr = {
                                     id: i.id
-                                }, paramM = f;
-                                var t = new Function("return " + String(f[O.cbk]));
+                                }, paramM = v;
+                                var t = new Function("return " + String(v[O.cbk]));
                                 events = {
                                     callback: t()
                                 }
@@ -2947,7 +2961,7 @@ var $POTATO = function() {
                     $("#" + i.id + " td").click(function() {
                         ci = O._ci_(this), ri = O._ri_(this);
                         for (var t = 0; t < l; t++) 0;
-                        i.click(p.rows[ri], ri, ci, i.id)
+                        i.click(f.rows[ri], ri, ci, i.id)
                     }).mousedown(function() {
                         potato.clickCol = O._ci_(this), potato.clickRow = O._ri_(this)
                     })
@@ -4219,19 +4233,19 @@ var $POTATO = function() {
                 }
                 null != F && F != O.udf || null == (F = n.getAttribute("yAxesTitle")) && (F = "");
                 try {
-                    L = (L = new Function(n.getAttribute("y2AxesTitle")))()
-                } catch (t) {
-                    var L;
-                    null == (L = n.getAttribute("y2AxesTitle")) && (L = "")
-                }
-                null != L && L != O.udf || null == (L = n.getAttribute("y2AxesTitle")) && (L = "");
-                try {
-                    D = (D = new Function(n.getAttribute("showDay")))()
+                    D = (D = new Function(n.getAttribute("y2AxesTitle")))()
                 } catch (t) {
                     var D;
-                    null == (D = n.getAttribute("showDay")) && (D = !0)
+                    null == (D = n.getAttribute("y2AxesTitle")) && (D = "")
                 }
-                null != D && D != O.udf || null == (D = n.getAttribute("showDay")) && (D = !0);
+                null != D && D != O.udf || null == (D = n.getAttribute("y2AxesTitle")) && (D = "");
+                try {
+                    L = (L = new Function(n.getAttribute("showDay")))()
+                } catch (t) {
+                    var L;
+                    null == (L = n.getAttribute("showDay")) && (L = !0)
+                }
+                null != L && L != O.udf || null == (L = n.getAttribute("showDay")) && (L = !0);
                 try {
                     P = (P = new Function(n.getAttribute("height")))()
                 } catch (t) {
@@ -4378,7 +4392,7 @@ var $POTATO = function() {
                         pointColorIndex: j,
                         pointStyle: V,
                         pointRadius: Y,
-                        showDay: D,
+                        showDay: L,
                         xlabelAngle: N,
                         labelFontSize: g,
                         label2FontSize: f,
@@ -4391,7 +4405,7 @@ var $POTATO = function() {
                         chartType: r,
                         title: $,
                         labelString: F,
-                        label2String: L,
+                        label2String: D,
                         y2AxesType: w,
                         stacked: E,
                         tooltips: B,
