@@ -2884,11 +2884,11 @@ var $POTATO = function() {
                                 h += "<tr>";
                                 for (var p = 0; p < l; p++)
                                     if ("" != c[p] && "-" != c[p] && null != c[p])
-                                        if (null != d && "" != e[r][p])
+                                        if (null != d && "" != String(e[r][p]).replace(/\s+/g, ""))
                                             if (-1 != String(e[r][p]).indexOf(a)) {
                                                 var u = String(e[r][p]).split(a);
                                                 h += "<td style='border:1px solid black;padding-left:5px;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'>";
-                                                for (var g = 0; g < u.length - 1; g++) h += "<div class='" + O.dgdp + "-" + o + "'>" + u[g] + "</div>";
+                                                for (var g = 0; g < u.length - 1; g++) "" != String(u[g]).replace(/\s+/g, "") && (h += "<div class='" + O.dgdp + "-" + o + "'>" + u[g] + "</div>");
                                                 h += "</td>"
                                             } else h += "<td style='border:1px solid black;padding-left:5px;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'><div class='" + O.dgdp + "-" + o + "'>" + e[r][p] + "</div></td>";
                                 else h += "<td style='border:1px solid black;padding-left:5px;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'>" + e[r][p] + "</td>";
