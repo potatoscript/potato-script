@@ -520,7 +520,8 @@ var $POTATO = function() {
                 }, 0 == p && this.Post(i, h, function(t) {
                     var i = new Array,
                         l = new Array;
-                    i[0] = new Array, l[0] = new Array, new Array;
+                    i[0] = new Array, l[0] = new Array;
+                    new Array;
                     var n = String(e.dataLabel).split(","),
                         o = String(e.dataLabel2).split(",");
                     if ("bar" == e.chartType) {
@@ -539,7 +540,14 @@ var $POTATO = function() {
                                 v = m.slice(1, 2),
                                 b = m.slice(2, 3),
                                 x = new Date(y + "/" + v + "/" + b);
-                            0 == x.getDay() && (f = "日"), 1 == x.getDay() && (f = "月"), 2 == x.getDay() && (f = "火"), 3 == x.getDay() && (f = "水"), 4 == x.getDay() && (f = "木"), 5 == x.getDay() && (f = "金"), 6 == x.getDay() && (f = "土"), h[p] = t[p][0] + " (" + f + ")"
+                            if (0 == x.getDay()) f = "日";
+                            if (1 == x.getDay()) f = "月";
+                            if (2 == x.getDay()) f = "火";
+                            if (3 == x.getDay()) f = "水";
+                            if (4 == x.getDay()) f = "木";
+                            if (5 == x.getDay()) f = "金";
+                            if (6 == x.getDay()) f = "土";
+                            h[p] = t[p][0] + " (" + f + ")"
                         }
                         if ("bar" == e.chartType) {
                             var w = 0,
@@ -560,6 +568,7 @@ var $POTATO = function() {
                                     } catch (t) {}
                                     g[p] = 1 == s ? _ : maxArray(C)
                             }
+                            w
                         } else i[0].push(t[p][1]), u[p] = t[p][1], t[p][1]
                     }
                     var A = new Array,
@@ -686,7 +695,8 @@ var $POTATO = function() {
                             t.font = Chart.helpers.fontString(11, "normal", "Arial"), t.textAlign = "center", t.textBaseline = "bottom", this.data.datasets.forEach(function(e) {
                                 for (var i = 0; i < e.data.length; i++) {
                                     var l = e._meta[Object.keys(e._meta)[0]].data[i]._model;
-                                    e._meta[Object.keys(e._meta)[0]].data[i]._yScale.maxHeight, t.fillStyle = "#444", t.fillText(pims().Comma(parseFloat(e.data[i])), l.x + 20, l.y + 5)
+                                    e._meta[Object.keys(e._meta)[0]].data[i]._yScale.maxHeight;
+                                    t.fillStyle = "#444", t.fillText(pims().Comma(parseFloat(e.data[i])), l.x + 20, l.y + 5)
                                 }
                             })
                         }
@@ -776,14 +786,15 @@ var $POTATO = function() {
                             textShadow: "-1px -1px 1px #fff, 1px 1px 1px grey"
                         })
                     } catch (t) {}
-                    "bar" == e.chartType ? new Chart(R, {
+                    if ("bar" == e.chartType) new Chart(R, {
                         type: e.chartType,
                         options: P,
                         data: {
                             labels: h,
                             datasets: A
                         }
-                    }) : new Chart(R, {
+                    });
+                    else new Chart(R, {
                         type: "horizontalBar",
                         options: P,
                         data: {
@@ -805,7 +816,8 @@ var $POTATO = function() {
                     t += '<div id="div_' + r + '" class="chartAreaWrapper" style="overflow-y:hidden;-x:scroll;position:relative;">', t += '<div id="div_chart_' + r + '" style="position:relative;height:100%" class="chartAreaWrapper2" ></div> ', t += "</div>", t += '<canvas id="yAxis_' + r + '" style="background:' + e.background + ';position:absolute;left:0;top:0;pointer-events:none" height="' + String(parseFloat(e.height) - 20) + '" width="0"></canvas>', t += "</div>", this.innerHTML = t;
                     var i = new Array,
                         n = new Array;
-                    i[0] = new Array, n[0] = new Array, new Array;
+                    i[0] = new Array, n[0] = new Array;
+                    new Array;
                     var o = String(e.dataLabel).split(","),
                         c = String(e.dataLabel2).split(",");
                     if ("bar" == e.chartType) {
@@ -817,14 +829,22 @@ var $POTATO = function() {
                         g = new Array,
                         f = new Array,
                         m = (new Array, "");
-                    for (l = O.parse(l), h = 0; h < l.length; h++) {
+                    l = O.parse(l);
+                    for (h = 0; h < l.length; h++) {
                         if (u[h] = l[h][0], e.showDay == O.tue) {
                             var y = String(l[h][0]).split("-"),
                                 v = "20" + y.slice(0, 1),
                                 b = y.slice(1, 2),
                                 x = y.slice(2, 3),
                                 w = new Date(v + "/" + b + "/" + x);
-                            0 == w.getDay() && (m = "日"), 1 == w.getDay() && (m = "月"), 2 == w.getDay() && (m = "火"), 3 == w.getDay() && (m = "水"), 4 == w.getDay() && (m = "木"), 5 == w.getDay() && (m = "金"), 6 == w.getDay() && (m = "土"), u[h] = l[h][0] + " (" + m + ")"
+                            if (0 == w.getDay()) m = "日";
+                            if (1 == w.getDay()) m = "月";
+                            if (2 == w.getDay()) m = "火";
+                            if (3 == w.getDay()) m = "水";
+                            if (4 == w.getDay()) m = "木";
+                            if (5 == w.getDay()) m = "金";
+                            if (6 == w.getDay()) m = "土";
+                            u[h] = l[h][0] + " (" + m + ")"
                         }
                         if ("bar" == e.chartType) {
                             var k = 0,
@@ -845,6 +865,7 @@ var $POTATO = function() {
                                     } catch (t) {}
                                     f[h] = 1 == s ? C : maxArray(T)
                             }
+                            k
                         } else i[0].push(l[h][1]), g[h] = l[h][1], l[h][1]
                     }
                     var I = new Array,
@@ -971,7 +992,8 @@ var $POTATO = function() {
                             t.font = Chart.helpers.fontString(11, "normal", "Arial"), t.textAlign = "center", t.textBaseline = "bottom", this.data.datasets.forEach(function(e) {
                                 for (var i = 0; i < e.data.length; i++) {
                                     var l = e._meta[Object.keys(e._meta)[0]].data[i]._model;
-                                    e._meta[Object.keys(e._meta)[0]].data[i]._yScale.maxHeight, t.fillStyle = "#444", t.fillText(pims().Comma(parseFloat(e.data[i])), l.x + 20, l.y + 5)
+                                    e._meta[Object.keys(e._meta)[0]].data[i]._yScale.maxHeight;
+                                    t.fillStyle = "#444", t.fillText(pims().Comma(parseFloat(e.data[i])), l.x + 20, l.y + 5)
                                 }
                             })
                         }
@@ -1060,14 +1082,15 @@ var $POTATO = function() {
                             textShadow: "-1px -1px 1px #fff, 1px 1px 1px grey"
                         })
                     } catch (t) {}
-                    "bar" == e.chartType ? new Chart(R, {
+                    if ("bar" == e.chartType) new Chart(R, {
                         type: e.chartType,
                         options: z,
                         data: {
                             labels: u,
                             datasets: I
                         }
-                    }) : new Chart(R, {
+                    });
+                    else new Chart(R, {
                         type: "horizontalBar",
                         options: z,
                         data: {
@@ -1101,7 +1124,8 @@ var $POTATO = function() {
                 if (String(n.where).split("@").slice(1, 2) == l) var p = String(n.where).split("@").slice(0, 1);
                 i.createdCallback = function() {
                     if (this.id = a + "_", this.pims = l, n.disabled == O.tue) var t = '<button disabled id="' + a + '" class="pimsButton"><table><tr>';
-                    n.disabled == O.fls && (t = '<button id="' + a + '" class="pimsButton"><table><tr>'), "nil 0 0" != n.image ? (t += '<td><img id="img_' + a + '" src="' + String(n.image).split(" ").slice(0, 1) + '" style="width:' + String(n.image).split(" ").slice(1, 2) + "px;height:" + String(n.image).split(" ").slice(2, 3) + 'px"/></td>', t += '<td style="vertical-align:middle;text-align:center">' + n.value + "</td>") : t += '<td style="vertical-align:middle;text-align:center">' + n.value + "</td>", t += "</tr></table></button>", this.innerHTML = "<br>" + t, document.onmousedown = $O$X.prototype.doDown, document.onmouseup = $O$X.prototype.doUp, e._css_id(n, a), $("#" + a).css({
+                    if (n.disabled == O.fls) t = '<button id="' + a + '" class="pimsButton"><table><tr>';
+                    "nil 0 0" != n.image ? (t += '<td><img id="img_' + a + '" src="' + String(n.image).split(" ").slice(0, 1) + '" style="width:' + String(n.image).split(" ").slice(1, 2) + "px;height:" + String(n.image).split(" ").slice(2, 3) + 'px"/></td>', t += '<td style="vertical-align:middle;text-align:center">' + n.value + "</td>") : t += '<td style="vertical-align:middle;text-align:center">' + n.value + "</td>", t += "</tr></table></button>", this.innerHTML = "<br>" + t, document.onmousedown = $O$X.prototype.doDown, document.onmouseup = $O$X.prototype.doUp, e._css_id(n, a), $("#" + a).css({
                         borderLeft: "1px solid buttonshadow",
                         borderRight: "2px solid black",
                         borderTop: "1px solid buttonshadow",
@@ -1152,8 +1176,12 @@ var $POTATO = function() {
                         } catch (t) {}
                         if (null == s || "null" == s || 1 != POTATO.Query && 1 != POTATO.Submit) {
                             if ("null" == s && (1 == POTATO.Query || 1 == POTATO.Submit)) {
-                                if (i = l + O.php, h = [], null != r && "null" != c)
-                                    for (v = (String(c).match(/AND/g) || []).length, b = String(c).split("AND"), x = 0; x <= v; x++) $ = String(b.slice(x, x + 1)).split(":"), w = new Function($.slice(1, 2)), "null" != String($.slice(0, 1)).replace(/\s+/g, "") && (h[String($.slice(0, 1)).replace(/\s+/g, "")] = w());
+                                i = l + O.php, h = [];
+                                if (null != r && "null" != c)
+                                    for (v = (String(c).match(/AND/g) || []).length, b = String(c).split("AND"), x = 0; x <= v; x++) {
+                                        $ = String(b.slice(x, x + 1)).split(":"), w = new Function($.slice(1, 2));
+                                        "null" != String($.slice(0, 1)).replace(/\s+/g, "") && (h[String($.slice(0, 1)).replace(/\s+/g, "")] = w())
+                                    }
                                 pimsData = [], $O$P.prototype._rp_(i, h, function(t) {
                                     POTATO.data = O.parse(t), n.callback()
                                 })
@@ -1193,7 +1221,10 @@ var $POTATO = function() {
                                 } catch (t) {
                                     this.field = 9999999
                                 }
-                                for (g = 0; g < u.length; g++) f = String(u[g].id).split("-").slice(2, 3), g + 1 < u.length ? (m += String(u[g].field).replace(/\s+/g, "") + ",", y += "'" + pims(f).value() + "',") : (m += String(u[g].field).replace(/\s+/g, ""), y += "'" + pims(f).value() + "'")
+                                for (g = 0; g < u.length; g++) {
+                                    f = String(u[g].id).split("-").slice(2, 3);
+                                    g + 1 < u.length ? (m += String(u[g].field).replace(/\s+/g, "") + ",", y += "'" + pims(f).value() + "',") : (m += String(u[g].field).replace(/\s+/g, ""), y += "'" + pims(f).value() + "'")
+                                }
                             }
                             if ("null" != d)
                                 for (var v = (String(d).match(/AND/g) || []).length, b = String(d).split("AND"), x = 0; x <= v; x++) {
@@ -1202,8 +1233,9 @@ var $POTATO = function() {
                                     "null" != String($.slice(0, 1)).replace(/\s+/g, "") && (x < v ? 0 == x ? (m += "," + String($.slice(0, 1)).replace(/\s+/g, "") + ",", y += ",'" + w() + "',") : (m += String($.slice(0, 1)).replace(/\s+/g, "") + ",", y += "'" + w() + "',") : 0 == v ? (m += String($.slice(0, 1)).replace(/\s+/g, "") + ",", y += "'" + w() + "',") : (m += String($.slice(0, 1)).replace(/\s+/g, ""), y += "'" + w() + "'"))
                                 }
                             if (h.fields = m, h.fieldsValue = y, "null" != c && null != r)
-                                for (v = (String(c).match(/AND/g) || []).length, b = String(c).split("AND"), x = 0; x <= v; x++) {
-                                    $ = String(b.slice(x, x + 1)).split(":"), w = new Function($.slice(1, 2));
+                                for (var v = (String(c).match(/AND/g) || []).length, b = String(c).split("AND"), x = 0; x <= v; x++) {
+                                    var $ = String(b.slice(x, x + 1)).split(":"),
+                                        w = new Function($.slice(1, 2));
                                     "null" != String($.slice(0, 1)).replace(/\s+/g, "") && (h[String($.slice(0, 1)).replace(/\s+/g, "")] = w())
                                 }
                             POTATO.data = [], $O$P.prototype._rp_(i, h, function(t) {
@@ -1379,7 +1411,8 @@ var $POTATO = function() {
                     a = this.x,
                     o = l.split("-"),
                     r = o.slice(2, 3);
-                if (o.slice(2, 3), String(e.params).split("@").slice(1, 2) == l) var s = String(e.params).split("@").slice(0, 1);
+                o.slice(2, 3);
+                if (String(e.params).split("@").slice(1, 2) == l) var s = String(e.params).split("@").slice(0, 1);
                 i.createdCallback = function() {
                     this.innerHTML = '<div id="' + a + '"></div> '
                 };
@@ -1485,7 +1518,8 @@ var $POTATO = function() {
                                             p > 0 && c < 0 && (u = a.x + c - 50), i.fillText(t[l][0] + ": " + t[l][1] + ", " + h, u, a.y + p + 8)
                                         }
                                     }
-                                    h = String(Math.round(e.data[e.data.length - 1] / o * 100)) + "%", i.fillText(t[e.data.length - 1][0] + ": " + t[e.data.length - 1][1] + ", " + h, a.x + c, a.y + 2 * p)
+                                    h = String(Math.round(e.data[e.data.length - 1] / o * 100)) + "%";
+                                    i.fillText(t[e.data.length - 1][0] + ": " + t[e.data.length - 1][1] + ", " + h, a.x + c, a.y + 2 * p)
                                 })
                             }
                         },
@@ -1513,7 +1547,12 @@ var $POTATO = function() {
                                         else n = e.imageDir + this._data.labels[t.dataPoints[0].index] + ".jpg";
                                         document.getElementById("img-doughnut-" + r).src = n, document.getElementById("img-doughnut-" + r).style.display = "block", document.getElementById("img-doughnut-" + r).style.border = "5px solid " + t.labelColors[0].backgroundColor
                                     }
-                                } else "null" != e.imageDir && (i = this._data.datasets[0].other[e.targetIndex] + " ,  ", $("#note-doughnut-" + r).show().html(i).css(O.bdr, "3px solid " + e.targetColor), -1 != String(this._data.labels[e.targetIndex]).indexOf("-") ? (l = String(this._data.labels[e.targetIndex]).split("-"), n = e.imageDir + l[0] + "-" + String(l[1]).substring(0, 1) + ".jpg") : n = e.imageDir + this._data.labels[e.targetIndex] + ".jpg", document.getElementById("img-doughnut-" + r).src = n, document.getElementById("img-doughnut-" + r).style.display = "block", document.getElementById("img-doughnut-" + r).style.border = "5px solid " + e.targetColor)
+                                } else if ("null" != e.imageDir) {
+                                    i = this._data.datasets[0].other[e.targetIndex] + " ,  ";
+                                    if ($("#note-doughnut-" + r).show().html(i).css(O.bdr, "3px solid " + e.targetColor), -1 != String(this._data.labels[e.targetIndex]).indexOf("-")) l = String(this._data.labels[e.targetIndex]).split("-"), n = e.imageDir + l[0] + "-" + String(l[1]).substring(0, 1) + ".jpg";
+                                    else n = e.imageDir + this._data.labels[e.targetIndex] + ".jpg";
+                                    document.getElementById("img-doughnut-" + r).src = n, document.getElementById("img-doughnut-" + r).style.display = "block", document.getElementById("img-doughnut-" + r).style.border = "5px solid " + e.targetColor
+                                }
                             }
                         }
                     };
@@ -1548,7 +1587,9 @@ var $POTATO = function() {
                     s = paramE[O.tp],
                     d = paramE[O.lft],
                     c = attr[O.dgdp];
-                l.id, potato.table = document.getElementById(l.id), document.getElementById(l.id);
+                l.id;
+                potato.table = document.getElementById(l.id);
+                document.getElementById(l.id);
                 var p = new Array;
                 p = paramE[O.ec];
                 var h = l.id;
@@ -1573,7 +1614,8 @@ var $POTATO = function() {
                             f.innerText = " "
                         }
                         if ($O$T = this, O.ipt == f.firstChild.nodeName) {
-                            potato.edit = "off", f = this;
+                            potato.edit = "off";
+                            f = this;
                             var m = document.createTextNode(f.firstChild.value);
                             f.replaceChild(m, f.firstChild), g = 1, $("#keypadtable").hide(), potato.trigger = 0, $O$P.nodevalue = f.firstChild.nodeValue, null != c && (t.rows[potato.clickRow].cells[potato.clickCol].innerHTML = "<div class='" + O.dgdp + "-" + h + "'>" + t.rows[potato.clickRow].cells[potato.clickCol].innerText, O._t_d(h), O.dragdropClass = null, O.dragdropId = null), l.callback($O$P.nodevalue, potato.oldValue, t.rows[potato.ri].cells[a].innerText, potato.ci)
                         }
@@ -1638,7 +1680,11 @@ var $POTATO = function() {
                             } catch (t) {
                                 a.innerText = " "
                             }
-                            if ($O$T = this, O.ipt == a.firstChild.nodeName && (a = this, o = document.createTextNode(a.firstChild.value), a.replaceChild(o, a.firstChild), i = 1, $("#keypadtable").hide()), 1 != i && O.ipt != a.firstChild.nodeName && "IMG" != a.firstChild.nodeName) {
+                            if ($O$T = this, O.ipt == a.firstChild.nodeName) {
+                                a = this;
+                                o = document.createTextNode(a.firstChild.value), a.replaceChild(o, a.firstChild), i = 1, $("#keypadtable").hide()
+                            }
+                            if (1 != i && O.ipt != a.firstChild.nodeName && "IMG" != a.firstChild.nodeName) {
                                 var r = document.createElement("input");
                                 r.select();
                                 var s = a.firstChild.nodeValue;
@@ -1762,7 +1808,11 @@ var $POTATO = function() {
                         var t = '<div disabled id="div-' + n + '"> ';
                         "none" == l.display ? t += null == o ? '<input disabled type="text" id="' + n + '" class="' + l.className + '"> ' : '<input disabled ng-model="' + o + '" type="text" id="' + n + '" class="' + l.className + '"> ' : t += null == o ? '<br><input disabled type="text" id="' + n + '"  class="' + l.className + '" > ' : '<br><input disabled ng-model="' + o + '" type="text" id="' + n + '"  class="' + l.className + '" > '
                     }
-                    l.disabled == O.fls && (t = '<div id="div-' + n + '"> ', "none" == l.display ? t += null == o ? '<input type="text" id="' + n + '" class="' + l.className + '"> ' : '<input ng-model="' + o + '" type="text" id="' + n + '" class="' + l.className + '"> ' : t += null == o ? '<br><input type="text" id="' + n + '"  class="' + l.className + '" > ' : '<br><input ng-model="' + o + '" type="text" id="' + n + '"  class="' + l.className + '" > '), t += '<div class="keypad" id="keypad-' + n + '" class="keypad"></div> ', t += "</div> ", this.innerHTML = "<br>" + t, $O$U = document.getElementById(n), "potato.now" == l.value && (l.value = e.now), "potato.today()" == l.value && (l.value = e.today()), "potato.now()" == l.value && (l.value = e.now()), "null" != l.float && $("#" + n + "_").css("float", l.float), $("#div-" + n).css({
+                    if (l.disabled == O.fls) {
+                        t = '<div id="div-' + n + '"> ';
+                        "none" == l.display ? t += null == o ? '<input type="text" id="' + n + '" class="' + l.className + '"> ' : '<input ng-model="' + o + '" type="text" id="' + n + '" class="' + l.className + '"> ' : t += null == o ? '<br><input type="text" id="' + n + '"  class="' + l.className + '" > ' : '<br><input ng-model="' + o + '" type="text" id="' + n + '"  class="' + l.className + '" > '
+                    }
+                    t += '<div class="keypad" id="keypad-' + n + '" class="keypad"></div> ', t += "</div> ", this.innerHTML = "<br>" + t, $O$U = document.getElementById(n), "potato.now" == l.value && (l.value = e.now), "potato.today()" == l.value && (l.value = e.today()), "potato.now()" == l.value && (l.value = e.now()), "null" != l.float && $("#" + n + "_").css("float", l.float), $("#div-" + n).css({
                         display: l.display,
                         position: l.position,
                         left: l.left,
@@ -1901,8 +1951,9 @@ var $POTATO = function() {
                                 potatoListObject.style.display = "none"
                             } catch (t) {}
                             $("#div-" + r).css(O.dpy, "block");
-                            var f = s.model,
-                                m = [];
+                            var f = param.model;
+                            null == f && -1 != String(param.data).indexOf(".php") && (f = param.data);
+                            var m = [];
                             if (null != u) {
                                 var y = $O$X.prototype.getIdClass(String(u));
                                 try {
@@ -1926,25 +1977,54 @@ var $POTATO = function() {
                                         _ = new Function(S.slice(1, 2));
                                     "null" != String(S.slice(0, 1)).replace(/\s+/g, "") && (m[String(S.slice(0, 1)).replace(/\s+/g, "")] = _())
                                 }
-                            if (-1 != String(T).indexOf(O.php) && (f = document.getElementsByTagName(a)[0].getAttribute(O.dat)), null != f) $O$P.prototype._rp_(f, m, function(t) {
-                                var i = O.parse(t),
-                                    o = "<table class='potato-list-table' id='list-" + r + "' >",
-                                    h = 0;
-                                for (e in o += "<tr>", i[0]) "" != i[0][e] ? o += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + i[0][e] + "</th>" : o += "<th style='display:none'>" + i[0][e] + "</th>", h++;
-                                for (n in o += "</tr>", i)
-                                    if (O.udf != i[n][0] && null != i[n][0] && n > 0) {
-                                        o += "<tr>";
-                                        for (var u = 0; u < h; u++) "" != i[0][u] ? o += "<td>" + i[n][u] + "</td>" : o += "<td style='display:none'>" + i[n][u] + "</td>";
-                                        o += "</tr>"
+                            var C = i.getAttr(a, O.hdr),
+                                T = i.getAttr(a, "listTextAlign");
+                            null == T && (T = "center");
+                            var A = i.getAttr(a, "listFontSizeTH");
+                            null == A && (A = "18px");
+                            var I = i.getAttr(a, "listFontSizeTD");
+                            null == I && (I = "18px");
+                            var E = i.getAttr(a, "listFontFamilyTD");
+                            null == E && (E = "Tempus Sans ITC");
+                            var B = i.getAttr(a, "listFontFamilyTH");
+                            null == B && (B = "Tempus Sans ITC");
+                            var F = i.getAttr(a, "listFontColorTH");
+                            null == F && (F = "Black");
+                            var L = i.getAttr(a, "listFontColorTD");
+                            null == L && (L = "Black");
+                            var D = i.getAttr(a, "listFontWeightTD");
+                            null == D && (D = "normal");
+                            var P = i.getAttr(a, "listFontWeightTH");
+                            null == P && (P = "normal");
+                            var z = "<table class='potato-list-table' id='list-" + r + "' >";
+                            if (null != f) $O$P.prototype._rp_(f, m, function(t) {
+                                var o = i.getAttr(a, O.hdr),
+                                    h = O.parse(t);
+                                if (null == o) {
+                                    var u = 0;
+                                    for (e in z += "<tr>", h[0]) "-" != h[0][e] ? z += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + h[0][e] + "</th>" : z += "<th style='display:none'>" + h[0][e] + "</th>", u++;
+                                    for (n in z += "</tr>", h)
+                                        if (O.udf != h[n][0] && null != h[n][0] && n > 0) {
+                                            z += "<tr>";
+                                            for (var g = 0; g < u; g++) "-" != h[0][g] ? z += "<td>" + h[n][g] + "</td>" : z += "<td style='display:none'>" + h[n][g] + "</td>";
+                                            z += "</tr>"
+                                        }
+                                } else {
+                                    o = String(o).split(",");
+                                    for (e in z += "<tr>", o) "-" != o[e] ? z += "<th style='border:1px solid black;font-size:" + A + ";color:" + F + ";text-align:" + T + ";font-weight:" + P + ";font-family:" + B + "'>" + o[e] + "</th>" : z += "<th style='display:none'>" + o[e] + "</th>";
+                                    for (n in z += "</tr>", h) {
+                                        for (e in z += "<tr>", o) "-" != o[e] ? z += "<td>" + h[n][e] + "</td>" : z += "<td style='display:none'>" + h[n][e] + "</td>";
+                                        z += "</tr>"
                                     }
-                                o += "</table>", document.getElementById("div-" + r).style.height = "0px";
-                                var g = String(c).split("px"),
-                                    f = String(p).split("px");
-                                potatoListObject = document.getElementById("div-" + r), $("#div-" + r).html(o).css({
+                                }
+                                z += "</table>", document.getElementById("div-" + r).style.height = "0px";
+                                var f = String(c).split("px"),
+                                    m = String(p).split("px");
+                                potatoListObject = document.getElementById("div-" + r), $("#div-" + r).html(z).css({
                                     transition: "height 0.1s linear",
                                     position: "absolute",
-                                    left: events.clientLeft + parseFloat(f.slice(0, 1)) + "px",
-                                    top: events.clientTop + parseFloat(g.slice(0, 1)) + "px",
+                                    left: events.clientLeft + parseFloat(m.slice(0, 1)) + "px",
+                                    top: events.clientTop + parseFloat(f.slice(0, 1)) + "px",
                                     height: d,
                                     width: l,
                                     overflow: "auto",
@@ -1992,48 +2072,30 @@ var $POTATO = function() {
                                 } catch (t) {}
                             });
                             else {
-                                var C = i.getAttr(a, O.hdr),
-                                    T = i.getAttr(a, O.dat),
-                                    A = i.getAttr(a, "listTextAlign");
-                                null == A && (A = "center");
-                                var I = i.getAttr(a, "listFontSizeTH");
-                                null == I && (I = "18px");
-                                var E = i.getAttr(a, "listFontSizeTD");
-                                null == E && (E = "18px");
-                                var B = i.getAttr(a, "listFontFamilyTD");
-                                null == B && (B = "Tempus Sans ITC");
-                                var F = i.getAttr(a, "listFontFamilyTH");
-                                null == F && (F = "Tempus Sans ITC");
-                                var L = i.getAttr(a, "listFontColorTH");
-                                null == L && (L = "Black");
-                                var D = i.getAttr(a, "listFontColorTD");
-                                null == D && (D = "Black");
-                                var P = i.getAttr(a, "listFontWeightTD");
-                                null == P && (P = "normal");
-                                var z = i.getAttr(a, "listFontWeightTH");
-                                null == z && (z = "normal"), v = O.parse(T);
-                                var N = "<table class='potato-list-table' id='list-" + r + "' >",
-                                    H = 0;
+                                var N = i.getAttr(a, O.dat),
+                                    H = (v = O.parse(N), 0);
                                 if (null == C) {
-                                    for (e in N += "<tr>", v[0]) "" != v[0][e] ? N += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + v[0][e] + "</th>" : N += "<th style='display:none'>" + v[0][e] + "</th>", H++;
-                                    for (n in N += "</tr>", v)
+                                    for (e in z += "<tr>", v[0]) "" != v[0][e] ? z += "<th class='locked_top' style='border:1px solid black;top:0px;position:relative'>" + v[0][e] + "</th>" : z += "<th style='display:none'>" + v[0][e] + "</th>", H++;
+                                    for (n in z += "</tr>", v)
                                         if (O.udf != v[n][0] && null != v[n][0] && n > 0) {
-                                            N += "<tr>";
-                                            for (var R = 0; R < H; R++) "" != v[0][R] ? N += "<td style='text-align:" + A + "'>" + v[n][R] + "</td>" : N += "<td style='display:none'>" + v[n][R] + "</td>";
-                                            N += "</tr>"
+                                            z += "<tr>";
+                                            for (var R = 0; R < H; R++) "" != v[0][R] ? z += "<td style='text-align:" + T + "'>" + v[n][R] + "</td>" : z += "<td style='display:none'>" + v[n][R] + "</td>";
+                                            z += "</tr>"
                                         }
                                 } else {
-                                    for (e in N += "<tr>", C = String(C).split(",")) "-" != C[e] ? N += "<th style='border:1px solid black;font-size:" + I + ";color:" + L + ";text-align:" + A + ";font-weight:" + z + ";font-family:" + F + "'>" + C[e] + "</th>" : N += "<th style='display:none'>" + C[e] + "</th>", H++;
-                                    for (n in N += "</tr>", v)
+                                    C = String(C).split(",");
+                                    for (e in z += "<tr>", C) "-" != C[e] ? z += "<th style='border:1px solid black;font-size:" + A + ";color:" + F + ";text-align:" + T + ";font-weight:" + P + ";font-family:" + B + "'>" + C[e] + "</th>" : z += "<th style='display:none'>" + C[e] + "</th>", H++;
+                                    for (n in z += "</tr>", v)
                                         if (O.udf != v[n][0] && null != v[n][0] && n >= 0) {
-                                            for (N += "<tr>", R = 0; R < H; R++) "-" != C[R] ? N += "<td style='font-size:" + E + ";color:" + D + ";text-align:" + A + ";font-weight:" + P + ";font-family:" + B + "'>" + v[n][R] + "</td>" : N += "<td style='display:none'>" + v[n][R] + "</td>";
-                                            N += "</tr>"
+                                            z += "<tr>";
+                                            for (R = 0; R < H; R++) "-" != C[R] ? z += "<td style='font-size:" + I + ";color:" + L + ";text-align:" + T + ";font-weight:" + D + ";font-family:" + E + "'>" + v[n][R] + "</td>" : z += "<td style='display:none'>" + v[n][R] + "</td>";
+                                            z += "</tr>"
                                         }
                                 }
-                                N += "</table>", document.getElementById("div-" + r).style.height = "0px";
+                                z += "</table>", document.getElementById("div-" + r).style.height = "0px";
                                 var M = String(c).split("px"),
                                     X = String(p).split("px");
-                                potatoListObject = document.getElementById("div-" + r), $("#div-" + r).html(N).css({
+                                potatoListObject = document.getElementById("div-" + r), $("#div-" + r).html(z).css({
                                     transition: "height 0.1s linear",
                                     position: "absolute",
                                     left: events.clientLeft + parseFloat(X.slice(0, 1)) + "px",
@@ -2420,7 +2482,8 @@ var $POTATO = function() {
                         return encodeURIComponent(t) + "=" + encodeURIComponent(e[t])
                     }).join("&"),
                     n = window.XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP");
-                return n.open("POST", t), n.onreadystatechange = function() {
+                n.open("POST", t);
+                return n.onreadystatechange = function() {
                     n.readyState > 3 && 200 == n.status && (potato.response = n.responseText, i(n.responseText))
                 }, n.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), n.setRequestHeader("Chartset", "UTF-8"), n.send(l), n
             },
@@ -2541,12 +2604,18 @@ var $POTATO = function() {
                         if (m.slice(1, 2) == $O$S.prototype.l($O$V().c)) {
                             y = O.attr(e[t], "style");
                             var F = O.attr(e[t], "class");
-                            null == F && (F = "getFIELD"), $(e[t].localName).addClass(F), null != (St = O.attr(e[t], "change")) && (u = e[t].localName, n[String(u)] = new Function(St)), B = this._css_(e[t], y);
+                            if (null == F && (F = "getFIELD"), $(e[t].localName).addClass(F), null != (St = O.attr(e[t], "change"))) {
+                                u = e[t].localName;
+                                n[String(u)] = new Function(St)
+                            }
+                            B = this._css_(e[t], y);
                             var L = this._attr_(e[t], y, m);
                             pims(e[t].localName)._d_(function() {
                                 css = B, attr = L, null != St && (events = {
                                     change: function(t) {
-                                        for (var e in n) String(e) == t && n[e]()
+                                        for (var e in n) {
+                                            String(e) == t && n[e]()
+                                        }
                                     }
                                 })
                             })
@@ -2559,7 +2628,8 @@ var $POTATO = function() {
                             null == z && (z = "getFIELD"), $(e[t].localName).addClass(z);
                             var N = new Function(O.attr(e[t], "change")),
                                 H = new Function(O.attr(e[t], "click"));
-                            B = this._css_(e[t], y), L = this._attr_(e[t], y, m), pims(e[t].localName)._kp_(function() {
+                            B = this._css_(e[t], y), L = this._attr_(e[t], y, m);
+                            pims(e[t].localName)._kp_(function() {
                                 param = {
                                     tool: D,
                                     ngmodel: P
@@ -2582,13 +2652,21 @@ var $POTATO = function() {
                             var V = O.attr(e[t], "whereClass"),
                                 Y = O.attr(e[t], "params"),
                                 U = O.attr(e[t], "onscroll");
-                            if (null != (kt = O.attr(e[t], "listClick"))) u = e[t].localName, l[String(u)] = new Function(kt);
-                            else try {
-                                u = e[t].localName, l[String(u)] = new Function(String(m.slice(2, 3)).toLowerCase() + "()")
+                            if (null != (kt = O.attr(e[t], "listClick"))) {
+                                u = e[t].localName;
+                                l[String(u)] = new Function(kt)
+                            } else try {
+                                u = e[t].localName;
+                                l[String(u)] = new Function(String(m.slice(2, 3)).toLowerCase() + "()")
                             } catch (t) {}
-                            null != (ft = O.attr(e[t], "callback")) && (u = e[t].localName, i[String(u)] = new Function(ft)), O.attr(e[t], "listTop"), O.attr(e[t], "listLeft"), O.attr(e[t], "display");
+                            if (null != (ft = O.attr(e[t], "callback"))) {
+                                u = e[t].localName;
+                                i[String(u)] = new Function(ft)
+                            }
+                            O.attr(e[t], "listTop"), O.attr(e[t], "listLeft"), O.attr(e[t], "display");
                             var q = String(e[t].localName);
-                            B = this._css_(e[t], y, q), pims(q)._lt_(function() {
+                            B = this._css_(e[t], y, q);
+                            pims(q)._lt_(function() {
                                 try {
                                     where = V + "@" + q
                                 } catch (t) {}
@@ -2606,10 +2684,14 @@ var $POTATO = function() {
                                     id: R
                                 }, events = {
                                     click: function(t, e, i) {
-                                        for (var n in potato.table = t, potato.ci = i, l) String(n) == e && l[n]()
+                                        for (var n in potato.table = t, potato.ci = i, l) {
+                                            String(n) == e && l[n]()
+                                        }
                                     },
                                     callback: function(t) {
-                                        for (var e in i) String(e) == t && i[e]()
+                                        for (var e in i) {
+                                            String(e) == t && i[e]()
+                                        }
                                     }
                                 }
                             })
@@ -2653,15 +2735,22 @@ var $POTATO = function() {
                             var ft, mt = O.attr(e[t], "whereClass"),
                                 yt = O.attr(e[t], "params"),
                                 vt = O.attr(e[t], "onscroll");
-                            if (null != (kt = O.attr(e[t], "click"))) u = e[t].localName, d[String(u)] = new Function(kt);
-                            else try {
-                                u = e[t].localName, d[String(u)] = new Function(String(m.slice(2, 3)).toLowerCase() + "()")
+                            if (null != (kt = O.attr(e[t], "click"))) {
+                                u = e[t].localName;
+                                d[String(u)] = new Function(kt)
+                            } else try {
+                                u = e[t].localName;
+                                d[String(u)] = new Function(String(m.slice(2, 3)).toLowerCase() + "()")
                             } catch (t) {}
-                            null != (ft = O.attr(e[t], "callback")) && (u = e[t].localName, s[String(u)] = new Function(ft));
+                            if (null != (ft = O.attr(e[t], "callback"))) {
+                                u = e[t].localName;
+                                s[String(u)] = new Function(ft)
+                            }
                             var bt = O.attr(e[t], "topTable"),
                                 Ot = O.attr(e[t], "leftTable"),
                                 xt = O.attr(e[t], "display");
-                            q = String(e[t].localName), pims(q)._m_(function() {
+                            q = String(e[t].localName);
+                            pims(q)._m_(function() {
                                 try {
                                     where = mt + "@" + q
                                 } catch (t) {}
@@ -2696,15 +2785,20 @@ var $POTATO = function() {
                                     id: ht
                                 }, events = {
                                     click: function(t, e, i) {
-                                        for (var l in potato.table = t, potato.ci = i, d) String(l) == e && d[l]()
+                                        for (var l in potato.table = t, potato.ci = i, d) {
+                                            String(l) == e && d[l]()
+                                        }
                                     },
                                     callback: function(t) {
-                                        for (var e in s) String(e) == t && s[e]()
+                                        for (var e in s) {
+                                            String(e) == t && s[e]()
+                                        }
                                     }
                                 }
                             })
                         }
-                        if (m.slice(1, 2) == $O$S.prototype.l($O$V().ct) && (POTATO.elementbar = e[t], $O$Element[m.slice(2, 3)] = e[t], null == ($t = O.attr(e[t], "onload")) && ($t = O.tue), $t == O.tue ? $O$X.prototype.reloadChart(m.slice(2, 3)) : $O$X.prototype.reloadChart(m.slice(2, 3), O.fls)), m.slice(1, 2) == $O$S.prototype.l($O$V().tb)) {
+                        if (m.slice(1, 2) == $O$S.prototype.l($O$V().ct)) POTATO.elementbar = e[t], $O$Element[m.slice(2, 3)] = e[t], null == ($t = O.attr(e[t], "onload")) && ($t = O.tue), $t == O.tue ? $O$X.prototype.reloadChart(m.slice(2, 3)) : $O$X.prototype.reloadChart(m.slice(2, 3), O.fls);
+                        if (m.slice(1, 2) == $O$S.prototype.l($O$V().tb)) {
                             POTATO.element = e[t], $O$Element[m.slice(2, 3)] = e[t];
                             var $t, wt = O.attr(e[t], O.id);
                             null == wt && (wt = String(m.slice(2, 3)).toLowerCase()), null == ($t = O.attr(e[t], "onload")) && ($t = O.tue), $t == O.tue || 1 == $t ? $O$X.prototype.reloadTable(wt, O.tue) : $O$X.prototype.reloadTable(wt, O.fls)
@@ -2712,25 +2806,47 @@ var $POTATO = function() {
                         if (m.slice(1, 2) == $O$S.prototype.l($O$V().tx)) {
                             y = O.attr(e[t], "style"), B = this._css_(e[t], y), L = this._attr_(e[t], y, m);
                             var kt, St, _t = O.attr(e[t], "class");
-                            null == _t && (_t = "getFIELD"), $(e[t].localName).addClass(_t), null != (kt = O.attr(e[t], "click")) && (u = e[t].localName, a[String(u)] = new Function(kt)), null != (St = O.attr(e[t], "change")) && (u = e[t].localName, r[String(u)] = new Function(St));
+                            if (null == _t && (_t = "getFIELD"), $(e[t].localName).addClass(_t), null != (kt = O.attr(e[t], "click"))) {
+                                u = e[t].localName;
+                                a[String(u)] = new Function(kt)
+                            }
+                            if (null != (St = O.attr(e[t], "change"))) {
+                                u = e[t].localName;
+                                r[String(u)] = new Function(St)
+                            }
                             var Ct = O.attr(e[t], "keyup");
-                            null != Ct && (u = e[t].localName, o[String(u)] = new Function(Ct)), P = O.attr(e[t], "ng-model"), pims(e[t].localName)._tx_(function() {
+                            if (null != Ct) {
+                                u = e[t].localName;
+                                o[String(u)] = new Function(Ct)
+                            }
+                            P = O.attr(e[t], "ng-model");
+                            pims(e[t].localName)._tx_(function() {
                                 css = B, attr = L, param = {
                                     ngmodel: P
                                 }, events = {
                                     click: function(t) {
-                                        for (var e in a) String(e) == t && a[e]()
+                                        for (var e in a) {
+                                            String(e) == t && a[e]()
+                                        }
                                     },
                                     change: function(t) {
-                                        for (var e in r) String(e) == t && r[e]()
+                                        for (var e in r) {
+                                            String(e) == t && r[e]()
+                                        }
                                     },
                                     keyup: function(t, e) {
-                                        for (var i in o) String(i) == t && o[i]()
+                                        for (var i in o) {
+                                            String(i) == t && o[i]()
+                                        }
                                     }
                                 }
                             })
                         }
-                        "D" == m.slice(1, 2) && (POTATO.elementdoughnut = e[t], null == (g = O.attr(e[t], "onload")) && (g = O.tue), g == O.tue ? $O$X.prototype.reloadDoughnut(0) : $O$X.prototype.reloadDoughnut(0, O.fls)), "D1" == m.slice(1, 2) && (POTATO.element1doughnut = e[t], null == (g = O.attr(e[t], "onload")) && (g = O.tue), g == O.tue ? $O$X.prototype.reloadDoughnut(1) : $O$X.prototype.reloadDoughnut(1, O.fls)), "D2" == m.slice(1, 2) && (POTATO.element2doughnut = e[t], null == (g = O.attr(e[t], "onload")) && (g = O.tue), g == O.tue ? $O$X.prototype.reloadDoughnut(2) : $O$X.prototype.reloadDoughnut(2, O.fls)), "R" == m.slice(1, 2) && (POTATO.elementradar = e[t], null == (f = O.attr(e[t], "onload")) && (f = O.tue), f == O.tue ? $O$X.prototype.reloadRadar(0) : $O$X.prototype.reloadRadar(0, O.fls)), "R1" == m.slice(1, 2) && (POTATO.element1radar = e[t], null == (f = O.attr(e[t], "onload")) && (f = O.tue), f == O.tue ? $O$X.prototype.reloadRadar(1) : $O$X.prototype.reloadRadar(1, O.fls))
+                        if ("D" == m.slice(1, 2)) POTATO.elementdoughnut = e[t], null == (g = O.attr(e[t], "onload")) && (g = O.tue), g == O.tue ? $O$X.prototype.reloadDoughnut(0) : $O$X.prototype.reloadDoughnut(0, O.fls);
+                        if ("D1" == m.slice(1, 2)) POTATO.element1doughnut = e[t], null == (g = O.attr(e[t], "onload")) && (g = O.tue), g == O.tue ? $O$X.prototype.reloadDoughnut(1) : $O$X.prototype.reloadDoughnut(1, O.fls);
+                        if ("D2" == m.slice(1, 2)) POTATO.element2doughnut = e[t], null == (g = O.attr(e[t], "onload")) && (g = O.tue), g == O.tue ? $O$X.prototype.reloadDoughnut(2) : $O$X.prototype.reloadDoughnut(2, O.fls);
+                        if ("R" == m.slice(1, 2)) POTATO.elementradar = e[t], null == (f = O.attr(e[t], "onload")) && (f = O.tue), f == O.tue ? $O$X.prototype.reloadRadar(0) : $O$X.prototype.reloadRadar(0, O.fls);
+                        if ("R1" == m.slice(1, 2)) POTATO.element1radar = e[t], null == (f = O.attr(e[t], "onload")) && (f = O.tue), f == O.tue ? $O$X.prototype.reloadRadar(1) : $O$X.prototype.reloadRadar(1, O.fls)
                     }
                 }
             },
@@ -2741,14 +2857,17 @@ var $POTATO = function() {
                     for (var l = String(t[0]), n = (String(l).match(/;/g) || []).length, a = String(l).split(";"), o = 0; o < n; o++)
                         if (-1 != String(a.slice(o, o + 1)).indexOf(":")) {
                             var r = String(a.slice(o, o + 1)).split(":");
-                            String(r.slice(0, 1)).replace(/\s+/g, "") != O.tl && String(r.slice(0, 1)).replace(/\s+/g, "") != O.cbk && (e[String(r.slice(0, 1)).replace(/\s+/g, "")] = String(r.slice(1, 2)).replace(/\s+/g, "")), String(r.slice(0, 1)).replace(/\s+/g, "") == O.tl && (e[String(r.slice(0, 1)).replace(/\s+/g, "")] = r.slice(1, 2)), String(r.slice(0, 1)).replace(/\s+/g, "") == O.cbk && (l = String(t[0]).split(O.cbk), a = String(l.slice(1, 2)), e[O.cbk] = "function" + String(a.substr(1)).split("function").slice(1, 2))
+                            if (String(r.slice(0, 1)).replace(/\s+/g, "") != O.tl && String(r.slice(0, 1)).replace(/\s+/g, "") != O.cbk && (e[String(r.slice(0, 1)).replace(/\s+/g, "")] = String(r.slice(1, 2)).replace(/\s+/g, "")), String(r.slice(0, 1)).replace(/\s+/g, "") == O.tl && (e[String(r.slice(0, 1)).replace(/\s+/g, "")] = r.slice(1, 2)), String(r.slice(0, 1)).replace(/\s+/g, "") == O.cbk) {
+                                l = String(t[0]).split(O.cbk), a = String(l.slice(1, 2));
+                                e[O.cbk] = "function" + String(a.substr(1)).split("function").slice(1, 2)
+                            }
                         }
                 return e
             },
             _tb_: function(t, e) {
                 for (var i = this._p_(e), l = this.getHTMLElement(), n = this.x, a = [
                         []
-                    ], o = i.id, r = param[O.dat], s = String(o).toUpperCase(), d = this.attr($O$Element[s], O.dgdp), c = String(i.header).split(","), p = 0; p < $O$Array.length; p++) o == String($O$Array[p].bind) && (a[$O$Array[p].id] = $O$Array[p].value);
+                    ], o = i.id, r = param[O.dat], s = String(o).toUpperCase(), d = this.attr($O$Element[s], O.dgdp), c = String(i.header).split(","), p = 0; p < $O$Array.length; p++) o == String($O$Array[p].bind) && (a[$O$Array[p].id] = $O$Array[p].value, 0);
                 var h = "<table class='potatoTableCss' id='" + i.id + "' style='border-collapse:collapse;width:99%'>"; - 1 != String(r).indexOf(O.php) && (i.model = r), null != i.model ? (l.createdCallback = function() {
                     this.innerHTML = '<div id="div-' + o + '" ></div> '
                 }, this._rp_(i.model, a, function(t) {
@@ -2763,10 +2882,12 @@ var $POTATO = function() {
                                 h += "</tr>"
                             }
                     } else {
-                        for (s in l = 0, h += "<tr>", e[0]) "" != e[0][s] && "-" != e[0][s] ? h += "<th style='border:1px solid black;font-size:" + i.fontSizeTH + ";color:" + i.fontColorTH + ";font-family:" + i.fontFamilyTH + "'>" + e[0][s] + "</th>" : h += "<th style='display:none'>" + e[0][s] + "</th>", l++;
+                        l = 0;
+                        for (s in h += "<tr>", e[0]) "" != e[0][s] && "-" != e[0][s] ? h += "<th style='border:1px solid black;font-size:" + i.fontSizeTH + ";color:" + i.fontColorTH + ";font-family:" + i.fontFamilyTH + "'>" + e[0][s] + "</th>" : h += "<th style='display:none'>" + e[0][s] + "</th>", l++;
                         for (var a in h += "</tr>", e)
                             if (O.udf != e[a][0] && null != e[a][0] && a > 0) {
-                                for (h += "<tr>", r = 0; l > r; r++) "" != e[0][r] && "-" != e[0][r] && null != e[0][r] && e[0][r] != O.udf ? h += null != d ? "<td style='border:1px solid black;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'><div class='" + d + "'>" + e[a][r] + "</div></td>" : "<td style='border:1px solid black;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'>" + e[a][r] + "</td>" : h += "<td style='display:none'>" + e[a][r] + "</td>";
+                                h += "<tr>";
+                                for (r = 0; l > r; r++) "" != e[0][r] && "-" != e[0][r] && null != e[0][r] && e[0][r] != O.udf ? h += null != d ? "<td style='border:1px solid black;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'><div class='" + d + "'>" + e[a][r] + "</div></td>" : "<td style='border:1px solid black;font-size:" + i.fontSizeTD + ";color:" + i.fontColorTD + ";font-family:" + i.fontFamilyTD + "'>" + e[a][r] + "</td>" : h += "<td style='display:none'>" + e[a][r] + "</td>";
                                 h += "</tr>"
                             }
                     }
@@ -2798,7 +2919,8 @@ var $POTATO = function() {
                         if (potato.table = p, i.callback(p, i.id), String(editCell).split("@").slice(1, 2) == n) {
                             var g = String(editCell).split("@").slice(0, 1),
                                 f = [];
-                            null != g[0] && "null" != g[0] && (f = potato._tb_attr(g)), potato._ec_(function() {
+                            if (null != g[0] && "null" != g[0]) f = potato._tb_attr(g);
+                            potato._ec_(function() {
                                 attr = {
                                     id: i.id,
                                     dragdrop: d
@@ -2809,19 +2931,22 @@ var $POTATO = function() {
                                 }
                             })
                         }
-                        String(multipleSelect).split("@").slice(1, 2) == n && (null != (g = String(multipleSelect).split("@").slice(0, 1))[0] && "null" != g[0] && (f = potato._tb_attr(g)), potato.MultipleSelect(function() {
-                            attr = {
-                                id: i.id
-                            }, paramM = f;
-                            var t = new Function("return " + String(f[O.cbk]));
-                            events = {
-                                callback: t()
-                            }
-                        }))
+                        if (String(multipleSelect).split("@").slice(1, 2) == n) {
+                            if (null != (g = String(multipleSelect).split("@").slice(0, 1))[0] && "null" != g[0]) f = potato._tb_attr(g);
+                            potato.MultipleSelect(function() {
+                                attr = {
+                                    id: i.id
+                                }, paramM = f;
+                                var t = new Function("return " + String(f[O.cbk]));
+                                events = {
+                                    callback: t()
+                                }
+                            })
+                        }
                     } catch (t) {}
                     $("#" + i.id + " td").click(function() {
                         ci = O._ci_(this), ri = O._ri_(this);
-                        for (var t = 0; t < l; t++);
+                        for (var t = 0; t < l; t++) 0;
                         i.click(p.rows[ri], ri, ci, i.id)
                     }).mousedown(function() {
                         potato.clickCol = O._ci_(this), potato.clickRow = O._ri_(this)
@@ -2865,7 +2990,8 @@ var $POTATO = function() {
                         if (potato.table = p, i.callback(p, i.id), String(editCell).split("@").slice(1, 2) == n) {
                             var g = String(editCell).split("@").slice(0, 1),
                                 f = [];
-                            null != g[0] && "null" != g[0] && (f = potato._tb_attr(g)), potato._ec_(function() {
+                            if (null != g[0] && "null" != g[0]) f = potato._tb_attr(g);
+                            potato._ec_(function() {
                                 attr = {
                                     id: i.id,
                                     dragdrop: d
@@ -2876,23 +3002,24 @@ var $POTATO = function() {
                                 }
                             })
                         }
-                        String(multipleSelect).split("@").slice(1, 2) == n && (null != (g = String(multipleSelect).split("@").slice(0, 1))[0] && "null" != g[0] && (f = potato._tb_attr(g)), potato.MultipleSelect(function() {
-                            attr = {
-                                id: i.id
-                            }, paramM = f;
-                            var t = new Function("return " + String(f[O.cbk]));
-                            events = {
-                                callback: t()
-                            }
-                        }))
+                        if (String(multipleSelect).split("@").slice(1, 2) == n) {
+                            if (null != (g = String(multipleSelect).split("@").slice(0, 1))[0] && "null" != g[0]) f = potato._tb_attr(g);
+                            potato.MultipleSelect(function() {
+                                attr = {
+                                    id: i.id
+                                }, paramM = f;
+                                var t = new Function("return " + String(f[O.cbk]));
+                                events = {
+                                    callback: t()
+                                }
+                            })
+                        }
                     } catch (t) {}
                     $("#" + i.id + " td").mousedown(function() {
                         potato.clickCol = O._ci_(this), potato.clickRow = O._ri_(this)
-                    }).mouseup(function() {
-                        potato.dropCol = O._ci_(this), potato.dropRow = O._ri_(this)
                     }).click(function() {
                         ci = O._ci_(this), ri = O._ri_(this);
-                        for (var t = 0; t < e; t++);
+                        for (var t = 0; t < e; t++) 0;
                         i.click(p.rows[ri], ri, ci, i.id)
                     })
                 }, this._p_e(n, l)
@@ -3029,7 +3156,7 @@ var $POTATO = function() {
                             a = "='" + l + "'";
                         t = t.substring(0, n) + a + t.substring(n + e[i].length)
                     }
-                return (t = (t = t.replace(/\"/g, "%26quot;")).replace(/%(?![\da-f]{2}|[\da-f]{4})/gi, "%25")).replace(/\&/g, "%26")
+                return t = (t = (t = t.replace(/\"/g, "%26quot;")).replace(/%(?![\da-f]{2}|[\da-f]{4})/gi, "%25")).replace(/\&/g, "%26")
             },
             chartXML: function(t) {
                 this.chartVariable("dataXML", this.chartEncode(t))
@@ -3058,7 +3185,9 @@ var $POTATO = function() {
             },
             Chart: function(t, e, i) {
                 var l = this._p_(i);
-                this.attributes = new Array, this.params = new Object, this.variables = new Object, this.chartAttribute("s", "lib/charts/" + l.chartType + ".swf"), this.chartAttribute("w", l.width), this.chartAttribute("h", l.height), this.chartAttribute(O.id, l.chartId), this.chartParam("bgcolor", l.background), this.chartParam("quality", "high"), this.chartVariable("chartWidth", l.width), this.chartVariable("chartHeight", l.height), O.is(this), this._rx_(this, t, e, function(t, e) {
+                this.attributes = new Array, this.params = new Object, this.variables = new Object, this.chartAttribute("s", "lib/charts/" + l.chartType + ".swf"), this.chartAttribute("w", l.width), this.chartAttribute("h", l.height), this.chartAttribute(O.id, l.chartId), this.chartParam("bgcolor", l.background), this.chartParam("quality", "high"), this.chartVariable("chartWidth", l.width), this.chartVariable("chartHeight", l.height);
+                O.is(this);
+                this._rx_(this, t, e, function(t, e) {
                     t.chartXML(e), t.chartParam("WMode", "transparent"), t.getChart(t.x), l.callback(e)
                 })
             },
@@ -3106,7 +3235,8 @@ var $POTATO = function() {
                 } catch (t) {}
             },
             closePad_backup: function(t, e) {
-                if (e = $O$U, "" == t && (e.value = ""), "Close" != t && "Now" != t && "CE" != t) "-" != e.value && "" != e.value || (e.value = t), e.value = t + ":" + e.value.split(":").slice(1, 2), $("._min_cls").attr(O.dsa, !1);
+                e = $O$U;
+                if ("" == t && (e.value = ""), "Close" != t && "Now" != t && "CE" != t) "-" != e.value && "" != e.value || (e.value = t), e.value = t + ":" + e.value.split(":").slice(1, 2), $("._min_cls").attr(O.dsa, !1);
                 else if ($("._min_cls").attr(O.dsa, !0), "Now" == t && (e.value = $O$X.prototype.setHour() + ":" + $O$X.prototype.setMinute()), "CE" == t && (e.value = "0", $("._min_cls").attr(O.dsa, !0)), "Close" == t)
                     if (POTATO.value != O.udf && null != POTATO.value && "0" != POTATO.value && 0 != e.value) {
                         try {
@@ -3146,7 +3276,7 @@ var $POTATO = function() {
             },
             day: function() {
                 var t = (new Date).getDate();
-                return parseInt(t) < 10 ? "0" + t : t
+                return t = parseInt(t) < 10 ? "0" + t : t
             },
             Date: function(t) {
                 var e = O.is(this),
@@ -3288,7 +3418,7 @@ var $POTATO = function() {
                     o = n.getMonth() + 1;
                 o = parseInt(o) < 10 ? "0" + o : o;
                 var r = n.getDate();
-                return a + e + o + e + (parseInt(r) < 10 ? "0" + r : r)
+                return a + e + o + e + (r = parseInt(r) < 10 ? "0" + r : r)
             },
             getAttr: function(t, e) {
                 return document.getElementsByTagName(t)[0].getAttribute(e)
@@ -3330,10 +3460,10 @@ var $POTATO = function() {
                 var e = this.getChartParams();
                 for (var i in e) t += '<param name="' + i + '" value="' + e[i] + '" />';
                 var l = this.getChartVariablePairs().join("&");
-                return l.length > 0 && (t += '<param name="flashvars" value="' + l + '" />'), t + "</object>"
+                return l.length > 0 && (t += '<param name="flashvars" value="' + l + '" />'), t += "</object>"
             },
             getChart: function(t) {
-                return 1 == this.detectFlashVersion && this.installedVer.major < 6 ? 1 == this.autoInstallRedirect && !!window.potatoirm("You need Adobe Flash Player 6 (or above) to view the charts. It is a free and lightweight installation from Adobe.com. Please click on Ok to install the same.") && void(window.location = "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash") : (("string" == typeof t ? document.getElementById(t) : t).innerHTML = this.getChartHtml(), document.embeds[this.getChartAttribute(O.id)] || window[this.getChartAttribute(O.id)] || (window[this.getChartAttribute(O.id)] = document.getElementById(this.getChartAttribute(O.id))), !0)
+                return 1 == this.detectFlashVersion && this.installedVer.major < 6 ? 1 == this.autoInstallRedirect && (!!window.potatoirm("You need Adobe Flash Player 6 (or above) to view the charts. It is a free and lightweight installation from Adobe.com. Please click on Ok to install the same.") && void(window.location = "http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash")) : (("string" == typeof t ? document.getElementById(t) : t).innerHTML = this.getChartHtml(), document.embeds[this.getChartAttribute(O.id)] || window[this.getChartAttribute(O.id)] || (window[this.getChartAttribute(O.id)] = document.getElementById(this.getChartAttribute(O.id))), !0)
             },
             getHTMLElement: function() {
                 return Object.create(HTMLElement.prototype)
@@ -3382,7 +3512,7 @@ var $POTATO = function() {
             },
             hour: function() {
                 var t = (new Date).getHours();
-                return parseInt(t) < 10 ? "0" + t : t
+                return t = parseInt(t) < 10 ? "0" + t : t
             },
             html: function() {
                 return this.html
@@ -3390,7 +3520,7 @@ var $POTATO = function() {
             If: function(t) {
                 var e = potato.vl($O$I.potato.v),
                     i = potato.vl($O$I.potato.z);
-                return t == e ? 1 : t == i ? 1 : -1
+                return t = t == e ? 1 : t == i ? 1 : -1
             },
             is: function(t) {
                 return t.getHTMLElement()
@@ -3677,15 +3807,17 @@ var $POTATO = function() {
                 with(el.style) borderLeft = "2px solid black", borderRight = "1px solid buttonshadow", borderTop = "2px solid black", borderBottom = "1px solid buttonshadow"
             },
             makeGray: function(t, e) {
-                for (var i = $O$X.prototype.findChildren(t, "tagName", "IMG"), l = 0; l < i.length; l++) i[l].style.filter = ""
+                var i;
+                i = "";
+                for (var l = $O$X.prototype.findChildren(t, "tagName", "IMG"), n = 0; n < l.length; n++) l[n].style.filter = i
             },
             minute: function() {
                 var t = (new Date).getMinutes();
-                return parseInt(t) < 10 ? "0" + t : t
+                return t = parseInt(t) < 10 ? "0" + t : t
             },
             month: function() {
                 var t = (new Date).getMonth() + 1;
-                return parseInt(t) < 10 ? "0" + t : t
+                return t = parseInt(t) < 10 ? "0" + t : t
             },
             mouseOver: function(t) {
                 this._a_("mouseover", t)
@@ -3776,7 +3908,8 @@ var $POTATO = function() {
                 return $O$P.day = parseInt(e) < 10 ? "0" + e : e, $O$P.hour = parseInt(i) < 10 ? "0" + i : i, $O$P.minute = parseInt(l) < 10 ? "0" + l : l, $O$P.month = parseInt(n) < 10 ? "0" + n : n, $O$P.second = parseInt(a) < 10 ? "0" + a : a, $O$P.year = o, $O$P.title = "$O$", $O$P.hour + ":" + $O$P.minute + ":" + $O$P.second
             },
             obj: function(t) {
-                return t = String(t).toLowerCase(), document.getElementById(t)
+                t = String(t).toLowerCase();
+                return document.getElementById(t)
             },
             optionText: function() {
                 return document.getElementById(this.x).options[document.getElementById(this.x).selectedIndex].text
@@ -3797,8 +3930,9 @@ var $POTATO = function() {
                     l = [],
                     n = 0;
                 for (var a in t) {
-                    if ("WHERE" == a)
-                        for (var o in n = 1, t[a]) {
+                    if ("WHERE" == a) {
+                        n = 1;
+                        for (var o in t[a]) {
                             if ("class" == o)
                                 for (var r = $O$X.prototype.getIdClass(t[a][o]), s = 0; s < r.length; s++) {
                                     var d = String(r[s].id).split("-").slice(2, 3);
@@ -3806,16 +3940,23 @@ var $POTATO = function() {
                                 }
                             "class" != o && (l[o] = t[a][o])
                         }
+                    }
                     if ("FIELD" == a) {
                         n = 1;
                         var c = "",
                             p = "";
                         for (var o in t[a]) {
                             if ("class" == o)
-                                for (r = $O$X.prototype.getIdClass(t[a][o]), s = 1; s < r.length; s++) c += r[s].field + ",", d = String(r[s].id).split("-").slice(2, 3), p += "'" + POTATO("#" + d).value + "',";
+                                for (r = $O$X.prototype.getIdClass(t[a][o]), s = 1; s < r.length; s++) {
+                                    c += r[s].field + ",";
+                                    d = String(r[s].id).split("-").slice(2, 3);
+                                    p += "'" + POTATO("#" + d).value + "',"
+                                }
                             "class" != o && (c += o + ",", p += "'" + t[a][o] + "',", s++)
                         }
-                        c += r[0].field, d = String(r[0].id).split("-").slice(2, 3), p += "'" + POTATO("#" + d).value + "'", l.fields = c, l.fieldsValue = p
+                        c += r[0].field;
+                        d = String(r[0].id).split("-").slice(2, 3);
+                        p += "'" + POTATO("#" + d).value + "'", l.fields = c, l.fieldsValue = p
                     }
                 }
                 0 == n && (l = t), this._rp_(i, l, function(t) {
@@ -3832,7 +3973,8 @@ var $POTATO = function() {
                     a = this.x,
                     o = l.split("-"),
                     r = o.slice(2, 3);
-                if (o.slice(2, 3), String(e.params).split("@").slice(1, 2) == l) var s = String(e.params).split("@").slice(0, 1);
+                o.slice(2, 3);
+                if (String(e.params).split("@").slice(1, 2) == l) var s = String(e.params).split("@").slice(0, 1);
                 i.createdCallback = function() {
                     this.innerHTML = '<div id="' + a + '"></div> '
                 };
@@ -3932,7 +4074,8 @@ var $POTATO = function() {
                                             p > 0 && c < 0 && (u = a.x + c - 50), i.fillText(t[l][0] + ": " + t[l][1] + ", " + h, u, a.y + p + 8)
                                         }
                                     }
-                                    h = String(Math.round(e.data[e.data.length - 1] / o * 100)) + "%", i.fillText(t[e.data.length - 1][0] + ": " + t[e.data.length - 1][1] + ", " + h, a.x + c, a.y + 2 * p)
+                                    h = String(Math.round(e.data[e.data.length - 1] / o * 100)) + "%";
+                                    i.fillText(t[e.data.length - 1][0] + ": " + t[e.data.length - 1][1] + ", " + h, a.x + c, a.y + 2 * p)
                                 })
                             }
                         },
@@ -3958,7 +4101,12 @@ var $POTATO = function() {
                                         n = e.imageDir + l[0] + "-" + String(l[1]).substring(0, 1) + ".jpg";
                                     else n = e.imageDir + this._data.labels[t.dataPoints[0].index] + ".jpg";
                                     document.getElementById("img-doughnut-" + r).src = n, document.getElementById("img-doughnut-" + r).style.display = "block", document.getElementById("img-doughnut-" + r).style.border = "5px solid " + t.labelColors[0].backgroundColor
-                                } else i = this._data.datasets[0].other[e.targetIndex] + " ,  ", $("#note-doughnut-" + r).show().html(i).css(O.bdr, "3px solid " + e.targetColor), -1 != String(this._data.labels[e.targetIndex]).indexOf("-") ? (l = String(this._data.labels[e.targetIndex]).split("-"), n = e.imageDir + l[0] + "-" + String(l[1]).substring(0, 1) + ".jpg") : n = e.imageDir + this._data.labels[e.targetIndex] + ".jpg", document.getElementById("img-doughnut-" + r).src = n, document.getElementById("img-doughnut-" + r).style.display = "block", document.getElementById("img-doughnut-" + r).style.border = "5px solid " + e.targetColor
+                                } else {
+                                    i = this._data.datasets[0].other[e.targetIndex] + " ,  ";
+                                    if ($("#note-doughnut-" + r).show().html(i).css(O.bdr, "3px solid " + e.targetColor), -1 != String(this._data.labels[e.targetIndex]).indexOf("-")) l = String(this._data.labels[e.targetIndex]).split("-"), n = e.imageDir + l[0] + "-" + String(l[1]).substring(0, 1) + ".jpg";
+                                    else n = e.imageDir + this._data.labels[e.targetIndex] + ".jpg";
+                                    document.getElementById("img-doughnut-" + r).src = n, document.getElementById("img-doughnut-" + r).style.display = "block", document.getElementById("img-doughnut-" + r).style.border = "5px solid " + e.targetColor
+                                }
                             }
                         }
                     };
@@ -4033,7 +4181,10 @@ var $POTATO = function() {
                     l[String(S)] = new Function(k)
                 }
                 var _ = n.getAttribute("hover");
-                null != _ && (S = n.localName, i[String(S)] = new Function(_));
+                if (null != _) {
+                    S = n.localName;
+                    i[String(S)] = new Function(_)
+                }
                 var C = n.getAttribute("imageDir");
                 if (null == C) C = "null";
                 else {
@@ -4256,10 +4407,14 @@ var $POTATO = function() {
                             } catch (t) {}
                         },
                         click: function(t, e, i, n) {
-                            for (var a in potato.chartLabel = e, potato.chartYvalue = i, potato.chartXvalue = n, l) String(a) == t && l[a]()
+                            for (var a in potato.chartLabel = e, potato.chartYvalue = i, potato.chartXvalue = n, l) {
+                                String(a) == t && l[a]()
+                            }
                         },
                         hover: function(t, e, l, n) {
-                            for (var a in potato.chartLabel = e, potato.chartYvalue = l, potato.chartXvalue = n, i) String(a) == t && i[a]()
+                            for (var a in potato.chartLabel = e, potato.chartYvalue = l, potato.chartXvalue = n, i) {
+                                String(a) == t && i[a]()
+                            }
                         }
                     })
                 }) : pims(n.localName)._dn_(function() {
@@ -4283,7 +4438,9 @@ var $POTATO = function() {
                             } catch (t) {}
                         },
                         click: function(t, e, l) {
-                            for (var n in potato.chartLabel = l, potato.chartYvalue = e, i) String(n) == t && i[n]()
+                            for (var n in potato.chartLabel = l, potato.chartYvalue = e, i) {
+                                String(n) == t && i[n]()
+                            }
                         }
                     })
                 }))
@@ -4339,7 +4496,9 @@ var $POTATO = function() {
                             } catch (t) {}
                         },
                         click: function(t, e, l) {
-                            for (var n in potato.chartLabel = l, potato.chartYvalue = e, i) String(n) == t && i[n]()
+                            for (var n in potato.chartLabel = l, potato.chartYvalue = e, i) {
+                                String(n) == t && i[n]()
+                            }
                         }
                     })
                 })
@@ -4416,13 +4575,16 @@ var $POTATO = function() {
                             } catch (t) {}
                         },
                         click: function(t, e, l) {
-                            for (var n in potato.chartLabel = l, potato.chartYvalue = e, i) String(n) == t && i[n]()
+                            for (var n in potato.chartLabel = l, potato.chartYvalue = e, i) {
+                                String(n) == t && i[n]()
+                            }
                         }
                     })
                 })
             },
             reloadTable: function(t) {
-                this.setBindTableElements(), t = String(t).toUpperCase();
+                this.setBindTableElements();
+                t = String(t).toUpperCase();
                 var e, i = $O$Element[t],
                     l = this.attr(i, O.id),
                     n = String(i.localName).split("-");
@@ -4448,7 +4610,8 @@ var $POTATO = function() {
                 null == y && (y = window.innerWidth - 30 + "px");
                 var v = this.attr(i, "root");
                 if (null == v) try {
-                    n = String(i.localName).split("-"), v = String(n.slice(1, 2))
+                    n = String(i.localName).split("-");
+                    v = String(n.slice(1, 2))
                 } catch (t) {
                     v = "getFIELD"
                 }
@@ -4460,14 +4623,16 @@ var $POTATO = function() {
                 var $ = this.attr(i, "editCell");
                 null != this.attr(i, "editCellCallback") && new Function(this.attr(i, "editCellCallback"));
                 var w = this.attr(i, "editWidth");
-                null == w && (w = 50), i.getAttribute("selectCols");
+                null == w && (w = 50);
+                i.getAttribute("selectCols");
                 var k = this.attr(i, "targerCol");
                 null == k && (k = 0);
                 var S = this.attr(i, "markSymbol");
                 null == S && (S = "★"), null != i.getAttribute("selectCellCallback") && new Function(i.getAttribute("selectCellCallback"));
                 var _ = new Function(i.getAttribute("callback")),
                     C = this.attr(i, O.multipleS);
-                null == C && (C = this.attr(i, O.selectM)), $ = this.attr(i, "editCell");
+                null == C && (C = this.attr(i, O.selectM));
+                $ = this.attr(i, "editCell");
                 var T = this.attr(i, "htm"),
                     A = new Function(this.attr(i, O.dgdp));
                 pims(i.localName)._tb_({
@@ -4521,7 +4686,7 @@ var $POTATO = function() {
             },
             second: function() {
                 var t = (new Date).getSeconds();
-                return parseInt(t) < 10 ? "0" + t : t
+                return t = parseInt(t) < 10 ? "0" + t : t
             },
             Select: function(t, e, i) {
                 var l = O.is(this),
@@ -4624,7 +4789,8 @@ var $POTATO = function() {
                             v = 0;
                         for (var h in t[c]) {
                             if ("class" == h) {
-                                for (v = 1, f = (u = $O$X.prototype.getIdClass(t[c][h]))[0].field, g = 0; g < u.length; g++) {
+                                v = 1, f = (u = $O$X.prototype.getIdClass(t[c][h]))[0].field;
+                                for (g = 0; g < u.length; g++) {
                                     var b = String(u[g].pims).split("-");
                                     m[b.slice(1, 2)] = u[g].field + ",", y[b.slice(1, 2)] = u[g].pims
                                 }
@@ -4632,7 +4798,8 @@ var $POTATO = function() {
                             }
                             "class" != h && (1 == v ? m[p + 1] = h + "," : m[p] = h + ",", f = h, p++)
                         }
-                        for (m[m.length] = f, g = 0; g < m.length; g++) r += m[g];
+                        m[m.length] = f;
+                        for (g = 0; g < m.length; g++) r += m[g];
                         s.fields = r
                     }
                 }
@@ -4716,11 +4883,11 @@ var $POTATO = function() {
             },
             setHour: function() {
                 var t = (new Date).getHours();
-                return parseInt(t) < 10 ? "0" + t : t
+                return t = parseInt(t) < 10 ? "0" + t : t
             },
             setMinute: function() {
                 var t = (new Date).getMinutes();
-                return parseInt(t) < 10 ? "0" + t : t
+                return t = parseInt(t) < 10 ? "0" + t : t
             },
             show: function() {
                 return this.e.style.display = "block", this
@@ -4756,10 +4923,12 @@ var $POTATO = function() {
                                 e += "</tr>"
                             }
                     } else {
-                        for (n in a = 0, e += "<tr>", o[0]) "" != o[0][n] ? e += "<th>" + o[0][n] + "</th>" : e += "<th style='display:none'>" + o[0][n] + "</th>", a++;
+                        a = 0;
+                        for (n in e += "<tr>", o[0]) "" != o[0][n] ? e += "<th>" + o[0][n] + "</th>" : e += "<th style='display:none'>" + o[0][n] + "</th>", a++;
                         for (var r in e += "</tr>", o)
                             if (O.udf != o[r][0] && null != o[r][0] && r > 0) {
-                                for (e += "<tr>", s = 0; a > s; s++) "" != o[0][s] ? e += "<td>" + o[r][s] + "</td>" : e += "<td style='display:none'>" + o[r][s] + "</td>";
+                                e += "<tr>";
+                                for (s = 0; a > s; s++) "" != o[0][s] ? e += "<td>" + o[r][s] + "</td>" : e += "<td style='display:none'>" + o[r][s] + "</td>";
                                 e += "</tr>"
                             }
                     }
@@ -4882,7 +5051,7 @@ var $POTATO = function() {
                     e = t.getHours(),
                     i = t.getMinutes(),
                     l = t.getSeconds();
-                return i < 10 && (i = "0" + i), l < 10 && (l = "0" + l), e + ":" + i + ":" + l
+                return e >= 12 && "pm", i < 10 && (i = "0" + i), l < 10 && (l = "0" + l), e + ":" + i + ":" + l
             },
             Timepad: function(t) {
                 var e = O.is(this),
@@ -4979,6 +5148,8 @@ function maxArray(t) {
 
 function findText(t) {
     var e = document.body.createTextRange();
-    self.oRange = e, e.getBookmark(), e.findText(t) && (e.select(), e.collapse(), e.moveStart("word", 1), e.moveEnd("textedit", 1))
+    self.oRange = e;
+    e.getBookmark();
+    e.findText(t) && (e.select(), e.collapse(), e.moveStart("word", 1), e.moveEnd("textedit", 1))
 }
 $POTATO();
