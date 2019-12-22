@@ -1065,8 +1065,8 @@ var $POTATO = function() {
                         },
                         N = (t = "<canvas id='canvas-" + o + "' style='background:" + e.background + "'></canvas>", document.getElementById("div_chart_" + o));
                     N.innerHTML = "", $("#div_" + o).show().css({
-                        width: e.width + "px",
-                        height: e.height + "px",
+                        width: e.width,
+                        height: e.height,
                         border: e.border
                     });
                     var R = "100%";
