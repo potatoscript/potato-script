@@ -494,7 +494,7 @@ var $POTATO = function() {
             },
             _b_: function(t) {
                 var e = this._p_(t);
-                (e.title = "potato.title") && (e.title = potato.title), null != e.model && (e.model = "potato.model") && (e.model = potato.model);
+                "potato.title" == e.title && (e.title = potato.title), null != e.model && (e.model = "potato.model") && (e.model = potato.model);
                 e.model;
                 var i = param[O.dat]; - 1 != String(i).indexOf(".php") && (e.model = i);
                 var l = this.getHTMLElement(),
