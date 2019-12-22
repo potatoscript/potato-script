@@ -181,7 +181,7 @@ var $POTATO = function() {
                 i = t.attrChange,
                 l = t.attrName,
                 n = t.target;
-            ht && (!n || n === e) && e.attributeChangedCallback && "style" !== l && e.attributeChangedCallback(l, i === t[S] ? null : t.prevValue, i === t[C] ? null : t.newValue)
+            ht && (!n || n === e) && e.attributeChangedCallback && "style" !== l && e.attributeChangedCallback(l, i === t[k] ? null : t.prevValue, i === t[C] ? null : t.newValue)
         }
 
         function d(t) {
@@ -215,8 +215,8 @@ var $POTATO = function() {
             var g, f, m, y, v, b, O, x = "__" + l + (1e5 * Math.random() >> 0),
                 $ = "attached",
                 w = "detached",
-                k = "extends",
-                S = "ADDITION",
+                S = "extends",
+                k = "ADDITION",
                 _ = "MODIFICATION",
                 C = "REMOVAL",
                 T = "DOMAttrModified",
@@ -309,7 +309,7 @@ var $POTATO = function() {
                             n = new CustomEvent(T, {
                                 bubbles: !0
                             });
-                        lt.call(this, t, e), n.attrName = t, n.prevValue = i ? l : null, n.newValue = e, i ? n[_] = n.attrChange = 1 : n[S] = n.attrChange = 0, this.dispatchEvent(n)
+                        lt.call(this, t, e), n.attrName = t, n.prevValue = i ? l : null, n.newValue = e, i ? n[_] = n.attrChange = 1 : n[k] = n.attrChange = 0, this.dispatchEvent(n)
                     },
                     n = function(t) {
                         var e, i = t.currentTarget,
@@ -317,7 +317,7 @@ var $POTATO = function() {
                             n = t.propertyName;
                         l.hasOwnProperty(n) && (l = l[n], (e = new CustomEvent(T, {
                             bubbles: !0
-                        })).attrName = l.name, e.prevValue = l.value || null, e.newValue = l.value = i[n] || null, null == e.prevValue ? e[S] = e.attrChange = 0 : e[_] = e.attrChange = 1, i.dispatchEvent(e))
+                        })).attrName = l.name, e.prevValue = l.value || null, e.newValue = l.value = i[n] || null, null == e.prevValue ? e[k] = e.attrChange = 0 : e[_] = e.attrChange = 1, i.dispatchEvent(e))
                     };
                 t.value = function(t, a, o) {
                     t === T && this.attributeChangedCallback && this.setAttribute !== l && (this[x] = {
@@ -331,7 +331,7 @@ var $POTATO = function() {
                 var e, i, l, n = this;
                 if (n === t.target) {
                     for (l in e = n[x], n[x] = i = y(n), i) {
-                        if (!(l in e)) return m(0, n, l, e[l], i[l], S);
+                        if (!(l in e)) return m(0, n, l, e[l], i[l], k);
                         if (i[l] !== e[l]) return m(1, n, l, e[l], i[l], _)
                     }
                     for (l in e)
@@ -381,8 +381,8 @@ var $POTATO = function() {
                         return h ? e.createElement(u, l) : e.createElement(u)
                     },
                     p = i || H,
-                    h = M.call(p, k),
-                    u = h ? i[k].toUpperCase() : l,
+                    h = M.call(p, S),
+                    u = h ? i[S].toUpperCase() : l,
                     f = D.push((h ? B : E) + l) - 1;
                 return z = z.concat(z.length ? "," : "", h ? u + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + t.toLowerCase() + '"]' : u), s.prototype = P[f] = M.call(p, "prototype") ? p.prototype : q(Z), n(e.querySelectorAll(z), $), s
             }
@@ -555,14 +555,14 @@ var $POTATO = function() {
                             h[p] = t[p][0] + " (" + f + ")"
                         }
                         if ("bar" == e.chartType) {
-                            var k = 0,
-                                S = [];
-                            S[0] = 0;
+                            var S = 0,
+                                k = [];
+                            k[0] = 0;
                             var _ = 0;
                             for (c = 0; c < a.length; c++) try {
-                                a[c] != O.dat && (i[_].push(t[p][c]), 1 == r ? k += parseFloat(t[p][c]) : (S[c] = 0, parseFloat(t[p][c]) > 0 && t[p][c] != O.udf && (S[c] = parseFloat(t[p][c]))), _++)
+                                a[c] != O.dat && (i[_].push(t[p][c]), 1 == r ? S += parseFloat(t[p][c]) : (k[c] = 0, parseFloat(t[p][c]) > 0 && t[p][c] != O.udf && (k[c] = parseFloat(t[p][c]))), _++)
                             } catch (t) {}
-                            if (i[_].push(k), u[p] = 1 == r ? k : maxArray(S), d[0] != O.dat) {
+                            if (i[_].push(S), u[p] = 1 == r ? S : maxArray(k), d[0] != O.dat) {
                                 var C = 0,
                                     T = [];
                                 T[0] = 0;
@@ -573,7 +573,7 @@ var $POTATO = function() {
                                     } catch (t) {}
                                     g[p] = 1 == r ? C : maxArray(T)
                             }
-                            k
+                            S
                         } else i[0].push(t[p][1]), u[p] = t[p][1], t[p][1]
                     }
                     var I = new Array,
@@ -851,14 +851,14 @@ var $POTATO = function() {
                             u[h] = i[h][0] + " (" + m + ")"
                         }
                         if ("bar" == e.chartType) {
-                            var k = 0,
-                                S = [];
-                            S[0] = 0;
+                            var S = 0,
+                                k = [];
+                            k[0] = 0;
                             var _ = 0;
                             for (p = 1; p <= d.length; p++) try {
-                                d[p] != O.dat && (l[_].push(i[h][p]), 1 == r ? k += parseFloat(i[h][p]) : (S[p] = 0, parseFloat(i[h][p]) > 0 && i[h][p] != O.udf && (S[p] = parseFloat(i[h][p]))), _++)
+                                d[p] != O.dat && (l[_].push(i[h][p]), 1 == r ? S += parseFloat(i[h][p]) : (k[p] = 0, parseFloat(i[h][p]) > 0 && i[h][p] != O.udf && (k[p] = parseFloat(i[h][p]))), _++)
                             } catch (t) {}
-                            if (l[_].push(k), g[h] = 1 == r ? k : maxArray(S), c[0] != O.dat) {
+                            if (l[_].push(S), g[h] = 1 == r ? S : maxArray(k), c[0] != O.dat) {
                                 var C = 0,
                                     T = [];
                                 T[0] = 0;
@@ -869,7 +869,7 @@ var $POTATO = function() {
                                     } catch (t) {}
                                     f[h] = 1 == r ? C : maxArray(T)
                             }
-                            k
+                            S
                         } else l[0].push(i[h][1]), g[h] = i[h][1], i[h][1]
                     }
                     var I = new Array,
@@ -1276,8 +1276,8 @@ var $POTATO = function() {
                     x = this._se_a(e, t, "margin", "2px 2px 2px 2px"),
                     $ = this._se_a(e, t, "marginBottom", "2px"),
                     w = this._se_a(e, t, "marginLeft", "2px"),
-                    k = this._se_a(e, t, "marginRight", "2px"),
-                    S = this._se_a(e, t, "marginTop", "-10px"),
+                    S = this._se_a(e, t, "marginRight", "2px"),
+                    k = this._se_a(e, t, "marginTop", "-10px"),
                     _ = this._se_a(e, t, "padding", "5px 0px 5px 5px"),
                     C = this._se_a(e, t, "paddingBottom", "1px"),
                     T = this._se_a(e, t, "paddingLeft", "1px"),
@@ -1309,8 +1309,8 @@ var $POTATO = function() {
                     margin: x,
                     marginBottom: $,
                     marginLeft: w,
-                    marginRight: k,
-                    marginTop: S,
+                    marginRight: S,
+                    marginTop: k,
                     padding: _,
                     paddingBottom: C,
                     paddingLeft: T,
@@ -1636,11 +1636,11 @@ var $POTATO = function() {
                                     x += "<tr>", x += "<td><input type='button' style='" + b + "' value='7' onclick='potato.getKey(\"7\")'></td>", x += "<td><input type='button' style='" + b + "' value='8' onclick='potato.getKey(\"8\")'></td>", x += "<td><input type='button' style='" + b + "' value='9' onclick='potato.getKey(\"9\")'></td>", x += "</tr>", x += "<tr>", x += "<td><input type='button' style='" + b + "' value='4' onclick='potato.getKey(\"4\")'></td>", x += "<td><input type='button' style='" + b + "' value='5' onclick='potato.getKey(\"5\")'></td>", x += "<td><input type='button' style='" + b + "' value='6' onclick='potato.getKey(\"6\")'></td>", x += "</tr>", x += "<tr>", x += "<td><input type='button' style='" + b + "' value='1' onclick='potato.getKey(\"1\")'></td>", x += "<td><input type='button' style='" + b + "' value='2' onclick='potato.getKey(\"2\")'></td>", x += "<td><input type='button' style='" + b + "' value='3' onclick='potato.getKey(\"3\")'></td>", x += "</tr>", x += "<tr>", x += "<td><input type='button' style='" + b + "background:#F6CECE;' value='CE' onclick='potato.getKey(\"CE\")'></td>", x += "<td><input type='button' style='" + b + "' value='0' onclick='potato.getKey(\"0\")'></td>", x += "<td><input type='button' style='" + b + "' value='.' onclick='potato.getKey(\".\")'></td>", x += "</tr>", x += "<tr>", x += "<td colspan=2><input type='button' style='" + b + css_c + "background:#D8D8D8;' value='CLOSE' onclick='potato.closeEditCell()'/></td>", x += "<td><input type='button' style='" + b + "background:#CEF6CE;' value='⇦' onclick='potato.getKey(\"<-\")'></td>", x += "</tr>", x += "</table>", $("#keypadtable").html(x)
                                 } else $("#keypadtable").html(o);
                                 var w = document.documentElement,
-                                    k = (window.pageXOffset || w.scrollLeft) - (w.clientLeft || 0),
-                                    S = (window.pageYOffset || w.scrollTop) - (w.clientTop || 0),
-                                    _ = parseFloat(event.clientY) + 20 + parseFloat(S),
-                                    C = parseFloat(event.clientX) - parseFloat(k);
-                                null != s && (_ = parseFloat(event.clientY) + 20 + parseFloat(s) + parseFloat(S)) > 300 && (_ = event.clientY - 220), null != d && (C = parseFloat(event.clientX) + parseFloat(d) - parseFloat(k)) > 900 && (C = event.clientX - 100), $("#keypadtable").css({
+                                    S = (window.pageXOffset || w.scrollLeft) - (w.clientLeft || 0),
+                                    k = (window.pageYOffset || w.scrollTop) - (w.clientTop || 0),
+                                    _ = parseFloat(event.clientY) + 20 + parseFloat(k),
+                                    C = parseFloat(event.clientX) - parseFloat(S);
+                                null != s && (_ = parseFloat(event.clientY) + 20 + parseFloat(s) + parseFloat(k)) > 300 && (_ = event.clientY - 220), null != d && (C = parseFloat(event.clientX) + parseFloat(d) - parseFloat(S)) > 900 && (C = event.clientX - 100), $("#keypadtable").css({
                                     width: "200px",
                                     height: "150px",
                                     margin: l.marginKey,
@@ -1976,10 +1976,10 @@ var $POTATO = function() {
                                 }
                             }
                             if (null != g && "null" != h)
-                                for (var x = (String(h).match(/AND/g) || []).length, w = String(h).split("AND"), k = 0; k <= x; k++) {
-                                    var S = String(w.slice(k, k + 1)).split(":"),
-                                        _ = new Function(S.slice(1, 2));
-                                    "null" != String(S.slice(0, 1)).replace(/\s+/g, "") && (m[String(S.slice(0, 1)).replace(/\s+/g, "")] = _())
+                                for (var x = (String(h).match(/AND/g) || []).length, w = String(h).split("AND"), S = 0; S <= x; S++) {
+                                    var k = String(w.slice(S, S + 1)).split(":"),
+                                        _ = new Function(k.slice(1, 2));
+                                    "null" != String(k.slice(0, 1)).replace(/\s+/g, "") && (m[String(k.slice(0, 1)).replace(/\s+/g, "")] = _())
                                 }
                             var C = i.getAttr(a, O.hdr),
                                 T = i.getAttr(a, "listTextAlign");
@@ -2252,9 +2252,9 @@ var $POTATO = function() {
                             }
                             if (null != r && "null" != u)
                                 for (var b = (String(u).match(/AND/g) || []).length, x = String(u).split("AND"), w = 0; w <= b; w++) {
-                                    var k = String(x.slice(w, w + 1)).split(":"),
-                                        S = new Function(k.slice(1, 2));
-                                    "null" != String(k.slice(0, 1)).replace(/\s+/g, "") && (f[String(k.slice(0, 1)).replace(/\s+/g, "")] = S())
+                                    var S = String(x.slice(w, w + 1)).split(":"),
+                                        k = new Function(S.slice(1, 2));
+                                    "null" != String(S.slice(0, 1)).replace(/\s+/g, "") && (f[String(S.slice(0, 1)).replace(/\s+/g, "")] = k())
                                 }
                             $O$P.prototype._rp_(s, f, function(t) {
                                 var i = O.parse(t);
@@ -2314,8 +2314,8 @@ var $POTATO = function() {
                 }, this._p_e(l, i)
             },
             _p_: function(t) {
-                var e, i, l, n, a, o, r, s, d, c, p, h, u, g, f, m, y, v, b, x, $, w, k, S, _, C, T, A, I, E, B, F, L, D, P, z, N, R, H, M, X, W, K, j, V, Y, U, q, G, Q, Z, J, tt, et, it, lt, nt, at, ot, rt, st, dt, ct, pt, ht, ut, gt, ft, mt, yt, vt, bt, Ot, xt, $t, wt, kt, St, _t, Ct, Tt, At, It, Et, Bt, Ft, Lt, Dt, Pt, zt, Nt, Rt, Ht, Mt, Xt, Wt, Kt, jt, Vt, Yt, Ut, qt, Gt, Qt, Zt, Jt, te, ee, ie, le, ne, ae, oe, re, se, de, ce, pe, he, ue, ge, fe = new Array;
-                return this.clearArrays(), t(), null == (Qt = css.textTransform) && (Qt = "none"), e = css[O.bkg], i = css[O.bdr], l = css[O.bdrr], n = css[O.bxsd], null == (a = events[O.cbk]) && (a = this.dummy()), null == (o = attr.canvas) && (o = "chart"), null == (r = param.cell) && (r = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (m = css.colorIndex) && (m = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (p = attr.className) && (p = "pimsClassName"), null == (h = events[O.clk]) && (h = this.dummy()), null == (u = attr.cls) && (u = ""), null == (y = attr.container) && (y = "container"), f = css[O.co], null == (v = css[O.csr]) && (v = O.dft), null == (b = css.dataFontSize) && (b = 12), null == (x = attr.dataLabel) && (x = O.dat), null == ($ = attr.data2Label) && ($ = O.dat), null == (w = attr[O.dsa]) && (w = !1), k = css[O.dpy], null == (S = css.displayKey) && (S = "none"), _ = events[O.dgdp], null == (C = param.editWidth) && (C = 100), null == (T = param.fieldClass) && (T = 0), N = css.float, A = css.fontColorTD, I = css.fontColorTH, E = css.fontFamily, B = css.fontFamilyTD, F = css.fontFamilyTH, L = css.fontSize, D = css.fontSizeTD, P = css.fontSizeTH, R = css.fontWeight, null == (z = attr.format) && (z = "yy-mm-dd"), null == (H = param.header) && (H = "0"), M = css.height, null == (X = css.heightTable) && (X = 450), null == (W = events.hover) && (W = this.dummy()), K = css.hoverColor, null == (j = css.hoverBgColor) && (j = "null"), V = attr[O.hid], null == (Y = attr[O.htx]) && (Y = ""), null == (q = css.hoverHeight) && (q = 30), null == (U = css.hoverWidth) && (U = ""), null == (G = param.htm) && (G = "config/keypad.htm"), Q = attr.id, null == (Z = param.idCol) && (Z = 0), image = attr.image, null == image && (image = "nil 0 0"), J = attr.imageDir, null == (tt = css.imgWidth) && (tt = 45), null == (et = css.imgHeight) && (et = 45), null == (it = events.keyup) && (it = this.dummy()), null == (at = css.labelFontSize) && (at = 12), null == (ot = css.label2FontSize) && (ot = 12), null == (lt = attr.labelString) && (lt = ""), null == (nt = attr.label2String) && (nt = ""), dt = css[O.lft], null == (ct = css.leftKey) && (ct = 0), null == (rt = css.legendDisplay) && (rt = !1), null == (st = css.legendPosition) && (st = "bottom"), null == (pt = events.listClick) && (pt = this.dummy()), ht = css.listHeight, ut = css.listLeft, ft = css.listWidth, gt = css.listTop, mt = css.margin, yt = css.marginBottom, _t = css.marginLeft, vt = css.marginRight, Ct = css.marginTop, null == (xt = param.markSymbol) && (xt = ""), null == (bt = param.matchCol) && (bt = "-"), null == (Ot = param.matchValue) && (Ot = "-"), null == (St = css.marginKey) && (St = "0px 0px 0px 0px"), null == ($t = param.menuModel) && ($t = "null"), null == (wt = param.menuTitle) && (wt = "null"), Tt = param.model, null == (kt = attr.multiple) && (kt = !1), At = attr.name, null == (It = attr.onscroll) && (It = this.dummy()), Et = css.padding, css.paddingBottom, Bt = css.paddingLeft, css.paddingRight, Ft = css.paddingTop, null == (Lt = css.pointBorderColorIndex) && (Lt = ["#000000"]), null == (Dt = css.pointBorderDash) && (Dt = [0]), null == (Pt = css.pointBorderWidth) && (Pt = [1]), null == (zt = css.pointColorIndex) && (zt = ["#c5ffb3"]), null == (Nt = css.pointRadius) && (Nt = ["5"]), null == (Rt = css.pointStyle) && (Rt = ["triangle"]), Ht = css[O.pst], null == (Mt = param.row) && (Mt = "0"), null == (Xt = param.selectCol) && (Xt = ""), null == (Wt = param.selectColumn) && (Wt = ""), null == (Kt = css.showDay) && (Kt = !1), null == (jt = attr.stacked) && (jt = !1), null == (Vt = attr.tableId) && (Vt = "tableId"), null == (Ut = param.targetId) && (Ut = 0), null == (qt = attr.targetIndex) && (qt = 0), null == (Yt = param.targetColumn) && (Yt = ""), null == (fe = param.targetCol) && (fe = ""), null == (Gt = attr.targetColor) && (Gt = "WHITE"), Zt = css.textAlign, null == (Jt = attr.title) && (Jt = ""), null == (te = css.titleFontSize) && (te = 25), null == (ee = attr.tooltips) && (ee = !0), ie = css[O.tp], null == (le = css.topKey) && (le = 0), null == (ne = events[O.trg]) && (ne = "ondblclick"), null == (ae = attr.type) && (ae = "text"), null == (oe = attr[O.val]) && (oe = ""), null == (de = param.whereClass) && (de = 0), re = css[O.wit], null == (se = css.widthTable) && (se = 130), null == (ce = css.xAxesFontSize) && (ce = 12), null == (pe = css.xLabelAngle) && (pe = 0), null == (he = css.yAxesFontSize) && (he = 12), null == (ue = css.y2AxesFontSize) && (ue = 12), null == (ge = attr.y2AxesType) && (ge = ""), {
+                var e, i, l, n, a, o, r, s, d, c, p, h, u, g, f, m, y, v, b, x, $, w, S, k, _, C, T, A, I, E, B, F, L, D, P, z, N, R, H, M, X, W, K, j, V, Y, U, q, G, Q, Z, J, tt, et, it, lt, nt, at, ot, rt, st, dt, ct, pt, ht, ut, gt, ft, mt, yt, vt, bt, Ot, xt, $t, wt, St, kt, _t, Ct, Tt, At, It, Et, Bt, Ft, Lt, Dt, Pt, zt, Nt, Rt, Ht, Mt, Xt, Wt, Kt, jt, Vt, Yt, Ut, qt, Gt, Qt, Zt, Jt, te, ee, ie, le, ne, ae, oe, re, se, de, ce, pe, he, ue, ge, fe = new Array;
+                return this.clearArrays(), t(), null == (Qt = css.textTransform) && (Qt = "none"), e = css[O.bkg], i = css[O.bdr], l = css[O.bdrr], n = css[O.bxsd], null == (a = events[O.cbk]) && (a = this.dummy()), null == (o = attr.canvas) && (o = "chart"), null == (r = param.cell) && (r = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (m = css.colorIndex) && (m = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (p = attr.className) && (p = "pimsClassName"), null == (h = events[O.clk]) && (h = this.dummy()), null == (u = attr.cls) && (u = ""), null == (y = attr.container) && (y = "container"), f = css[O.co], null == (v = css[O.csr]) && (v = O.dft), null == (b = css.dataFontSize) && (b = 12), null == (x = attr.dataLabel) && (x = O.dat), null == ($ = attr.data2Label) && ($ = O.dat), null == (w = attr[O.dsa]) && (w = !1), S = css[O.dpy], null == (k = css.displayKey) && (k = "none"), _ = events[O.dgdp], null == (C = param.editWidth) && (C = 100), null == (T = param.fieldClass) && (T = 0), N = css.float, A = css.fontColorTD, I = css.fontColorTH, E = css.fontFamily, B = css.fontFamilyTD, F = css.fontFamilyTH, L = css.fontSize, D = css.fontSizeTD, P = css.fontSizeTH, R = css.fontWeight, null == (z = attr.format) && (z = "yy-mm-dd"), null == (H = param.header) && (H = "0"), M = css.height, null == (X = css.heightTable) && (X = 450), null == (W = events.hover) && (W = this.dummy()), K = css.hoverColor, null == (j = css.hoverBgColor) && (j = "null"), V = attr[O.hid], null == (Y = attr[O.htx]) && (Y = ""), null != (q = css.hoverHeight) && -1 != String(q).indexOf("px") && (q = String(q).split("px").slice(0, 1)), null == q && (q = 30), null == (U = css.hoverWidth) && (U = ""), null == (G = param.htm) && (G = "config/keypad.htm"), Q = attr.id, null == (Z = param.idCol) && (Z = 0), image = attr.image, null == image && (image = "nil 0 0"), J = attr.imageDir, null == (tt = css.imgWidth) && (tt = 45), null == (et = css.imgHeight) && (et = 45), null == (it = events.keyup) && (it = this.dummy()), null != (at = css.labelFontSize) && -1 != String(at).indexOf("px") && (at = String(at).split("px").slice(0, 1)), null == at && (at = 12), null != (ot = css.label2FontSize) && -1 != String(ot).indexOf("px") && (ot = String(ot).split("px").slice(0, 1)), null == ot && (ot = 12), null == (lt = attr.labelString) && (lt = ""), null == (nt = attr.label2String) && (nt = ""), dt = css[O.lft], null == (ct = css.leftKey) && (ct = 0), null == (rt = css.legendDisplay) && (rt = !1), null == (st = css.legendPosition) && (st = "bottom"), null == (pt = events.listClick) && (pt = this.dummy()), ht = css.listHeight, ut = css.listLeft, ft = css.listWidth, gt = css.listTop, mt = css.margin, yt = css.marginBottom, _t = css.marginLeft, vt = css.marginRight, Ct = css.marginTop, null == (xt = param.markSymbol) && (xt = ""), null == (bt = param.matchCol) && (bt = "-"), null == (Ot = param.matchValue) && (Ot = "-"), null == (kt = css.marginKey) && (kt = "0px 0px 0px 0px"), null == ($t = param.menuModel) && ($t = "null"), null == (wt = param.menuTitle) && (wt = "null"), Tt = param.model, null == (St = attr.multiple) && (St = !1), At = attr.name, null == (It = attr.onscroll) && (It = this.dummy()), Et = css.padding, css.paddingBottom, Bt = css.paddingLeft, css.paddingRight, Ft = css.paddingTop, null == (Lt = css.pointBorderColorIndex) && (Lt = ["#000000"]), null == (Dt = css.pointBorderDash) && (Dt = [0]), null == (Pt = css.pointBorderWidth) && (Pt = [1]), null == (zt = css.pointColorIndex) && (zt = ["#c5ffb3"]), null == (Nt = css.pointRadius) && (Nt = ["5"]), null == (Rt = css.pointStyle) && (Rt = ["triangle"]), Ht = css[O.pst], null == (Mt = param.row) && (Mt = "0"), null == (Xt = param.selectCol) && (Xt = ""), null == (Wt = param.selectColumn) && (Wt = ""), null == (Kt = css.showDay) && (Kt = !1), null == (jt = attr.stacked) && (jt = !1), null == (Vt = attr.tableId) && (Vt = "tableId"), null == (Ut = param.targetId) && (Ut = 0), null == (qt = attr.targetIndex) && (qt = 0), null == (Yt = param.targetColumn) && (Yt = ""), null == (fe = param.targetCol) && (fe = ""), null == (Gt = attr.targetColor) && (Gt = "WHITE"), Zt = css.textAlign, null == (Jt = attr.title) && (Jt = ""), null != (te = css.titleFontSize) && -1 != String(te).indexOf("px") && (te = String(te).split("px").slice(0, 1)), null == te && (te = 25), null == (ee = attr.tooltips) && (ee = !0), ie = css[O.tp], null == (le = css.topKey) && (le = 0), null == (ne = events[O.trg]) && (ne = "ondblclick"), null == (ae = attr.type) && (ae = "text"), null == (oe = attr[O.val]) && (oe = ""), null == (de = param.whereClass) && (de = 0), re = css[O.wit], null == (se = css.widthTable) && (se = 130), null != (ce = css.xAxesFontSize) && -1 != String(ce).indexOf("px") && (ce = String(ce).split("px").slice(0, 1)), null == ce && (ce = 12), null == (pe = css.xLabelAngle) && (pe = 0), null != (he = css.yAxesFontSize) && -1 != String(he).indexOf("px") && (he = String(he).split("px").slice(0, 1)), null == he && (he = 12), null != (ue = css.y2AxesFontSize) && -1 != String(ue).indexOf("px") && (ue = String(ue).split("px").slice(0, 1)), null == ue && (ue = 12), null == (ge = attr.y2AxesType) && (ge = ""), {
                     background: e,
                     border: i,
                     borderRadius: l,
@@ -2339,8 +2339,8 @@ var $POTATO = function() {
                     dataLabel: x,
                     data2Label: $,
                     disabled: w,
-                    display: k,
-                    displayKey: S,
+                    display: S,
+                    displayKey: k,
                     dragdrop: _,
                     editWidth: C,
                     field: field,
@@ -2388,7 +2388,7 @@ var $POTATO = function() {
                     listLeft: ut,
                     listWidth: ft,
                     listTop: gt,
-                    marginKey: St,
+                    marginKey: kt,
                     markSymbol: xt,
                     margin: mt,
                     marginBottom: yt,
@@ -2400,7 +2400,7 @@ var $POTATO = function() {
                     menuModel: $t,
                     menuTitle: wt,
                     model: Tt,
-                    multiple: kt,
+                    multiple: St,
                     name: At,
                     onscroll: It,
                     padding: Et,
@@ -2555,8 +2555,8 @@ var $POTATO = function() {
                             "" == (v = this._se_a(y, e[t], O.dsa, O.fls)) && (v = O.tue);
                             var b = this.attr(e[t], O.id);
                             null == b && (b = String(m.slice(2, 3)).toLowerCase());
-                            var x, w, k = this._se_a(y, e[t], O.hid, O.pht),
-                                S = this._se_a(y, e[t], O.htx, ""),
+                            var x, w, S = this._se_a(y, e[t], O.hid, O.pht),
+                                k = this._se_a(y, e[t], O.htx, ""),
                                 _ = (this._se_a(y, e[t], O.lft, "0px"), this._se_a(y, e[t], O.tp, "0px"), this._se_a(y, e[t], O.pst, "static"), this._se_a(y, e[t], O.val, "")),
                                 C = this.attr(e[t], "submit"),
                                 T = this.attr(e[t], "fieldOther"),
@@ -2572,20 +2572,20 @@ var $POTATO = function() {
                                         disabled: v,
                                         value: _,
                                         image: O.attr(e[t], "image"),
-                                        hoverText: S,
-                                        hoverId: k,
+                                        hoverText: k,
+                                        hoverId: S,
                                         id: b
                                     } : null != O.attr(e[t], "value") && null == O.attr(e[t], "image") ? attr = {
                                         disabled: v,
                                         value: O.attr(e[t], "value"),
-                                        hoverText: S,
-                                        hoverId: k,
+                                        hoverText: k,
+                                        hoverId: S,
                                         id: b
                                     } : null == O.attr(e[t], "value") && null != O.attr(e[t], "image") && (attr = {
                                         disabled: v,
                                         image: O.attr(e[t], "image"),
-                                        hoverText: S,
-                                        hoverId: k,
+                                        hoverText: k,
+                                        hoverId: S,
                                         id: b
                                     }), null != O.attr(e[t], "click")) try {
                                     x = new Function(O.attr(e[t], "click")), null != O.attr(e[t], "callback") && (w = new Function(O.attr(e[t], "callback"))), events = {
@@ -2608,14 +2608,14 @@ var $POTATO = function() {
                         if (m.slice(1, 2) == $O$S.prototype.l($O$V().c)) {
                             y = O.attr(e[t], "style");
                             var F = O.attr(e[t], "class");
-                            if (null == F && (F = "getFIELD"), $(e[t].localName).addClass(F), null != (St = O.attr(e[t], "change"))) {
+                            if (null == F && (F = "getFIELD"), $(e[t].localName).addClass(F), null != (kt = O.attr(e[t], "change"))) {
                                 u = e[t].localName;
-                                n[String(u)] = new Function(St)
+                                n[String(u)] = new Function(kt)
                             }
                             B = this._css_(e[t], y);
                             var L = this._attr_(e[t], y, m);
                             pims(e[t].localName)._d_(function() {
-                                css = B, attr = L, null != St && (events = {
+                                css = B, attr = L, null != kt && (events = {
                                     change: function(t) {
                                         for (var e in n) {
                                             String(e) == t && n[e]()
@@ -2656,9 +2656,9 @@ var $POTATO = function() {
                             var V = O.attr(e[t], "whereClass"),
                                 Y = O.attr(e[t], "params"),
                                 U = O.attr(e[t], "onscroll");
-                            if (null != (kt = O.attr(e[t], "listClick"))) {
+                            if (null != (St = O.attr(e[t], "listClick"))) {
                                 u = e[t].localName;
-                                l[String(u)] = new Function(kt)
+                                l[String(u)] = new Function(St)
                             } else try {
                                 u = e[t].localName;
                                 l[String(u)] = new Function(String(m.slice(2, 3)).toLowerCase() + "()")
@@ -2739,9 +2739,9 @@ var $POTATO = function() {
                             var ft, mt = O.attr(e[t], "whereClass"),
                                 yt = O.attr(e[t], "params"),
                                 vt = O.attr(e[t], "onscroll");
-                            if (null != (kt = O.attr(e[t], "click"))) {
+                            if (null != (St = O.attr(e[t], "click"))) {
                                 u = e[t].localName;
-                                d[String(u)] = new Function(kt)
+                                d[String(u)] = new Function(St)
                             } else try {
                                 u = e[t].localName;
                                 d[String(u)] = new Function(String(m.slice(2, 3)).toLowerCase() + "()")
@@ -2809,14 +2809,14 @@ var $POTATO = function() {
                         }
                         if (m.slice(1, 2) == $O$S.prototype.l($O$V().tx)) {
                             y = O.attr(e[t], "style"), B = this._css_(e[t], y), L = this._attr_(e[t], y, m);
-                            var kt, St, _t = O.attr(e[t], "class");
-                            if (null == _t && (_t = "getFIELD"), $(e[t].localName).addClass(_t), null != (kt = O.attr(e[t], "click"))) {
+                            var St, kt, _t = O.attr(e[t], "class");
+                            if (null == _t && (_t = "getFIELD"), $(e[t].localName).addClass(_t), null != (St = O.attr(e[t], "click"))) {
                                 u = e[t].localName;
-                                a[String(u)] = new Function(kt)
+                                a[String(u)] = new Function(St)
                             }
-                            if (null != (St = O.attr(e[t], "change"))) {
+                            if (null != (kt = O.attr(e[t], "change"))) {
                                 u = e[t].localName;
-                                r[String(u)] = new Function(St)
+                                r[String(u)] = new Function(kt)
                             }
                             var Ct = O.attr(e[t], "keyup");
                             if (null != Ct) {
@@ -4191,15 +4191,15 @@ var $POTATO = function() {
                 null == $ && ($ = "_b_ Chart");
                 var w = n.getAttribute("y2AxesType");
                 null == w && (w = "line");
-                var k = n.getAttribute("click");
-                if (null != k) {
-                    var S = n.localName;
-                    l[String(S)] = new Function(k)
+                var S = n.getAttribute("click");
+                if (null != S) {
+                    var k = n.localName;
+                    l[String(k)] = new Function(S)
                 }
                 var _ = n.getAttribute("hover");
                 if (null != _) {
-                    S = n.localName;
-                    i[String(S)] = new Function(_)
+                    k = n.localName;
+                    i[String(k)] = new Function(_)
                 }
                 var C = n.getAttribute("imageDir");
                 if (null == C) C = "null";
@@ -4418,7 +4418,7 @@ var $POTATO = function() {
                         model: a,
                         data: o,
                         xLabelData: R
-                    }, null != k && (events = {
+                    }, null != S && (events = {
                         callback: function() {
                             try {
                                 I()
@@ -4449,7 +4449,7 @@ var $POTATO = function() {
                         title: $
                     }, param = {
                         model: a
-                    }, null != k && (events = {
+                    }, null != S && (events = {
                         callback: function() {
                             try {
                                 I()
@@ -4643,10 +4643,10 @@ var $POTATO = function() {
                 var w = this.attr(i, "editWidth");
                 null == w && (w = 50);
                 i.getAttribute("selectCols");
-                var k = this.attr(i, "targerCol");
-                null == k && (k = 0);
-                var S = this.attr(i, "markSymbol");
-                null == S && (S = "★"), null != i.getAttribute("selectCellCallback") && new Function(i.getAttribute("selectCellCallback"));
+                var S = this.attr(i, "targerCol");
+                null == S && (S = 0);
+                var k = this.attr(i, "markSymbol");
+                null == k && (k = "★"), null != i.getAttribute("selectCellCallback") && new Function(i.getAttribute("selectCellCallback"));
                 var _ = new Function(i.getAttribute("callback")),
                     C = this.attr(i, O.multipleS);
                 null == C && (C = this.attr(i, O.selectM));
