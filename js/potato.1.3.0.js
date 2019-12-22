@@ -1,3 +1,52 @@
+/*
+Copyright (C) 2019  LIM KIAN SENG
+    This library is free: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+NOTE:
+This library was created based on the following concept:
+#Namespaces
+#this is a function: function a(){...}
+#this is an expression: var a = function(){...}
+#IIFE Immediately Invoked Function Expression:
+ Creating the function, then immediately calling it.
+ In JavaScript all we have to work with for scoping is functions,
+ and so if we want to create scope, we use a function.
+ By executing code inside of the IIFE we are scoping all variables and
+ functions inside of the IIFE and so we aren't polluting the global namespace.
+ Here the global namespace is POTATO.
+ Potato attribute was part of the W3C Draft spec for creating custom-HTML elements with custom behaviour.
+ Used when extending a built-in element like <input>,<div>,<button>
+ For example, you could have a plastic-button element that extends <button> to provide some
+ fancy animation when clicked
+ Before you do this, you need to register plastic-button as a custom HTML element like this:
+ customeElements.define("plastic-button",PlasticButton,{extends:"button"});
+#Modules are commonly used as singleton style objects where only one instance exists.
+ Anonymous closures are just functions that wrap our code and create an enclosed scope around it.
+ Closures help keep any state or privacy within that function.
+ Closures are one of the best and most powerful features of JavaScript.
+ Because JavaScript does not have a private keyword its common to prefix private properties with an underscore.
+#The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
+ With strict mode, you can not, for example, use undeclared variables.
+
+version 1.1.0 - enable the static data for OList, OTable and OChart 08th Nov 2019
+version 1.1.1 - improve and add additional attribute to OList. OList now can use the
+                     header like OTable to create the header data (revised on 14th Dec 2019)
+version 1.2.0 - add the drag and drop function to the OTable  (revised on 17th Dec 2019)
+version 1.2.1 - some other minor improvement on the code (revised on 18th Dec 2019)
+version 1.2.2 - improvement on dragdrop and add additional attribute "split" to
+                split the dragdrop data inside same cell of table and
+                some other minor improvement on the code (revised on 20th Dec 2019)
+version 1.3.0 - add the bar chart feature into the library (revised on 22nd Dec 2019)
+*/
 var $POTATO = function() {
         return $O$I.init()
     },
