@@ -46,7 +46,7 @@ version 1.2.2 - improvement on dragdrop and add additional attribute "split" to
                 split the dragdrop data inside same cell of table and
                 some other minor improvement on the code (revised on 20th Dec 2019)
 version 1.3.0 - add the bar chart feature into the library (revised on 22nd Dec 2019)
-version 1.4.0 - add the menu tab feature into the library (revised on 14th Jan 2020)
+version 1.4.0 - add the menu tab feature into the library (revised on 15th Jan 2020)
 */
 var $POTATO = function() {
         return $O$I.init()
@@ -2860,7 +2860,7 @@ var $POTATO = function() {
                                     Ct = parseFloat(_t.slice(0, 1));
                                 $t = window.innerHeight - 50 - Ct + "px"
                             }
-                            null == (wt = O.attr(e[t], "value")) && (wt = "0"), null == (St = O.attr(e[t], "width")) && (St = window.innerWidth - 30 + "px");
+                            null == (wt = O.attr(e[t], "value")) && (wt = "0"), null == (St = O.attr(e[t], "width")) && (St = window.innerWidth - 50 + "px");
                             var Tt = O.attr(e[t], O.sp);
                             null == Tt && (Tt = "500");
                             var It = O.attr(e[t], "tabHeight");
@@ -2946,22 +2946,29 @@ var $POTATO = function() {
                     a = css[O.bkg],
                     o = css[O.h],
                     r = css[O.w],
-                    s = css[O.th],
-                    d = css[O.tw],
-                    c = css[O.fz],
-                    p = css[O.co],
-                    h = css[O.mt];
+                    s = o.split("px"),
+                    d = parseFloat(s.slice(0, 1)) + 10 + "px",
+                    c = r.split("px"),
+                    p = parseFloat(c.slice(0, 1)) + 10 + "px",
+                    h = css[O.th],
+                    u = css[O.tw],
+                    g = css[O.fz],
+                    f = css[O.co],
+                    m = css[O.mt];
                 O.tab_speed = parseFloat(param[O.sp]);
-                var u = String(param[O.hdr]).split("||"),
-                    g = String(param[O.bd]).split("||");
+                var y = String(param[O.hdr]).split("||"),
+                    v = String(param[O.bd]).split("||");
                 e.createdCallback = function() {
                     this.id = l + "_", this.pims = l;
-                    var t = '<div id="menu-' + l + '" style="margin-top:' + h + '" >';
-                    t += '<ul class="OTabs" >', t += '<li style="display:inline;">', t += '<a class="OCurrent" onclick="O.tab_hrefSelector=this.innerText;"  >' + u[0] + "</a></li>";
-                    for (var e = 1; e < u.length; e++) t += '<li style="display:inline;">', t += '<a onclick="O.tab_hrefSelector=this.innerText;"  >' + u[e] + "</a></li>";
-                    t += "</ul>", t += '<div class="OBox">', t += '<div id="' + u[0].split(" ").join("") + '"  >', t += '<div class="OCol" >', t += g[0], t += "</div>", t += "</div>";
-                    for (e = 1; e < u.length; e++) t += '<div id="' + u[e].split(" ").join("") + '" class="OTabBody"  >', t += '<div class="OCol" >', t += g[e], t += "</div>", t += "</div>";
-                    t += "</div>", t += "</div>", this.innerHTML = t, $("#" + u[0].split(" ").join("")).addClass("OTabBody"), $(".OTabs").css({
+                    var t = '<div id="menu-' + l + '" style="margin-top:' + m + '" >';
+                    t += '<ul class="OTabs" >', t += '<li style="display:inline;">', t += '<a class="OCurrent" onclick="O.tab_hrefSelector=this.innerText;"  >' + y[0] + "</a></li>";
+                    for (var e = 1; e < y.length; e++) t += '<li style="display:inline;">', t += '<a onclick="O.tab_hrefSelector=this.innerText;"  >' + y[e] + "</a></li>";
+                    t += "</ul>", t += '<div class="OBox">', t += '<div id="OTab-' + (i = y[0].split(" ").join("")) + '" class="OTabBody" >', t += '<div id="' + i + '" class="OCol"  >', t += v[0], t += "</div>", t += "</div>";
+                    for (e = 1; e < y.length; e++) {
+                        var i;
+                        t += '<div id="OTab-' + (i = y[e].split(" ").join("")) + '" class="OTabBody"  >', t += '<div id="' + i + '" class="OCol"  >', t += v[e], t += "</div>", t += "</div>"
+                    }
+                    t += "</div>", t += "</div>", this.innerHTML = t, $("#" + y[0].split(" ").join("")).addClass("OTabBody"), $(".OTabs").css({
                         "list-style": "none",
                         overflow: "hidden",
                         "padding-left": "1px",
@@ -2977,20 +2984,20 @@ var $POTATO = function() {
                         "box-shadow": "0 0 10px rgba(0,0,0,.5)",
                         "margin-left": "10px",
                         position: "relative",
-                        width: r,
-                        height: o
+                        width: p,
+                        height: d
                     }), $(".OTabs li a").css({
                         display: "block",
                         float: "left",
-                        color: p,
+                        color: f,
                         border: "1px dashed black",
                         background: "#f8f8f8",
                         margin: "0 0 0 -1px",
                         "margin-left": "10px",
                         "font-size": "13px",
-                        width: d,
-                        height: s,
-                        fontSize: c,
+                        width: u,
+                        height: h,
+                        fontSize: g,
                         "text-align": "center",
                         cursor: "pointer",
                         padding: "3px 3px 3px 3px",
@@ -3005,21 +3012,22 @@ var $POTATO = function() {
                         position: "relative",
                         "z-index": "2",
                         opacity: "1"
-                    }), $(".OCurrent").css({
-                        "z-index": "100"
-                    }), $(".OTabs li:first-child a, .OTabBody:first").addClass("OCurrent"), $(".box-wrraper .OCurrent .OCol").css("top", 0), O._ta_attr(l, p, d, s, c, a);
-                    var i = o.split("px");
+                    }), $(".OTabs li:first-child a, .OTabBody:first").addClass("OCurrent"), $(".box-wrraper .OCurrent .OCol").css("top", 0), O._ta_attr(l, f, u, h, g, a);
+                    var s = o.split("px");
                     $(".OCol").css({
-                        top: -2 * parseFloat(i.slice(0, 1)),
+                        top: -2 * parseFloat(s.slice(0, 1)),
                         float: "left",
-                        position: "relative",
-                        "padding-top": "10px",
-                        "padding-left": "10px"
-                    }), $(".OBox .OCurrent .OCol").css("top", 0), $(".OBox").css({
+                        position: "absolute",
+                        "padding-top": "5px",
+                        "padding-left": "5px",
+                        "z-index": 200,
                         width: r,
                         height: o
-                    }), $(".OTabBody").css({
+                    }), $(".OBox .OCurrent .OCol").css("top", 0), $(".OBox").css({
                         overflow: "auto",
+                        width: p,
+                        height: d
+                    }), $(".OTabBody").css({
                         position: "absolute",
                         top: "1px",
                         left: "1px",
@@ -3056,11 +3064,9 @@ var $POTATO = function() {
                         position: "relative",
                         "z-index": "2",
                         opacity: "1"
-                    }), $(".OCurrent").css({
-                        "z-index": "100"
                     }), O.tab_col = $(".OBox .OCurrent .OCol"), O.tab_col.animate({
                         top: -O.tab_col.height() - 20
-                    }, O.tab_speed), $(".OTabBody").removeClass("OCurrent"), $("#" + O.tab_hrefSelector.split(" ").join("")).addClass("OCurrent"), $(".OBox .OCurrent .OCol").animate({
+                    }, O.tab_speed), $(".OTabBody").removeClass("OCurrent"), $("#OTab-" + O.tab_hrefSelector.split(" ").join("")).addClass("OCurrent"), $(".OBox .OCurrent .OCol").animate({
                         top: 0
                     }, O.tab_speed, function() {}))
                 })
