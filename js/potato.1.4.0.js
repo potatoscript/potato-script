@@ -2961,12 +2961,12 @@ var $POTATO = function() {
                 e.createdCallback = function() {
                     this.id = l + "_", this.pims = l;
                     var t = '<div id="menu-' + l + '" style="margin-top:' + m + '" >';
-                    t += '<ul class="OTabs" >', t += '<li style="display:inline;">', t += '<a class="OCurrent" onclick="O.tab_hrefSelector=this.innerText;"  >' + y[0] + "</a></li>";
+                    t += '<ul class="OTabs" >', t += '<li style="display:inline;">', y.length > 1 ? t += '<a class="OCurrent" onclick="O.tab_hrefSelector=this.innerText;"  >' + y[0] + "</a></li>" : t += '<a class="OCurrent" onclick="O.tab_hrefSelector=this.innerText;"  >OTab</a></li>';
                     for (var e = 1; e < y.length; e++) t += '<li style="display:inline;">', t += '<a onclick="O.tab_hrefSelector=this.innerText;"  >' + y[e] + "</a></li>";
-                    t += "</ul>", t += '<div class="OBox">', t += '<div id="OTab-' + (i = y[0].split(" ").join("")) + '" class="OTabBody" >', t += '<div id="' + i + '" class="OCol"  >', t += v[0], t += "</div>", t += "</div>";
+                    t += "</ul>", t += '<div class="OBox">', t += '<div id="OTab-' + (i = y[0].split(" ").join("")) + '" class="OTabBody" >', t += '<div id="' + i + '" class="OCol"  >', v.length > 1 && (t += v[0]), t += "</div>", t += "</div>";
                     for (e = 1; e < y.length; e++) {
                         var i;
-                        t += '<div id="OTab-' + (i = y[e].split(" ").join("")) + '" class="OTabBody"  >', t += '<div id="' + i + '" class="OCol"  >', t += v[e], t += "</div>", t += "</div>"
+                        t += '<div id="OTab-' + (i = y[e].split(" ").join("")) + '" class="OTabBody"  >', t += '<div id="' + i + '" class="OCol"  >', v.length > 1 && (t += v[e]), t += "</div>", t += "</div>"
                     }
                     t += "</div>", t += "</div>", this.innerHTML = t, $("#" + y[0].split(" ").join("")).addClass("OTabBody"), $(".OTabs").css({
                         "list-style": "none",
@@ -2980,7 +2980,7 @@ var $POTATO = function() {
                         "border-radius": "10px",
                         "border-top-left-radius": "2px",
                         "border-top-right-radius": "2px",
-                        margin: "-1px",
+                        "margin-top": "-1px",
                         "box-shadow": "0 0 10px rgba(0,0,0,.5)",
                         "margin-left": "10px",
                         position: "relative",
@@ -3093,7 +3093,7 @@ var $POTATO = function() {
                     this.innerHTML = '<div id="div-' + o + '" ></div> '
                 }, this._rp_(i.model, a, function(t) {
                     var e = O.parse(t);
-                    if (null != c && c.length > 0) {
+                    if (null != c && c.length > 0 && "" != c[0]) {
                         var l = 0;
                         for (s in h += "<tr>", c) "" != c[s] && "-" != c[s] ? h += "<th style='border:1px solid black;font-size:" + i.fontSizeTH + ";color:" + i.fontColorTH + ";font-family:" + i.fontFamilyTH + "'>" + c[s] + "</th>" : h += "<th style='display:none'>" + c[s] + "</th>", l++;
                         h += "</tr>";
@@ -3197,10 +3197,10 @@ var $POTATO = function() {
                         }
                     h += "</table>", $("#div-" + o).html(h).show().css({
                         overflow: "auto",
-                        width: i.width,
-                        height: i.height,
-                        background: i.background,
                         display: i.display,
+                        width: i.width,
+                        height: css[O.h],
+                        background: i.background,
                         border: i.border,
                         position: i.position,
                         left: i.left,
@@ -4840,7 +4840,7 @@ var $POTATO = function() {
                     f = this.attr(i, "fontSizeTH");
                 null != i.getAttribute("click") && (e = new Function(this.attr(i, "click")));
                 var m = i.getAttribute("height");
-                null == m && (m = window.innerHeight - 200 + "px");
+                null == m && (m = window.innerHeight - 20 + "px");
                 var y = i.getAttribute("width");
                 null == y && (y = window.innerWidth - 30 + "px");
                 var v = this.attr(i, "root");
