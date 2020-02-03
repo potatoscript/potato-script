@@ -577,21 +577,24 @@ var $POTATO = function() {
                         for (u = 0; u < b.length; u++) g[u] = b[u]
                     } else
                         for (u = 0; u < t.length; u++)
-                            if (e.showDay == O.tue) {
-                                var v = String(t[u].x).split("-"),
-                                    x = v.slice(0, 1),
-                                    A = v.slice(1, 2),
-                                    w = v.slice(2, 3),
-                                    S = new Date(x + "/" + A + "/" + w);
-                                if (0 == S.getDay()) y = "日";
-                                if (1 == S.getDay()) y = "月";
-                                if (2 == S.getDay()) y = "火";
-                                if (3 == S.getDay()) y = "水";
-                                if (4 == S.getDay()) y = "木";
-                                if (5 == S.getDay()) y = "金";
-                                if (6 == S.getDay()) y = "土";
-                                g[u] = t[u].x + " (" + y + ")"
-                            } else g[u] = t[u].x; for (u = 0; u < t.length; u++)
+                            if ("-" != t[u].x)
+                                if (e.showDay == O.tue) {
+                                    var v = String(t[u].x).split("-"),
+                                        x = v.slice(0, 1),
+                                        A = v.slice(1, 2),
+                                        w = v.slice(2, 3),
+                                        S = new Date(x + "/" + A + "/" + w);
+                                    if (0 == S.getDay()) y = "日";
+                                    if (1 == S.getDay()) y = "月";
+                                    if (2 == S.getDay()) y = "火";
+                                    if (3 == S.getDay()) y = "水";
+                                    if (4 == S.getDay()) y = "木";
+                                    if (5 == S.getDay()) y = "金";
+                                    if (6 == S.getDay()) y = "土";
+                                    g[u] = "" != y ? t[u].x + " (" + y + ")" : t[u].x
+                                } else g[u] = t[u].x;
+                    else g[u] = "";
+                    for (u = 0; u < t.length; u++)
                         if ("bar" == e.chartType) {
                             var k = 0,
                                 C = [];
@@ -614,7 +617,7 @@ var $POTATO = function() {
                             k
                         } else i[0].push(t[u][1]), f[u] = t[u][1], t[u][1];
                     var _ = new Array,
-                        F = (h = 0, !1);
+                        F = (new Array, h = 0, !1);
                     if ("bar" == e.chartType) {
                         if ("true" == l)
                             for (u = 0; u < p.length; u++) _[h] = {
@@ -630,13 +633,14 @@ var $POTATO = function() {
                                 fill: !1,
                                 data: a[u]
                             }, F = !0, h++;
-                        if (_[c.length] = 1 == s ? {
+                        if (_[h] = 1 == s ? {
                                 type: "line",
                                 label: "",
                                 borderColor: "#fff",
                                 backgroundColor: "transparent",
                                 borderWidth: 0,
                                 borderColor: "transparent",
+                                yAxisID: "y-axis-1",
                                 fill: !1,
                                 data: i[I]
                             } : {
@@ -648,9 +652,10 @@ var $POTATO = function() {
                                 pointStyle: "dash",
                                 borderDash: [5],
                                 borderWidth: 1.5,
+                                yAxisID: "y-axis-1",
                                 fill: !1,
                                 data: i[I]
-                            }, "null" != e.colorIndex[0])
+                            }, h++, "null" != e.colorIndex[0])
                             for (u = 0; u < c.length; u++) _[h] = {
                                 type: "bar",
                                 label: c[u],
@@ -743,7 +748,10 @@ var $POTATO = function() {
                                                 r = l._meta[Object.keys(l._meta)[0]].data[a]._yScale.maxHeight;
                                             i.fillStyle = "#444";
                                             var s = n.y - 5;
-                                            "false" == e.stacked && (s = n.y - 25), (r - n.y) / r >= .93 && (s = n.y + 14), "bar" == l.type && o != h && (s += 20), t.length < 31 && ("bar" != l.type && "true" != e.stacked || i.fillText(pims().Comma(parseFloat(l.data[a])), n.x, s))
+                                            if ("false" == e.stacked && (s = n.y - 25), (r - n.y) / r >= .93 && (s = n.y + 14), "bar" == l.type && o != d && (s += 20), t.length < 31 && ("bar" == l.type || "true" == e.stacked) && parseFloat(l.data[a]) > 0) {
+                                                var d = parseFloat(l.data[a]);
+                                                d > 1e6 ? (d = Math.ceil(d / 1e3), i.fillText(pims().Comma(d) + "t", n.x, s)) : i.fillText(pims().Comma(d), n.x, s)
+                                            }
                                         }
                                         o++
                                     })
@@ -5195,7 +5203,7 @@ var $POTATO = function() {
                 return t = parseInt(t) < 10 ? "0" + t : t
             },
             show: function() {
-                $("potato").show()
+                $("potato").show().css("top", (document.body.clientHeight - 50) / 2.5 + document.documentElement.scrollTop + "px")
             },
             TableExcel: function(t, e) {
                 var i = this._p_(e),
