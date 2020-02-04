@@ -259,11 +259,11 @@ var $POTATO = function() {
                 W = i.getOwnPropertyNames,
                 Y = i.getPrototypeOf,
                 U = i.setPrototypeOf,
-                X = !!i.$O$Sroto__,
-                V = i.create || function t(e) {
+                V = !!i.$O$Sroto__,
+                X = i.create || function t(e) {
                     return e ? (t.prototype = e, new t) : this
                 },
-                j = U || (X ? function(t, e) {
+                j = U || (V ? function(t, e) {
                     return t.$O$Sroto__ = e, t
                 } : W && G ? function() {
                     function t(t, e) {
@@ -307,7 +307,7 @@ var $POTATO = function() {
                 ct = !0,
                 pt = !0,
                 ht = !0;
-            U || X ? (v = function(t, e) {
+            U || V ? (v = function(t, e) {
                 z.call(e, t) || h(t, e)
             }, O = h) : O = v = function(t, e) {
                 t[x] || (t[x] = i(!0), h(t, e))
@@ -401,7 +401,7 @@ var $POTATO = function() {
                     h = Q.call(p, S),
                     u = h ? i[S].toUpperCase() : l,
                     f = M.push((h ? _ : T) + l) - 1;
-                return R = R.concat(R.length ? "," : "", h ? u + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + t.toLowerCase() + '"]' : u), s.prototype = L[f] = Q.call(p, "prototype") ? p.prototype : V(Z), a(e.querySelectorAll(R), A), s
+                return R = R.concat(R.length ? "," : "", h ? u + "[" + String.fromCharCode(112, 111, 116, 97, 116, 111) + '="' + t.toLowerCase() + '"]' : u), s.prototype = L[f] = Q.call(p, "prototype") ? p.prototype : X(Z), a(e.querySelectorAll(R), A), s
             }
         }
     }(window, document, Object, $O$S.prototype.l($O$V().r)),
@@ -531,109 +531,111 @@ var $POTATO = function() {
                 "potato.title" == e.title && (e.title = potato.title), null != e.model && (e.model = "potato.model") && (e.model = potato.model);
                 e.model;
                 var i = param[O.dat],
-                    l = attr.y2Axes; - 1 != String(i).indexOf(".php") && (e.model = i);
-                var a = this.getHTMLElement(),
-                    n = this.x,
-                    o = n.split("-"),
-                    r = o.slice(2, 3),
-                    s = (o.slice(2, 3), !1);
-                e.stacked != O.tue && 1 != e.stacked || (s = !0);
-                var d = !0;
-                if (e.tooltips != O.fls && 0 != e.tooltips || (d = !1), String(e.params).split("@").slice(1, 2) == n) var c = String(e.params).split("@").slice(0, 1);
-                var p = [];
-                if (null != [] && "null" != c)
-                    for (var h = (String(c).match(/,/g) || []).length, u = String(c).split(","), g = 0; g <= h; g++) {
-                        var f = String(u.slice(g, g + 1)).split(":"),
-                            m = String(f.slice(1, 2));
-                        if (-1 != m.indexOf(",") && (m = String(String(f).split(",")).slice(0, 1)), "null" != String(f.slice(0, 1)).replace(/\s+/g, "") && "" != String(f.slice(0, 1)).replace(/\s+/g, ""))
-                            if (-1 != m.indexOf("return")) {
-                                var y = new Function(m);
-                                p[String(f.slice(0, 1)).replace(/\s+/g, "")] = y()
-                            } else p[String(f.slice(0, 1)).replace(/\s+/g, "")] = String(m).replace(/\s+/g, "")
+                    l = attr.y2Axes,
+                    a = attr.dataValue,
+                    n = attr.data2Value; - 1 != String(i).indexOf(".php") && (e.model = i);
+                var o = this.getHTMLElement(),
+                    r = this.x,
+                    s = r.split("-"),
+                    d = s.slice(2, 3),
+                    c = (s.slice(2, 3), !1);
+                e.stacked != O.tue && 1 != e.stacked || (c = !0);
+                var p = !0;
+                if (e.tooltips != O.fls && 0 != e.tooltips || (p = !1), String(e.params).split("@").slice(1, 2) == r) var h = String(e.params).split("@").slice(0, 1);
+                var u = [];
+                if (null != [] && "null" != h)
+                    for (var g = (String(h).match(/,/g) || []).length, f = String(h).split(","), m = 0; m <= g; m++) {
+                        var y = String(f.slice(m, m + 1)).split(":"),
+                            b = String(y.slice(1, 2));
+                        if (-1 != b.indexOf(",") && (b = String(String(y).split(",")).slice(0, 1)), "null" != String(y.slice(0, 1)).replace(/\s+/g, "") && "" != String(y.slice(0, 1)).replace(/\s+/g, ""))
+                            if (-1 != b.indexOf("return")) {
+                                var v = new Function(b);
+                                u[String(y.slice(0, 1)).replace(/\s+/g, "")] = v()
+                            } else u[String(y.slice(0, 1)).replace(/\s+/g, "")] = String(b).replace(/\s+/g, "")
                     }
-                null != e.model ? (a.createdCallback = function() {
+                null != e.model ? (o.createdCallback = function() {
                     var t = '<div class="chartWrapper" style="position:relative">';
-                    t += '<div id="div-' + r + '" class="chartAreaWrapper" style="overflow-y:hidden;-x:scroll;position:relative;">', t += '<div id="chart-' + r + '" style="position:relative;height:100%" class="chartAreaWrapper2" ></div> ', t += "</div>", t += '<canvas id="yAxis_' + r + '" style="background:' + e.background + ';position:absolute;left:0;top:0;pointer-events:none" height="' + String(parseFloat(e.height) - 20) + '" width="0"></canvas>', t += "</div>", this.innerHTML = t
-                }, this.Post(e.model, p, function(t) {
+                    t += '<div id="div-' + d + '" class="chartAreaWrapper" style="overflow-y:hidden;-x:scroll;position:relative;">', t += '<div id="chart-' + d + '" style="position:relative;height:100%" class="chartAreaWrapper2" ></div> ', t += "</div>", t += '<canvas id="yAxis_' + d + '" style="background:' + e.background + ';position:absolute;left:0;top:0;pointer-events:none" height="' + String(parseFloat(e.height) - 20) + '" width="0"></canvas>', t += "</div>", this.innerHTML = t
+                }, this.Post(e.model, u, function(t) {
                     potato.data = t;
                     var i = new Array,
-                        a = new Array,
-                        o = new Array;
-                    i[0] = new Array, a[0] = new Array, o[0] = new Array;
+                        o = new Array,
+                        s = new Array;
+                    i[0] = new Array, o[0] = new Array, s[0] = new Array;
                     new Array;
-                    var c = String(String(e.dataLabel).replace(/\s+/g, "")).split(","),
-                        p = String(String(e.data2Label).replace(/\s+/g, "")).split(",");
+                    var h = String(String(e.dataLabel).replace(/\s+/g, "")).split(","),
+                        u = String(String(e.data2Label).replace(/\s+/g, "")).split(",");
                     if ("bar" == e.chartType) {
-                        for (var h = 1, u = 0; u <= c.length + 1; u++) c[u] != O.dat && (i[h] = new Array, o[h] = new Array, h++);
-                        if (p[0] != O.dat)
-                            for (h = 0, u = 0; u <= p.length; u++) a[h] = new Array, h++
+                        for (var g = 1, f = 0; f <= h.length + 1; f++) h[f] != O.dat && (i[g] = new Array, s[g] = new Array, g++);
+                        if (u[0] != O.dat)
+                            for (g = 0, f = 0; f <= u.length; f++) o[g] = new Array, g++
                     }
-                    var g = new Array,
-                        f = new Array,
-                        m = new Array,
-                        y = (new Array, "");
+                    var m = new Array,
+                        y = new Array,
+                        b = new Array,
+                        v = (new Array, "");
                     if (null != param.xLabelData) {
-                        var b = param.xLabelData.split(",");
-                        for (u = 0; u < b.length; u++) g[u] = b[u]
+                        var x = param.xLabelData.split(",");
+                        for (f = 0; f < x.length; f++) m[f] = x[f]
                     } else
-                        for (u = 0; u < t.length; u++)
-                            if ("-" != t[u].x)
+                        for (f = 0; f < t.length; f++)
+                            if ("-" != t[f].x)
                                 if (e.showDay == O.tue) {
-                                    var v = String(t[u].x).split("-"),
-                                        x = v.slice(0, 1),
-                                        A = v.slice(1, 2),
-                                        w = v.slice(2, 3),
-                                        S = new Date(x + "/" + A + "/" + w);
-                                    if (0 == S.getDay()) y = "日";
-                                    if (1 == S.getDay()) y = "月";
-                                    if (2 == S.getDay()) y = "火";
-                                    if (3 == S.getDay()) y = "水";
-                                    if (4 == S.getDay()) y = "木";
-                                    if (5 == S.getDay()) y = "金";
-                                    if (6 == S.getDay()) y = "土";
-                                    g[u] = "" != y ? t[u].x + " (" + y + ")" : t[u].x
-                                } else g[u] = t[u].x;
-                    else g[u] = "";
-                    for (u = 0; u < t.length; u++)
+                                    var A = String(t[f].x).split("-"),
+                                        w = A.slice(0, 1),
+                                        S = A.slice(1, 2),
+                                        k = A.slice(2, 3),
+                                        C = new Date(w + "/" + S + "/" + k);
+                                    if (0 == C.getDay()) v = "日";
+                                    if (1 == C.getDay()) v = "月";
+                                    if (2 == C.getDay()) v = "火";
+                                    if (3 == C.getDay()) v = "水";
+                                    if (4 == C.getDay()) v = "木";
+                                    if (5 == C.getDay()) v = "金";
+                                    if (6 == C.getDay()) v = "土";
+                                    m[f] = "" != v ? t[f].x + " (" + v + ")" : t[f].x
+                                } else m[f] = t[f].x;
+                    else m[f] = "";
+                    for (f = 0; f < t.length; f++)
                         if ("bar" == e.chartType) {
-                            var k = 0,
-                                C = [];
-                            C[0] = 0;
-                            var I = 0;
-                            for (h = 0; h < c.length; h++) try {
-                                c[h] != O.dat && (i[I].push(t[u][h]), 1 == s ? k += parseFloat(t[u][h]) : (C[h] = 0, parseFloat(t[u][h]) > 0 && t[u][h] != O.udf && (C[h] = parseFloat(t[u][h])), k += t[u].line, o[I].push(t[u].color)), I++)
+                            var I = 0,
+                                E = [];
+                            E[0] = 0;
+                            var B = 0;
+                            for (g = 0; g < h.length; g++) try {
+                                h[g] != O.dat && (i[B].push(t[f][g]), 1 == c ? I += parseFloat(t[f][g]) : (E[g] = 0, parseFloat(t[f][g]) > 0 && t[f][g] != O.udf && (E[g] = parseFloat(t[f][g])), I += t[f].line, s[B].push(t[f].color)), B++)
                             } catch (t) {}
-                            if (i[I].push(k), f[u] = 1 == s ? k : maxArray(C), p[0] != O.dat) {
-                                var E = 0,
-                                    B = [];
-                                B[0] = 0;
-                                var T = 0;
-                                for (h = 0; h < p.length; h++)
-                                    if (null != t[u][p[h]]) try {
-                                        a[T].push(t[u][p[h]]), 1 == s ? E += parseFloat(t[u][p[h]]) : (E[h] = 0, parseFloat(t[u][p[h]]) > 0 && (B[h] = parseFloat(t[u][p[h]]))), T++
+                            if (i[B].push(I), y[f] = 1 == c ? I : maxArray(E), u[0] != O.dat) {
+                                var T = 0,
+                                    _ = [];
+                                _[0] = 0;
+                                var F = 0;
+                                for (g = 0; g < u.length; g++)
+                                    if (null != t[f][u[g]] && t[f][u[g]] > 0) try {
+                                        o[F].push(t[f][u[g]]), 1 == c ? T += parseFloat(t[f][u[g]]) : (T[g] = 0, parseFloat(t[f][u[g]]) > 0 && (_[g] = parseFloat(t[f][u[g]]))), F++
                                     } catch (t) {}
-                                    m[u] = 1 == s ? E : maxArray(B)
+                                    b[f] = 1 == c ? T : maxArray(_)
                             }
-                            k
-                        } else i[0].push(t[u][1]), f[u] = t[u][1], t[u][1];
-                    var _ = new Array,
-                        F = (new Array, h = 0, !1);
+                            I
+                        } else i[0].push(t[f][1]), y[f] = t[f][1], t[f][1];
+                    var D = new Array,
+                        M = (new Array, g = 0, !1);
                     if ("bar" == e.chartType) {
                         if ("true" == l)
-                            for (u = 0; u < p.length; u++) _[h] = {
+                            for (f = 0; f < u.length; f++) D[g] = {
                                 type: "line",
-                                label: p[u],
-                                radius: e.pointRadius[u],
-                                backgroundColor: e.pointColorIndex[u],
-                                pointStyle: e.pointStyle[u],
-                                borderDash: [e.pointBorderDash[u]],
-                                borderColor: e.pointBorderColorIndex[u],
-                                borderWidth: e.pointBorderWidth[u],
+                                label: u[f],
+                                radius: e.pointRadius[f],
+                                backgroundColor: e.pointColorIndex[f],
+                                pointStyle: e.pointStyle[f],
+                                borderDash: [e.pointBorderDash[f]],
+                                borderColor: e.pointBorderColorIndex[f],
+                                borderWidth: e.pointBorderWidth[f],
                                 yAxisID: "y-axis-2",
                                 fill: !1,
-                                data: a[u]
-                            }, F = !0, h++;
-                        if (_[h] = 1 == s ? {
+                                data: o[f]
+                            }, M = !0, g++;
+                        if (D[g] = 1 == c ? {
                                 type: "line",
                                 label: "",
                                 borderColor: "#fff",
@@ -642,7 +644,7 @@ var $POTATO = function() {
                                 borderColor: "transparent",
                                 yAxisID: "y-axis-1",
                                 fill: !1,
-                                data: i[I]
+                                data: i[B]
                             } : {
                                 type: "line",
                                 label: "",
@@ -654,54 +656,54 @@ var $POTATO = function() {
                                 borderWidth: 1.5,
                                 yAxisID: "y-axis-1",
                                 fill: !1,
-                                data: i[I]
-                            }, h++, "null" != e.colorIndex[0])
-                            for (u = 0; u < c.length; u++) _[h] = {
+                                data: i[B]
+                            }, g++, "null" != e.colorIndex[0])
+                            for (f = 0; f < h.length; f++) D[g] = {
                                 type: "bar",
-                                label: c[u],
-                                backgroundColor: e.colorIndex[u],
+                                label: h[f],
+                                backgroundColor: e.colorIndex[f],
                                 borderColor: "#444",
                                 borderWidth: 1,
-                                data: i[u]
-                            }, h++;
+                                data: i[f]
+                            }, g++;
                         else
-                            for (u = 0; u < c.length; u++) _[h] = {
+                            for (f = 0; f < h.length; f++) D[g] = {
                                 type: "bar",
-                                label: c[u],
-                                backgroundColor: o[u],
+                                label: h[f],
+                                backgroundColor: s[f],
                                 borderColor: "#444",
                                 borderWidth: 1,
-                                data: i[u]
-                            }, h++
+                                data: i[f]
+                            }, g++
                     }
                     if (e.legendDisplay == O.tue) {
-                        var D = "bottom";
-                        null != e.legendPosition && (D = e.legendPosition);
-                        var M = {
-                            position: D,
+                        var L = "bottom";
+                        null != e.legendPosition && (L = e.legendPosition);
+                        var R = {
+                            position: L,
                             display: !0,
                             labels: {
                                 usePointStyle: !0
                             }
                         }
-                    } else M = {
+                    } else R = {
                         position: "bottom",
                         display: !1
                     };
                     if ("bar" == e.chartType) {
-                        var L = 1.2;
-                        "" != e.label2String && (L = 2);
-                        var R = [{
+                        var H = 1.2;
+                        "" != e.label2String && (H = 2);
+                        var N = [{
                                 type: "linear",
                                 position: "left",
                                 id: "y-axis-1",
-                                stacked: s,
+                                stacked: c,
                                 ticks: {
                                     callback: function(t, e, i) {
                                         return parseFloat(t) > 999 || parseFloat(t) < -999 ? pims().Comma(String(parseInt(t) / 1e3)) + "t" : pims().Comma(t)
                                     },
                                     beginAtZero: !0,
-                                    max: maxArray(f) * L,
+                                    max: maxArray(y) * H,
                                     min: 0,
                                     fontSize: e.yAxesFontSize
                                 },
@@ -711,7 +713,7 @@ var $POTATO = function() {
                                     fontSize: e.labelFontSize
                                 }
                             }, {
-                                display: F,
+                                display: M,
                                 position: "right",
                                 id: "y-axis-2",
                                 gridLines: {
@@ -724,7 +726,7 @@ var $POTATO = function() {
                                     beginAtZero: !0,
                                     fontSize: e.y2AxesFontSize,
                                     beginAtZero: !1,
-                                    min: -maxArray(m)
+                                    min: -maxArray(b)
                                 },
                                 scaleLabel: {
                                     display: !0,
@@ -732,32 +734,38 @@ var $POTATO = function() {
                                     fontSize: e.label2FontSize
                                 }
                             }],
-                            H = {
+                            K = {
                                 duration: 500,
                                 easing: "easeOutQuart",
                                 onComplete: function() {
                                     var i = this.chart.ctx,
                                         l = this.scales["y-axis-1"].width - 10,
-                                        a = this.scales["y-axis-1"].height + this.scales["y-axis-1"].top + 10,
-                                        n = document.getElementById("yAxis_" + r).getContext("2d");
-                                    n.canvas.width = l, n.drawImage(this.chart.canvas, 0, 0, l, a, 0, 0, l, a), i.font = Chart.helpers.fontString(e.dataFontSize, "normal", "Arial"), i.textAlign = "center", i.textBaseline = "bottom";
-                                    var o = 0;
+                                        o = this.scales["y-axis-1"].height + this.scales["y-axis-1"].top + 10,
+                                        r = document.getElementById("yAxis_" + d).getContext("2d");
+                                    r.canvas.width = l, r.drawImage(this.chart.canvas, 0, 0, l, o, 0, 0, l, o), i.textAlign = "center", i.textBaseline = "bottom";
+                                    var s = 0;
                                     this.data.datasets.forEach(function(l) {
-                                        for (var a = 0; a < l.data.length; a++) {
-                                            var n = l._meta[Object.keys(l._meta)[0]].data[a]._model,
-                                                r = l._meta[Object.keys(l._meta)[0]].data[a]._yScale.maxHeight;
-                                            i.fillStyle = "#444";
-                                            var s = n.y - 5;
-                                            if ("false" == e.stacked && (s = n.y - 25), (r - n.y) / r >= .93 && (s = n.y + 14), "bar" == l.type && o != d && (s += 20), t.length < 31 && ("bar" == l.type || "true" == e.stacked) && parseFloat(l.data[a]) > 0) {
-                                                var d = parseFloat(l.data[a]);
-                                                d > 1e6 ? (d = Math.ceil(d / 1e3), i.fillText(pims().Comma(d) + "t", n.x, s)) : i.fillText(pims().Comma(d), n.x, s)
+                                        for (var o = 0; o < l.data.length; o++) {
+                                            i.font = Chart.helpers.fontString(e.dataFontSize, "normal", "Arial");
+                                            var r = l._meta[Object.keys(l._meta)[0]].data[o]._model,
+                                                d = l._meta[Object.keys(l._meta)[0]].data[o]._yScale.maxHeight;
+                                            i.fillStyle = "black";
+                                            var c = r.y - 5;
+                                            if ("false" == e.stacked && (c = r.y - 25), (d - r.y) / d >= .93 && (c = r.y + 14), "bar" == l.type && s != p && (c += 20), t.length < 31) {
+                                                var p;
+                                                if ("true" == a)
+                                                    if ("bar" == l.type || "true" == e.stacked)
+                                                        if (parseFloat(l.data[o]) > 0)(p = parseFloat(l.data[o])) > 1e6 ? (p = Math.ceil(p / 1e3), i.fillText(pims().Comma(p) + "t", r.x, c)) : i.fillText(pims().Comma(p), r.x, c);
+                                                if ("true" == n)
+                                                    if ("line" == l.type && "y-axis-2" == l.yAxisID)
+                                                        if (parseFloat(l.data[o]) > 0) i.fillStyle = "red", i.font = Chart.helpers.fontString(e.dataFontSize, "bold", "Arial"), (p = parseFloat(l.data[o])) > 1e6 ? (p = Math.ceil(p / 1e3), i.fillText(pims().Comma(p) + "t", r.x, r.y + 20)) : i.fillText(pims().Comma(p), r.x, r.y + 20)
                                             }
                                         }
-                                        o++
+                                        s++
                                     })
                                 }
                             }
-                    } else R = [], H = {
+                    } else N = [], K = {
                         duration: 500,
                         easing: "easeOutQuart",
                         onComplete: function() {
@@ -772,7 +780,7 @@ var $POTATO = function() {
                         }
                     };
                     e.display == O.tue ? e.display = !0 : e.display = !1;
-                    var N = {
+                    var Q = {
                             hover: {
                                 animationDuration: 1,
                                 onHover: function(t, i) {
@@ -781,41 +789,41 @@ var $POTATO = function() {
                                         t.target.style.cursor = "pointer";
                                         try {
                                             var a = l[0]._chart.data,
-                                                o = l[0]._datasetIndex,
-                                                r = a.datasets[o].label,
-                                                s = a.datasets[o].data[l[0]._index];
+                                                n = l[0]._datasetIndex,
+                                                o = a.datasets[n].label,
+                                                s = a.datasets[n].data[l[0]._index];
                                             t = i[0];
                                             var d = this.data.labels[t._index];
-                                            e.hover(n, r, s, d)
+                                            e.hover(r, o, s, d)
                                         } catch (t) {
-                                            e.hover(n, "-")
+                                            e.hover(r, "-")
                                         }
-                                    } else t.target.style.cursor = "default", e.hover(n, "-")
+                                    } else t.target.style.cursor = "default", e.hover(r, "-")
                                 }
                             },
                             onClick: function(t, i) {
                                 var l = this.getElementAtEvent(t);
                                 if (l.length) try {
                                     var a = l[0]._chart.data,
-                                        o = l[0]._datasetIndex,
-                                        r = a.datasets[o].label,
-                                        s = a.datasets[o].data[l[0]._index];
+                                        n = l[0]._datasetIndex,
+                                        o = a.datasets[n].label,
+                                        s = a.datasets[n].data[l[0]._index];
                                     t = i[0];
                                     var d = this.data.labels[t._index];
-                                    e.click(n, r, s, d)
+                                    e.click(r, o, s, d)
                                 } catch (t) {
-                                    e.click(n, "-")
-                                } else e.click(n, "-")
+                                    e.click(r, "-")
+                                } else e.click(r, "-")
                             },
                             title: {
                                 display: e.display,
                                 text: e.title,
                                 fontSize: e.titleFontSize
                             },
-                            legend: M,
+                            legend: R,
                             scales: {
                                 xAxes: [{
-                                    stacked: s,
+                                    stacked: c,
                                     ticks: {
                                         autoSkip: !1,
                                         fontSize: e.xAxesFontSize,
@@ -823,32 +831,32 @@ var $POTATO = function() {
                                         minRotation: e.xLabelAngle
                                     }
                                 }],
-                                yAxes: R
+                                yAxes: N
                             },
                             tooltips: {
-                                enabled: d
+                                enabled: p
                             },
                             responsive: !0,
                             maintainAspectRatio: !1,
-                            animation: H
+                            animation: K
                         },
-                        K = "<canvas id='canvas-" + r + "' style='background:" + e.background + "'></canvas>",
-                        Q = document.getElementById("chart-" + r);
-                    Q.innerHTML = "", $("#div-" + r).show().css({
+                        z = "<canvas id='canvas-" + d + "' style='background:" + e.background + "'></canvas>",
+                        P = document.getElementById("chart-" + d);
+                    P.innerHTML = "", $("#div-" + d).show().css({
                         width: e.width,
                         height: e.height,
                         border: e.border
                     });
-                    var z = "100%";
-                    t.length > 50 && (z = "130%"), t.length > 100 && (z = "150%"), t.length > 150 && (z = "180%"), t.length > 200 && (z = "250%"), t.length > 250 && (z = "300%"), t.length > 300 && (z = "350%"), t.length > 350 && (z = "400%"), t.length > 400 && (z = "500%"), $("#chart-" + r).html(K).css({
-                        width: z
+                    var G = "100%";
+                    t.length > 50 && (G = "130%"), t.length > 100 && (G = "150%"), t.length > 150 && (G = "180%"), t.length > 200 && (G = "250%"), t.length > 250 && (G = "300%"), t.length > 300 && (G = "350%"), t.length > 350 && (G = "400%"), t.length > 400 && (G = "500%"), $("#chart-" + d).html(z).css({
+                        width: G
                     });
-                    var P = document.getElementById("canvas-" + r);
+                    var W = document.getElementById("canvas-" + d);
                     try {
-                        var G = e.name;
-                        null == G && (G = "");
-                        var W = document.createElement("span");
-                        W.innerText = G, W.style.fontSize = e.nameFontSize, Q.appendChild(W), $("#div_" + r + " span").css({
+                        var Y = e.name;
+                        null == Y && (Y = "");
+                        var U = document.createElement("span");
+                        U.innerText = Y, U.style.fontSize = e.nameFontSize, P.appendChild(U), $("#div_" + d + " span").css({
                             position: "absolute",
                             left: e.width / 6 + "px",
                             top: 2 * -e.fontSize + "px",
@@ -856,21 +864,21 @@ var $POTATO = function() {
                             textShadow: "-1px -1px 1px #fff, 1px 1px 1px grey"
                         })
                     } catch (t) {}
-                    if ("bar" == e.chartType) new Chart(P, {
+                    if ("bar" == e.chartType) new Chart(W, {
                         type: e.chartType,
-                        options: N,
+                        options: Q,
                         data: {
-                            labels: g,
-                            datasets: _
+                            labels: m,
+                            datasets: D
                         }
                     });
-                    else new Chart(P, {
+                    else new Chart(W, {
                         type: "horizontalBar",
-                        options: N,
+                        options: Q,
                         data: {
-                            labels: g,
+                            labels: m,
                             datasets: [{
-                                label: c[0],
+                                label: h[0],
                                 backgroundColor: e.colorIndex[0],
                                 borderColor: "black",
                                 borderWidth: .8,
@@ -881,19 +889,19 @@ var $POTATO = function() {
                     try {
                         e.callback()
                     } catch (t) {}
-                })) : a.createdCallback = function() {
+                })) : o.createdCallback = function() {
                     var t = '<div class="chartWrapper" style="position:relative">';
-                    t += '<div id="div_' + r + '" class="chartAreaWrapper" style="overflow-y:hidden;-x:scroll;position:relative;">', t += '<div id="div_chart_' + r + '" style="position:relative;height:100%" class="chartAreaWrapper2" ></div> ', t += "</div>", t += '<canvas id="yAxis_' + r + '" style="background:' + e.background + ';position:absolute;left:0;top:0;pointer-events:none" height="' + String(parseFloat(e.height) - 20) + '" width="0"></canvas>', t += "</div>", this.innerHTML = t;
+                    t += '<div id="div_' + d + '" class="chartAreaWrapper" style="overflow-y:hidden;-x:scroll;position:relative;">', t += '<div id="div_chart_' + d + '" style="position:relative;height:100%" class="chartAreaWrapper2" ></div> ', t += "</div>", t += '<canvas id="yAxis_' + d + '" style="background:' + e.background + ';position:absolute;left:0;top:0;pointer-events:none" height="' + String(parseFloat(e.height) - 20) + '" width="0"></canvas>', t += "</div>", this.innerHTML = t;
                     var l = new Array,
                         a = new Array;
                     l[0] = new Array, a[0] = new Array;
                     new Array;
-                    var o = String(e.dataLabel).split(","),
-                        c = String(e.data2Label).split(",");
+                    var n = String(e.dataLabel).split(","),
+                        o = String(e.data2Label).split(",");
                     if ("bar" == e.chartType) {
-                        for (var p = 1, h = 0; h <= o.length + 1; h++) o[h] != O.dat && (l[p] = new Array, p++);
-                        if (c[0] != O.dat)
-                            for (p = 0, h = 0; h <= c.length; h++) a[p] = new Array, p++
+                        for (var s = 1, h = 0; h <= n.length + 1; h++) n[h] != O.dat && (l[s] = new Array, s++);
+                        if (o[0] != O.dat)
+                            for (s = 0, h = 0; h <= o.length; h++) a[s] = new Array, s++
                     }
                     var u = new Array,
                         g = new Array,
@@ -921,30 +929,30 @@ var $POTATO = function() {
                                 S = [];
                             S[0] = 0;
                             var k = 0;
-                            for (p = 1; p <= o.length; p++) try {
-                                o[p] != O.dat && (l[k].push(i[h][p]), 1 == s ? w += parseFloat(i[h][p]) : (S[p] = 0, parseFloat(i[h][p]) > 0 && i[h][p] != O.udf && (S[p] = parseFloat(i[h][p]))), k++)
+                            for (s = 1; s <= n.length; s++) try {
+                                n[s] != O.dat && (l[k].push(i[h][s]), 1 == c ? w += parseFloat(i[h][s]) : (S[s] = 0, parseFloat(i[h][s]) > 0 && i[h][s] != O.udf && (S[s] = parseFloat(i[h][s]))), k++)
                             } catch (t) {}
-                            if (l[k].push(w), g[h] = 1 == s ? w : maxArray(S), c[0] != O.dat) {
+                            if (l[k].push(w), g[h] = 1 == c ? w : maxArray(S), o[0] != O.dat) {
                                 var C = 0,
                                     I = [];
                                 I[0] = 0;
                                 var E = 0;
-                                for (p = 0; p < c.length; p++)
-                                    if (i[h][c[p]] != O.udf && null != i[h][c[p]]) try {
-                                        a[E].push(i[h][c[p]]), 1 == s ? C += parseFloat(i[h][c[p]]) : (C[p] = 0, parseFloat(i[h][c[p]]) > 0 && (I[p] = parseFloat(i[h][c[p]]))), E++
+                                for (s = 0; s < o.length; s++)
+                                    if (i[h][o[s]] != O.udf && null != i[h][o[s]]) try {
+                                        a[E].push(i[h][o[s]]), 1 == c ? C += parseFloat(i[h][o[s]]) : (C[s] = 0, parseFloat(i[h][o[s]]) > 0 && (I[s] = parseFloat(i[h][o[s]]))), E++
                                     } catch (t) {}
-                                    f[h] = 1 == s ? C : maxArray(I)
+                                    f[h] = 1 == c ? C : maxArray(I)
                             }
                             w
                         } else l[0].push(i[h][1]), g[h] = i[h][1], i[h][1]
                     }
                     var B = new Array,
-                        T = (p = 0, !1);
+                        T = (s = 0, !1);
                     if ("bar" == e.chartType) {
-                        if (c[0] != O.dat)
-                            for (h = 0; h < c.length; h++) B[p] = {
+                        if (o[0] != O.dat)
+                            for (h = 0; h < o.length; h++) B[s] = {
                                 type: "line",
-                                label: c[h],
+                                label: o[h],
                                 radius: e.pointRadius[h],
                                 backgroundColor: e.pointColorIndex[h],
                                 pointStyle: e.pointStyle[h],
@@ -954,16 +962,16 @@ var $POTATO = function() {
                                 yAxisID: "y-axis-2",
                                 fill: !1,
                                 data: a[h]
-                            }, T = !0, p++;
-                        for (h = 0; h < o.length; h++) o[h] != O.dat && (B[p] = {
+                            }, T = !0, s++;
+                        for (h = 0; h < n.length; h++) n[h] != O.dat && (B[s] = {
                             type: "bar",
-                            label: o[h],
+                            label: n[h],
                             backgroundColor: e.colorIndex[h],
                             borderColor: "#444",
                             borderWidth: 1,
                             data: l[h]
-                        }, p++);
-                        B[p] = {
+                        }, s++);
+                        B[s] = {
                             type: "line",
                             label: "",
                             borderColor: "#fff",
@@ -995,7 +1003,7 @@ var $POTATO = function() {
                                 type: "linear",
                                 position: "left",
                                 id: "y-axis-1",
-                                stacked: s,
+                                stacked: c,
                                 ticks: {
                                     callback: function(t, e, i) {
                                         return parseFloat(t) > 999 || parseFloat(t) < -999 ? pims().Comma(String(parseInt(t) / 1e3)) + "t" : pims().Comma(t)
@@ -1039,7 +1047,7 @@ var $POTATO = function() {
                                     var t = this.chart.ctx,
                                         l = this.scales["y-axis-1"].width - 10,
                                         a = this.scales["y-axis-1"].height + this.scales["y-axis-1"].top + 10,
-                                        n = document.getElementById("yAxis_" + r).getContext("2d");
+                                        n = document.getElementById("yAxis_" + d).getContext("2d");
                                     n.canvas.width = l, n.drawImage(this.chart.canvas, 0, 0, l, a, 0, 0, l, a), t.font = Chart.helpers.fontString(e.dataFontSize, "normal", "Arial"), t.textAlign = "center", t.textBaseline = "bottom";
                                     var o = 0;
                                     this.data.datasets.forEach(function(e) {
@@ -1048,7 +1056,7 @@ var $POTATO = function() {
                                                 n = e._meta[Object.keys(e._meta)[0]].data[l]._yScale.maxHeight;
                                             t.fillStyle = "#444";
                                             var r = a.y - 5;
-                                            (n - a.y) / n >= .93 && (r = a.y + 14), "bar" == e.type && o != p && (r += 20), i.length < 31 && t.fillText(pims().Comma(parseFloat(e.data[l])), a.x, r)
+                                            (n - a.y) / n >= .93 && (r = a.y + 14), "bar" == e.type && o != s && (r += 20), i.length < 31 && t.fillText(pims().Comma(parseFloat(e.data[l])), a.x, r)
                                         }
                                         o++
                                     })
@@ -1078,31 +1086,31 @@ var $POTATO = function() {
                                         t.target.style.cursor = "pointer";
                                         try {
                                             var a = l[0]._chart.data,
-                                                o = l[0]._datasetIndex,
-                                                r = a.datasets[o].label,
-                                                s = a.datasets[o].data[l[0]._index];
+                                                n = l[0]._datasetIndex,
+                                                o = a.datasets[n].label,
+                                                s = a.datasets[n].data[l[0]._index];
                                             t = i[0];
                                             var d = this.data.labels[t._index];
-                                            e.hover(n, r, s, d)
+                                            e.hover(r, o, s, d)
                                         } catch (t) {
-                                            e.hover(n, "-")
+                                            e.hover(r, "-")
                                         }
-                                    } else t.target.style.cursor = "default", e.hover(n, "-")
+                                    } else t.target.style.cursor = "default", e.hover(r, "-")
                                 }
                             },
                             onClick: function(t, i) {
                                 var l = this.getElementAtEvent(t);
                                 if (l.length) try {
                                     var a = l[0]._chart.data,
-                                        o = l[0]._datasetIndex,
-                                        r = a.datasets[o].label,
-                                        s = a.datasets[o].data[l[0]._index];
+                                        n = l[0]._datasetIndex,
+                                        o = a.datasets[n].label,
+                                        s = a.datasets[n].data[l[0]._index];
                                     t = i[0];
                                     var d = this.data.labels[t._index];
-                                    e.click(n, r, s, d)
+                                    e.click(r, o, s, d)
                                 } catch (t) {
-                                    e.click(n, "-")
-                                } else e.click(n, "-")
+                                    e.click(r, "-")
+                                } else e.click(r, "-")
                             },
                             title: {
                                 display: e.display,
@@ -1112,7 +1120,7 @@ var $POTATO = function() {
                             legend: F,
                             scales: {
                                 xAxes: [{
-                                    stacked: s,
+                                    stacked: c,
                                     ticks: {
                                         autoSkip: !1,
                                         fontSize: e.xAxesFontSize,
@@ -1123,28 +1131,28 @@ var $POTATO = function() {
                                 yAxes: M
                             },
                             tooltips: {
-                                enabled: d
+                                enabled: p
                             },
                             responsive: !0,
                             maintainAspectRatio: !1,
                             animation: L
                         },
-                        H = (t = "<canvas id='canvas-" + r + "' style='background:" + e.background + "'></canvas>", document.getElementById("div_chart_" + r));
-                    H.innerHTML = "", $("#div_" + r).show().css({
+                        H = (t = "<canvas id='canvas-" + d + "' style='background:" + e.background + "'></canvas>", document.getElementById("div_chart_" + d));
+                    H.innerHTML = "", $("#div_" + d).show().css({
                         width: e.width,
                         height: e.height,
                         border: e.border
                     });
                     var N = "100%";
-                    i.length > 50 && (N = "130%"), i.length > 100 && (N = "150%"), i.length > 150 && (N = "180%"), i.length > 200 && (N = "250%"), i.length > 250 && (N = "300%"), i.length > 300 && (N = "350%"), i.length > 350 && (N = "400%"), i.length > 400 && (N = "500%"), $("#div_chart_" + r).html(t).css({
+                    i.length > 50 && (N = "130%"), i.length > 100 && (N = "150%"), i.length > 150 && (N = "180%"), i.length > 200 && (N = "250%"), i.length > 250 && (N = "300%"), i.length > 300 && (N = "350%"), i.length > 350 && (N = "400%"), i.length > 400 && (N = "500%"), $("#div_chart_" + d).html(t).css({
                         width: N
                     });
-                    var K = document.getElementById("canvas-" + r);
+                    var K = document.getElementById("canvas-" + d);
                     try {
                         var Q = e.name;
                         null == Q && (Q = "");
                         var z = document.createElement("span");
-                        z.innerText = Q, z.style.fontSize = e.nameFontSize, H.appendChild(z), $("#div_" + r + " span").css({
+                        z.innerText = Q, z.style.fontSize = e.nameFontSize, H.appendChild(z), $("#div_" + d + " span").css({
                             position: "absolute",
                             left: e.width / 6 + "px",
                             top: 2 * -e.fontSize + "px",
@@ -1166,7 +1174,7 @@ var $POTATO = function() {
                         data: {
                             labels: u,
                             datasets: [{
-                                label: o[0],
+                                label: n[0],
                                 backgroundColor: e.colorIndex[0],
                                 borderColor: "black",
                                 borderWidth: .8,
@@ -1177,7 +1185,7 @@ var $POTATO = function() {
                     try {
                         e.callback()
                     } catch (t) {}
-                }, this._p_e(n, a)
+                }, this._p_e(r, o)
             },
             _bt_: function(t) {
                 var e = this,
@@ -2388,8 +2396,8 @@ var $POTATO = function() {
                 }, this._p_e(l, i)
             },
             _p_: function(t) {
-                var e, i, l, a, n, o, r, s, d, c, p, h, u, g, f, m, y, b, v, x, A, w, S, k, C, $, I, E, B, T, _, F, D, M, L, R, H, N, K, Q, z, P, G, W, Y, U, X, V, j, J, Z, q, tt, et, it, lt, at, nt, ot, rt, st, dt, ct, pt, ht, ut, gt, ft, mt, yt, bt, vt, Ot, xt, At, wt, St, kt, Ct, $t, It, Et, Bt, Tt, _t, Ft, Dt, Mt, Lt, Rt, Ht, Nt, Kt, Qt, zt, Pt, Gt, Wt, Yt, Ut, Xt, Vt, jt, Jt, Zt, qt, te, ee, ie, le, ae, ne, oe, re, se, de, ce, pe, he, ue, ge, fe = new Array;
-                return this.clearArrays(), t(), null == (Jt = css.textTransform) && (Jt = "none"), e = css[O.bkg], i = css[O.bdr], l = css[O.bdrr], a = css[O.bxsd], null == (n = events[O.cbk]) && (n = this.dummy()), null == (o = attr.canvas) && (o = "chart"), null == (r = param.cell) && (r = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (m = css.colorIndex) && (m = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (p = attr.className) && (p = "pimsClassName"), null == (h = events[O.clk]) && (h = this.dummy()), null == (u = attr.cls) && (u = ""), null == (y = attr.container) && (y = "container"), f = css[O.co], null == (b = css[O.csr]) && (b = O.dft), null != (v = css.dataFontSize) && -1 != String(v).indexOf("px") && (v = String(v).split("px").slice(0, 1)), null == v && (v = 12), null == (x = attr.dataLabel) && (x = O.dat), null == (A = attr.data2Label) && (A = O.dat), null == (w = attr[O.dsa]) && (w = !1), S = css[O.dpy], null == (k = css.displayKey) && (k = "none"), C = events[O.dgdp], null == ($ = param.editWidth) && ($ = 100), null == (I = param.fieldClass) && (I = 0), H = css.float, E = css.fontColorTD, B = css.fontColorTH, T = css.fontFamily, _ = css.fontFamilyTD, F = css.fontFamilyTH, D = css.fontSize, M = css.fontSizeTD, L = css.fontSizeTH, N = css.fontWeight, null == (R = attr.format) && (R = "yy-mm-dd"), null == (K = param.header) && (K = "0"), Q = css.height, null == (z = css.heightTable) && (z = 450), null == (P = events.hover) && (P = this.dummy()), G = css.hoverColor, null == (W = css.hoverBgColor) && (W = "null"), Y = attr[O.hid], null == (U = attr[O.htx]) && (U = ""), null != (V = css.hoverHeight) && -1 != String(V).indexOf("px") && (V = String(V).split("px").slice(0, 1)), null == V && (V = 30), null == (X = css.hoverWidth) && (X = ""), null == (j = param.htm) && (j = "config/keypad.htm"), J = attr.id, null == (Z = param.idCol) && (Z = 0), image = attr.image, null == image && (image = "nil 0 0"), q = attr.imageDir, null == (tt = css.imgWidth) && (tt = 45), null == (et = css.imgHeight) && (et = 45), null == (it = events.keyup) && (it = this.dummy()), null != (nt = css.labelFontSize) && -1 != String(nt).indexOf("px") && (nt = String(nt).split("px").slice(0, 1)), null == nt && (nt = 12), null != (ot = css.label2FontSize) && -1 != String(ot).indexOf("px") && (ot = String(ot).split("px").slice(0, 1)), null == ot && (ot = 12), null == (lt = attr.labelString) && (lt = ""), null == (at = attr.label2String) && (at = ""), dt = css[O.lft], null == (ct = css.leftKey) && (ct = 0), null == (rt = css.legendDisplay) && (rt = !1), null == (st = css.legendPosition) && (st = "bottom"), null == (pt = events.listClick) && (pt = this.dummy()), ht = css.listHeight, ut = css.listLeft, ft = css.listWidth, gt = css.listTop, mt = css.margin, yt = css.marginBottom, Ct = css.marginLeft, bt = css.marginRight, $t = css.marginTop, null == (xt = param.markSymbol) && (xt = ""), null == (vt = param.matchCol) && (vt = "-"), null == (Ot = param.matchValue) && (Ot = "-"), null == (kt = css.marginKey) && (kt = "0px 0px 0px 0px"), null == (At = param.menuModel) && (At = "null"), null == (wt = param.menuTitle) && (wt = "null"), It = param.model, null == (St = attr.multiple) && (St = !1), Et = attr.name, null == (Bt = attr.onscroll) && (Bt = this.dummy()), Tt = css.padding, css.paddingBottom, _t = css.paddingLeft, css.paddingRight, Ft = css.paddingTop, null == (Dt = css.pointBorderColorIndex) && (Dt = ["#000000"]), null == (Mt = css.pointBorderDash) && (Mt = [0]), null == (Lt = css.pointBorderWidth) && (Lt = [1]), null == (Rt = css.pointColorIndex) && (Rt = ["#c5ffb3"]), null == (Ht = css.pointRadius) && (Ht = ["5"]), null == (Nt = css.pointStyle) && (Nt = ["triangle"]), Kt = css[O.pst], null == (Qt = param.row) && (Qt = "0"), null == (zt = param.selectCol) && (zt = ""), null == (Pt = param.selectColumn) && (Pt = ""), null == (Gt = css.showDay) && (Gt = !1), null == (Wt = attr.stacked) && (Wt = !1), null == (Yt = attr.tableId) && (Yt = "tableId"), null == (Xt = param.targetId) && (Xt = 0), null == (Vt = attr.targetIndex) && (Vt = 0), null == (Ut = param.targetColumn) && (Ut = ""), null == (fe = param.targetCol) && (fe = ""), null == (jt = attr.targetColor) && (jt = "WHITE"), Zt = css.textAlign, null == (qt = attr.title) && (qt = ""), null != (te = css.titleFontSize) && -1 != String(te).indexOf("px") && (te = String(te).split("px").slice(0, 1)), null == te && (te = 25), null == (ee = attr.tooltips) && (ee = !0), ie = css[O.tp], null == (le = css.topKey) && (le = 0), null == (ae = events[O.trg]) && (ae = "ondblclick"), null == (ne = attr.type) && (ne = "text"), null == (oe = attr[O.val]) && (oe = ""), null == (de = param.whereClass) && (de = 0), re = css[O.wit], null == (se = css.widthTable) && (se = 130), null != (ce = css.xAxesFontSize) && -1 != String(ce).indexOf("px") && (ce = String(ce).split("px").slice(0, 1)), null == ce && (ce = 12), null == (pe = css.xLabelAngle) && (pe = 0), null != (he = css.yAxesFontSize) && -1 != String(he).indexOf("px") && (he = String(he).split("px").slice(0, 1)), null == he && (he = 12), null != (ue = css.y2AxesFontSize) && -1 != String(ue).indexOf("px") && (ue = String(ue).split("px").slice(0, 1)), null == ue && (ue = 12), null == (ge = attr.y2AxesType) && (ge = ""), {
+                var e, i, l, a, n, o, r, s, d, c, p, h, u, g, f, m, y, b, v, x, A, w, S, k, C, $, I, E, B, T, _, F, D, M, L, R, H, N, K, Q, z, P, G, W, Y, U, V, X, j, J, Z, q, tt, et, it, lt, at, nt, ot, rt, st, dt, ct, pt, ht, ut, gt, ft, mt, yt, bt, vt, Ot, xt, At, wt, St, kt, Ct, $t, It, Et, Bt, Tt, _t, Ft, Dt, Mt, Lt, Rt, Ht, Nt, Kt, Qt, zt, Pt, Gt, Wt, Yt, Ut, Vt, Xt, jt, Jt, Zt, qt, te, ee, ie, le, ae, ne, oe, re, se, de, ce, pe, he, ue, ge, fe = new Array;
+                return this.clearArrays(), t(), null == (Jt = css.textTransform) && (Jt = "none"), e = css[O.bkg], i = css[O.bdr], l = css[O.bdrr], a = css[O.bxsd], null == (n = events[O.cbk]) && (n = this.dummy()), null == (o = attr.canvas) && (o = "chart"), null == (r = param.cell) && (r = "0"), null == (d = attr.chartType) && (d = "pie"), null == (c = attr.chartId) && (c = "chart1Id"), null == (g = param.col) && (g = 1e3), null == (m = css.colorIndex) && (m = ["#c5ffb3"]), null == (s = events.change) && (s = this.dummy()), null == (p = attr.className) && (p = "pimsClassName"), null == (h = events[O.clk]) && (h = this.dummy()), null == (u = attr.cls) && (u = ""), null == (y = attr.container) && (y = "container"), f = css[O.co], null == (b = css[O.csr]) && (b = O.dft), null != (v = css.dataFontSize) && -1 != String(v).indexOf("px") && (v = String(v).split("px").slice(0, 1)), null == v && (v = 12), null == (x = attr.dataLabel) && (x = O.dat), null == (A = attr.data2Label) && (A = O.dat), null == (w = attr[O.dsa]) && (w = !1), S = css[O.dpy], null == (k = css.displayKey) && (k = "none"), C = events[O.dgdp], null == ($ = param.editWidth) && ($ = 100), null == (I = param.fieldClass) && (I = 0), H = css.float, E = css.fontColorTD, B = css.fontColorTH, T = css.fontFamily, _ = css.fontFamilyTD, F = css.fontFamilyTH, D = css.fontSize, M = css.fontSizeTD, L = css.fontSizeTH, N = css.fontWeight, null == (R = attr.format) && (R = "yy-mm-dd"), null == (K = param.header) && (K = "0"), Q = css.height, null == (z = css.heightTable) && (z = 450), null == (P = events.hover) && (P = this.dummy()), G = css.hoverColor, null == (W = css.hoverBgColor) && (W = "null"), Y = attr[O.hid], null == (U = attr[O.htx]) && (U = ""), null != (X = css.hoverHeight) && -1 != String(X).indexOf("px") && (X = String(X).split("px").slice(0, 1)), null == X && (X = 30), null == (V = css.hoverWidth) && (V = ""), null == (j = param.htm) && (j = "config/keypad.htm"), J = attr.id, null == (Z = param.idCol) && (Z = 0), image = attr.image, null == image && (image = "nil 0 0"), q = attr.imageDir, null == (tt = css.imgWidth) && (tt = 45), null == (et = css.imgHeight) && (et = 45), null == (it = events.keyup) && (it = this.dummy()), null != (nt = css.labelFontSize) && -1 != String(nt).indexOf("px") && (nt = String(nt).split("px").slice(0, 1)), null == nt && (nt = 12), null != (ot = css.label2FontSize) && -1 != String(ot).indexOf("px") && (ot = String(ot).split("px").slice(0, 1)), null == ot && (ot = 12), null == (lt = attr.labelString) && (lt = ""), null == (at = attr.label2String) && (at = ""), dt = css[O.lft], null == (ct = css.leftKey) && (ct = 0), null == (rt = css.legendDisplay) && (rt = !1), null == (st = css.legendPosition) && (st = "bottom"), null == (pt = events.listClick) && (pt = this.dummy()), ht = css.listHeight, ut = css.listLeft, ft = css.listWidth, gt = css.listTop, mt = css.margin, yt = css.marginBottom, Ct = css.marginLeft, bt = css.marginRight, $t = css.marginTop, null == (xt = param.markSymbol) && (xt = ""), null == (vt = param.matchCol) && (vt = "-"), null == (Ot = param.matchValue) && (Ot = "-"), null == (kt = css.marginKey) && (kt = "0px 0px 0px 0px"), null == (At = param.menuModel) && (At = "null"), null == (wt = param.menuTitle) && (wt = "null"), It = param.model, null == (St = attr.multiple) && (St = !1), Et = attr.name, null == (Bt = attr.onscroll) && (Bt = this.dummy()), Tt = css.padding, css.paddingBottom, _t = css.paddingLeft, css.paddingRight, Ft = css.paddingTop, null == (Dt = css.pointBorderColorIndex) && (Dt = ["#000000"]), null == (Mt = css.pointBorderDash) && (Mt = [0]), null == (Lt = css.pointBorderWidth) && (Lt = [1]), null == (Rt = css.pointColorIndex) && (Rt = ["#c5ffb3"]), null == (Ht = css.pointRadius) && (Ht = ["5"]), null == (Nt = css.pointStyle) && (Nt = ["triangle"]), Kt = css[O.pst], null == (Qt = param.row) && (Qt = "0"), null == (zt = param.selectCol) && (zt = ""), null == (Pt = param.selectColumn) && (Pt = ""), null == (Gt = css.showDay) && (Gt = !1), null == (Wt = attr.stacked) && (Wt = !1), null == (Yt = attr.tableId) && (Yt = "tableId"), null == (Vt = param.targetId) && (Vt = 0), null == (Xt = attr.targetIndex) && (Xt = 0), null == (Ut = param.targetColumn) && (Ut = ""), null == (fe = param.targetCol) && (fe = ""), null == (jt = attr.targetColor) && (jt = "WHITE"), Zt = css.textAlign, null == (qt = attr.title) && (qt = ""), null != (te = css.titleFontSize) && -1 != String(te).indexOf("px") && (te = String(te).split("px").slice(0, 1)), null == te && (te = 25), null == (ee = attr.tooltips) && (ee = !0), ie = css[O.tp], null == (le = css.topKey) && (le = 0), null == (ae = events[O.trg]) && (ae = "ondblclick"), null == (ne = attr.type) && (ne = "text"), null == (oe = attr[O.val]) && (oe = ""), null == (de = param.whereClass) && (de = 0), re = css[O.wit], null == (se = css.widthTable) && (se = 130), null != (ce = css.xAxesFontSize) && -1 != String(ce).indexOf("px") && (ce = String(ce).split("px").slice(0, 1)), null == ce && (ce = 12), null == (pe = css.xLabelAngle) && (pe = 0), null != (he = css.yAxesFontSize) && -1 != String(he).indexOf("px") && (he = String(he).split("px").slice(0, 1)), null == he && (he = 12), null != (ue = css.y2AxesFontSize) && -1 != String(ue).indexOf("px") && (ue = String(ue).split("px").slice(0, 1)), null == ue && (ue = 12), null == (ge = attr.y2AxesType) && (ge = ""), {
                     background: e,
                     border: i,
                     borderRadius: l,
@@ -2437,10 +2445,10 @@ var $POTATO = function() {
                     hover: P,
                     hoverBgColor: W,
                     hoverColor: G,
-                    hoverHeight: V,
+                    hoverHeight: X,
                     hoverId: Y,
                     hoverText: U,
-                    hoverWidth: X,
+                    hoverWidth: V,
                     htm: j,
                     id: J,
                     idCol: Z,
@@ -2494,11 +2502,11 @@ var $POTATO = function() {
                     showDay: Gt,
                     stacked: Wt,
                     tableId: Yt,
-                    targetIndex: Vt,
+                    targetIndex: Xt,
                     targetColor: jt,
                     targetColumn: Ut,
                     targetCol: fe,
-                    targetId: Xt,
+                    targetId: Vt,
                     textAlign: Zt,
                     textTransform: Jt,
                     title: qt,
@@ -2734,7 +2742,7 @@ var $POTATO = function() {
                             null == W && (W = "getFIELD"), $(e[t].localName).addClass(W);
                             var Y = O.attr(e[t], "whereClass"),
                                 U = O.attr(e[t], "params"),
-                                X = O.attr(e[t], "onscroll");
+                                V = O.attr(e[t], "onscroll");
                             if (null != (Dt = O.attr(e[t], "listClick"))) {
                                 u = e[t].localName;
                                 l[String(u)] = new Function(Dt)
@@ -2747,21 +2755,21 @@ var $POTATO = function() {
                                 i[String(u)] = new Function(Mt)
                             }
                             O.attr(e[t], "listTop"), O.attr(e[t], "listLeft"), O.attr(e[t], "display");
-                            var V = String(e[t].localName);
-                            _ = this._css_(e[t], y, V);
-                            pims(V)._lt_(function() {
+                            var X = String(e[t].localName);
+                            _ = this._css_(e[t], y, X);
+                            pims(X)._lt_(function() {
                                 try {
-                                    where = Y + "@" + V
+                                    where = Y + "@" + X
                                 } catch (t) {}
                                 try {
-                                    params = U + "@" + V
+                                    params = U + "@" + X
                                 } catch (t) {}
                                 css = _, param = {
                                     model: P,
                                     data: G,
                                     ngmodel: L
                                 }, attr = {
-                                    onscroll: X,
+                                    onscroll: V,
                                     value: Q,
                                     hoverText: z,
                                     id: K
@@ -2808,13 +2816,13 @@ var $POTATO = function() {
                             var at = O.attr(e[t], "topTable"),
                                 nt = O.attr(e[t], "leftTable"),
                                 ot = O.attr(e[t], "display");
-                            V = String(e[t].localName);
-                            pims(V)._m_(function() {
+                            X = String(e[t].localName);
+                            pims(X)._m_(function() {
                                 try {
-                                    where = et + "@" + V
+                                    where = et + "@" + X
                                 } catch (t) {}
                                 try {
-                                    params = it + "@" + V
+                                    params = it + "@" + X
                                 } catch (t) {}
                                 css = {
                                     display: ot,
@@ -2827,10 +2835,10 @@ var $POTATO = function() {
                                     border: ut,
                                     background: ht,
                                     padding: Z,
-                                    marginTop: at + "_" + V,
-                                    marginLeft: nt + "_" + V,
-                                    widthTable: q + "_" + V,
-                                    heightTable: tt + "_" + V
+                                    marginTop: at + "_" + X,
+                                    marginLeft: nt + "_" + X,
+                                    widthTable: q + "_" + X,
+                                    heightTable: tt + "_" + X
                                 }, param = {
                                     model: Tt,
                                     menuTitle: mt,
@@ -2937,13 +2945,13 @@ var $POTATO = function() {
                                 u = e[t].localName;
                                 s[String(u)] = new Function(Mt)
                             }
-                            at = O.attr(e[t], "topTable"), nt = O.attr(e[t], "leftTable"), ot = O.attr(e[t], "display"), V = String(e[t].localName);
-                            pims(V)._ta_(function() {
+                            at = O.attr(e[t], "topTable"), nt = O.attr(e[t], "leftTable"), ot = O.attr(e[t], "display"), X = String(e[t].localName);
+                            pims(X)._ta_(function() {
                                 try {
-                                    where = et + "@" + V
+                                    where = et + "@" + X
                                 } catch (t) {}
                                 try {
-                                    params = it + "@" + V
+                                    params = it + "@" + X
                                 } catch (t) {}
                                 css = {
                                     display: ot,
@@ -4455,268 +4463,274 @@ var $POTATO = function() {
                 null == r && (r = "bar");
                 var s = a.getAttribute(O.bdr);
                 null == s && (s = O.bdr1);
-                var d = a.getAttribute("y2Axes");
+                var d = a.getAttribute("dataValue");
                 null == d && (d = "true");
-                var c = a.getAttribute(O.bkg);
-                null == c && (c = "transparent");
-                var p = a.getAttribute("titleDisplay");
-                null == p && (p = !0);
-                var h = a.getAttribute("titleFontSize");
-                null == h && (h = 25);
-                var u = a.getAttribute("legendDisplay");
+                var c = a.getAttribute("data2Value");
+                null == c && (c = "true");
+                var p = a.getAttribute("y2Axes");
+                null == p && (p = "true");
+                var h = a.getAttribute(O.bkg);
+                null == h && (h = "transparent");
+                var u = a.getAttribute("titleDisplay");
                 null == u && (u = !0);
-                var g = a.getAttribute("legendPosition");
-                null == g && (g = "bottom");
-                var f = a.getAttribute("labelFontSize");
-                null == f && (f = 12);
-                var m = a.getAttribute("label2FontSize");
-                null == m && (m = 12);
-                var y = a.getAttribute("yAxesFontSize");
+                var g = a.getAttribute("titleFontSize");
+                null == g && (g = 25);
+                var f = a.getAttribute("legendDisplay");
+                null == f && (f = !0);
+                var m = a.getAttribute("legendPosition");
+                null == m && (m = "bottom");
+                var y = a.getAttribute("labelFontSize");
                 null == y && (y = 12);
-                var b = a.getAttribute("y2AxesFontSize");
+                var b = a.getAttribute("label2FontSize");
                 null == b && (b = 12);
-                var v = a.getAttribute("xAxesFontSize");
+                var v = a.getAttribute("yAxesFontSize");
                 null == v && (v = 12);
-                var x = a.getAttribute("dataFontSize");
+                var x = a.getAttribute("y2AxesFontSize");
                 null == x && (x = 12);
-                var A = a.getAttribute("fontSize");
-                null == A && (A = 15);
-                var w = a.getAttribute("title");
-                null == w && (w = "_b_ Chart");
-                var S = a.getAttribute("y2AxesType");
-                null == S && (S = "line");
-                var k = a.getAttribute("click");
-                if (null != k) {
-                    var C = a.localName;
-                    l[String(C)] = new Function(k)
-                }
-                var $ = a.getAttribute("hover");
+                var A = a.getAttribute("xAxesFontSize");
+                null == A && (A = 12);
+                var w = a.getAttribute("dataFontSize");
+                null == w && (w = 12);
+                var S = a.getAttribute("fontSize");
+                null == S && (S = 15);
+                var k = a.getAttribute("title");
+                null == k && (k = "_b_ Chart");
+                var C = a.getAttribute("y2AxesType");
+                null == C && (C = "line");
+                var $ = a.getAttribute("click");
                 if (null != $) {
-                    C = a.localName;
-                    i[String(C)] = new Function($)
+                    var I = a.localName;
+                    l[String(I)] = new Function($)
                 }
-                var I = a.getAttribute("imageDir");
-                if (null == I) I = "null";
+                var E = a.getAttribute("hover");
+                if (null != E) {
+                    I = a.localName;
+                    i[String(I)] = new Function(E)
+                }
+                var B = a.getAttribute("imageDir");
+                if (null == B) B = "null";
                 else {
-                    var E = new Function(I);
-                    I = E()
+                    var T = new Function(B);
+                    B = T()
                 }
-                B = 'dataLabel:"-"';
+                _ = 'dataLabel:"-"';
                 try {
-                    var B = a.getAttribute("params");
-                    null == B && (B = 'dataLabel:"-"')
+                    var _ = a.getAttribute("params");
+                    null == _ && (_ = 'dataLabel:"-"')
                 } catch (t) {}
-                var T = new Function(a.getAttribute("callback"));
+                var F = new Function(a.getAttribute("callback"));
                 try {
-                    _ = (_ = new Function(a.getAttribute("stacked")))()
-                } catch (t) {
-                    var _;
-                    null == (_ = a.getAttribute("stacked")) && (_ = !1)
-                }
-                null != _ && _ != O.udf || null == (_ = a.getAttribute("stacked")) && (_ = !1);
-                try {
-                    F = (F = new Function(a.getAttribute("tooltips")))()
-                } catch (t) {
-                    var F;
-                    null == (F = a.getAttribute("tooltips")) && (F = !1)
-                }
-                null != F && F != O.udf || null == (F = a.getAttribute("tooltips")) && (F = !0);
-                try {
-                    D = (D = new Function(a.getAttribute("yAxesLabel")))()
+                    D = (D = new Function(a.getAttribute("stacked")))()
                 } catch (t) {
                     var D;
-                    null == (D = a.getAttribute("yAxesLabel")) && (D = "")
+                    null == (D = a.getAttribute("stacked")) && (D = !1)
                 }
-                null != D && D != O.udf || null == (D = a.getAttribute("yAxesLabel")) && (D = "");
+                null != D && D != O.udf || null == (D = a.getAttribute("stacked")) && (D = !1);
                 try {
-                    M = (M = new Function(a.getAttribute("y2AxesLabel")))()
+                    M = (M = new Function(a.getAttribute("tooltips")))()
                 } catch (t) {
                     var M;
-                    null == (M = a.getAttribute("y2AxesLabel")) && (M = "")
+                    null == (M = a.getAttribute("tooltips")) && (M = !1)
                 }
-                null != M && M != O.udf || null == (M = a.getAttribute("y2AxesLabel")) && (M = "");
+                null != M && M != O.udf || null == (M = a.getAttribute("tooltips")) && (M = !0);
                 try {
-                    L = (L = new Function(a.getAttribute("showDay")))()
+                    L = (L = new Function(a.getAttribute("yAxesLabel")))()
                 } catch (t) {
                     var L;
-                    null == (L = a.getAttribute("showDay")) && (L = !0)
+                    null == (L = a.getAttribute("yAxesLabel")) && (L = "")
                 }
-                null != L && L != O.udf || null == (L = a.getAttribute("showDay")) && (L = !0);
+                null != L && L != O.udf || null == (L = a.getAttribute("yAxesLabel")) && (L = "");
                 try {
-                    R = (R = new Function(a.getAttribute("height")))()
+                    R = (R = new Function(a.getAttribute("y2AxesLabel")))()
                 } catch (t) {
                     var R;
-                    null == (R = a.getAttribute("height")) && (R = 350)
+                    null == (R = a.getAttribute("y2AxesLabel")) && (R = "")
                 }
-                null != R && R != O.udf || null == (R = a.getAttribute("height")) && (R = 350);
+                null != R && R != O.udf || null == (R = a.getAttribute("y2AxesLabel")) && (R = "");
                 try {
-                    H = (H = new Function(a.getAttribute("width")))()
+                    H = (H = new Function(a.getAttribute("showDay")))()
                 } catch (t) {
                     var H;
-                    null == (H = a.getAttribute("width")) && (H = 600)
+                    null == (H = a.getAttribute("showDay")) && (H = !0)
                 }
-                null != H && H != O.udf || null == (H = a.getAttribute("width")) && (H = 600);
+                null != H && H != O.udf || null == (H = a.getAttribute("showDay")) && (H = !0);
                 try {
-                    N = (N = new Function(a.getAttribute("xLabelAngle")))()
+                    N = (N = new Function(a.getAttribute("height")))()
                 } catch (t) {
                     var N;
-                    null == (N = a.getAttribute("xLabelAngle")) && (N = 0)
+                    null == (N = a.getAttribute("height")) && (N = 350)
                 }
-                null != N && N != O.udf || null == (N = a.getAttribute("xLabelAngle")) && (N = 0);
-                var K = a.getAttribute("xLabelData");
+                null != N && N != O.udf || null == (N = a.getAttribute("height")) && (N = 350);
                 try {
-                    Q = (Q = new Function(a.getAttribute("dataLabel")))()
+                    K = (K = new Function(a.getAttribute("width")))()
+                } catch (t) {
+                    var K;
+                    null == (K = a.getAttribute("width")) && (K = 600)
+                }
+                null != K && K != O.udf || null == (K = a.getAttribute("width")) && (K = 600);
+                try {
+                    Q = (Q = new Function(a.getAttribute("xLabelAngle")))()
                 } catch (t) {
                     var Q;
-                    null == (Q = a.getAttribute("dataLabel")) && (Q = O.dat)
+                    null == (Q = a.getAttribute("xLabelAngle")) && (Q = 0)
                 }
-                null != Q && Q != O.udf || null == (Q = a.getAttribute("dataLabel")) && (Q = O.dat);
+                null != Q && Q != O.udf || null == (Q = a.getAttribute("xLabelAngle")) && (Q = 0);
+                var z = a.getAttribute("xLabelData");
                 try {
-                    z = (z = new Function(a.getAttribute("data2Label")))()
+                    P = (P = new Function(a.getAttribute("dataLabel")))()
                 } catch (t) {
-                    var z;
-                    null == (z = a.getAttribute("data2Label")) && (z = O.dat)
+                    var P;
+                    null == (P = a.getAttribute("dataLabel")) && (P = O.dat)
                 }
-                null != z && z != O.udf || null == (z = a.getAttribute("data2Label")) && (z = O.dat);
+                null != P && P != O.udf || null == (P = a.getAttribute("dataLabel")) && (P = O.dat);
                 try {
-                    var P = new Function(a.getAttribute("colorIndex"));
-                    P = String(P()).split(",")
+                    G = (G = new Function(a.getAttribute("data2Label")))()
                 } catch (t) {
-                    try {
-                        P = a.getAttribute("colorIndex").split(",")
-                    } catch (t) {}
-                    null == P && (P = ["#ffcfcf", "#ffbe42", "#fff630", "#90ff39", "#01ff1f", "#2affc4", "#15beff", "#a4b3ff", "#b54aff", "#e5c0ff", "#f32eff", "#ffc4f4", "#dbd6da", "#ffffff"])
+                    var G;
+                    null == (G = a.getAttribute("data2Label")) && (G = O.dat)
                 }
-                if (null == P || P == O.udf) {
-                    try {
-                        P = String(a.getAttribute("colorIndex")).split(",")
-                    } catch (t) {}
-                    null == P && (P = ["#ffcfcf", "#ffbe42", "#fff630", "#90ff39", "#01ff1f", "#2affc4", "#15beff", "#a4b3ff", "#b54aff", "#e5c0ff", "#f32eff", "#ffc4f4", "#dbd6da", "#ffffff"])
-                }
+                null != G && G != O.udf || null == (G = a.getAttribute("data2Label")) && (G = O.dat);
                 try {
-                    var G = new Function(a.getAttribute("pointBorderColorIndex"));
-                    G = String(G()).split(",")
-                } catch (t) {
-                    try {
-                        G = String(a.getAttribute("pointBorderColorIndex")).split(",")
-                    } catch (t) {}
-                    null == G && (G = ["#000000", "#000000", "#000000", "#000000", "#000000"])
-                }
-                if (null == G || G == O.udf) {
-                    try {
-                        G = a.getAttribute("pointBorderColorIndex").split(",")
-                    } catch (t) {}
-                    null == G && (G = ["#000000", "#000000", "#000000", "#000000", "#000000"])
-                }
-                try {
-                    var W = new Function(a.getAttribute("pointBorderDash"));
+                    var W = new Function(a.getAttribute("colorIndex"));
                     W = String(W()).split(",")
                 } catch (t) {
                     try {
-                        W = String(a.getAttribute("pointBorderDash")).split(",")
+                        W = a.getAttribute("colorIndex").split(",")
                     } catch (t) {}
-                    null == W && (W = [0, 0, 0, 0, 0])
+                    null == W && (W = ["#ffcfcf", "#ffbe42", "#fff630", "#90ff39", "#01ff1f", "#2affc4", "#15beff", "#a4b3ff", "#b54aff", "#e5c0ff", "#f32eff", "#ffc4f4", "#dbd6da", "#ffffff"])
                 }
                 if (null == W || W == O.udf) {
                     try {
-                        W = a.getAttribute("pointBorderDash").split(",")
+                        W = String(a.getAttribute("colorIndex")).split(",")
                     } catch (t) {}
-                    null == W && (W = [0, 0, 0, 0, 0])
+                    null == W && (W = ["#ffcfcf", "#ffbe42", "#fff630", "#90ff39", "#01ff1f", "#2affc4", "#15beff", "#a4b3ff", "#b54aff", "#e5c0ff", "#f32eff", "#ffc4f4", "#dbd6da", "#ffffff"])
                 }
                 try {
-                    var Y = new Function(a.getAttribute("pointBorderWidth"));
+                    var Y = new Function(a.getAttribute("pointBorderColorIndex"));
                     Y = String(Y()).split(",")
                 } catch (t) {
                     try {
-                        Y = String(a.getAttribute("pointBorderWidth")).split(",")
+                        Y = String(a.getAttribute("pointBorderColorIndex")).split(",")
                     } catch (t) {}
-                    null == Y && (Y = ["1", "1", "1", "1", "1"])
+                    null == Y && (Y = ["#000000", "#000000", "#000000", "#000000", "#000000"])
                 }
                 if (null == Y || Y == O.udf) {
                     try {
-                        Y = a.getAttribute("pointBorderWidth").split(",")
+                        Y = a.getAttribute("pointBorderColorIndex").split(",")
                     } catch (t) {}
-                    null == Y && (Y = ["1", "1", "1", "1", "1"])
+                    null == Y && (Y = ["#000000", "#000000", "#000000", "#000000", "#000000"])
                 }
                 try {
-                    var U = new Function(a.getAttribute("pointColorIndex"));
+                    var U = new Function(a.getAttribute("pointBorderDash"));
                     U = String(U()).split(",")
                 } catch (t) {
                     try {
-                        U = String(a.getAttribute("pointColorIndex")).split(",")
+                        U = String(a.getAttribute("pointBorderDash")).split(",")
                     } catch (t) {}
-                    null == U && (U = ["#000000", "#ffe184", "#b54aff", "#dbd6da", "#a0b9ff"])
+                    null == U && (U = [0, 0, 0, 0, 0])
                 }
                 if (null == U || U == O.udf) {
                     try {
-                        U = a.getAttribute("pointColorIndex").split(",")
+                        U = a.getAttribute("pointBorderDash").split(",")
                     } catch (t) {}
-                    null == U && (U = ["#000000", "#ffe184", "#b54aff", "#dbd6da", "#a0b9ff"])
+                    null == U && (U = [0, 0, 0, 0, 0])
                 }
                 try {
-                    var X = new Function(a.getAttribute("pointStyle"));
+                    var V = new Function(a.getAttribute("pointBorderWidth"));
+                    V = String(V()).split(",")
+                } catch (t) {
+                    try {
+                        V = String(a.getAttribute("pointBorderWidth")).split(",")
+                    } catch (t) {}
+                    null == V && (V = ["1", "1", "1", "1", "1"])
+                }
+                if (null == V || V == O.udf) {
+                    try {
+                        V = a.getAttribute("pointBorderWidth").split(",")
+                    } catch (t) {}
+                    null == V && (V = ["1", "1", "1", "1", "1"])
+                }
+                try {
+                    var X = new Function(a.getAttribute("pointColorIndex"));
                     X = String(X()).split(",")
                 } catch (t) {
                     try {
-                        X = a.getAttribute("pointStyle").split(",")
+                        X = String(a.getAttribute("pointColorIndex")).split(",")
                     } catch (t) {}
-                    null == X && (X = ["triangle", "rect", "cross", "rectRot", "star", "dash"])
+                    null == X && (X = ["#000000", "#ffe184", "#b54aff", "#dbd6da", "#a0b9ff"])
                 }
                 if (null == X || X == O.udf) {
                     try {
-                        X = a.getAttribute("pointStyle").split(",")
+                        X = a.getAttribute("pointColorIndex").split(",")
                     } catch (t) {}
-                    null == X && (X = ["triangle", "rect", "cross", "rectRot", "star", "dash"])
+                    null == X && (X = ["#000000", "#ffe184", "#b54aff", "#dbd6da", "#a0b9ff"])
                 }
-                V = ["5", "5", "8", "8"];
                 try {
-                    var V = a.getAttribute("pointRadius").split(",")
+                    var j = new Function(a.getAttribute("pointStyle"));
+                    j = String(j()).split(",")
+                } catch (t) {
+                    try {
+                        j = a.getAttribute("pointStyle").split(",")
+                    } catch (t) {}
+                    null == j && (j = ["triangle", "rect", "cross", "rectRot", "star", "dash"])
+                }
+                if (null == j || j == O.udf) {
+                    try {
+                        j = a.getAttribute("pointStyle").split(",")
+                    } catch (t) {}
+                    null == j && (j = ["triangle", "rect", "cross", "rectRot", "star", "dash"])
+                }
+                J = ["5", "5", "8", "8"];
+                try {
+                    var J = a.getAttribute("pointRadius").split(",")
                 } catch (t) {}
-                null == V && (V = ["5", "5", "8", "8"]), e != O.fls && 0 != e && ("pie" != r ? pims(a.localName)._b_(function() {
-                    params = B + "@" + a.localName, css = {
-                        display: p,
-                        background: c,
+                null == J && (J = ["5", "5", "8", "8"]), e != O.fls && 0 != e && ("pie" != r ? pims(a.localName)._b_(function() {
+                    params = _ + "@" + a.localName, css = {
+                        display: u,
+                        background: h,
                         border: s,
-                        height: R,
-                        width: H,
-                        fontSize: A,
-                        legendDisplay: u,
-                        legendPosition: g,
-                        colorIndex: P,
-                        pointBorderColorIndex: G,
-                        pointBorderDash: W,
-                        pointBorderWidth: Y,
-                        pointColorIndex: U,
-                        pointStyle: X,
-                        pointRadius: V,
-                        showDay: L,
-                        xLabelAngle: N,
-                        labelFontSize: f,
-                        label2FontSize: m,
-                        yAxesFontSize: y,
-                        y2AxesFontSize: b,
-                        xAxesFontSize: v,
-                        dataFontSize: x,
-                        titleFontSize: h
+                        height: N,
+                        width: K,
+                        fontSize: S,
+                        legendDisplay: f,
+                        legendPosition: m,
+                        colorIndex: W,
+                        pointBorderColorIndex: Y,
+                        pointBorderDash: U,
+                        pointBorderWidth: V,
+                        pointColorIndex: X,
+                        pointStyle: j,
+                        pointRadius: J,
+                        showDay: H,
+                        xLabelAngle: Q,
+                        labelFontSize: y,
+                        label2FontSize: b,
+                        yAxesFontSize: v,
+                        y2AxesFontSize: x,
+                        xAxesFontSize: A,
+                        dataFontSize: w,
+                        titleFontSize: g
                     }, attr = {
                         chartType: r,
-                        title: w,
-                        labelString: D,
-                        label2String: M,
-                        y2AxesType: S,
-                        y2Axes: d,
-                        stacked: _,
-                        tooltips: F,
-                        dataLabel: Q,
-                        data2Label: z
+                        title: k,
+                        dataValue: d,
+                        data2Value: c,
+                        labelString: L,
+                        label2String: R,
+                        y2AxesType: C,
+                        y2Axes: p,
+                        stacked: D,
+                        tooltips: M,
+                        dataLabel: P,
+                        data2Label: G
                     }, param = {
                         model: n,
                         data: o,
-                        xLabelData: K
-                    }, null != k && (events = {
+                        xLabelData: z
+                    }, null != $ && (events = {
                         callback: function() {
                             try {
-                                T()
+                                F()
                             } catch (t) {}
                         },
                         click: function(t, e, i, a) {
@@ -4731,23 +4745,23 @@ var $POTATO = function() {
                         }
                     })
                 }) : pims(a.localName)._dn_(function() {
-                    params = B + "@" + a.localName, css = {
+                    params = _ + "@" + a.localName, css = {
                         border: s,
-                        height: R,
-                        width: H,
-                        fontSize: A,
-                        display: p,
-                        dataFontSize: x,
-                        titleFontSize: h
+                        height: N,
+                        width: K,
+                        fontSize: S,
+                        display: u,
+                        dataFontSize: w,
+                        titleFontSize: g
                     }, attr = {
-                        imageDir: I,
-                        title: w
+                        imageDir: B,
+                        title: k
                     }, param = {
                         model: n
-                    }, null != k && (events = {
+                    }, null != $ && (events = {
                         callback: function() {
                             try {
-                                T()
+                                F()
                             } catch (t) {}
                         },
                         click: function(t, e, l) {
