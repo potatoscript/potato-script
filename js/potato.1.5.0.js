@@ -2923,7 +2923,7 @@ var $POTATO = function() {
                             if (null == kt && (kt = "10px"), null == (At = O.attr(e[t], "height"))) {
                                 var Ct = kt.split("px"),
                                     $t = parseFloat(Ct.slice(0, 1));
-                                At = window.innerHeight - 50 - $t + "px"
+                                At = window.innerHeight - 90 - $t + "px"
                             }
                             null == (wt = O.attr(e[t], "value")) && (wt = "0"), null == (St = O.attr(e[t], "width")) && (St = window.innerWidth - 50 + "px");
                             var It = O.attr(e[t], O.sp);
@@ -3026,8 +3026,8 @@ var $POTATO = function() {
                 e.createdCallback = function() {
                     this.id = l + "_", this.pims = l;
                     var t = '<div id="menu-' + l + '" style="margin-top:' + m + '" >';
-                    t += '<ul class="OTabs" >', t += '<li style="display:inline;">', y.length > 1 ? t += '<a class="OCurrent" onclick="O.tab_hrefSelector=this.innerText;"  >' + y[0] + "</a></li>" : t += '<a class="OCurrent" onclick="O.tab_hrefSelector=this.innerText;"  >OTab</a></li>';
-                    for (var e = 1; e < y.length; e++) t += '<li style="display:inline;">', t += '<a onclick="O.tab_hrefSelector=this.innerText;"  >' + y[e] + "</a></li>";
+                    t += '<ul class="OTabs" >', t += '<li style="display:inline;">', y.length > 1 ? t += '<a id="header-' + y[0] + '" class="OCurrent" onclick="O.tab_hrefSelector=this.innerText;"  >' + y[0] + "</a></li>" : t += '<a class="OCurrent" onclick="O.tab_hrefSelector=this.innerText;"  >OTab</a></li>';
+                    for (var e = 1; e < y.length; e++) t += '<li style="display:inline;">', t += '<a id="header-' + y[e] + '" onclick="O.tab_hrefSelector=this.innerText;"  >' + y[e] + "</a></li>";
                     t += "</ul>", t += '<div class="OBox">', t += '<div id="OTab-' + (i = y[0].split(" ").join("")) + '" class="OTabBody" >', t += '<div id="' + i + '" class="OCol"  >', b.length > 1 && (t += b[0]), t += "</div>", t += "</div>";
                     for (e = 1; e < y.length; e++) {
                         var i;
@@ -3130,7 +3130,7 @@ var $POTATO = function() {
                         "z-index": "2",
                         opacity: "1"
                     }), O.tab_col = $(".OBox .OCurrent .OCol"), O.tab_col.animate({
-                        top: -O.tab_col.height() - 20
+                        top: 10 * -O.tab_col.height()
                     }, O.tab_speed), $(".OTabBody").removeClass("OCurrent"), $("#OTab-" + O.tab_hrefSelector.split(" ").join("")).addClass("OCurrent"), $(".OBox .OCurrent .OCol").animate({
                         top: 0
                     }, O.tab_speed, function() {}))
