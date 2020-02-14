@@ -599,22 +599,23 @@ var $POTATO = function() {
                     for (f = 0; f < t.length; f++)
                         if ("bar" == e.chartType) {
                             var I = 0,
-                                E = [];
-                            E[0] = 0;
-                            var B = 0;
+                                E = 0,
+                                B = [];
+                            B[0] = 0;
+                            var T = 0;
                             for (g = 0; g < h.length; g++) try {
-                                h[g] != O.dat && (i[B].push(t[f][g]), 1 == c ? I += parseFloat(t[f][g]) : (E[g] = 0, parseFloat(t[f][g]) > 0 && t[f][g] != O.udf && (E[g] = parseFloat(t[f][g])), I += t[f].line, s[B].push(t[f].color)), B++)
+                                h[g] != O.dat && (i[T].push(t[f][g]), 1 == c ? I += parseFloat(t[f][g]) : (B[g] = 0, parseFloat(t[f][g]) > 0 && t[f][g] != O.udf && (B[g] = parseFloat(t[f][g])), I += t[f].line, E += t[f].line2, s[T].push(t[f].color)), T++)
                             } catch (t) {}
-                            if (i[B].push(I), y[f] = 1 == c ? I : maxArray(E), u[0] != O.dat) {
-                                var T = 0,
-                                    _ = [];
+                            if (i[T].push(I), i[T + 1].push(E), y[f] = 1 == c ? I : maxArray(B), u[0] != O.dat) {
+                                E = 0;
+                                var _ = [];
                                 _[0] = 0;
                                 var F = 0;
                                 for (g = 0; g < u.length; g++)
                                     if (null != t[f][u[g]] && t[f][u[g]] > 0) try {
-                                        o[F].push(t[f][u[g]]), 1 == c ? T += parseFloat(t[f][u[g]]) : (T[g] = 0, parseFloat(t[f][u[g]]) > 0 && (_[g] = parseFloat(t[f][u[g]]))), F++
+                                        o[F].push(t[f][u[g]]), 1 == c ? E += parseFloat(t[f][u[g]]) : (E[g] = 0, parseFloat(t[f][u[g]]) > 0 && (_[g] = parseFloat(t[f][u[g]]))), F++
                                     } catch (t) {}
-                                    b[f] = 1 == c ? T : maxArray(_)
+                                    b[f] = 1 == c ? E : maxArray(_)
                             }
                             I
                         } else i[0].push(t[f][1]), y[f] = t[f][1], t[f][1];
@@ -635,7 +636,7 @@ var $POTATO = function() {
                                 fill: !1,
                                 data: o[f]
                             }, M = !0, g++;
-                        if (D[g] = 1 == c ? {
+                        if (1 == c ? D[g] = {
                                 type: "line",
                                 label: "",
                                 borderColor: "#fff",
@@ -644,8 +645,8 @@ var $POTATO = function() {
                                 borderColor: "transparent",
                                 yAxisID: "y-axis-1",
                                 fill: !1,
-                                data: i[B]
-                            } : {
+                                data: i[T]
+                            } : (D[g] = {
                                 type: "line",
                                 label: "",
                                 borderColor: "red",
@@ -656,8 +657,20 @@ var $POTATO = function() {
                                 borderWidth: 1.5,
                                 yAxisID: "y-axis-1",
                                 fill: !1,
-                                data: i[B]
-                            }, g++, "null" != e.colorIndex[0])
+                                data: i[T]
+                            }, D[++g] = {
+                                type: "line",
+                                label: "",
+                                borderColor: "blue",
+                                backgroundColor: "transparent",
+                                borderWidth: 0,
+                                pointStyle: "dash",
+                                borderDash: [5],
+                                borderWidth: 1.5,
+                                yAxisID: "y-axis-1",
+                                fill: !1,
+                                data: i[T + 1]
+                            }), g++, "null" != e.colorIndex[0])
                             for (f = 0; f < h.length; f++) D[g] = {
                                 type: "bar",
                                 label: h[f],
