@@ -6,7 +6,7 @@
   font-size:35px;
   float:left;
   cursor:pointer;	
-  margin-left:10px;
+  margin-left:12px;
 }
 .flipPotato > .front{
   position:absolute;
@@ -29,7 +29,7 @@
   height:50px;
   backface-visibility: hidden;
   transition: transform .5s linear 0s;
-  padding:15px;		
+  padding:10px;		
   border:1px solid black;	
   border-radius:10px;	
   box-shadow:0 0 10px rgba(0,0,0,.5);	
