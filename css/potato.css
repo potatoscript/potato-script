@@ -1,3 +1,34 @@
+.flipPotato{
+  width:90px;
+  height:90px;
+  margin:5px;
+  float:left;
+}
+.flipPotato > .front{
+  position:absolute;
+  transform: perspective(600) rotateY(0deg);
+  background:#FC0;
+  width:90px;
+  height:90px;
+  backface-visibility:hidden;
+  transition: transform .5s linear 0s;
+}	
+.flipPotato > .back{
+  position:absolute;
+  transform: perspective(600) rotateY(180deg);
+  background:#80BFFF;
+  width:90px;
+  height:90px;
+  backface-visibility: hidden;
+  transition: transform .5s linear 0s;
+}	
+.flipPotato:hover > .front{
+  transform: perspective(600) rotateY(-180deg);
+}
+.flipPotato:hover > .back{
+  transform: perspective(600) rotateY(0deg);
+}
+
 yellow{
 	background: yellow;
 }
