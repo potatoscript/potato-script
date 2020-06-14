@@ -1,7 +1,7 @@
 .flipPotato{
-  width:70px;
-  height:70px;
-  margin:5px;
+  width:60px;
+  height:60px;
+  margin:15px;
   text-align:center;
   vertical-align:center;
   font-size:30px;
@@ -13,8 +13,8 @@
   position:absolute;
   transform: perspective(600px) rotateY(0deg);
   background:#FC0;
-  width:70px;
-  height:70px;
+  width:60px;
+  height:60px;
   backface-visibility:hidden;
   transition: transform .5s linear 0s;
 }	
@@ -22,8 +22,8 @@
   position:absolute;
   transform: perspective(600px) rotateY(180deg);
   background:#80BFFF;
-  width:70px;
-  height:70px;
+  width:60px;
+  height:60px;
   backface-visibility: hidden;
   transition: transform .5s linear 0s;
 }	
