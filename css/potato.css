@@ -3,10 +3,10 @@
   height:65px;
   text-align:center;
   vertical-align:center;
-  font-size:50px;
+  font-size:35px;
   float:left;
   cursor:pointer;	
-  margin-left:5px;
+  margin-left:10px;
 }
 .flipPotato > .front{
   position:absolute;
@@ -16,7 +16,7 @@
   height:50px;
   backface-visibility:hidden;
   transition: transform .5s linear 0s;
-  padding:15px;		
+  padding:10px;		
   border:1px solid black;	
   border-radius:10px;	
 }	
