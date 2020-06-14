@@ -5,8 +5,8 @@
   vertical-align:center;
   font-size:50px;
   float:left;
-  cursor:pointer;
-  
+  cursor:pointer;	
+  margin-left:5px;
 }
 .flipPotato > .front{
   position:absolute;
