@@ -16,26 +16,26 @@ and to let you write less code and keep your code simple to save your time on bu
 <P>
 For example if you want to create a button to alert out "my potato button" you just write the following code on the html document:
 </P>
-<textarea>
-<potato-button-buttonID
+<PRE><CODE>&ltpotato-button-buttonID
     value="Click Me"
     background="yellow"
     marginTop="10px"
     image="image/img-p.png 21 21"
     onclick="alert('my potato button)"
-></potato-button-buttonID>
-</textarea>
+&gt &lt/potato-button-buttonID&gt
+</CODE></PRE>
+    
 <p>※You can use the keyword "potato" or just "o" as the [system name] for example < o-button-mybutton /> also will do.
 I call it <b>OButton</b></p> 
 <p>Example 2: Create a text box object with input keypad (i.e. <b>OKeypad</b>)
-<table>
-<tr>
-<td><img class="spotlight" aria-busy="true" style="width: 510px; height: 129px;" alt="画像に含まれている可能性があるもの:テキスト" src="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/71716437_124587948941516_4927621055352143872_n.jpg?_nc_cat=100&amp;_nc_oc=AQndzHs7GmhQSZsug_7OMooS9MHYfohtNcmT8ea7wkHeJQjHEt38tOkgXd_G7xdhAEg&amp;_nc_ht=scontent-nrt1-1.xx&amp;oh=cd558a350efe9bd5b6d76e8a2a2dc9ec&amp;oe=5E39201C">
-</td>
-<td><img class="spotlight" aria-busy="false" style="width: 446px; height: 305px;" alt="写真の説明はありません。" src="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/71469046_124596202274024_5668077961257943040_n.jpg?_nc_cat=111&amp;_nc_oc=AQniwZwhrAj0wYCRGCYwtxiiyuqdGTbxioT9ZbBfLcCnjuSif0tfJ56Oz5uLbVGgDmA&amp;_nc_ht=scontent-nrt1-1.xx&amp;oh=c2ff5ff21aec81dc0185f92772a96586&amp;oe=5E3CD2F0">
-</td>
-</tr>
-</table>
+<PRE><CODE>&ltpotato-keypad-okeypad 
+    marginTop=-15px					    
+    value="0"
+    top=-220px
+    left=-150px			    
+    htm="htm/keypad.htm"
+&gt&lt/potato-keypad-okeypad&gt
+</CODE></PRE>
 
 # Installing
 
