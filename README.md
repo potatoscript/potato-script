@@ -20,7 +20,7 @@ and to let you write less code and keep your code simple to save your time on bu
 
 ### Getting Started
 
-1. **Installation**: To start using Potato.js, download the library file from the official repository or include it directly from a CDN in your HTML file:
+1. **Installation**: To start using Potato.js, download the library file from the official repository and include it in your HTML file:
 
    ```html
    <script src="potato.js"></script>
