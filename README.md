@@ -13,7 +13,6 @@ and to let you write less code and keep your code simple to save your time on bu
 ### Features
 
 - **Simplified API Requests**: Potato.js simplifies the process of making API requests, allowing you to focus on building your application's logic without worrying about complex HTTP request handling.
-  
 - **Support for CRUD Operations**: Whether you need to retrieve data, create new resources, update existing ones, or delete records, Potato.js provides intuitive methods for performing CRUD operations.
 
 - **Effortless Integration**: Integrating Potato.js into your project is straightforward. Simply include the library in your HTML file, and you're ready to start leveraging its functionality.
@@ -23,9 +22,9 @@ and to let you write less code and keep your code simple to save your time on bu
 1. **Installation**: To start using Potato.js, download the library file from the official repository and include it in your HTML file:
 
    ```html
-   <script src="potato.js"></script>
+   <script src="potato.2.0.0.min.js"></script>
    ```
-   
+
 2. **Performing API Requests**: Potato.js provides methods for performing HTTP GET, POST, PUT, and DELETE requests. Here's a quick overview of each method:
 
    - `potato.GET(url, callback)`: Send a GET request to the specified URL.
@@ -37,25 +36,25 @@ and to let you write less code and keep your code simple to save your time on bu
 
    ```javascript
    // Perform a GET request
-   potato.get('/api/data', function(response) {
-       console.log('Response:', response);
+   potato.get("/api/data", function (response) {
+     console.log("Response:", response);
    });
 
    // Perform a POST request
-   var newData = { name: 'John', age: 30 };
-   potato.post('/api/data', newData, function(response) {
-       console.log('Response:', response);
+   var newData = { name: "John", age: 30 };
+   potato.post("/api/data", newData, function (response) {
+     console.log("Response:", response);
    });
 
    // Perform a PUT request
-   var updatedData = { id: 1, name: 'Jane', age: 35 };
-   potato.put('/api/data/1', updatedData, function(response) {
-       console.log('Response:', response);
+   var updatedData = { id: 1, name: "Jane", age: 35 };
+   potato.put("/api/data/1", updatedData, function (response) {
+     console.log("Response:", response);
    });
 
    // Perform a DELETE request
-   potato.delete('/api/data/1', function(response) {
-       console.log('Response:', response);
+   potato.delete("/api/data/1", function (response) {
+     console.log("Response:", response);
    });
    ```
 
@@ -71,10 +70,9 @@ and to let you write less code and keep your code simple to save your time on bu
 
 4. **DELETE**: This method is used to delete a resource on the server. It is idempotent, meaning that making the same request multiple times has the same effect as making it once. DELETE requests are typically used for removing resources from the server.
 
-While it's technically possible to use POST requests to perform actions similar to GET, PUT, and DELETE requests, doing so goes against the conventions and semantics of the HTTP methods. 
+While it's technically possible to use POST requests to perform actions similar to GET, PUT, and DELETE requests, doing so goes against the conventions and semantics of the HTTP methods.
 
 Using the appropriate HTTP method for each action makes your API more predictable, easier to understand, and more consistent with RESTful principles.
-
 
 # Getting Started
 

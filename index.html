@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <script src="js/potato.2.0.0.min.js"></script>
+    <link rel="stylesheet" href="css/potato.css">
+</head>
+<body>
+    <potato-calendar-mycalendar
+       value=today
+       change="getdata()"
+    ></potato-calendar-mycalendar>
+
+    <potato-button-adddata
+       value="add"
+       click="
+        potato.Post(
+        'model/data_create.php',
+        {},
+        function(response){
+            alert(response[0]);
+            potato.reloadTable('getdata');
+        });
+      "
+    ></potato-button-adddata>
+
+    <potato-table-getdata
+        model="model/data_read.php"
+        header="ID,名称,個数,単価, 　"
+        editCell="
+            trigger:doubleclick;
+            width:80px;
+            indexCol:0;
+            editCol:[1,2,3];
+            callback:
+            function(newVal,oldVal,id,SelectCol){
+                update_data(id,newVal,SelectCol);
+            };
+        "
+        callback="set_delete_action()"
+    ></potato-table-getdata>
+
+</body>
+
+<script>
+    function set_delete_action(){
+        // Get all elements with the class name "delete_button"
+        var deleteButtons = document.getElementsByClassName("delete_button");
+
+        // Loop through each delete button
+        for (var i = 0; i < deleteButtons.length; i++) {
+            
+            deleteButtons[i].id = "delete_button_" + i;
+
+            // Add an event listener to each delete button
+            deleteButtons[i].addEventListener("click", function() {
+                var buttonId = this.id;
+                // Get the parent row of the clicked button
+                var row = this.closest("tr");
+
+                // Get the first cell (column) value in the same row
+                var firstColumnValue = row.cells[0].innerText;
+                delete_data(firstColumnValue);
+            });
+        }
+    }
+
+    function update_data(id,newVal,Col){
+        potato.Put(
+        "model/data_update.php",
+        {
+            "id" : id,
+            "newVal": newVal,
+            "Col":Col
+        },
+        function(response){
+            alert(response[0]);
+            potato.reloadTable('getdata');
+        });
+    }
+
+    function delete_data(id){
+        potato.Delete(
+        "model/data_delete.php",
+        {
+            "id":id
+        },
+        function(response){
+            alert(response[0]);
+            //location.reload();
+            potato.reloadTable('getdata');
+        })
+    }
+
+</script>
+
+</html>
