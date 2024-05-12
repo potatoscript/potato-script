@@ -111,7 +111,7 @@ I call it <b>OButton</b></p>
 # Built With
 
 <br>
-<a target="_blank" href="https://github.com/potatoscript/potato.js">potato.1.7.0.js</a>
+<a target="_blank" href="https://github.com/potatoscript/potato.js">potato.2.0.0.min.js</a>
 <br><br>
 
 # Contributing
@@ -120,13 +120,12 @@ Please read [Wiki](https://github.com/potatoscript/potato.html.js/wiki) for deta
 
 # Authors
 
-I am K.S.LIM the author,
-I graduated from engineering background (Mechanical Engineering at Coventry University UK), but my final year project had led me to the world of programming. (Developing software to find the natural frequency and damping factor from the input data as provided from some vibration measurement device.) This is my final year’s undergraduate project. It combined the fields of engineering and programming.
-The result was good and encouraged me continue to develop my programming skill until now.
-This is my first JavaScript Library, which was developed since year 2010.
+I am K.S. Lim, the author. I graduated with a degree in Mechanical Engineering from Coventry University in the UK. While my academic background is in engineering, my final year project introduced me to the realm of programming. Specifically, I worked on developing software capable of determining the natural frequency and damping factor from input data obtained through vibration measurement devices. This project marked the culmination of my undergraduate studies, merging the domains of engineering and programming.
 
-I call it <b>potato javascript</b> or o script (o=potato, why because its as easy as potato)
+The outcome of this endeavor was favorable and served as a catalyst for furthering my proficiency in programming, a pursuit I have continued to pursue since then. Notably, this marked the inception of my first JavaScript library, which I initiated in 2010.
+
+I affectionately refer to it as "Potato JavaScript" or simply "o script" (where 'o' symbolizes 'potato'), owing to its user-friendly nature akin to that of a potato.
 
 # License
 
-The library is licensed under the terms of the GNU General Public License v3.0
+The library is licensed under the terms of the Apache License
