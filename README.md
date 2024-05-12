@@ -36,24 +36,25 @@ and to let you write less code and keep your code simple to save your time on bu
 
    ```javascript
    // Perform a GET request
-   potato.get("/api/data", function (response) {
+   potato.Get("model.php", function (response) {
      console.log("Response:", response);
    });
 
    // Perform a POST request
    var newData = { name: "John", age: 30 };
-   potato.post("/api/data", newData, function (response) {
+   potato.Post("model.php", newData, function (response) {
      console.log("Response:", response);
    });
 
    // Perform a PUT request
    var updatedData = { id: 1, name: "Jane", age: 35 };
-   potato.put("/api/data/1", updatedData, function (response) {
+   potato.Put("model.php", updatedData, function (response) {
      console.log("Response:", response);
    });
 
    // Perform a DELETE request
-   potato.delete("/api/data/1", function (response) {
+   var deleteData = { id: 1 };
+   potato.Delete("model.php", deleteData, function (response) {
      console.log("Response:", response);
    });
    ```
