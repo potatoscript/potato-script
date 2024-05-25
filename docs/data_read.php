@@ -11,6 +11,6 @@ $data = [
     [22, "", 0, "0", ""]
 ];
 
-echo json_encode($data);
+echo $data;
 
 ?>
