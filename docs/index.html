@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥔 CRUD</title>
+    <script src="potato.2.0.0.min.js"></script>
+    <link rel="stylesheet" href="potato.css">
+    
+    <style>
+      #div-table1{
+        margin:50px;
+      }
+      .delete_button{
+        font-size:15px;
+        padding:5px;
+        background-color: red;
+        font-weight: bold;
+        color:white;
+      }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="div_potato" style="margin:20px">
+      <button class="button-55 pmenu" role="button">P<span class="word">otato ポテト</span></button>
+      <button class="button-55 pmenu" role="button">I<span class="word">nformation 情報</span></button>
+      <button class="button-55 pmenu" role="button">M<span class="word">anagement 管理</span></button>
+      <button class="button-55 pmenu" role="button">S<span class="word">ystem システム</span></button>
+    </div>
+
+    <div>
+      <potato-button-adddata
+      value="追加"
+      width="100px"
+      marginLeft="20px"
+      image="add.png 22 22"
+      click="
+        potato.Post(
+        'data_create.php',
+        {},
+        function(response){
+          alert(response[0]);
+          location.reload();
+
+        });
+      "
+    ></potato-button-adddata>
+
+    </div>
+    
+
+    <potato-table-table1
+      header="ID,名称,個数,単価, 　"
+      data="data_read.php"
+      width=50vw
+      callback="set_delete_action()"
+      editCell="
+        trigger:doubleclick;
+        width:80px;
+        indexCol:0;
+        editCol:[1,2,3];
+        callback:
+          function(newVal,oldVal,id,SelectCol){
+            update_data(id,newVal,SelectCol);
+          };
+        "
+    ></potato-table-table1>
+
+</body>
+
+<script>
+  function set_delete_action(){
+    // Get all elements with the class name "delete_button"
+    var deleteButtons = document.getElementsByClassName("delete_button");
+
+    // Loop through each delete button
+    for (var i = 0; i < deleteButtons.length; i++) {
+        
+        deleteButtons[i].id = "delete_button_" + i;
+
+        // Add an event listener to each delete button
+        deleteButtons[i].addEventListener("click", function() {
+            var buttonId = this.id;
+            // Get the parent row of the clicked button
+            var row = this.closest("tr");
+
+            // Get the first cell (column) value in the same row
+            var firstColumnValue = row.cells[0].innerText;
+            delete_data(firstColumnValue);
+        });
+    }
+  }
+
+  function delete_data(id){
+    potato.Post(
+      "data_delete.php",
+      {
+        "id":id
+      },
+      function(response){
+        alert(response[0]);
+        location.reload();
+      })
+  }
+
+  function update_data(id,newVal,Col){
+    potato.Post(
+      "data_update.php",
+      {
+        "id" : id,
+        "newVal": newVal,
+        "Col":Col
+      },
+      function(response){
+        alert(response[0]);
+      });
+  }
+</script>
+
+
+
+</html>
