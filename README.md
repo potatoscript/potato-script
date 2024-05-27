@@ -24,8 +24,12 @@ and to let you write less code and keep your code simple to save your time on bu
    ```html
    <script src="potato.2.0.0.min.js"></script>
    ```
+   or
+   ```html
+   npm install potatoscript
+   ```
 
-2. **Performing API Requests**: Potato.js provides methods for performing HTTP GET, POST, PUT, and DELETE requests. Here's a quick overview of each method:
+3. **Performing API Requests**: Potato.js provides methods for performing HTTP GET, POST, PUT, and DELETE requests. Here's a quick overview of each method:
 
    - `potato.GET(url, callback)`: Send a GET request to the specified URL.
    - `potato.POST(url, data, callback)`: Send a POST request with data to the specified URL.
